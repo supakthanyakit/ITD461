@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laws and Ethics for IT and Digital Innovation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#070a13',
+                        cardDark: '#0f172a',
+                        borderSlate: '#334155',
+                        emeraldNeon: '#10b981',
+                        tealNeon: '#06b6d4',
+                        amberNeon: '#f59e0b',
+                        roseNeon: '#f43f5e',
+                        purpleNeon: '#a855f7'
+                    },
+                    fontFamily: {
+                        thai: ['"IBM Plex Sans Thai"', 'Sarabun', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+            background-color: #070a13;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbars for presentation containers and drawers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen select-none">
+
+    <!-- Top Navigation Utility Bar -->
+    <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
+        <div class="flex items-center gap-3">
+            <span class="font-tech text-tealNeon font-bold tracking-wider text-sm sm:text-base md:text-lg">IT LAWS & ETHICS</span>
+            <span class="text-[10px] sm:text-xs bg-slate-800 text-slate-300 px-2 sm:px-3 py-1 rounded-full border border-slate-700">INTRO UNIT</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-6">
+            <span class="text-xs sm:text-sm text-slate-300 hidden lg:inline"><i class="fa-solid fa-clock mr-2 text-tealNeon"></i> คาบเรียนที่ 1: บทนำกฎหมายและจริยธรรม</span>
+            <button onclick="toggleSidebar()" class="text-slate-200 hover:text-tealNeon transition-all text-xs sm:text-sm px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-borderSlate flex items-center gap-2">
+                <i class="fa-solid fa-list-ul"></i> <span class="font-semibold hidden sm:inline">สารบัญสไลด์</span><span class="sm:hidden font-semibold">เมนู</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
+        
+        <!-- Slide Sidebar Navigator Drawer -->
+        <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-80 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
+            <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
+                <h3 class="font-tech text-tealNeon text-base tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> SLIDE INDEX
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-roseNeon text-lg sm:hidden">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="sidebar-list" class="flex flex-col gap-2">
+                <!-- Sidebar items dynamically rendered by JS -->
+            </div>
+        </aside>
+
+        <!-- Slide Frame Container: Responsive aspect-ratio box -->
+        <div class="w-full max-w-7xl h-auto min-h-[75vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-5 sm:p-8 md:p-14 flex flex-col justify-between overflow-y-auto">
+            
+            <!-- Abstract Tech Background Ornaments -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-tealNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emeraldNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <!-- Slide Content Window (Dynamic Injection) -->
+            <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
+                <!-- Slide content will be rendered here by JS -->
+            </div>
+
+            <!-- Slide Footer -->
+            <div class="border-t border-borderSlate/60 pt-4 mt-6 sm:mt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm text-slate-400 relative z-10">
+                <div class="flex items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <span class="font-tech text-tealNeon font-bold">CLASS: LAWS & ETHICS FOR IT</span>
+                    <span class="hidden sm:inline text-slate-600">|</span>
+                    <span class="hidden sm:inline">คณะเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</span>
+                </div>
+                <div class="font-tech text-emeraldNeon font-bold text-sm sm:text-base" id="slide-number-display">
+                    SLIDE 01 / 34
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Controls Floating Dock -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
+        <button onclick="prevSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ก่อนหน้า">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-4 py-1 flex items-center gap-2 hidden sm:flex">
+            ควบคุมด้วยคีย์บอร์ด <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">←</kbd> <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">→</kbd>
+        </span>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-3 py-1 flex items-center gap-2 sm:hidden">
+            <i class="fa-solid fa-hand-pointer text-tealNeon"></i> ปัดหน้าจอซ้าย-ขวาเพื่อเปลี่ยนสไลด์
+        </span>
+        <button onclick="nextSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ถัดไป">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script>
+        // Interactive state trackers
+        let warmUpStates = {};
+        let dilemmaVoteYes = 14;
+        let dilemmaVoteNo = 28;
+        let votedDilemmaState = null;
+        let revealStates = {};
+        
+        // Active Group Timer States
+        let timerInterval = null;
+        let timerSeconds = 300; // 5 minutes default
+
+        // Slides Content Array
+        const slides = [
+            {
+                title: "Slide 1: บทนำรายวิชา",
+                chapter: "WELCOME",
+                html: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center h-full py-2">
+                        <div class="lg:col-span-7 flex flex-col justify-center gap-4 sm:gap-6">
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold uppercase bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full self-start">LECTURE UNIT 1</span>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                                Laws and Ethics for IT and Digital Innovation
+                            </h1>
+                            <h2 class="text-xl sm:text-2xl md:text-3xl text-emeraldNeon font-medium -mt-2">
+                                กฎหมายและจริยธรรมด้านเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล
+                            </h2>
+                            <div class="border-l-4 border-tealNeon pl-4 sm:pl-5 py-2 mt-2">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-tealNeon tracking-wide">OBJECTIVES / เป้าหมายการเรียนรู้</h3>
+                                <ul class="text-sm sm:text-base md:text-lg text-slate-300 mt-2 space-y-2">
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> อธิบายความหมายและความสำคัญของกฎหมายและจริยธรรมต่อวิชาชีพ IT ได้</li>
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> วิเคราะห์ผลกระทบและการแทรกซึมของเทคโนโลยีต่อมิติทางสังคม</li>
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> ประยุกต์ใช้หลักจริยธรรมและกรอบความคิดในมิติการตัดสินใจจริงในยุคดิจิทัล</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 h-full flex justify-center items-center">
+                            <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Cyber Technology Context" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Cyber+Security'"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs text-slate-300 bg-slate-900/80 px-2 py-1 rounded">นวัตกรรมดิจิทัลกับเส้นแบ่งทางจริยธรรม</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 2: คำถามชวนคิด",
+                chapter: "WARM UP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">DILEMMA POLL</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white flex items-center gap-2 mt-1">
+                                <i class="fa-solid fa-circle-question text-amberNeon"></i> Why Laws and Ethics Matter?
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg md:text-xl font-medium text-slate-200">
+                                    "หากคุณสามารถเข้าถึงข้อมูลส่วนตัว ผลการเรียน หรือประวัติการเงินของคนทั้งมหาวิทยาลัยได้จากช่องโหว่ของระบบ..."
+                                </h3>
+                                <div class="flex flex-col gap-3 text-sm sm:text-base md:text-lg" id="dilemma-poll-container">
+                                    <!-- Dynamic Dilemma Poll Buttons -->
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Hacker Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f59e0b?text=Dilemma'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-roseNeon/20 to-transparent border-l-4 border-roseNeon rounded-r-lg">
+                                    <h4 class="text-sm sm:text-base md:text-lg font-bold text-slate-100 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-roseNeon text-lg"></i>ประเด็นอภิปราย:
+                                    </h4>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 leading-relaxed">
+                                        "ทำได้ (Ability)" ไม่ได้แปลว่า "ควรทำ (Duty)" เสมอไปในมิติของจริยธรรมดิจิทัล
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 3: ความท้าทายในปัจจุบัน",
+                chapter: "WARM UP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CURRENT THREATS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">โลกดิจิทัลในปัจจุบันและภัยคุกคาม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 flex flex-col gap-4">
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border-l-4 border-tealNeon border-y border-r border-borderSlate">
+                                    <h3 class="text-base sm:text-lg font-bold text-tealNeon flex items-center gap-2"><i class="fa-solid fa-globe"></i> กิจกรรมดิจิทัลทั่วไป</h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-2 leading-relaxed">
+                                        Social Media, E-Commerce, Online Banking, Generative AI (ChatGPT), Cloud Computing, Smart Devices 
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border-l-4 border-roseNeon border-y border-r border-borderSlate">
+                                    <h3 class="text-base sm:text-lg font-bold text-roseNeon flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> ความเสี่ยงที่ตามมา</h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-2 leading-relaxed">
+                                        การละเมิดข้อมูล (Data Leak), ข่าวปลอม (Fake News), อาชญากรรมไซเบอร์, AI อคติ (AI Bias), การสวมสิทธิ์บุคคลอื่น
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Cyber Security" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Cyber+Security'"/>
+                                    <div class="absolute inset-0 bg-slate-950/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 4: กฎหมาย (Law) คืออะไร?",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DEFINITION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กฎหมาย (Law) คืออะไร?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl font-bold text-tealNeon">คำจำกัดความ (Definition):</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed">
+                                    กฎเกณฑ์ที่รัฐหรือผู้มีอำนาจสูงสุดในรัฐตราขึ้นเพื่อใช้ควบคุมความประพฤติและพฤติกรรมของมนุษย์ในสังคมอย่างเป็นลายลักษณ์อักษร หากผู้ใดฝ่าฝืนจะต้องได้รับโทษหรือผลร้ายตามกฎหมายกำหนด
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-850"><i class="fa-solid fa-gavel text-tealNeon mr-2"></i> 1. รักษาความสงบเรียบร้อย</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-850"><i class="fa-solid fa-shield text-tealNeon mr-2"></i> 2. คุ้มครองสิทธิเสรีภาพ</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-850"><i class="fa-solid fa-clipboard text-tealNeon mr-2"></i> 3. กำหนดกรอบหน้าที่</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-850"><i class="fa-solid fa-scale-balanced text-tealNeon mr-2"></i> 4. ลงโทษและเยียวยา</div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Statutory Law Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Law'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 5: จริยธรรม (Ethics) คืออะไร?",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-emeraldNeon text-xs sm:text-sm tracking-wider">MORALITY & ETHICS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">จริยธรรม (Ethics) คืออะไร?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl font-bold text-emeraldNeon">คำจำกัดความ (Definition):</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed">
+                                    หลักคุณธรรม ศีลธรรม หรือมาตรฐานความประพฤติที่สังคมหรือวิชาชีพใช้ร่วมกันเพื่อตัดสินว่าพฤติกรรมใด "ดี-ชั่ว" หรือ "ควรทำ-ไม่ควรทำ"
+                                </p>
+                                <div class="bg-emeraldNeon/10 p-4 rounded-xl border border-emeraldNeon/20">
+                                    <h4 class="text-sm font-bold text-emeraldNeon flex items-center gap-2"><i class="fa-solid fa-lightbulb"></i> ลักษณะเด่นของจริยธรรม:</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                        ขึ้นอยู่กับมโนสำนึก วัฒนธรรม ค่านิยม ไม่ได้มีสภาพบังคับเป็นลายลักษณ์อักษรโดยตรงจากรัฐ และไม่มีโทษจำคุกหรือโทษปรับจากศาลเหมือนกฎหมาย แต่จะถูกควบคุมโดยมาตรการทางสังคม (Social Sanction)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Moral Compass" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=Ethics'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 6: ตารางเปรียบเทียบความต่าง",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMPARISON</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตารางเปรียบเทียบ กฎหมาย VS จริยธรรม</h2>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full border border-borderSlate rounded-xl my-auto shadow-2xl">
+                            <table class="w-full text-left text-xs sm:text-sm md:text-base border-collapse min-w-[600px]">
+                                <thead>
+                                    <tr class="bg-slate-900 border-b border-borderSlate text-slate-200">
+                                        <th class="p-4 font-bold text-tealNeon">คุณลักษณะ</th>
+                                        <th class="p-4 font-bold text-white">กฎหมาย (Law)</th>
+                                        <th class="p-4 font-bold text-emeraldNeon">จริยธรรม (Ethics)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-borderSlate/50 text-slate-300">
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">1. แหล่งที่มา</td>
+                                        <td class="p-4">รัฐ/ฝ่ายนิติบัญญัติ ตราขึ้นชัดเจน</td>
+                                        <td class="p-4">ความเชื่อ ศาสนา ค่านิยม มโนสำนึกร่วม</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">2. การบังคับใช้</td>
+                                        <td class="p-4 text-roseNeon font-semibold">บังคับโดยเจ้าหน้าที่รัฐ (มีสภาพบังคับ)</td>
+                                        <td class="p-4">บังคับโดยจิตสำนึกและการยอมรับทางสังคม</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">3. บทลงโทษ</td>
+                                        <td class="p-4 text-roseNeon">ปรับ, จำคุก, ยึดทรัพย์, โทษสูงสุด</td>
+                                        <td class="p-4 text-amberNeon">เสื่อมศรัทธา, ถูกปฏิเสธจากสังคม, รู้สึกผิด</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">4. รูปแบบ</td>
+                                        <td class="p-4">ประมวลกฎหมาย ลายลักษณ์อักษร</td>
+                                        <td class="p-4">วัฒนธรรม ปรัชญา แนวประพฤติสืบต่อกัน</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+                            <strong>💡 ข้อสังเกตสําคัญ:</strong> การก๊อปปี้รายงานเพื่อนส่งครูอาจไม่มีโทษจำคุกตามกฎหมายในศาลจริง แต่ผิด <strong>"จริยธรรมการเรียน"</strong> อย่างร้ายแรง
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 7: การทำงานร่วมกันของสองมิติ",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COLLABORATION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การทำงานร่วมกันของกฎหมายและจริยธรรม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 flex flex-col gap-4">
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    กฎหมายคือ "ข้อบังคับขั้นต่ำสุด" (Legal Minimum) เพื่อไม่ให้สังคมระส่ำระสาย ในขณะที่จริยธรรมคือ "เป้าหมายขั้นสูง" (Moral Highground) ที่กระตุ้นพฤติกรรมเชิงบวก
+                                </p>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border-l-4 border-amberNeon border-y border-r border-borderSlate text-xs sm:text-sm">
+                                    <span class="text-amberNeon font-bold block mb-1">⚠️ หลักคิดทองคำ (Golden Rule):</span>
+                                    "สิ่งที่ถูกกฎหมาย (Legal) ไม่ได้แปลว่าถูกต้องตามหลักจริยธรรม (Ethical) เสมอไป" <br>
+                                    เช่น การใช้ช่องโหว่กฎหมายรวบรวมพฤติกรรมข้อมูลผู้ใช้โดยอ้อมแม้ว่ายังไม่มีกฎหมายเขียนห้าม แต่อาจผิดจริยธรรมและละเมิดความเป็นส่วนตัวอย่างรุนแรง
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col items-center justify-center text-center">
+                                <div class="flex gap-4 items-center justify-center w-full">
+                                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-tealNeon/20 border-2 border-tealNeon flex items-center justify-center text-xs font-bold text-tealNeon text-center p-2 shadow-lg">กฎหมาย<br>(Legal min)</div>
+                                    <div class="text-xl font-bold text-slate-500">&amp;</div>
+                                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-emeraldNeon/20 border-2 border-emeraldNeon flex items-center justify-center text-xs font-bold text-emeraldNeon text-center p-2 shadow-lg">จริยธรรม<br>(Ethics high)</div>
+                                </div>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-4 leading-relaxed">กฎหมายมักจะวิ่งตามเทคโนโลยีอยู่หนึ่งก้าวเสมอ จริยธรรมจึงเป็นเกราะป้องกันชั้นดี</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 8: ทำไมสายไอทีจำเป็นต้องเรียน?",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">IT PROFESSIONALS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ทำไมสายไอทีต้องใส่ใจกฎหมายและจริยธรรม?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-tealNeon">"พลังและอำนาจในมือที่มองไม่เห็น" (The Unseen Power)</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed">
+                                    ในฐานะนักพัฒนาโปรแกรม, แอดมินดาต้าเบส หรือนักนวัตกรรมดิจิทัล คุณคือ "ผู้สร้างสถาปัตยกรรม" ที่ควบคุมทางเข้า-ออกของข้อมูลจำนวนมหาศาล ซึ่งสามารถเปลี่ยนแปลงวิถีชีวิต ความเป็นส่วนตัว และความมั่นคงทางการเงินของผู้ใช้ได้ในชั่วพริบตา
+                                </p>
+                                <div class="p-3 bg-slate-950 rounded-xl border border-borderSlate text-[11px] sm:text-xs leading-relaxed text-slate-400">
+                                    รหัสโปรแกรมที่ผิดพลาดหรือเจตนารมณ์ที่มืดมนเพียงหนึ่งบรรทัด อาจสร้างความเสียหายต่อโครงสร้างระบบคลาวด์องค์กร หรือระบบความปลอดภัยระดับประเทศได้
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Server Architecture" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=IT+Power'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 9: ความเสี่ยงเมื่อไร้จริยธรรม",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">RISK & CRISIS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ความเสี่ยงของการขาดจริยธรรมในวิชาชีพไอที</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 flex flex-col gap-3">
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border-l-4 border-roseNeon border-y border-r border-slate-800 text-xs sm:text-sm">
+                                    <span class="text-roseNeon font-bold block mb-1">🔒 Data Breach / ข้อมูลผู้ใช้รั่วไหล:</span>
+                                    ขาดการเข้ารหัสข้อมูลที่รัดกุมหรือจงใจปล่อยข้อมูลลูกค้าเพื่อหวังรายได้เสริม นำไปสู่การฟ้องร้องและสูญเสียชื่อเสียงขั้นวิบัติ
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border-l-4 border-roseNeon border-y border-r border-slate-800 text-xs sm:text-sm">
+                                    <span class="text-roseNeon font-bold block mb-1">🤖 อคติทางเทคโนโลยี (AI Bias):</span>
+                                    การออกแบบระบบคัดเลือกคนเข้าทำงานที่อ้างอิงข้อมูลในอดีตที่มีอคติทางชาติพันธุ์หรือเพศสภาพ ทำให้ระบบกีดกันอย่างไม่เป็นธรรม
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-slate-900/60 p-5 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[200px]">
+                                <h4 class="text-sm font-bold text-amberNeon uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation"></i> ผลกระทบเชิงธุรกิจ:</h4>
+                                <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc pl-4 mt-2">
+                                    <li>สูญเสียความเชื่อถือจากผู้ใช้บริการ (Loss of Trust)</li>
+                                    <li>โทษปรับมหาศาลตามกฎหมายคุ้มครองข้อมูล (PDPA)</li>
+                                    <li>การถูกเลิกจ้าง ดำเนินคดีอาญา และถอนใบอนุญาตวิชาชีพ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 10: บทบาทวิชาชีพ & ความรับผิดชอบ",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">IT ROLES</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">บทบาทอาชีพไอทีกับพันธนาการจริยธรรม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto text-xs sm:text-sm">
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-tealNeon transition-all">
+                                <div>
+                                    <span class="text-tealNeon font-bold font-tech block mb-1">Developer &amp; Engineer</span>
+                                    <p class="text-slate-300 leading-relaxed mt-1">ผู้เขียนโค้ดเพื่อควบคุมสิทธิ์ ความโปร่งใสของอัลกอริทึม การปกป้องช่องโหว่ด้านความปลอดภัยของซอฟต์แวร์</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono mt-2">CODE IS LAW</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-tealNeon transition-all">
+                                <div>
+                                    <span class="text-emeraldNeon font-bold font-tech block mb-1">Data Scientist &amp; DBA</span>
+                                    <p class="text-slate-300 leading-relaxed mt-1">ควบคุมสิทธิ์และเข้าถึงข้อมูลพฤติกรรมลูกค้า ข้อมูลความลับขององค์กร และทิศทางการนำข้อมูลไปพัฒนาธุรกิจ</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono mt-2">DATA IS GOLD</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-tealNeon transition-all">
+                                <div>
+                                    <span class="text-purpleNeon font-bold font-tech block mb-1">Cybersecurity Specialist</span>
+                                    <p class="text-slate-300 leading-relaxed mt-1">กำกับระเบียบป้องกัน คอยดักจับความเคลื่อนไหว และวางมาตรการการเข้าถึงข้อมูลตามกรอบของกฎหมาย</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono mt-2">SHIELD & GUARD</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded-lg border border-slate-850 text-xs text-center text-slate-400 italic">
+                            "สิทธิ์อันยิ่งใหญ่มาพร้อมความรับผิดชอบอันใหญ่ยิ่ง — ยิ่งเขียนระบบที่มีผู้ใช้งานมาก จรรยาบรรณวิชาชีพยิ่งต้องสูงขึ้นตาม"
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 11: จรรยาบรรณสากล (ACM/IEEE)",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">GLOBAL STANDARDS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">จรรยาบรรณวิชาชีพสากล (ACM & IEEE Codes)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg font-bold text-slate-200">สมาคมสากลคอมพิวเตอร์และวิศวกรรมไฟฟ้ากำหนดหลักร่วม:</h3>
+                                <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-handshake text-tealNeon mr-2"></i> 1. ซื่อสัตย์สุจริตและน่าไว้วางใจ</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-ban text-roseNeon mr-2"></i> 2. ไม่ทำอันตรายต่อชีวิต/ทรัพย์สิน</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-eye-slash text-tealNeon mr-2"></i> 3. เคารพสิทธิและความเป็นส่วนตัว</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-scale-balanced text-emeraldNeon mr-2"></i> 4. ให้ความยุติธรรม ปราศจากอคติ</div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Code Ethics" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Standards'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 12: เทคโนโลยีเปลี่ยนสังคมอย่างไร?",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 03</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            เทคโนโลยีกับมิติทางสังคม (Technology & Society)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ศึกษาว่าเทคโนโลยีดิจิทัลได้เปลี่ยนโครงสร้างความสัมพันธ์ สิทธิเสรีภาพ และความเหลื่อมล้ำอย่างไร พร้อมทั้งสร้างดาบสองคมให้กับพลเมืองยุคใหม่อย่างไร
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Society Tech" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Society'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 13: กรณีดาบสองคมของ Social Media",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SOCIAL MEDIA EFFECT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ดาบสองคมของ Social Media</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 flex flex-col gap-3 text-xs sm:text-sm">
+                                <p class="text-slate-300 leading-relaxed mb-1">
+                                    ลดทอนอำนาจการรวมศูนย์และเพิ่มสิทธิการแสดงความคิดเห็น แต่ก็สร้างหลุมพรางทางข้อมูล
+                                </p>
+                                <div class="bg-emeraldNeon/10 p-3 rounded-xl border border-emeraldNeon/20 leading-relaxed">
+                                    <strong class="text-emeraldNeon"><i class="fa-solid fa-thumbs-up"></i> ข้อดีเชิงสร้างสรรค์:</strong> 
+                                    เข้าถึงความรู้รวดเร็ว, เกิดการตื่นตัวทางสังคม, การทำงานระยะไกลราบรื่นแบบไร้พรมแดน
+                                </div>
+                                <div class="bg-roseNeon/10 p-3 rounded-xl border border-roseNeon/20 leading-relaxed">
+                                    <strong class="text-roseNeon"><i class="fa-solid fa-circle-exclamation"></i> ความเสี่ยงกัดเซาะสังคม:</strong> 
+                                    เกิดสภาวะห้องสะท้อนเสียง (Echo Chamber), ข่าวปลอม (Fake News), การกลั่นแกล้งออนไลน์ (Cyberbullying)
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col items-center justify-center text-center">
+                                <div class="w-16 h-16 bg-tealNeon/10 border border-tealNeon text-tealNeon rounded-full flex items-center justify-center text-xl mb-4 font-mono">Echo</div>
+                                <span class="text-xs sm:text-sm font-bold text-slate-200">Echo Chamber Effect</span>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-2 max-w-xs leading-relaxed">
+                                    อัลกอริทึมป้อนสิ่งที่คุณสนใจและคิดเห็นเหมือนคุณ เพื่อตรึงเวลาให้อยู่บนระบบนานที่สุด นำไปสู่ความสุดโต่งและการแบ่งแยกฝั่งขั้วในสังคม
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 14: เมื่อ AI เริ่มตัดสินใจแทนมนุษย์",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">AI ETHICS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">เมื่อ AI และ อัลกอริทึมเริ่มตัดสินใจแทนมนุษย์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    นวัตกรรมทำให้นักไอทีพัฒนาโครงข่ายประสาทเทียม (Neural Networks) ที่อนุมัติวงเงินเครดิต คัดเลือกคนทำงาน หรือตรวจโรคร้าย แต่นำมาซึ่งคำถามใหญ่:
+                                </p>
+                                <ul class="text-xs sm:text-sm text-slate-200 space-y-2 pl-4 list-disc leading-relaxed">
+                                    <li><strong>ความรับผิดชอบ (Accountability):</strong> เมื่อเกิดความเสียหายหรือ AI วิเคราะห์ผิดจนชีวิตคนพัง ใครต้องรับผิดชอบ? ผู้พัฒนา, เจ้าของอัลกอริทึม หรือผู้ซื้อระบบมาใช้?</li>
+                                    <li><strong>อคติและการกีดกัน (Bias):</strong> หากสอน AI ด้วยฐานข้อมูลในอดีตที่อคติ AI จะยิ่งคัดลอกเอาความเหยียดเพศหรือความเหลื่อมล้ำไปขยายผลต่อไปข้างหน้าหรือไม่?</li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" 
+                                         alt="AI Robotics" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f59e0b?text=AI+Ethics'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 15: ความเหลื่อมล้ำทางดิจิทัล",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DIGITAL DIVIDE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ความเหลื่อมล้ำทางดิจิทัล (Digital Divide)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ไม่ใช่ทุกคนในประเทศที่มีโอกาสเข้าถึงสมาร์ทโฟนระดับเรือธง อินเทอร์เน็ตความเร็วสูงระดับ Gbps หรือได้รับการสอนทักษะทางไอทีที่เพียงพอ
+                                </p>
+                                <div class="bg-amberNeon/10 p-4 rounded-xl border border-amberNeon/20">
+                                    <h4 class="text-sm font-bold text-amberNeon flex items-center gap-2"><i class="fa-solid fa-circle-exclamation"></i> ผลกระทบเชิงสังคม:</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                        กลุ่มคนด้อยโอกาสจะโดนผลักออกจากโอกาสการจ้างงานยุคใหม่ การศึกษาออนไลน์ชั้นนำ และบริการภาครัฐที่ย้ายไปอยู่บนสมาร์ทโฟนเกือบทั้งหมด เป็นหน้าที่ของนักนวัตกรรมที่จะไม่สร้างระบบที่กินปริมาณข้อมูลมากเกินไปในพื้นที่ห่างไกล
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col justify-center items-center text-center">
+                                <div class="text-3xl sm:text-4xl font-extrabold text-tealNeon mb-2">50%</div>
+                                <span class="text-xs sm:text-sm font-bold text-slate-200">ประชากรโลกที่มีข้อจำกัดการสื่อสาร</span>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-2 leading-relaxed">
+                                    การออกแบบระบบโดยเน้นให้ตอบสนองผู้ใช้ในเมืองใหญ่อย่างเดียว จะยิ่งทวีความต่างทางสังคมและช่องว่างความยากจน
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 16: ความรับผิดชอบสังคม (CSR)",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-emeraldNeon text-xs sm:text-sm tracking-widest font-bold bg-emeraldNeon/10 border border-emeraldNeon/20 px-4 py-1.5 rounded-full">PART 04</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ความรับผิดชอบของนักสร้างเทคโนโลยี (CSR)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-emeraldNeon to-tealNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ศึกษาบทบาทด้านความรับผิดชอบต่อผู้ใช้งานและสังคมรอบตัวในการพัฒนา และหลีกเลี่ยงการปล่อยซอฟต์แวร์ที่เป็นภัยเพื่อประโยชน์ส่วนตน
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Tech Ethics Background" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=CSR'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 17: 4 เสาหลักจรรยาบรรณไอที",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ETHICS PILLARS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">4 เสาหลักจรรยาบรรณผู้สร้างเทคโนโลยี</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-roseNeon transition-colors">
+                                <span class="text-roseNeon font-bold text-sm block mb-1">1. Do No Harm</span>
+                                <p class="text-xs text-slate-400 leading-relaxed">ไม่แอบสร้าง มัลแวร์ สปายแวร์ หรือส่งเสริมความเจ็บปวด คุกคามผู้ใช้อื่นไม่ว่าทางใดๆ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-emeraldNeon transition-colors">
+                                <span class="text-emeraldNeon font-bold text-sm block mb-1">2. Transparency</span>
+                                <p class="text-xs text-slate-400 leading-relaxed">ระบบสามารถเข้าตรวจสอบ ค้นหาประวัติล็อกการทำงาน หรือเปิดเผยกฎของตัวแปรในโค้ด</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-tealNeon transition-colors">
+                                <span class="text-tealNeon font-bold text-sm block mb-1">3. Accountability</span>
+                                <p class="text-xs text-slate-400 leading-relaxed">น้อมรับผิดชอบเมื่อระบบเกิด บั๊ก หรือข้อล้มเหลว ไม่ผลักภาระโทษดินฟ้าอากาศหรือเซิร์ฟเวอร์ภายนอก</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px] hover:border-amberNeon transition-colors">
+                                <span class="text-amberNeon font-bold text-sm block mb-1">4. Fairness</span>
+                                <p class="text-xs text-slate-400 leading-relaxed">สร้างสรรค์ระบบที่เปิดรับและใช้งานได้สำหรับคนทุกคน ไร้อคติกีดกันตามเพศ สีผิว ความเชื่อ</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 18: เมื่อพบช่องโหว่ซอฟต์แวร์ร้ายแรง",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">RESPONSIBLE DISCLOSURE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">เมื่อนักพัฒนาเจอช่องโหว่ซอฟต์แวร์ร้ายแรง</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg font-bold text-roseNeon">สถานการณ์จำลอง (Vulnerability Dilemma):</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    ระหว่างทางที่คุณทดสอบโค้ดระบบ แล้วบังเอิญเจอช่องโหว่ที่ทำให้สามารถแอบสวมรอยเป็นบัญชีแอดมินธนาคารได้อย่างง่ายดาย คุณควรปฏิบัติอย่างไร?
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-xs">
+                                    <div class="p-3 bg-emeraldNeon/10 border border-emeraldNeon/30 rounded-xl leading-relaxed text-slate-300">
+                                        <strong class="text-emeraldNeon">✅ สิ่งที่ควรทำ:</strong><br>
+                                        รายงานทีมระบบหลังบ้านอย่างเงียบและเป็นทางการ (Responsible Disclosure) ให้โอกาสระบบเข้าอุดรูรั่วก่อนเผยแพร่
+                                    </div>
+                                    <div class="p-3 bg-roseNeon/10 border border-roseNeon/30 rounded-xl leading-relaxed text-slate-300">
+                                        <strong class="text-roseNeon">❌ สิ่งที่ไม่ควรทำ:</strong><br>
+                                        แอบนำรอยรั่วไปโพสต์อวดลงโซเชียลมีเดีย หรือนำไปขายต่อตลาดมืดเพื่อสร้างความเสียหายในวงกว้าง
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col items-center justify-center text-center">
+                                <div class="text-2xl font-bold text-white text-glow mb-2">Responsible Disclosure</div>
+                                <span class="text-xs text-slate-400">มาตรฐานจริยธรรมสากลของการรายงานช่องโหว่ไอที</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 19: Green IT ไอทีสีเขียวรักษ์โลก",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-emeraldNeon text-xs sm:text-sm tracking-wider">GREEN IT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">Green IT: สถาปัตยกรรมไอทีสีเขียว</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed">
+                                    การประมวลผลขนาดใหญ่ของระบบ Server คลาวด์ และเหมืองข้อมูล AI ในปัจจุบัน มีการบริโภคพลังงานไฟฟ้าและความร้อนระดับมหาสาร ส่งผลกระทบความร้อนต่อโลกโดยตรง การประยุกต์ใช้ Green IT จึงสำคัญมาก
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-xs text-slate-300">
+                                    <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-850">🍃 1. ใช้พลังงานทดแทนในระบบ Server</div>
+                                    <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-850">💻 2. พัฒนาสถาปัตยกรรมโค้ดลดโหลดการทำงาน CPU</div>
+                                    <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-850">📄 3. นำเสนอรูปแบบ Paperless ลดสเปซกระดาษ</div>
+                                    <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-850">♻️ 4. บริหารจัดการขยะอิเล็กทรอนิกส์ (E-Waste)</div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Green Energy Tech" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=Green+IT'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 20: วิกฤตจริยธรรมยุคดิจิทัล",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 05</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            วิกฤตจริยธรรมร่วมสมัยยุคดิจิทัล
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            วิเคราะห์เจาะลึก 5 แกนปัญหาหลักที่ไม่มีอยู่ในอดีต แต่มาสร้างความสั่นสะเทือนทางจริยธรรม สังคม และสิทธิส่วนบุคคลในยุคปัจจุบัน
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Workspace Security" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Crisis'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 21: ปัญหาร่วมสมัย 6 มิติ",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CONTEMPORARY LANDSCAPE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แกนปัญหาร่วมสมัย 6 ประการในนวัตกรรมดิจิทัล</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-auto text-xs sm:text-sm md:text-base">
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-tealNeon transition-all flex flex-col justify-center items-center gap-2">
+                                <div class="text-tealNeon text-xl"><i class="fa-solid fa-user-lock"></i></div>
+                                <span>🔒 Data Privacy</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-tealNeon transition-all flex flex-col justify-center items-center gap-2">
+                                <div class="text-emeraldNeon text-xl"><i class="fa-solid fa-brain"></i></div>
+                                <span>🤖 AI Ethics</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-tealNeon transition-all flex flex-col justify-center items-center gap-2">
+                                <div class="text-roseNeon text-xl"><i class="fa-solid fa-masks-theater"></i></div>
+                                <span>🎭 Deepfake & Identity</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-tealNeon transition-all flex flex-col justify-center items-center gap-2">
+                                <div class="text-purpleNeon text-xl"><i class="fa-solid fa-shield-virus"></i></div>
+                                <span>🛡️ Cybersecurity</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-tealNeon transition-all flex flex-col justify-center items-center gap-2">
+                                <div class="text-amberNeon text-xl"><i class="fa-solid fa-scale-balanced"></i></div>
+                                <span>⚖️ Intellectual Property</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 text-center hover:border-tealNeon transition-all flex flex-col justify-center items-center gap-2">
+                                <div class="text-roseNeon text-xl"><i class="fa-solid fa-ban"></i></div>
+                                <span>🚫 Online Harassment</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 22: Data Privacy (สิทธิส่วนบุคคล)",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DATA PRIVACY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">Data Privacy (ความเป็นส่วนตัวของข้อมูล)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ข้อมูลส่วนบุคคล (ชื่อ พิกัด ประวัติธุรกรรม ประวัติการค้นหา) ไม่ใช่ของสาธารณะ ในฐานะวิศวกรข้อมูล เราต้องปกป้องดูแลข้อมูลผู้ใช้สอดคล้องกับ พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) อย่างเคร่งครัด
+                                </p>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-400">
+                                    <strong>🛡️ 3 กฎเหล็กพึงปฏิบัติ:</strong>
+                                    <div class="grid grid-cols-3 gap-2 mt-2 text-slate-300 text-center">
+                                        <div class="bg-[#16223a] p-2 rounded">1. จำกัดการเก็บเท่าที่จำเป็นต่อระบบหลัก</div>
+                                        <div class="bg-[#16223a] p-2 rounded">2. แจ้งวัตถุประสงค์ก่อนเปิดขอ Consent</div>
+                                        <div class="bg-[#16223a] p-2 rounded">3. ปลอดภัยด้วยกลไกเข้ารหัสข้อมูล</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Server database locker" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Data+Privacy'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 23: Explainable AI (การเข้าใจ AI)",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-emeraldNeon text-xs sm:text-sm tracking-wider">EXPLAINABLE AI</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">Explainable AI &amp; Fairness</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    การตัดสินใจเชิงลึกของระบบ AI ควรรักษาระดับความโปร่งใสและ <strong>สามารถให้คำอธิบายเชิงตรรกะแก่เพื่อนมนุษย์ได้ (Explainability)</strong> หากโมเดลปฏิเสธสิทธิ์การกู้เงินของลูกค้า ลูกค้ามีสิทธิ์ที่จะทราบว่าเพราะเหตุใด
+                                </p>
+                                <div class="p-3 bg-slate-950 rounded-xl border border-borderSlate text-[11px] sm:text-xs text-slate-400 leading-relaxed">
+                                    "AI Black Box (โมเดลกล่องดำที่อธิบายกระบวนการคำนวณไม่ได้) กำลังเผชิญหน้ากับการต่อต้านอย่างรุนแรงจากข้อกฎหมายทั่วโลก เพราะไม่มีการประเมินยืนยันว่าไร้อคติ"
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-gradient-to-br from-cardDark to-slate-950 p-6 rounded-2xl border border-emeraldNeon/30 flex flex-col items-center justify-center text-center">
+                                <div class="text-5xl font-extrabold text-emeraldNeon text-glow mb-2">XAI</div>
+                                <span class="text-xs sm:text-sm font-bold text-slate-200">Explainable Artificial Intelligence</span>
+                                <p class="text-[10px] sm:text-xs text-slate-500 mt-2">ขีดความสามารถการอธิบายตรรกะระบบ AI ต่อสังคม</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 24: Intellectual Property (ทรัพย์สิน)",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">INTELLECTUAL PROPERTY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">Intellectual Property (สิทธิ์ลิขสิทธิ์และสิทธิบัตร)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    การพัฒนาแอปพลิเคชันต้องเคารพในความเป็นเจ้าของของผู้คิดค้นดั้งเดิม หลีกเลี่ยงการก๊อปปี้ซอร์สโค้ด ยี่ห้อ หรือนำภาพถ่ายผลงานมาใช้เป็นฐานข้อมูลเรียนรู้ AI โดยละเมิดสัญญาอนุญาต (License Agreement)
+                                </p>
+                                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] sm:text-xs text-slate-400">
+                                    <strong>กรณีศึกษา:</strong> สัญญาเงื่อนไข Open Source (เช่น MIT, GPL, Apache) มีความแตกต่างกันอย่างมีนัยสำคัญ การคัดลอกส่วนสำคัญมาแปะใช้ปนเปในโปรเจกต์เชิงพาณิชย์อาจนำมาซึ่งการฟ้องร้องลิขสิทธิ์
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col justify-center items-center text-center">
+                                <div class="w-16 h-16 bg-tealNeon/10 border-2 border-tealNeon rounded-full flex items-center justify-center text-tealNeon font-bold text-2xl mb-3 shadow-lg">©</div>
+                                <span class="text-xs sm:text-sm font-bold text-slate-200">Copyright Compliance</span>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-2 leading-relaxed">
+                                    สิทธิ์ความคุ้มครองโค้ดและดีไซน์เริ่มต้นทันทีที่สร้างสรรค์เสร็จ การแอบนำโค้ดผู้อื่นมาเคลมเป็นสิทธิ์ตนถือเป็น Plagiarism
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 25: Digital Citizenship (พลเมืองที่ดี)",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DIGITAL CITIZENSHIP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การเป็นพลเมืองดิจิทัลที่ดี (Digital Citizenship)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ในฐานะที่เราทุกคนใช้อินเทอร์เน็ตเชื่อมต่อ สื่อสาร และหาความรู้ การปฏิบัติตนเป็นพลเมืองดิจิทัลที่มีความรับผิดชอบร่วมจึงเป็นหัวใจของการสร้างสังคมดิจิทัลที่น่าเชื่อถือ
+                                </p>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-400">
+                                    <strong>💡 3 ขอบข่ายเบื้องต้น:</strong>
+                                    <ul class="list-decimal list-inside space-y-1 mt-2 text-slate-300">
+                                        <li><strong>หยุดข่าวลือ (Verify before sharing):</strong> ตรวจเช็คความถูกต้องก่อนกดไลค์แชร์ลดการป้อน Fake News</li>
+                                        <li><strong>เคารพพื้นที่และสิทธิ์ผู้อื่น:</strong> ไม่คุกคามทางออนไลน์ (Cyberbullying) หรือสะกดรอยเปิดข้อมูลผู้อื่น (Doxing)</li>
+                                        <li><strong>ตระหนักความปลอดภัยของตัวเอง:</strong> ล็อกอินด้วยพาสเวิร์ดที่คาดเดายาก และเปิดใช้สิทธิ์ MFA สม่ำเสมอ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Digital Citizenship" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Connectivity'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 26: สรุปแก่นความต่างและความร่วมมือ",
+                chapter: "SUMMARY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SUMMARY BLUEPRINT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สรุปแก่นความต่างและความร่วมมือ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-auto">
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 hover:border-tealNeon transition-all flex flex-col justify-between min-h-[160px]">
+                                <div>
+                                    <span class="text-tealNeon font-bold text-sm block mb-1">Laws (กฎหมาย)</span>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">ข้อบังคับขั้นต่ำสุดจากรัฐเพื่อความมั่นคง สภาพควบคุมเป็นกฎหมายชัดเจน ฝ่าฝืนมีบทลงโทษรุนแรง</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono">LEGAL LIMIT</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 hover:border-emeraldNeon transition-all flex flex-col justify-between min-h-[160px]">
+                                <div>
+                                    <span class="text-emeraldNeon font-bold text-sm block mb-1">Ethics (จริยธรรม)</span>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">แนวทางควรประพฤติที่ดี ขับเคลื่อนจากมโนสำนึกและจิตอาสารับผิดชอบ มุ่งยกระดับมาตรฐานความปลอดภัยวิชาชีพ</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono">MORAL HEIGHT</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 hover:border-purpleNeon transition-all flex flex-col justify-between min-h-[160px]">
+                                <div>
+                                    <span class="text-purpleNeon font-bold text-sm block mb-1">Responsibility</span>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">ตระหนักในมิติกว้างว่าผลงานออกแบบระบบและชุดโค้ดของคุณ ส่งผลผูกมัดกระทบต่อชีวิตและสิทธิ์เพื่อนร่วมโลก</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono">SOCIAL IMPACT</span>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800 hover:border-amberNeon transition-all flex flex-col justify-between min-h-[160px]">
+                                <div>
+                                    <span class="text-amberNeon font-bold text-sm block mb-1">Security First</span>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">ไม่ละเลยช่องโหว่ซอฟต์แวร์ ปกป้องข้อมูลความเป็นส่วนตัวอย่างดีที่สุดด้วยการเข้ารหัสและการจัดการ Consent</p>
+                                </div>
+                                <span class="text-[10px] text-slate-500 font-mono">PROTECTION PILLAR</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 27: Think-Pair-Share (กิจกรรม)",
+                chapter: "ACTIVITY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">ACTIVE CLASSROOM CHALLENGE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">Think-Pair-Share: จับกลุ่มอภิปรายปัญหา AI</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate">
+                                <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech">💬 DISCUSSION QUESTION</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-200 mt-3 leading-relaxed">
+                                    "หาก AI สามารถโคลนเสียง เขียนรายงานวิจัย หรือวาดรูปประกวดแทนตัวนักเรียนได้สำเร็จสมบูรณ์แบบ การส่งผลงานดังกล่าวเข้าประกวดถือเป็นสิทธิเชิงสร้างสรรค์หรือขัดต่อหลักการทางจริยธรรมของสังคม?"
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-3 leading-relaxed">
+                                    จับคู่กับเพื่อนข้างๆ ร่วมพูดคุย แลกเปลี่ยน แสวงหาขอบเขตและมุมมองกฎหมายรวมถึงมิติจิตสำนึกส่วนตัว
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div class="text-center">
+                                    <span class="text-xs sm:text-sm text-slate-400 block mb-1">⏱️ นาฬิกาจับเวลาปฏิบัติกิจกรรมกลุ่ม:</span>
+                                    <span class="text-4xl sm:text-5xl font-mono font-bold text-white text-glow block" id="countdown-display">05:00</span>
+                                </div>
+                                <div class="flex gap-2 justify-center mt-4">
+                                    <button onclick="controlTimer('start')" class="px-4 py-2 bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold rounded-lg text-xs sm:text-sm transition-all"><i class="fa-solid fa-play mr-1"></i> เริ่มจับเวลา</button>
+                                    <button onclick="controlTimer('pause')" class="px-4 py-2 bg-amberNeon hover:bg-amberNeon/80 text-slate-950 font-bold rounded-lg text-xs sm:text-sm transition-all"><i class="fa-solid fa-pause mr-1"></i> หยุดชั่วคราว</button>
+                                    <button onclick="controlTimer('reset')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg text-xs sm:text-sm transition-all"><i class="fa-solid fa-rotate-right mr-1"></i> รีเซ็ต</button>
+                                </div>
+                                <p class="text-[10px] sm:text-xs text-slate-500 text-center mt-3">ระบบจะแจ้งเตือนอัตโนมัติเมื่อสิ้นสุดช่วงเวลาอภิปรายกลุ่ม</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 28: กรณีศึกษา 1: โค้ด GitHub",
+                chapter: "CASES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">CASE STUDY 1</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">คัดลอกโค้ดส่งงาน (GitHub Plagiarism)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech">📂 SITUATION</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        นักศึกษาประสบปัญหาในการเขียนโมเดลวิเคราะห์ข้อมูลอย่างมาก จึงตัดสินใจดาวน์โหลดชุดโค้ดทั้งหมดของผู้อื่นจาก GitHub มาแก้ชื่อตัวแปรสองสามจุดเพื่อส่งอาจารย์เป็นผลงานตน โดยไร้ซึ่งการอ้างอิงแหล่งที่มา
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h4 class="text-xs sm:text-sm md:text-base font-bold text-tealNeon mb-2"><i class="fa-solid fa-scale-unbalanced"></i> คำวิเคราะห์สิทธิ์และเกราะทางกฎหมาย & จริยธรรม</h4>
+                                    <div id="reveal-case-1" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>• ข้อกฎหมาย:</strong> สถาบันวิจัยอาจยกเว้นการบังคับใช้ในชั้นเรียนตามกรอบความรู้ (Fair Use) แต่ลิขสิทธิ์ซอร์สโค้ดเริ่มคุ้มครองทันทีที่เขียน การเคลมผลงานผิดเงื่อนไขซอฟต์แวร์ไลเซนส์ของชุดโค้ดนั้นๆ ถือเป็นความเสี่ยงต่อการถูกดำเนินคดีแพ่งในชีวิตทำงานจริง</p>
+                                        <p><strong>• จริยธรรม:</strong> ขัดต่อหลักจรรยาบรรณทางวิชาการ (Academic Integrity) และการลักลอกผลงานทางปัญญาอย่างร้ายแรง</p>
+                                    </div>
+                                </div>
+                                <button onclick="toggleCaseReveal(1)" id="reveal-btn-1" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md mt-4 w-full">
+                                    คลิกแสดงคำวิเคราะห์เคสอย่างเป็นทางการ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 29: กรณีศึกษา 2: การเก็บข้อมูลเกินพอดี",
+                chapter: "CASES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">CASE STUDY 2</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การเก็บข้อมูลลูกค้าเกินขอบเขตใช้งาน (Over-collection)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech">📂 SITUATION</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        แอปพลิเคชันขายเสื้อผ้าออนไลน์ ออกแบบกำหนดสิทธิ์บังคับให้ผู้ใช้ต้องกดยืนยันให้เข้าถึง กล้องถ่ายรูป, ประวัติตำแหน่ง GPS ติดตามตัว, และบันทึกประวัติสุขภาพทางโทรศัพท์ จึงจะยอมให้ลงทะเบียนซื้อผ้าได้สำเร็จ
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h4 class="text-xs sm:text-sm md:text-base font-bold text-tealNeon mb-2"><i class="fa-solid fa-scale-unbalanced"></i> คำวิเคราะห์สิทธิ์และเกราะทางกฎหมาย & จริยธรรม</h4>
+                                    <div id="reveal-case-2" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>• ข้อกฎหมาย:</strong> ขัดต่อ พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) อย่างชัดเจนในประเด็น "Data Minimization Principle" การดึงข้อมูลพร่ำเพรื่อโดยไม่มีเหตุจำเป็นต่อการทำงานหลักของระบบนำมาซึ่งโทษปรับทางปกครองหลักล้าน</p>
+                                        <p><strong>• ข้อปฏิบัติ:</strong> ปรับกลไกแอปให้ดึงเฉพาะชื่อ เบอร์โทร และที่อยู่จัดส่ง แพลตฟอร์มต้องให้ทางเลือกปฏิเสธ GPS โดยไม่ขัดสิทธิการใช้งานพื้นฐาน</p>
+                                    </div>
+                                </div>
+                                <button onclick="toggleCaseReveal(2)" id="reveal-btn-2" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md mt-4 w-full">
+                                    คลิกแสดงคำวิเคราะห์เคสอย่างเป็นทางการ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 30: กรณีศึกษา 3: อคติของ AI อนุมัติสิทธิ์",
+                chapter: "CASES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">CASE STUDY 3</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">อคติในอัลกอริทึมพิจารณาสินเชื่อ (AI Credit Bias)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech">📂 SITUATION</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        ธนาคารพาณิชย์นำระบบ AI มาใช้พิจารณาปล่อยบัตรเครดิต ปรากฏว่าระบบปฏิเสธกลุ่มผู้สมัครในพื้นที่ชนบทเป็นสัดส่วนมากกว่าอย่างเห็นได้ชัด ทั้งที่มีประวัติเงินฝากส่วนตัวมั่นคงและสมบูรณ์
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h4 class="text-xs sm:text-sm md:text-base font-bold text-tealNeon mb-2"><i class="fa-solid fa-scale-unbalanced"></i> คำวิเคราะห์สิทธิ์และเกราะทางกฎหมาย & จริยธรรม</h4>
+                                    <div id="reveal-case-3" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>• ปัญหาและผลลัพธ์:</strong> เกิดจากปัญหา "Historical Bias" ที่ข้อมูลเรียนรู้อดีตส่งผลลบต่อพื้นที่ชนบทอย่างมีนัยสำคัญ</p>
+                                        <p><strong>• แนวทางออก:</strong> นำข้อมูลกลุ่มเขตและทัศนคติไม่เกื้อหนุนออกจากโมเดลเรียนรู้ (Model Fairness Audit) พร้อมเตรียมกรอบโมเดล Explainable AI (XAI) เพื่อให้มนุษย์สามารถเข้าตรวจสอบและรีวิวย้อนตรรกะ AI ได้</p>
+                                    </div>
+                                </div>
+                                <button onclick="toggleCaseReveal(3)" id="reveal-btn-3" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md mt-4 w-full">
+                                    คลิกแสดงคำวิเคราะห์เคสอย่างเป็นทางการ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 31: กรณีศึกษา 4: สิทธิ์แอดมินโดยบังเอิญ",
+                chapter: "CASES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">CASE STUDY 4</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สิทธิ์แอดมินโดยบังเอิญ (Accidental Admin Access)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech">📂 SITUATION</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        นักศึกษาฝึกงานแผนกไอทีพบว่าเอกสารสถิติเงินเดือน รหัสผ่านส่วนตัวของผู้บริหารชั้นนำ และข้อมูลลูกค้าทั้งหมดถูกเซฟแชร์ทิ้งไว้บนไดร์ฟเครือข่ายกลางที่ไม่ได้ตั้งค่ารหัสผ่านหรือจำกัดสิทธิ์ความปลอดภัยไว้เลย
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h4 class="text-xs sm:text-sm md:text-base font-bold text-tealNeon mb-2"><i class="fa-solid fa-scale-unbalanced"></i> คำวิเคราะห์สิทธิ์และเกราะทางกฎหมาย & จริยธรรม</h4>
+                                    <div id="reveal-case-4" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>• ข้อจริยธรรม:</strong> การแอบส่องหรือดาวน์โหลดมาอวดเพื่อนถือเป็นพฤติกรรมผิดจรรยาบรรณวิชาชีพและกฎระเบียบวินัยขั้นร้ายแรง (Confidentiality Rule)</p>
+                                        <p><strong>• วิธีการปฏิบัติที่ถูก:</strong> รีบแจ้งหัวหน้าดูแลระบบไอทีทันทีเพื่อให้เข้ามาแก้ไขการอนุญาตไฟล์ (Access Control Level) และปกป้องไม่ให้ผู้อื่นเข้าถึงต่อไป</p>
+                                    </div>
+                                </div>
+                                <button onclick="toggleCaseReveal(4)" id="reveal-btn-4" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md mt-4 w-full">
+                                    คลิกแสดงคำวิเคราะห์เคสอย่างเป็นทางการ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 32: กรณีศึกษา 5: ดึงดูดความเสพติดเยาวชน",
+                chapter: "CASES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-wider">CASE STUDY 5</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กลลวงออกแบบแอปให้เสพติด (Engagement Loops Trap)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech">📂 SITUATION</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        ทีมนักพัฒนาได้รับมอบหมายจากผู้บริหารให้เขียนโค้ดคอยผลักดันระบบเด้งแจ้งเตือนแบบกดดัน อัลกอริทึมล่อให้เยาวชนนอนดึกเพื่อเข้าแอปสุ่มของรางวัลแลกกำไรบริษัทกว่า 300% (Dark Patterns)
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h4 class="text-xs sm:text-sm md:text-base font-bold text-tealNeon mb-2"><i class="fa-solid fa-scale-unbalanced"></i> คำวิเคราะห์สิทธิ์และเกราะทางกฎหมาย & จริยธรรม</h4>
+                                    <div id="reveal-case-5" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                                        <p><strong>• ข้อจริยธรรม:</strong> ขัดต่อหลักการความรับผิดชอบต่อสุขภาพสังคมและสุขภาวะเยาวชน "Do No Harm" เป็นการนำเทคนิคหลอกล่อกลไกสมองส่วนรับรู้ (Dopamine loops) มาเอาเปรียบเพื่อผลประโยชน์เงินตรายอดขาย</p>
+                                        <p><strong>• ข้อแนะนำ:</strong> ปรับปรุงแอปโดยระบุคำแนะนำใช้เวลาหน้าจอ หรือเปิดฟังก์ชันห้ามรบกวนกลางดึก (Do Not Disturb) เพื่อรักษาสมดุลชีวิตคนใช้งาน</p>
+                                    </div>
+                                </div>
+                                <button onclick="toggleCaseReveal(5)" id="reveal-btn-5" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md mt-4 w-full">
+                                    คลิกแสดงคำวิเคราะห์เคสอย่างเป็นทางการ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 33: ข้อสะท้อนคิดปิดท้ายชวนตระหนัก",
+                chapter: "REFLECTION",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">REFLECT & DEBATE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ข้อคิดท้ายคาบเรียนเพื่อการสะท้อนคิด</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-8 flex flex-col gap-4">
+                                <p class="text-lg sm:text-xl md:text-2xl text-slate-200 italic font-medium leading-relaxed bg-gradient-to-r from-tealNeon/10 to-transparent p-6 border-l-4 border-tealNeon rounded-r-2xl">
+                                    "เทคโนโลยีที่ดี... ไม่ได้วัดจากความรวดเร็วหรือความล้ำสมัยของอัลกอริทึมเพียงอย่างเดียว แต่ต้องคำนึงถึงกรอบกฎหมาย ความถูกต้องทางจริยธรรม และการรับใช้เพื่อนมนุษย์อย่างโปร่งใสและเท่าเทียม"
+                                </p>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    นวัตกรรมที่สมบูรณ์และยั่งยืนอย่างแท้จริง ต้องถูกเขียนขึ้นบนรากฐานของ "ความเข้าอกเข้าใจเพื่อนมนุษย์ (Empathy)" เป็นหัวใจสำคัญแรกของทีมงานไอที
+                                </p>
+                            </div>
+                            <div class="lg:col-span-4 flex justify-center">
+                                <div class="relative w-full max-w-[280px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Futuristic Network" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Future+Vision'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 34: การบ้านสรุปรายวิชาก่อนบทใหม่",
+                chapter: "ASSIGNMENT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-emeraldNeon text-xs sm:text-sm tracking-wider">WEEKLY ASSIGNMENT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การบ้านก่อนเข้าเรียนบทถัดไป (Assignment)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg font-bold text-emeraldNeon flex items-center gap-2"><i class="fa-solid fa-clipboard-list"></i> รายละเอียดภารกิจ (1 หน้ากระดาษ A4):</h3>
+                                <ul class="text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                                    <li><strong>1. เลือกข่าวจริง:</strong> ค้นหาข่าวสารไอทีย้อนหลังไม่เกิน 2 ปีที่เกี่ยวกับ <strong>Data Privacy, Cybercrime หรือ AI Ethics</strong></li>
+                                    <li><strong>2. เขียนวิเคราะห์มิติ:</strong> อธิบายว่าข่าวดังกล่าว ขัดหรือเกี่ยวข้องต่อหัวข้อ <strong>"กฎหมาย"</strong> หรือ <strong>"จริยธรรม"</strong> อย่างไรอย่างเป็นรูปธรรม</li>
+                                    <li><strong>3. เสนอทางแก้ไขป้องกัน:</strong> ในฐานะนักพัฒนาโปรแกรม คุณจะมีขั้นตอนออกแบบคัดกรองระบบอย่างไรเพื่อไม่ให้เกิดประเด็นนี้ซ้ำ</li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-span-5 bg-gradient-to-br from-cardDark to-slate-950 p-4 sm:p-6 rounded-2xl border border-emeraldNeon/30 flex flex-col justify-center items-center text-center gap-3">
+                                <div class="text-emeraldNeon text-3xl"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                                <h4 class="text-sm sm:text-base font-bold text-white font-tech tracking-wider">LMS SUBMISSION</h4>
+                                <p class="text-[11px] sm:text-xs text-slate-400">
+                                    ส่งมอบงานในรูปแบบไฟล์ PDF ผ่านระบบ LMS มหาวิทยาลัย <br> ภายในเวลา 23:59 น. ของวันก่อนหน้าคลาสเรียนครั้งต่อไป
+                                </p>
+                                <span class="text-[10px] bg-slate-800 text-slate-300 px-3 py-1 rounded-full border border-slate-700">LATE NOT ACCEPTED</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        // Populate Slide Navigator Sidebar
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebar-list");
+            listContainer.innerHTML = "";
+            slides.forEach((slide, index) => {
+                const btn = document.createElement("button");
+                btn.className = `text-left text-xs sm:text-sm p-3 rounded-xl border transition-all flex justify-between items-center w-full ${
+                    index === currentSlideIndex 
+                        ? "bg-tealNeon/10 border-tealNeon text-tealNeon font-bold" 
+                        : "bg-slate-900 border-borderSlate hover:border-slate-500 text-slate-400"
+                }`;
+                btn.onclick = () => {
+                    goToSlide(index);
+                    if (window.innerWidth < 640) { // Auto close sidebar on mobile tap
+                        toggleSidebar();
+                    }
+                };
+                
+                // Truncate title for sidebar safely
+                const titleText = slide.title.length > 28 ? slide.title.substring(0, 28) + "..." : slide.title;
+                btn.innerHTML = `
+                    <span>${titleText}</span>
+                    <span class="font-tech text-[10px] sm:text-xs bg-slate-800 px-2 py-0.5 rounded text-slate-500">${slide.chapter}</span>
+                `;
+                listContainer.appendChild(btn);
+            });
+        }
+
+        // Sidebar drawer toggler
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("translate-x-full");
+        }
+
+        // Render current slide with full element hydration
+        function renderSlide() {
+            const currentSlide = slides[currentSlideIndex];
+            const slideContainer = document.getElementById("slide-content");
+            
+            // Format slide number
+            const numText = (currentSlideIndex + 1).toString().padStart(2, '0');
+            const totalText = slides.length.toString().padStart(2, '0');
+            document.getElementById("slide-number-display").innerText = `SLIDE ${numText} / ${totalText}`;
+            
+            // Inject slide content HTML
+            slideContainer.innerHTML = currentSlide.html;
+            
+            // Rehydrate interactive states based on current active slide index
+            rehydrateInteractiveElements();
+        }
+
+        // Navigate slides
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            renderSidebar();
+        }
+
+        // Case Study Reveal operations
+        function toggleCaseReveal(caseNum) {
+            const box = document.getElementById(`reveal-case-${caseNum}`);
+            const btn = document.getElementById(`reveal-btn-${caseNum}`);
+            if (!box || !btn) return;
+            
+            if (box.classList.contains("hidden")) {
+                box.classList.remove("hidden");
+                btn.innerText = "🔒 คลิกเพื่อซ่อนคำวิเคราะห์เคส";
+                btn.classList.add("bg-slate-700", "text-slate-100");
+                btn.classList.remove("bg-tealNeon", "text-slate-950");
+                revealStates[caseNum] = true;
+            } else {
+                box.classList.add("hidden");
+                btn.innerText = "คลิกแสดงคำวิเคราะห์เคสอย่างเป็นทางการ";
+                btn.classList.remove("bg-slate-700", "text-slate-100");
+                btn.classList.add("bg-tealNeon", "text-slate-950");
+                revealStates[caseNum] = false;
+            }
+        }
+
+        // Active Dilemma Vote handlers
+        function voteDilemma(option) {
+            votedDilemmaState = option;
+            if (option === 'yes') {
+                dilemmaVoteYes++;
+            } else if (option === 'no') {
+                dilemmaVoteNo++;
+            }
+            rehydrateDilemmaPoll();
+        }
+
+        function resetVote() {
+            votedDilemmaState = null;
+            dilemmaVoteYes = 14;
+            dilemmaVoteNo = 28;
+            rehydrateDilemmaPoll();
+        }
+
+        function rehydrateDilemmaPoll() {
+            const container = document.getElementById("dilemma-poll-container");
+            if (!container) return;
+
+            const total = dilemmaVoteYes + dilemmaVoteNo;
+            const yesPercent = Math.round((dilemmaVoteYes / total) * 100);
+            const noPercent = Math.round((dilemmaVoteNo / total) * 100);
+
+            if (votedDilemmaState === null) {
+                container.innerHTML = `
+                    <button onclick="voteDilemma('yes')" class="w-full text-left p-3.5 rounded-lg bg-slate-800 hover:bg-tealNeon hover:text-slate-950 transition-all flex justify-between items-center group font-medium">
+                        <span>1. แอบเปิดดูสิ ไม่มีใครรู้ และเราไม่ได้ทำลายใคร</span>
+                        <span class="text-xs font-bold text-tealNeon group-hover:text-slate-950">คลิกโหวต</span>
+                    </button>
+                    <button onclick="voteDilemma('no')" class="w-full text-left p-3.5 rounded-lg bg-slate-800 hover:bg-roseNeon hover:text-white transition-all flex justify-between items-center group font-medium">
+                        <span>2. ไม่เปิดดูเด็ดขาด เพราะเป็นสิทธิส่วนบุคคลของผู้อื่น</span>
+                        <span class="text-xs font-bold text-roseNeon group-hover:text-white">คลิกโหวต</span>
+                    </button>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="p-3.5 bg-slate-800 border border-slate-700 rounded-lg">
+                            <div class="flex justify-between items-center mb-1 text-sm">
+                                <span>1. แอบเปิดดูสิ ไม่มีใครรู้ (${dilemmaVoteYes} โหวต)</span>
+                                <span class="font-bold text-tealNeon">${yesPercent}%</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden">
+                                <div class="bg-tealNeon h-full" style="width: ${yesPercent}%"></div>
+                            </div>
+                        </div>
+                        <div class="p-3.5 bg-slate-800 border border-slate-700 rounded-lg">
+                            <div class="flex justify-between items-center mb-1 text-sm">
+                                <span>2. ไม่เปิดดูเด็ดขาด (${dilemmaVoteNo} โหวต)</span>
+                                <span class="font-bold text-roseNeon">${noPercent}%</span>
+                            </div>
+                            <div class="w-full bg-slate-950 h-2 rounded-full overflow-hidden">
+                                <div class="bg-roseNeon h-full" style="width: ${noPercent}%"></div>
+                            </div>
+                        </div>
+                        <button onclick="resetVote()" class="text-xs text-tealNeon underline self-start block hover:text-white transition-colors">
+                            รีเซ็ตสถิติโหวตของห้องเรียน
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Stopwatch controller
+        function controlTimer(action) {
+            if (action === 'start') {
+                if (timerInterval) return;
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        alert("⏰ หมดเวลาสำหรับกิจกรรมกลุ่มแล้ว!");
+                    }
+                }, 1000);
+            } else if (action === 'pause') {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            } else if (action === 'reset') {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerSeconds = 300;
+                updateTimerUI();
+            }
+        }
+
+        function updateTimerUI() {
+            const display = document.getElementById("countdown-display");
+            if (!display) return;
+            const mins = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+            const secs = (timerSeconds % 60).toString().padStart(2, '0');
+            display.innerText = `${mins}:${secs}`;
+        }
+
+        // Rehydrate slides states
+        function rehydrateInteractiveElements() {
+            // Rehydrate Slide 2 Dilemma Poll
+            if (currentSlideIndex === 1) {
+                rehydrateDilemmaPoll();
+            }
+            // Rehydrate Slide 27 Timer
+            if (currentSlideIndex === 26) {
+                updateTimerUI();
+            }
+            // Rehydrate Case Studies 1-5
+            if (currentSlideIndex >= 27 && currentSlideIndex <= 31) {
+                const caseNum = currentSlideIndex - 26; // 1 to 5
+                if (revealStates[caseNum]) {
+                    const box = document.getElementById(`reveal-case-${caseNum}`);
+                    const btn = document.getElementById(`reveal-btn-${caseNum}`);
+                    if (box && btn) {
+                        box.classList.remove("hidden");
+                        btn.innerText = "🔒 คลิกเพื่อซ่อนคำวิเคราะห์เคส";
+                        btn.classList.add("bg-slate-700", "text-slate-100");
+                        btn.classList.remove("bg-tealNeon", "text-slate-950");
+                    }
+                }
+            }
+        }
+
+        // Keyboard arrow key navigation
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Touch Swipe Navigation for responsive mobile devices
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        function handleGesture() {
+            if (touchendX < touchstartX - 60) {
+                nextSlide(); // Swipe Left -> Go Next
+            }
+            if (touchendX > touchstartX + 60) {
+                prevSlide(); // Swipe Right -> Go Prev
+            }
+        }
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        // Initialize App
+        window.onload = () => {
+            renderSlide();
+            renderSidebar();
+        }
+    </script>
+</body>
+</html>
