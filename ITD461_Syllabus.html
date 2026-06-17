@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ประมวลผลรายวิชา ITD461</title>
+    <style>
+        body {
+            font-family: 'Sarabun', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 6px solid #003366;
+        }
+        .header-container {
+            text-align: center;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+        .university-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366;
+            margin: 5px 0;
+        }
+        .university-english {
+            font-size: 18px;
+            font-weight: 600;
+            color: #555555;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        .syllabus-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333333;
+            background: #f0f4f8;
+            padding: 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .semester {
+            font-size: 16px;
+            color: #666666;
+            margin-top: 5px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #003366;
+            border-left: 4px solid #003366;
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p, li {
+            font-size: 15px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 140px auto;
+            row-gap: 8px;
+            margin-bottom: 20px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 12px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f7f9;
+            color: #003366;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+        .course-desc {
+            background-color: #fafafa;
+            border-left: 3px solid #888888;
+            padding: 15px;
+            text-align: justify;
+            font-style: italic;
+        }
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .evaluation-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .evaluation-list li {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #eeeeee;
+            padding: 8px 0;
+            max-width: 500px;
+        }
+        .evaluation-label {
+            font-weight: 500;
+        }
+        .evaluation-value {
+            font-weight: bold;
+            color: #003366;
+        }
+        .total-row {
+            font-weight: bold;
+            border-top: 2px solid #333333 !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-container">
+        <div class="university-title">มหาวิทยาลัยนอร์ทกรุงเทพ</div>
+        <div class="university-english">NORTH BANGKOK UNIVERSITY</div>
+        <div class="syllabus-title">ประมวลผลรายวิชา (Course Syllabus)</div>
+        <div class="semester">ภาคการเรียนที่ 1/2569</div>
+    </div>
+
+    <h2>1. ข้อมูลทั่วไปเกี่ยวกับรายวิชา</h2>
+    <div class="info-grid">
+        <div class="info-label">วิชา:</div>
+        <div>กฎหมายและจริยธรรมสำหรับเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</div>
+        <div class="info-label">รหัสวิชา:</div>
+        <div>ITD461</div>
+        <div class="info-label">หน่วยกิต:</div>
+        <div>3 (3-0-6)</div>
+        <div class="info-label">ชื่อภาษาอังกฤษ:</div>
+        <div>Laws and Ethics for Information Technology and Digital Innovation</div>
+        <div class="info-label">วิชาบังคับก่อน:</div>
+        <div>-</div>
+    </div>
+
+    <h2>2. อาจารย์ผู้สอนและสถานที่ติดต่อ</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>อาจารย์ผู้สอน</th>
+                <th>วัน/เวลาให้นักศึกษาพบ</th>
+                <th>สถานที่ติดต่อ</th>
+                <th>เบอร์โทรศัพท์</th>
+                <th>E-Mail Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>อ.โกเมศ ศุภัคธัญญากิจ</td>
+                <td>พุธ 09.00 – 12.00 น.</td>
+                <td>คณะเทคโนโลยีสารสนเทศ (อาคาร 1 ชั้น 4)</td>
+                <td>0-2972-7200 ต่อ 450</td>
+                <td><a href="mailto:gomes.ma@northbkk.ac.th">gomes.ma@northbkk.ac.th</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. วัน เวลา และห้องบรรยาย</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 15%;">กลุ่ม</th>
+                <th style="width: 25%;">วัน</th>
+                <th style="width: 25%;">เวลา</th>
+                <th style="width: 25%;">ผู้สอน</th>
+                <th style="width: 10%;">ห้องเรียน</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>พฤหัสบดี</td>
+                <td>13:30 – 16:30 น.</td>
+                <td>อ.โกเมศ ศุภัคธัญญากิจ</td>
+                <td>N/A</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. คำอธิบายรายวิชา</h2>
+    <div class="course-desc">
+        ศึกษากฎหมาย พระราชบัญญัติ และจริยธรรมที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล การค้าและการพาณิชย์ การใช้งานคอมพิวเตอร์ผิดวัตถุประสงค์ ความเท่าเทียมกันทางสังคม เสรีภาพในการพูด ความเป็นส่วนตัว PDPA ความเสี่ยงของระบบคอมพิวเตอร์ ทรัพย์สินทางปัญญา ความเป็นพลเมืองดิจิทัล และจิตสาธารณะ เพื่อให้ผู้เรียนสามารถประยุกต์ใช้กฎหมายและจริยธรรมในการพัฒนาและใช้งานเทคโนโลยีสารสนเทศได้อย่างเหมาะสม
+    </div>
+
+    <h2>5. วัตถุประสงค์ทั่วไปของรายวิชา</h2>
+    <p>นักศึกษาสามารถ:</p>
+    <ul>
+        <li>เข้าใจเกี่ยวกับกฎหมาย พระราชบัญญัติ และข้อบังคับที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัลได้</li>
+        <li>อธิบายหลักการด้านจริยธรรมและจรรยาบรรณวิชาชีพที่เกี่ยวข้องกับการใช้งานและการพัฒนาเทคโนโลยีสารสนเทศได้อย่างเหมาะสม</li>
+        <li>เข้าใจเกี่ยวกับกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA) ความเป็นส่วนตัว และสิทธิของผู้ใช้งานในสังคมดิจิทัลได้</li>
+        <li>วิเคราะห์ปัญหาและผลกระทบจากการใช้งานคอมพิวเตอร์ผิดวัตถุประสงค์ รวมถึงอาชญากรรมทางไซเบอร์และความเสี่ยงของระบบคอมพิวเตอร์ได้</li>
+        <li>อธิบายเกี่ยวกับทรัพย์สินทางปัญญา ลิขสิทธิ์ และการใช้ผลงานดิจิทัลได้อย่างถูกต้องตามกฎหมาย</li>
+        <li>ประยุกต์ใช้หลักกฎหมายและจริยธรรมในการพัฒนาและบริหารจัดการระบบเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัลได้อย่างมีความรับผิดชอบ</li>
+        <li>ตระหนักถึงความเท่าเทียมกันทางสังคม เสรีภาพในการแสดงความคิดเห็น ความเป็นพลเมืองดิจิทัล และจิตสาธารณะในการใช้เทคโนโลยีสารสนเทศ</li>
+        <li>คิดวิเคราะห์และตัดสินใจเชิงจริยธรรมในการแก้ไขปัญหาที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัลในสถานการณ์จริงได้</li>
+    </ul>
+
+    <h2>6. หัวเรื่อง (Topics) และแผนการจัดการเรียนรู้</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 8%; text-align: center;">ครั้งที่</th>
+                <th style="width: 32%;">หัวเรื่อง</th>
+                <th style="width: 45%;">รายละเอียด</th>
+                <th style="width: 15%;">หนังสืออ้างอิง</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">1</td>
+                <td><strong>บทนำเกี่ยวกับกฎหมายและจริยธรรมด้านเทคโนโลยีสารสนเทศ</strong></td>
+                <td>1. ความหมายของกฎหมายและจริยธรรม<br>2. ความสำคัญต่อวิชาชีพ IT และ Digital Innovation<br>3. ความสัมพันธ์ระหว่างเทคโนโลยีกับสังคม<br>4. แนวคิดความรับผิดชอบต่อสังคมของนักเทคโนโลยี<br>5. บทบาทของจริยธรรมในยุคดิจิทัล</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">2</td>
+                <td><strong>กฎหมายเทคโนโลยีสารสนเทศในประเทศไทย</strong></td>
+                <td>1. ภาพรวมกฎหมายดิจิทัลของประเทศไทย<br>2. โครงสร้างกฎหมายดิจิทัล<br>3. หน่วยงานกำกับดูแล<br>4. กฎหมายธุรกรรมอิเล็กทรอนิกส์<br>5. กฎหมายบริการดิจิทัลและแพลตฟอร์มออนไลน์</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">3</td>
+                <td><strong>พระราชบัญญัติว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์</strong></td>
+                <td>1. ความผิดเกี่ยวกับระบบคอมพิวเตอร์<br>2. การเข้าถึงข้อมูลโดยมิชอบ<br>3. การเผยแพร่ข้อมูลผิดกฎหมาย<br>4. ความรับผิดชอบของผู้ให้บริการ<br>5. กรณีศึกษาเกี่ยวกับอาชญากรรมไซเบอร์</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">4</td>
+                <td><strong>กฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA)</strong></td>
+                <td>1. หลักการของข้อมูลส่วนบุคคล<br>2. สิทธิของเจ้าของข้อมูล<br>3. การเก็บ ใช้ และเปิดเผยข้อมูล<br>4. การขอความยินยอม<br>5. การรักษาความมั่นคงปลอดภัยของข้อมูล<br>6. กรณีศึกษาการละเมิดข้อมูล</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">5</td>
+                <td><strong>ความเป็นส่วนตัวและเสรีภาพในการแสดงความคิดเห็น</strong></td>
+                <td>1. สิทธิความเป็นส่วนตัวบนโลกดิจิทัล<br>2. เสรีภาพในการพูด<br>3. การแสดงความคิดเห็นในสื่อออนไลน์<br>4. ความสมดุลระหว่างสิทธิส่วนบุคคลและประโยชน์สาธารณะ<br>5. ปัญหา Hate Speech และ Fake News</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">6</td>
+                <td><strong>อาชญากรรมไซเบอร์และความเสี่ยงของระบบคอมพิวเตอร์</strong></td>
+                <td>1. ประเภทของอาชญากรรมไซเบอร์<br>2. Malware, Phishing และ Ransomware<br>3. การโจมตีระบบคอมพิวเตอร์<br>4. ผลกระทบทางเศรษฐกิจและสังคม<br>5. แนวทางป้องกันและจัดการความเสี่ยง</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">7</td>
+                <td><strong>จริยธรรมในการใช้งานเทคโนโลยีสารสนเทศ</strong></td>
+                <td>1. จรรยาบรรณวิชาชีพ IT<br>2. ความรับผิดชอบของนักพัฒนา<br>3. Ethical Hacking<br>4. การใช้ AI อย่างมีจริยธรรม<br>5. การตัดสินใจเชิงจริยธรรมในองค์กร</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">8</td>
+                <td><strong>ทรัพย์สินทางปัญญาและลิขสิทธิ์ดิจิทัล</strong></td>
+                <td>1. ลิขสิทธิ์<br>2. สิทธิบัตร<br>3. เครื่องหมายการค้า<br>4. ซอฟต์แวร์ละเมิดลิขสิทธิ์<br>5. Open Source License<br>6. การคุ้มครองผลงานดิจิทัล</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">9</td>
+                <td><strong>กฎหมายพาณิชย์อิเล็กทรอนิกส์และธุรกิจดิจิทัล</strong></td>
+                <td>1. E-Commerce<br>2. ธุรกรรมออนไลน์<br>3. สัญญาอิเล็กทรอนิกส์<br>4. การชำระเงินออนไลน์<br>5. การคุ้มครองผู้บริโภคในธุรกิจดิจิทัล</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">10</td>
+                <td><strong>ความเท่าเทียมกันทางสังคมและ Digital Divide</strong></td>
+                <td>1. การเข้าถึงเทคโนโลยีอย่างเท่าเทียม<br>2. ความเหลื่อมล้ำทางดิจิทัล<br>3. สิทธิในการเข้าถึงข้อมูล<br>4. Universal Design<br>5. เทคโนโลยีเพื่อสังคม</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">11</td>
+                <td><strong>พลเมืองดิจิทัลและจิตสาธารณะ</strong></td>
+                <td>1. แนวคิด Digital Citizenship<br>2. การใช้สื่ออย่างรับผิดชอบ<br>3. มารยาทออนไลน์<br>4. การรู้เท่าทันสื่อและข่าวปลอม<br>5. การสร้างสังคมดิจิทัลที่ปลอดภัย</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">12</td>
+                <td><strong>กฎหมายและจริยธรรมเกี่ยวกับ AI และนวัตกรรมดิจิทัล</strong></td>
+                <td>1. ประเด็นจริยธรรมของ AI<br>2. Bias และ Fairness<br>3. ความโปร่งใสของระบบอัตโนมัติ<br>4. Deepfake<br>5. การกำกับดูแล AI และเทคโนโลยีเกิดใหม่</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">13</td>
+                <td><strong>กรณีศึกษากฎหมายและจริยธรรมด้าน IT</strong></td>
+                <td>1. การรั่วไหลของข้อมูล<br>2. การละเมิดลิขสิทธิ์<br>3. การใช้ข้อมูลโดยมิชอบ<br>4. การละเมิดสิทธิส่วนบุคคล<br>5. การอภิปรายแนวทางแก้ไข</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">14</td>
+                <td><strong>การประยุกต์ใช้กฎหมายและจริยธรรมในองค์กร</strong></td>
+                <td>1. การกำหนดนโยบาย IT Governance<br>2. การกำกับดูแลข้อมูล<br>3. การบริหารความเสี่ยง<br>4. การปฏิบัติตามกฎหมาย<br>5. มาตรฐานสากลด้านเทคโนโลยีสารสนเทศ</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">15</td>
+                <td><strong>นำเสนอผลงานและสรุปบทเรียน</strong></td>
+                <td>1. นำเสนอกรณีศึกษา/โครงงาน<br>2. สรุปองค์ความรู้<br>3. ทบทวนประเด็นสำคัญด้านกฎหมายและจริยธรรม<br>4. อภิปรายแนวโน้มอนาคต<br>5. สะท้อนผลการเรียนรู้</td>
+                <td>เอกสารประกอบการสอน</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>7. กิจกรรมการเรียนการสอน</h2>
+    <ul>
+        <li>บรรยายเนื้อหาพร้อมเอกสารประกอบ</li>
+        <li>ตอบคำถาม และแสดงความคิดเห็น</li>
+    </ul>
+
+    <h2>8. เกณฑ์ในการประเมินผล</h2>
+    <ul class="evaluation-list">
+        <li><span class="evaluation-label">จิตพิสัย การเข้าชั้นเรียน (Attitude + Attendance)</span> <span class="evaluation-value">10 %</span></li>
+        <li><span class="evaluation-label">แบบฝึกหัด (Quiz + Assignment)</span> <span class="evaluation-value">20 %</span></li>
+        <li><span class="evaluation-label">รายงานหรือกรณีศึกษา</span> <span class="evaluation-value">10 %</span></li>
+        <li><span class="evaluation-label">โครงงาน / Presentation</span> <span class="evaluation-value">10 %</span></li>
+        <li><span class="evaluation-label">สอบกลางภาค</span> <span class="evaluation-value">20 %</span></li>
+        <li><span class="evaluation-label">สอบปลายภาค</span> <span class="evaluation-value">30 %</span></li>
+        <li class="total-row"><span class="evaluation-label">รวม</span> <span class="evaluation-value">100 %</span></li>
+    </ul>
+
+    <h2>9. ตำราและเอกสารประกอบการเรียนการสอน</h2>
+    <h3>ตำราหลัก</h3>
+    <ul>
+        <li>เอกสารประกอบการสอน</li>
+    </ul>
+    <h3>หนังสืออ่านประกอบ</h3>
+    <ul>
+        <li>Kenneth C. Laudon and Jane P. Laudon. (2022). <em>Management Information Systems: Managing the Digital Firm (17th Edition)</em>. Harlow: Pearson Education.</li>
+        <li>Deborah G. Johnson. (2021). <em>Computer Ethics (5th Edition)</em>. New York: Routledge.</li>
+        <li>Richard Spinello. (2020). <em>Cyberethics: Morality and Law in Cyberspace (7th Edition)</em>. Burlington: Jones & Bartlett Learning.</li>
+        <li>Sara Baase and Timothy M. Henry. (2018). <em>A Gift of Fire: Social, Legal, and Ethical Issues for Computing Technology (5th Edition)</em>. Boston: Pearson.</li>
+        <li>Michael J. Quinn. (2020). <em>Ethics for the Information Age (8th Edition)</em>. Boston: Pearson.</li>
+    </ul>
+</div>
+
+</body>
+</html>
