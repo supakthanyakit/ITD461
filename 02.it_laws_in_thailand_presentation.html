@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Information Technology Laws in Thailand</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -58,7 +55,6 @@
 </head>
 <body class="text-slate-100 flex flex-col min-h-screen select-none">
 
-    <!-- Top Navigation Utility Bar -->
     <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
         <div class="flex items-center gap-3">
             <span class="font-tech text-tealNeon font-bold tracking-wider text-sm sm:text-base md:text-lg">IT LAWS & ETHICS</span>
@@ -72,10 +68,8 @@
         </div>
     </header>
 
-    <!-- Main Workspace -->
     <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
         
-        <!-- Slide Sidebar Navigator -->
         <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-80 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
             <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
                 <h3 class="font-tech text-tealNeon text-base tracking-widest flex items-center gap-2">
@@ -86,23 +80,17 @@
                 </button>
             </div>
             <div id="sidebar-list" class="flex flex-col gap-2">
-                <!-- Sidebar items dynamically rendered here -->
-            </div>
+                </div>
         </aside>
 
-        <!-- Slide Frame Container: Fully Responsive Fluid Heights with Aspect Ratio on Desktop -->
         <div class="w-full max-w-7xl h-auto min-h-[75vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-5 sm:p-8 md:p-14 flex flex-col justify-between overflow-y-auto">
             
-            <!-- Abstract Tech Background Ornaments inside slide -->
             <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-tealNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
             <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emeraldNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
 
-            <!-- Slide Content Window (Dynamic Injection) -->
             <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
-                <!-- Slide content will be rendered here by JS -->
-            </div>
+                </div>
 
-            <!-- Slide Footer -->
             <div class="border-t border-borderSlate/60 pt-4 mt-6 sm:mt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm text-slate-400 relative z-10">
                 <div class="flex items-center gap-2 sm:gap-4 text-center sm:text-left">
                     <span class="font-tech text-tealNeon font-bold">CLASS: IT LAWS IN THAILAND</span>
@@ -116,7 +104,6 @@
         </div>
     </main>
 
-    <!-- Controls Floating Dock -->
     <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
         <button onclick="prevSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ก่อนหน้า">
             <i class="fa-solid fa-chevron-left"></i>
@@ -412,7 +399,7 @@
                                     <strong>กรณีวิเคราะห์:</strong> "หากแพลตฟอร์มนำเบอร์ติดต่อและประวัติซื้อสินค้าของลูกค้า ไปขายต่อเพื่อการทำโมเดลโฆษณาโดยไม่ได้รับความยินยอม จะขัดต่อกฎหมายใด?"
                                 </p>
                             </div>
-                            <button onclick="revealAnswer('ans_delivery')" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shrink-0 w-full sm:w-auto">
+                            <button onclick="revealAnswer('ans_eco')" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shrink-0 w-full sm:w-auto">
                                 เปิดเฉลยวิเคราะห์
                             </button>
                         </div>
@@ -771,7 +758,7 @@
                                     "ซอฟต์แวร์ประวัติผู้ป่วยของโรงพยาบาลถูกมัลแวร์เรียกค่าไถ่ (Ransomware) ล็อกข้อมูลจนระบบล่ม และพบว่าข้อมูลโรคประจำตัวรั่วไหลไปสู่กลุ่มบุคคลภายนอก"
                                 </h3>
                                 <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-2">
-                                    หากวิเคราะห์ตามกฎหมายไทย ฝ่ายบริหารระบบสารสนเทศของโรงพยาบาลต้องรีบจัดกระบวนการตามลำดับกฎเกณฑ์หลักอย่างไร?
+                                    หากวิเคราะห์ตามกฎหมายไทย ฝ่ายบริหารระบบสารสนเทศ of โรงพยาบาลต้องรีบจัดกระบวนการตามลำดับกฎเกณฑ์หลักอย่างไร?
                                 </p>
                             </div>
                             
@@ -1117,7 +1104,6 @@
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
-                            <!-- Case Study 1 -->
                             <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
                                 <div>
                                     <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 1: โดนโกงซื้อสินค้าออนไลน์แล้วแพลตฟอร์มปัดความรับผิดชอบ</span>
@@ -1136,7 +1122,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Case Study 2 -->
                             <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
                                 <div>
                                     <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 2: การแอบเก็บและแบ่งปันประวัติตำแหน่ง GPS</span>
@@ -1169,7 +1154,6 @@
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
-                            <!-- Case Study 3 -->
                             <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
                                 <div>
                                     <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 3: พนักงานบริษัทขโมยไฟล์ข้อมูลเบอร์โทรศัพท์ไปเสนอขายคู่แข่ง</span>
@@ -1188,7 +1172,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Case Study 4 -->
                             <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
                                 <div>
                                     <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 4: การลงสัญญารับจ้างผ่านแอปยืนยันด้วยภาพถ่ายใบหน้าและลายเซ็นจอสัมผัส</span>
@@ -1221,7 +1204,6 @@
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
-                            <!-- Case Study 5 -->
                             <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
                                 <div>
                                     <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 5: อคติและปัญหาละเมิดสิทธิ์ในชุดข้อมูลการเทรน AI</span>
@@ -1240,7 +1222,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Homework & Reflection Assignment -->
                             <div class="bg-gradient-to-br from-cardDark to-slate-950 p-4 sm:p-6 rounded-2xl border border-emeraldNeon/30 flex flex-col justify-between min-h-[220px] gap-4">
                                 <div>
                                     <span class="text-emeraldNeon font-semibold text-xs sm:text-sm uppercase tracking-widest"><i class="fa-solid fa-clipboard-list"></i> ASSIGNMENT & REFLECTION PROMPT</span>
@@ -1322,6 +1303,7 @@
             }
         }
 
+        // Previous slide
         function prevSlide() {
             if (currentSlideIndex > 0) {
                 currentSlideIndex--;
@@ -1330,6 +1312,7 @@
             }
         }
 
+        // Go to specific slide
         function goToSlide(index) {
             currentSlideIndex = index;
             renderSlide();
@@ -1347,13 +1330,16 @@
         // Handle Active Checkboxes on Slide 2
         function handleWarmupClick(id) {
             const checkbox = document.getElementById(id);
-            warmUpStates[id] = checkbox.checked;
+            if (checkbox) {
+                warmUpStates[id] = checkbox.checked;
+            }
         }
 
         // Handle Multi-choice state inside Slide 16 (Incident Response Quiz)
         function selectIncidentChoice(choiceId) {
             miniQuizAnswers["slide16"] = choiceId;
             const feedback = document.getElementById("incident-feedback");
+            if (!feedback) return;
             
             // Reset buttons style
             for (let i = 1; i <= 3; i++) {
@@ -1402,7 +1388,7 @@
             }
         });
 
-        // Touch Swipe Navigation for Perfect Mobile Responsiveness
+        // Touch Swipe Navigation
         let touchstartX = 0;
         let touchendX = 0;
         
