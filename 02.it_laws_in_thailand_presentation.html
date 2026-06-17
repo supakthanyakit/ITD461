@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Technology Laws in Thailand</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#070a13',
+                        cardDark: '#0f172a',
+                        borderSlate: '#334155',
+                        emeraldNeon: '#10b981',
+                        tealNeon: '#06b6d4',
+                        amberNeon: '#f59e0b',
+                        roseNeon: '#f43f5e'
+                    },
+                    fontFamily: {
+                        thai: ['"IBM Plex Sans Thai"', 'Sarabun', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+            background-color: #070a13;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar for panel and overflow slide content */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen select-none">
+
+    <!-- Top Navigation Utility Bar -->
+    <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
+        <div class="flex items-center gap-3">
+            <span class="font-tech text-tealNeon font-bold tracking-wider text-sm sm:text-base md:text-lg">IT LAWS & ETHICS</span>
+            <span class="text-[10px] sm:text-xs bg-slate-800 text-slate-300 px-2 sm:px-3 py-1 rounded-full border border-slate-700">BACHELOR PROGRAM</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-6">
+            <span class="text-xs sm:text-sm text-slate-300 hidden lg:inline"><i class="fa-solid fa-clock mr-2 text-tealNeon"></i> คาบเรียน: 3-4 ชั่วโมง (Lecture + Workshops)</span>
+            <button onclick="toggleSidebar()" class="text-slate-200 hover:text-tealNeon transition-all text-xs sm:text-sm px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-borderSlate flex items-center gap-2">
+                <i class="fa-solid fa-list-ul"></i> <span class="font-semibold hidden sm:inline">สไลด์ทั้งหมด</span><span class="sm:hidden font-semibold">เมนู</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
+        
+        <!-- Slide Sidebar Navigator -->
+        <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-80 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
+            <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
+                <h3 class="font-tech text-tealNeon text-base tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> SLIDE NAVIGATION
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-roseNeon text-lg sm:hidden">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="sidebar-list" class="flex flex-col gap-2">
+                <!-- Sidebar items dynamically rendered here -->
+            </div>
+        </aside>
+
+        <!-- Slide Frame Container: Fully Responsive Fluid Heights with Aspect Ratio on Desktop -->
+        <div class="w-full max-w-7xl h-auto min-h-[75vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-5 sm:p-8 md:p-14 flex flex-col justify-between overflow-y-auto">
+            
+            <!-- Abstract Tech Background Ornaments inside slide -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-tealNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-emeraldNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <!-- Slide Content Window (Dynamic Injection) -->
+            <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
+                <!-- Slide content will be rendered here by JS -->
+            </div>
+
+            <!-- Slide Footer -->
+            <div class="border-t border-borderSlate/60 pt-4 mt-6 sm:mt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm text-slate-400 relative z-10">
+                <div class="flex items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <span class="font-tech text-tealNeon font-bold">CLASS: IT LAWS IN THAILAND</span>
+                    <span class="hidden sm:inline text-slate-600">|</span>
+                    <span class="hidden sm:inline">คณะเทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</span>
+                </div>
+                <div class="font-tech text-emeraldNeon font-bold text-sm sm:text-base" id="slide-number-display">
+                    SLIDE 01 / 28
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Controls Floating Dock -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
+        <button onclick="prevSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ก่อนหน้า">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-4 py-1 flex items-center gap-2 hidden sm:flex">
+            ควบคุมด้วยคีย์บอร์ด <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">←</kbd> <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">→</kbd>
+        </span>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-3 py-1 flex items-center gap-2 sm:hidden">
+            <i class="fa-solid fa-hand-pointer text-tealNeon"></i> ปัดหน้าจอเพื่อเปลี่ยนสไลด์
+        </span>
+        <button onclick="nextSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ถัดไป">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script>
+        // Interactive state trackers
+        let warmUpStates = {};
+        let miniQuizAnswers = {};
+
+        // Slide Database with Large Fonts and Responsive Grids
+        const slides = [
+            {
+                title: "Slide 1: Title Slide",
+                chapter: "WELCOME",
+                html: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center h-full py-2">
+                        <div class="lg:col-span-7 flex flex-col justify-center gap-4 sm:gap-6">
+                            <span class="font-tech text-emeraldNeon text-xs sm:text-sm tracking-widest font-bold uppercase bg-emeraldNeon/10 border border-emeraldNeon/20 px-4 py-1.5 rounded-full self-start">LECTURE UNIT</span>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                                Information Technology Laws in Thailand
+                            </h1>
+                            <h2 class="text-xl sm:text-2xl md:text-3xl text-tealNeon font-medium -mt-2">
+                                กฎหมายเทคโนโลยีสารสนเทศในประเทศไทย
+                            </h2>
+                            <div class="border-l-4 border-emeraldNeon pl-4 sm:pl-5 py-2 mt-2">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon tracking-wide">OBJECTIVES / วัตถุประสงค์การเรียนรู้</h3>
+                                <ul class="text-sm sm:text-base md:text-lg text-slate-300 mt-2 space-y-2">
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> อธิบายภาพรวมกฎหมายดิจิทัลของประเทศไทยได้</li>
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> เข้าใจโครงสร้างลำดับชั้นกฎหมายธุรกรรมและไอที</li>
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> ประสานงานและระบุหน่วยงานกำกับดูแลหลัก (ETDA, PDPC, NCSA)</li>
+                                    <li><i class="fa-solid fa-circle-check text-emeraldNeon mr-2"></i> ประยุกต์ใช้กฎหมายและจัดเตรียมแนวทางปฏิบัติในการออกแบบระบบนวัตกรรม</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 h-full flex justify-center items-center">
+                            <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Bangkok Skyline at Night" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Bangkok+Skyline'"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs text-slate-300 bg-slate-900/80 px-2 py-1 rounded">Bangkok Digital Infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 2: Warm-up Activity",
+                chapter: "WARM UP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE PARTICIPATION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white flex items-center gap-2 mt-1">
+                                <i class="fa-solid fa-comments text-tealNeon"></i> กิจกรรมอภิปราย: คิดก่อนเรียน (Warm-up Activity)
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon"><i class="fa-solid fa-square-check mr-2"></i> นักศึกษาเคยทำกิจกรรมเหล่านี้ในชีวิตจริงหรือไม่? (คลิกเลือกสิ่งที่เคยทำ)</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base md:text-lg">
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm1" onclick="handleWarmupClick('warm1')" class="accent-emeraldNeon w-5 h-5"> ซื้อสินค้าออนไลน์
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm2" onclick="handleWarmupClick('warm2')" class="accent-emeraldNeon w-5 h-5"> โอนเงินผ่าน Mobile App
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm3" onclick="handleWarmupClick('warm3')" class="accent-emeraldNeon w-5 h-5"> เซ็นสัญญากับเว็บออนไลน์
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm4" onclick="handleWarmupClick('warm4')" class="accent-emeraldNeon w-5 h-5"> ขายของบนโซเชียลมีเดีย
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm5" onclick="handleWarmupClick('warm5')" class="accent-emeraldNeon w-5 h-5"> ใช้เครื่องมือ AI (ChatGPT)
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm6" onclick="handleWarmupClick('warm6')" class="accent-emeraldNeon w-5 h-5 font-semibold text-roseNeon"> กดยอมรับเงื่อนไขโดยไม่อ่าน
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Using smartphone for payment" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Mobile+Usage'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-amberNeon/20 to-transparent border-l-4 border-amberNeon rounded-r-lg">
+                                    <h4 class="text-sm sm:text-base md:text-lg font-bold text-slate-100 flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation text-amberNeon text-lg"></i>คำถามกระตุ้นความคิด:
+                                    </h4>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 leading-relaxed">
+                                        "ถ้าข้อมูลธุรกรรมทางการเงินหรือไฟล์งานของคุณถูกแฮกจากแอปข้างต้น... มีกฎหมายใดของไทยคอยคุ้มครองเยียวยาเราบ้าง?"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 3: Part 1 Introduction",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 01</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ภาพรวมกฎหมายดิจิทัลของประเทศไทย
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            วิวัฒนาการทางข้อกำหนดเพื่อรองรับสังคมไร้กระดาษ (Paperless), บริการคลาวด์แบบกระจายตัว, และการป้องกันความเสียหายทางการเงินของประชาชนในยุคเศรษฐกิจขับเคลื่อนด้วยนวัตกรรมดิจิทัล
+                        </p>
+                        <div class="relative w-full max-w-[600px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-borderSlate mt-2">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Digital Tech Concept" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/800x450/131b2e/06b6d4?text=Digital+Ecosystem'"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-deepDark/20 to-transparent"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 4: Digital Society and Law",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CONTEXT & PARADIGM</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ประเทศไทยในยุคดิจิทัล (Digital Society and Law)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 grid grid-cols-1 gap-4">
+                                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-emeraldNeon/15 flex items-center justify-center text-emeraldNeon text-xl shrink-0"><i class="fa-solid fa-chart-line"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">Digital Economy</h3>
+                                        <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 leading-relaxed">
+                                            การส่งเสริมและปกป้อง E-Commerce, ธุรกรรมของธนาคาร, และนวัตกรรมอัจฉริยะในทุกอุตสาหกรรม
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-tealNeon/15 flex items-center justify-center text-tealNeon text-xl shrink-0"><i class="fa-solid fa-building-shield"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">Digital Government</h3>
+                                        <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 leading-relaxed">
+                                            กระบวนการอำนวยบริการของรัฐผ่านแพลตฟอร์มพอร์ทัล คลาวด์ และระบบพิสูจน์ยืนยันตัวตนระดับชาติ
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-amberNeon/15 flex items-center justify-center text-amberNeon text-xl shrink-0"><i class="fa-solid fa-users"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">Digital Society</h3>
+                                        <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 leading-relaxed">
+                                            เครือข่ายสังคมออนไลน์ที่มีความหลากหลายและต้องการระบบที่เคารพจริยธรรมข้อมูลส่วนตัว
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Digital Connectivity" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Modern+Society'"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-deepDark/80 to-transparent"></div>
+                                </div>
+                                <div class="mt-4 p-3 bg-slate-950 rounded-xl border border-borderSlate text-xs sm:text-sm md:text-base text-slate-300 text-center">
+                                    <i class="fa-solid fa-circle-info text-tealNeon mr-2"></i> เป้าหมายร่วมกันคือการสร้าง <strong>"ความมั่นใจและความเป็นธรรม" (Trust & Security)</strong> ในทุกมิติ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 5: Why IT Laws Matter?",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">REGULATORY NECESSITY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ทำไมต้องมีกฎหมายเทคโนโลยีสารสนเทศ?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-3">
+                                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate">
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon flex items-center gap-2">
+                                        <i class="fa-solid fa-user-shield"></i> 1. คุ้มครองความปลอดภัยและสิทธิ์ประชาชน
+                                    </h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 pl-7">
+                                        ปกป้องข้อมูลอัตลักษณ์บุคคลจากการรั่วไหล คุ้มครองผู้ซื้อสินค้าออนไลน์ และรักษาสิทธิ์ความเป็นเจ้าของลิขสิทธิ์ซอฟต์แวร์
+                                    </p>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate">
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-tealNeon flex items-center gap-2">
+                                        <i class="fa-solid fa-briefcase"></i> 2. สนับสนุนและรองรับสิทธิในการประกอบธุรกิจ
+                                    </h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 pl-7">
+                                        รับรองความถูกต้องของสัญญา ลายมือชื่ออิเล็กทรอนิกส์ และเอกสารหลักฐานออนไลน์ที่พร้อมใช้อ้างอิงในศาล
+                                    </p>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate">
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-virus"></i> 3. ปราบปรามและตอบโต้ภัยความมั่นคงไซเบอร์
+                                    </h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-1 pl-7">
+                                        มีบทลงโทษต่อแฮกเกอร์ ผู้สร้างไวรัสเรียกค่าไถ่ ผู้ฉ้อโกงฟิชชิ่ง ตลอดจนปกป้องโครงสร้างพื้นฐานระดับชาติ
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Security Operations Center" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Security+Operations'"/>
+                                    <div class="absolute inset-0 bg-slate-950/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 6: Thailand Digital Law Ecosystem",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CORE PILLARS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ระบบกฎหมายดิจิทัลของประเทศไทย (Ecosystem)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 my-auto items-center">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Network Connectivity and Ecosystem" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=Digital+Ecosystem'"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-deepDark/90 to-transparent"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base md:text-lg">
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <span class="text-tealNeon font-bold font-tech text-base sm:text-lg">01 | พ.ร.บ.ธุรกรรมฯ</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1">รับรองผลสัญญารูปแบบไฟล์ ลายเซ็นอิเล็กทรอนิกส์ และมาตรฐาน Digital Signature</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <span class="text-emeraldNeon font-bold font-tech text-base sm:text-lg">02 | PDPA (คุ้มครองข้อมูล)</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1">กำกับควบคุมการจัดเก็บ นำไปใช้งาน เผยแพร่ หรือปกป้องข้อมูลส่วนตัวของบุคคล</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <span class="text-roseNeon font-bold font-tech text-base sm:text-lg">03 | พ.ร.บ.คอมพิวเตอร์</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1">มุ่งเน้นการปราบปรามความผิดต่อฐานระบบคอมพิวเตอร์ ป้องกันแฮกกิ้ง และสแปมข้อมูลเท็จ</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <span class="text-amberNeon font-bold font-tech text-base sm:text-lg">04 | พ.ร.บ.ความมั่นคงปลอดภัยไซเบอร์</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1">ดูแลเฝ้าระวังความเสี่ยงไซเบอร์ต่อโครงข่ายสำคัญและโครงสร้างพื้นฐานวิกฤต (CII) ของรัฐ</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-4 rounded-xl border border-borderSlate flex flex-col sm:flex-row justify-between items-center gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="bg-amberNeon/20 text-amberNeon p-2 rounded-lg text-lg shrink-0"><i class="fa-solid fa-brain"></i></span>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-snug">
+                                    <strong>กรณีวิเคราะห์:</strong> "หากแพลตฟอร์มนำเบอร์ติดต่อและประวัติซื้อสินค้าของลูกค้า ไปขายต่อเพื่อการทำโมเดลโฆษณาโดยไม่ได้รับความยินยอม จะขัดต่อกฎหมายใด?"
+                                </p>
+                            </div>
+                            <button onclick="revealAnswer('q_eco')" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shrink-0 w-full sm:w-auto">
+                                เปิดเฉลยวิเคราะห์
+                            </button>
+                        </div>
+                        <div id="ans_eco" class="hidden p-3.5 bg-slate-950 rounded-lg border border-tealNeon/30 text-xs sm:text-sm md:text-base text-emeraldNeon mt-1">
+                            <i class="fa-solid fa-circle-check mr-2"></i> <strong>เฉลยวิเคราะห์:</strong> ผิด พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) มาตรา 27 เรื่องห้ามเปิดเผยข้อมูลส่วนบุคคลโดยปราศจากฐานความยินยอมหรือสัญญารองรับ และหากเข้าถึงระบบโดยมิชอบ จะผิด พ.ร.บ. คอมพิวเตอร์ร่วมด้วย!
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 7: Part 2 Introduction",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 02</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            โครงสร้างลำดับชั้นกฎหมายดิจิทัล
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ทำความเข้าใจลำดับศักดิ์และการออกนโยบาย เพื่อให้กระบวนการจัดเก็บ บันทึก Log และมาตรฐานทางสถาปัตยกรรมไอทีสอดคล้องสิทธิหน้าที่ในชั้นสูงสุดของกฎหมายไทย
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Law Gavel and books" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Law+Concept'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 8: Structure of Thai Digital Laws",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">LAW HIERARCHY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ลำดับศักดิ์กฎหมายไทยและการกำหนดแนวปฏิบัติไอที</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-5 flex flex-col gap-4 w-full">
+                                <div class="bg-roseNeon/10 border border-roseNeon/20 p-4 rounded-xl">
+                                    <h4 class="text-xs sm:text-sm font-bold text-roseNeon uppercase tracking-widest font-tech">LEVEL 1: รัฐธรรมนูญ</h4>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 mt-1">กฎหมายสูงสุด สิทธิด้านความมั่นคงและคุ้มครองข้อมูลขั้นพื้นฐาน</p>
+                                </div>
+                                <div class="bg-tealNeon/10 border border-tealNeon/20 p-4 rounded-xl">
+                                    <h4 class="text-xs sm:text-sm font-bold text-tealNeon uppercase tracking-widest font-tech">LEVEL 2: พระราชบัญญัติ (Acts)</h4>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 mt-1">กฎหมายหลักเช่น PDPA, พ.ร.บ.คอมฯ และความปลอดภัยไซเบอร์</p>
+                                </div>
+                                <div class="bg-emeraldNeon/10 border border-emeraldNeon/20 p-4 rounded-xl">
+                                    <h4 class="text-xs sm:text-sm font-bold text-emeraldNeon uppercase tracking-widest font-tech">LEVEL 3 & 4: กฤษฎีกา / ประกาศ</h4>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 mt-1">กฎเกณฑ์ ข้อบังคับ ย่อย และมาตรฐานแนวทางปฏิบัติวิชาชีพไอที</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-tealNeon flex items-center gap-2 mb-2">
+                                        <i class="fa-solid fa-scale-unbalanced-flip"></i> หลักการสัมพันธ์ทางกฎหมาย (Hierarchy Concept)
+                                    </h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                        ข้อบังคับ ประกาศนโยบาย หรือข้อกำหนดใช้งานภายในแอปพลิเคชัน <strong>ห้ามขัดหรือแย้งต่อหลักการในพระราชบัญญัติหลัก</strong> และบทพระราชบัญญัติก็ต้องอยู่ใต้ขอบเขตหลักในรัฐธรรมนูญ
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 rounded-xl border border-borderSlate text-[11px] sm:text-xs md:text-sm text-slate-400 mt-4 leading-relaxed">
+                                    <strong>บทบาทไอที:</strong> นักพัฒนาจำเป็นต้องอ้างอิงและปรับเกณฑ์เงื่อนไข Term & Agreement ในระบบตาม "ประกาศแนวปฏิบัติล่าสุดของคณะกรรมการกำกับดูแลเฉพาะทาง" เพื่อให้สอดคล้องกับมาตรฐานทางกฎหมาย
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 9: Key Digital Laws",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACT COMPARISON</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">พ.ร.บ. หลักสำคัญในโครงสร้างไอทีไทย</h2>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full border border-borderSlate rounded-xl my-auto">
+                            <table class="w-full text-left text-xs sm:text-sm md:text-base border-collapse min-w-[600px]">
+                                <thead>
+                                    <tr class="bg-slate-900 border-b border-borderSlate text-slate-200">
+                                        <th class="p-4 font-bold text-tealNeon">ชื่อกฎหมาย (พ.ร.บ.)</th>
+                                        <th class="p-4 font-bold text-slate-200">เป้าหมายสูงสุด</th>
+                                        <th class="p-4 font-bold text-slate-200">ข้อบังคับหลักในงานระบบสารสนเทศ</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-borderSlate/50 text-slate-300">
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">ธุรกรรมทางอิเล็กทรอนิกส์</td>
+                                        <td class="p-4">รับรองความสมบูรณ์เทียบเท่าเปเปอร์กระดาษของสัญญาและ ลายมือชื่อ e-Signature</td>
+                                        <td class="p-4">ใช้วิธีระบุพยานหลักฐาน ตรวจสอบบันทึกที่น่าเชื่อถือ ยอมรับลายเซ็นดิจิทัลได้</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">พ.ร.บ. คอมพิวเตอร์</td>
+                                        <td class="p-4">ลงโทษคนโกง แฮกเกอร์ สปายแวร์ ตลอดจนระงับข้อมูลที่บิดเบือน เสียหาย</td>
+                                        <td class="p-4 text-roseNeon font-semibold">จัดเก็บ Log Files การเข้าใช้บริการเครือข่าย อย่างน้อย 90 วัน เป็นมาตรฐานบังคับ!</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">คุ้มครองข้อมูลส่วนบุคคล (PDPA)</td>
+                                        <td class="p-4">รับรองขอบเขตสิทธิความเป็นเจ้าของ มอบอำนาจในการอนุญาตให้เข้าถึง</td>
+                                        <td class="p-4 text-emeraldNeon font-semibold">ออกแบบ User Interface ให้แสดงหน้ายอมรับข้อตกลง Consent และเตรียมกลไกลบข้อมูล</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">ความปลอดภัยไซเบอร์</td>
+                                        <td class="p-4">ป้องกันโครงสร้างพื้นฐานวิกฤตของชาติ รับมือภัยพิบัติโครงข่ายขนาดใหญ่</td>
+                                        <td class="p-4">ติดตั้งระบบตรวจหาภัยและรายงานต่อ NCSA ในโครงสร้างสาธารณูปโภค</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 10: Relationship Between Laws",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">PRACTICAL COMPLIANCE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การประสานและบังคับใช้สิทธิกฎหมายไอทีในองค์กร</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon"><i class="fa-solid fa-store"></i> ตัวอย่าง: แพลตฟอร์ม E-Commerce / มาร์เก็ตเพลส</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed mt-2">
+                                    ผู้พัฒนาและควบคุมระบบไม่ได้ดำเนินงานโดยอาศัยกฎหมายเพียงแผ่นเดียว แต่ผสานหลายพ.ร.บ. ทำงานร่วมกันอย่างสอดประสาน:
+                                </p>
+                                <ul class="text-xs sm:text-sm text-slate-300 mt-2 space-y-2 pl-4 list-disc">
+                                    <li><strong>พ.ร.บ.ธุรกรรมฯ:</strong> ยอมรับการเซ็นรับพัสดุและจัดส่งใบเสร็จ e-Tax Invoice PDF ทางเมล</li>
+                                    <li><strong>พ.ร.บ.คอมพิวเตอร์:</strong> บันทึกเก็บรักษา Log ประวัติเซสชั่นล็อกอินเพื่อหาแฮกเกอร์</li>
+                                    <li><strong>PDPA:</strong> ล็อกการเข้าถึงไฟล์ข้อมูลที่อยู่นำส่งพัสดุ เพื่อป้องกันคนนอกสืบหาข้อมูล</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lg:col-span-6 flex flex-col gap-4">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Courier Warehouse Logistics" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=E-Commerce+Logistics'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                                <button onclick="revealAnswer('ans_delivery')" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                    <i class="fa-solid fa-lightbulb mr-2"></i> คำถามชวนคิด: แพลตฟอร์ม Lazada/Shopee ต้องระวังเรื่องใดที่สุด?
+                                </button>
+                                <div id="ans_delivery" class="hidden text-xs sm:text-sm md:text-base text-emeraldNeon p-3.5 bg-slate-950 border border-tealNeon/30 rounded-xl leading-relaxed">
+                                    <i class="fa-solid fa-circle-check mr-1"></i> ต้องปกป้องข้อมูลชื่อที่อยู่และประวัติการชำระเงินของลูกค้า (PDPA) ควบคู่ไปกับระบบการเก็บ Log ล็อกอินที่ปลอดภัย (พ.ร.บ. คอมพิวเตอร์) และความโปร่งใสในอัลกอริทึมแนะนำสินค้าตามกฎหมายแพลตฟอร์มบริการดิจิทัล!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 11: Part 3 Introduction",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 03</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            หน่วยงานกำกับดูแลด้านดิจิทัล
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ทำความรู้จัก 4 แกนหลักของหน่วยงานรัฐที่มีบทบาทชี้ชะตา ออกเกณฑ์ควบคุม สนับสนุน และประสานระงับภัยพิบัติความปลอดภัยทางเทคโนโลยีในสังคมไทย
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Network Cyber Defense Room" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Tech+Sovereignty'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 12: MDES",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">MINISTRY LEVEL</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม (MDES)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 flex flex-col gap-4">
+                                <div class="flex gap-4 items-start bg-slate-900/40 p-4 rounded-xl border border-borderSlate">
+                                    <div class="bg-tealNeon/15 text-tealNeon p-3 rounded-xl text-xl shrink-0"><i class="fa-solid fa-gavel"></i></div>
+                                    <div>
+                                        <h4 class="text-sm sm:text-base md:text-lg font-bold text-slate-100">ผู้กำหนดโครงสร้างระดับวิสัยทัศน์และการร่างกฎเกณฑ์หลัก</h4>
+                                        <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                            มีบทบาทรับผิดชอบนโยบายภาพรวมไอที ผลักดันการลงทุนโครงสร้างพื้นฐานปราบปรามภัยข้อมูลไซเบอร์ข่าวลวง และคุมนโยบายกระทรวงย่อยทั้งหมด
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start bg-slate-900/40 p-4 rounded-xl border border-borderSlate">
+                                    <div class="bg-emeraldNeon/15 text-emeraldNeon p-3 rounded-xl text-xl shrink-0"><i class="fa-solid fa-circle-nodes"></i></div>
+                                    <div>
+                                        <h4 class="text-sm sm:text-base md:text-lg font-bold text-slate-100">ขับเคลื่อนและประสานนโยบายดิจิทัลเพื่อประชาชน</h4>
+                                        <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                            กระตุ้นความตระหนักรู้ ส่งเสริมทักษะวิชาชีพไอทีระดับสากล และบูรณาการข้อมูลเชื่อมโยงคลาวด์ภาครัฐให้ปลอดภัย
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Modern Server Rack Setup" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=MDES'"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-deepDark/40 to-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 13: ETDA",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">STANDARDS & TRUST</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ETDA: สำนักงานพัฒนาธุรกรรมทางอิเล็กทรอนิกส์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="bg-tealNeon/15 text-tealNeon w-12 h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl font-bold font-tech">E</div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-100">ผู้กำกับและออกเกณฑ์มาตรฐานธุรกรรมอิเล็กทรอนิกส์</h3>
+                                </div>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ETDA มีบทบาทสำคัญในการควบคุมจดแจ้งและตรวจสอบผู้ให้บริการ <strong>"บริการแพลตฟอร์มดิจิทัล" (Digital Platform Service)</strong>, จัดทำร่างมาตรฐานวิธีการทางเทคโนโลยี (e-Standard), และดูแลส่งเสริมมาตรฐาน e-KYC (การยืนยันตัวตนดิจิทัล) และระบบ Digital Identity ของประเทศ
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Signing online contract on tablet" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=ETDA+Standard'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 14: PDPC",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DATA PRIVACY AUTHORITY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">PDPC: คณะกรรมการคุ้มครองข้อมูลส่วนบุคคล</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px] gap-2">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon flex items-center gap-2">
+                                        <i class="fa-solid fa-user-lock"></i> หน้าที่บังคับใช้กฎหมาย PDPA เชิงรุก
+                                    </h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed mt-2">
+                                        เป็นหน่วยงานหลักในการตรวจสอบ ตีความ ดำเนินการรับคำร้องเรียนจากประชาชนกรณีเกิดข้อมูลรั่วไหล และมีอำนาจออกโทษปรับทางปกครองตามกฎหมาย (ระวางปรับสูงสุด 5,000,000 บาท และโทษจำคุก)
+                                    </p>
+                                </div>
+                                <div class="bg-emeraldNeon/10 border border-emeraldNeon/20 p-4 rounded-xl text-xs sm:text-sm text-slate-200 mt-2">
+                                    <strong>หน้าที่เมื่อพบการรั่วไหล (Data Breach):</strong> ทีมไอทีหรือ DPO (Data Protection Officer) ในระบบ มีหน้าที่ต้องรายงานปัญหาต่อสำนักงาน PDPC ภายใน <strong>72 ชั่วโมง</strong> นับแต่ทราบเรื่อง!
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Datacenter server secure lock" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=Data+Protection'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 15: NCSA",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CYBER SEC DEFENSE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">NCSA: สำนักงานคณะกรรมการการรักษาความมั่นคงปลอดภัยไซเบอร์แห่งชาติ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px] gap-2">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                        <i class="fa-solid fa-triangle-exclamation"></i> ความมั่นคงปลอดภัยในระดับโครงสร้างพื้นฐานวิกฤต (CII)
+                                    </h3>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed mt-2">
+                                        ทำหน้าที่เฝ้าระวัง แจ้งเตือน และรับมือภัยพิบัติการโจมตีทางเครือข่ายต่อ 7 กลุ่มบริการวิกฤต (การเงิน, โทรคมนาคม, พลังงาน, ขนส่ง, บริการของรัฐ, สาธารณสุข, และความปลอดภัยสาธารณะ) โดยประสานงานตรงกับทีมศูนย์ประสานภัยความมั่นคงคอมพิวเตอร์ (ThaiCERT)
+                                    </p>
+                                </div>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400 mt-2">
+                                    <strong>ภัยคุกคามไซเบอร์ 3 ระดับ:</strong> เฝ้าระวังภัยระดับทั่วไป, ภัยร้ายแรง (กระทบระบบสาธารณูปโภคล่มสลาย), และภัยระดับวิกฤตที่เป็นภัยพิบัติต่อความมั่นคงของชาติ
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Cyber security command operations" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Cyber+Defense'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 16: Interactive Scenario",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE CLASSROOM CHALLENGE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กิจกรรมโต้ตอบ: ใครควรรับผิดชอบในสถานการณ์วิกฤตไซเบอร์?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech">🚨 INCIDENT RESPONSE</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white mt-3 leading-relaxed">
+                                    "ซอฟต์แวร์ประวัติผู้ป่วยของโรงพยาบาลถูกมัลแวร์เรียกค่าไถ่ (Ransomware) ล็อกข้อมูลจนระบบล่ม และพบว่าข้อมูลโรคประจำตัวรั่วไหลไปสู่กลุ่มบุคคลภายนอก"
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-2">
+                                    หากวิเคราะห์ตามกฎหมายไทย ฝ่ายบริหารระบบสารสนเทศของโรงพยาบาลต้องรีบจัดกระบวนการตามลำดับกฎเกณฑ์หลักอย่างไร?
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h4 class="text-xs sm:text-sm md:text-base font-bold text-emeraldNeon mb-1"><i class="fa-solid fa-list-check"></i> ตัวเลือกแนวทางปฏิบัติตอบ (คลิกคำตอบเพื่อส่งตรวจประเมิน)</h4>
+                                <div class="flex flex-col gap-2.5 text-xs sm:text-sm md:text-base">
+                                    <button onclick="selectIncidentChoice(1)" id="inc-btn-1" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all">
+                                        A. พยายามกู้คืนฐานข้อมูลภายในเงียบๆ ไม่รายงานองค์กรภายนอก เพื่อไม่ให้ชื่อเสียงเสียหาย
+                                    </button>
+                                    <button onclick="selectIncidentChoice(2)" id="inc-btn-2" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all">
+                                        B. ตกลงโอนเหรียญดิจิทัลเพื่อปลดล็อกไฟล์ระบบทันที และขอลบประวัติความผิดพลาดในระบบ Log
+                                    </button>
+                                    <button onclick="selectIncidentChoice(3)" id="inc-btn-3" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all">
+                                        C. แจ้งรายงานข้อมูลรั่วไหลต่อสำนักงาน PDPC ใน 72 ชม. และแจ้งรายงานประสาน NCSA ทันทีเนื่องจากเป็นหน่วยงาน CII
+                                    </button>
+                                </div>
+                                <div id="incident-feedback" class="text-xs sm:text-sm md:text-base font-semibold mt-2 min-h-[45px] leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 17: Part 4 Introduction",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 04</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            กฎหมายธุรกรรมทางอิเล็กทรอนิกส์
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ศึกษาขอบเขตความสมบูรณ์และเงื่อนไขทางกฎหมายของพยานหลักฐานอิเล็กทรอนิกส์ ตลอดจนความน่าเชื่อถือของลายมือชื่อดิจิทัล e-Signature ตามมาตรา 9 และ 26
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Business digital signature process" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Transactions'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 18: Electronic Transactions Act",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DIGITAL TRANSACTION VALIDITY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์ (ฉบับปรับปรุง พ.ศ. 2562)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-file-signature text-tealNeon"></i> หลักการยอมรับสถานะไฟล์ข้อมูลดิจิทัล
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ห้ามมิให้ปฏิเสธผลบังคับใช้ทางกฎหมายของพยานหลักฐานหรือสัญญารูปแบบข้อมูลดิจิทัล เพียงเพราะเนื้อหานั้นถูกบันทึกในรูปแบบไฟล์อิเล็กทรอนิกส์
+                                </p>
+                                <ul class="text-[11px] sm:text-xs md:text-sm text-slate-400 space-y-2 pl-4 list-disc">
+                                    <li>หากระบบมีมาตรฐานจัดเก็บพยานหลักฐานที่เชื่อถือได้ สามารถใช้เรียกดึงขึ้นมาอ่านได้อย่างสมบูรณ์ จะถือเป็นเอกสารต้นฉบับ</li>
+                                    <li>ประวัติการชำระเงิน การกดยืนยันสั่งสินค้า ถือเป็นหลักฐานสัญญาที่มีผลผูกมัดทางกฎหมายอย่างมีนัยสำคัญ</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full gap-2">
+                                <h4 class="text-sm sm:text-base font-bold text-emeraldNeon uppercase tracking-widest mb-2">ตัวอย่างที่พบบ่อยในธุรกรรมดิจิทัลไทย</h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-300">
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-envelope text-tealNeon mr-2"></i> อีเมลสมัครหรือตอบรับงาน</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-paper-plane text-tealNeon mr-2"></i> การกดยืนยัน OTP ย้ายเงิน</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-file-invoice-dollar text-tealNeon mr-2"></i> เอกสาร e-Tax Invoice PDF</div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-briefcase text-tealNeon mr-2"></i> สัญญาสมาร์ทคอนแทร็กต์</div>
+                                </div>
+                                <p class="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-4 italic">
+                                    <strong>ข้อจำกัดยกเว้น:</strong> สัญญาการสมรสและมรดก, สัญญาโอนย้ายที่ดิน ยังคงต้องการหนังสือแบบกระดาษเปียกจริงคู่กัน
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 19: Electronic Signature",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ELECTRONIC SIGNATURE (SECTION 9)</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ลายมือชื่ออิเล็กทรอนิกส์ (e-Signature) คืออะไร?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-check-double"></i> 3 เงื่อนไขสมบูรณ์ตามเกณฑ์มาตรา 9
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    การพิมพ์ชื่อท้ายเมล, การลากนิ้วเซ็นบนจอแท็บเล็ต หรือการกดปุ่ม "ตกลงยอมรับข้อกำหนด" จะถือเป็นลายเซ็นที่มีผลผูกพันสมบูรณ์ต่อเมื่อ:
+                                </p>
+                                <ul class="text-xs sm:text-sm md:text-base text-slate-300 space-y-2 pl-4 list-decimal leading-relaxed">
+                                    <li><strong>การระบุตัวตน (Identity Verification):</strong> วิธีการนั้นสามารถชี้เฉพาะตัวตนว่าเจ้าของลายเซ็นคือใครอย่างมีเอกลักษณ์และถูกต้อง</li>
+                                    <li><strong>การแสดงเจตนา (Intent to Sign):</strong> บ่งชี้ชัดเจนว่าต้องการลงนามเพื่อแสดงความยอมรับข้อความหรือในสัญญานั้นๆ</li>
+                                    <li><strong>ความน่าเชื่อถือของวิธีการ (Method Reliability):</strong> ได้รับการเก็บบันทึกประวัติและไม่เกิดการปลอมแปลง เปลี่ยนแปลงข้อมูลหลังลงนาม</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Mobile electronic payment or signing" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=e-Signature'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 20: Benefits & Business Case Analysis",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE LEARNING CHALLENGE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">วิเคราะห์กรณีศึกษา: ตกลงจ้างงานทางเมล มีผลสมบูรณ์ไหม?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs font-bold font-tech self-start">📂 BUSINESS LITIGATION</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-100 mt-2 leading-relaxed">
+                                    "ฟรีแลนซ์เขียนอีเมลระบุรายละเอียดขอบเขตและราคาส่งมอบงานให้บริษัทคู่ค้า ซึ่งผู้จัดการบริษัทได้ตอบอีเมลว่า 'ตกลงรับเงื่อนไขนี้ เริ่มงานพรุ่งนี้ได้เลย' พร้อมพิมพ์ชื่อตำแหน่งต่อท้าย"
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300">
+                                    เมื่อส่งมอบงานแล้วเสร็จ บริษัทปฏิเสธไม่จ่ายเงินโดยให้เหตุผลว่าไม่ได้มีการทำหนังสือเอกสารสัญญากระดาษและเซ็นลายเซ็นปากกาสดจริง
+                                </p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-cardDark to-slate-950 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <h4 class="text-sm sm:text-base font-bold text-emeraldNeon uppercase tracking-widest"><i class="fa-regular fa-circle-question"></i> คำวิเคราะห์สิทธิ์และผลลัพธ์พยานคดี</h4>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-2 leading-relaxed">
+                                        ให้นักศึกษาร่วมพิจารณาว่าข้อตกลงและลายชื่อท้ายอีเมลดังกล่าว ถือเป็นสัญญาและ e-Signature ที่มีน้ำหนักฟ้องร้องบังคับคดีในชั้นศาลได้หรือไม่?
+                                    </p>
+                                </div>
+                                <button onclick="revealAnswer('ans_contract')" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                    คลิกเปิดแนววิเคราะห์คดีจริงและคำตัดสิน
+                                </button>
+                                <div id="ans_contract" class="hidden text-xs sm:text-sm md:text-base text-emeraldNeon p-3.5 bg-slate-900 border border-emeraldNeon/20 rounded-xl leading-relaxed">
+                                    <i class="fa-solid fa-gavel mr-1"></i> <strong>คำวินิจฉัยคดี:</strong> มีผลบังคับและสมบูรณ์ตามกฎหมาย! ข้อความตอบตกลงและการพิมพ์ชื่อท้ายถือเป็น e-Signature ที่น่าเชื่อถือตาม พ.ร.บ.ธุรกรรมฯ มาตรา 9 (เทียบเคียงคำพิพากษาศาลฎีกาจริงของศาลไทย) คู่สัญญาจะบ่ายเบี่ยงการจ่ายเงินไม่ได้เด็ดขาด!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 21: Part 5 Introduction",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 05</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            กฎหมายบริการดิจิทัลและแพลตฟอร์มออนไลน์
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ศึกษาหน้าที่ของผู้ให้บริการแพลตฟอร์มออนไลน์ หน้าที่ในการคุ้มครองดูแลผู้ใช้ การยื่นรายงานจดแจ้งต่อ ETDA และความรับผิดชอบต่อรูปภาพ-คลิปวิดีโอตัดต่อดัดแปลงปลอมแปลง (AI Deepfakes)
+                        </p>
+                        <div class="relative w-full max-w-[500px] aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-slate-700 mt-2">
+                            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" 
+                                 alt="People designing digital platforms" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Digital+Platforms'"/>
+                            <div class="absolute inset-0 bg-slate-900/30"></div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 22: Online Platform Economy",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">PLATFORM GOVERNANCE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">พระราชกฤษฎีกาการประกอบธุรกิจบริการแพลตฟอร์มดิจิทัล</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">หน้าที่หลักของผู้ควบคุมแพลตฟอร์มรายใหญ่</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ผู้ให้บริการสื่อโซเชียล, บริการจัดซื้อส่งของเดลิเวอรี่ และแอปพลิเคชันตลาดกลาง (เช่น Shopee, Grab, TikTok Shop) ต้องคุ้มครองผู้บริโภคเพิ่มเติม:
+                                </p>
+                                <ul class="text-xs sm:text-sm text-slate-300 space-y-2 pl-4 list-disc leading-relaxed">
+                                    <li><strong>การเปิดเผยข้อมูลโปร่งใส:</strong> ต้องแจ้งรายละเอียดอัตราคิดค่าบริการ อัลกอริทึมจัดหมวดหมู่ และเงื่อนไขการใช้งาน</li>
+                                    <li><strong>การจัดตั้งกลไกเยียวยาภัยกลโกง:</strong> มีช่องทางการรับคำร้องแก้ไขปัญหาและเยียวยาผู้บริโภคเมื่อถูกผู้ขายแอบโกง</li>
+                                    <li><strong>หน้าที่ Notice & Take Down:</strong> ลบระงับบัญชีหรือเนื้อหาที่เข้าข่ายมิจฉาชีพผิดกฎหมายในเวลาจำกัดทันทีเมื่อได้รับแจ้ง</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full gap-2">
+                                <div>
+                                    <h4 class="text-sm sm:text-base font-bold text-tealNeon tracking-wide">สัดส่วนขนาดแพลตฟอร์มที่ต้องยื่นจดแจ้งต่อ ETDA</h4>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 text-xs sm:text-sm text-slate-300">
+                                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-user-check text-emeraldNeon mr-2"></i> บุคคลธรรมดา: รายได้เกิน 1.8 ล้านบาทต่อปี</div>
+                                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-building text-emeraldNeon mr-2"></i> นิติบุคคล: รายได้สเกลเกิน 50 ล้านบาทต่อปี</div>
+                                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-users text-emeraldNeon mr-2"></i> ยอดผู้ใช้บริการ (Active Users) เกิน 5,000 คนต่อเดือน</div>
+                                        <div class="p-3 bg-slate-950 rounded-xl border border-slate-800"><i class="fa-solid fa-magnifying-glass text-emeraldNeon mr-2"></i> แพลตฟอร์มเสิร์ช คลาวด์ และแพลตฟอร์มโฆษณา</div>
+                                    </div>
+                                </div>
+                                <p class="text-[11px] sm:text-xs md:text-sm text-slate-400 mt-4 leading-relaxed">
+                                    * หากแพลตฟอร์มเข้าเกณฑ์แต่ไม่ยอมยื่นข้อมูลในเวลาที่กำหนด จะมีโทษปรับและอาจถูกสั่งระงับการให้บริการชั่วคราว
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 23: Risks & Deepfake Debate",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">EMERGING RISKS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การรักษาความมั่นคงปลอดภัยและปัญหาภัย AI Deepfakes</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech self-start">🔥 DEBATABLE CASE</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-200 leading-relaxed">
+                                    "แฮกเกอร์ใช้เครื่องมือ Generative AI สร้างวิดีโอตัดต่อเสียงและรูปภาพดาราชื่อดังชาวไทยเพื่อจูงใจคนให้เล่นพนันออนไลน์"
+                                </h3>
+                                <p class="text-[11px] sm:text-xs md:text-sm text-slate-300 leading-relaxed">
+                                    ตามบทบาททางกฎหมายไทย ผู้มีส่วนร่วมในเหตุการณ์ได้รับผลทางกฎหมายอย่างไรบ้าง?
+                                </p>
+                                <ul class="text-[11px] sm:text-xs md:text-sm text-slate-400 space-y-2 pl-4 list-decimal leading-relaxed">
+                                    <li><strong>ผู้ดัดแปลงคลิป:</strong> ผิด พ.ร.บ. คอมพิวเตอร์มาตรา 14 (นำเข้าข้อมูลคอมพิวเตอร์เท็จ) และมาตรา 16 (เผยแพร่ภาพตัดต่อ ดัดแปลง หรือภาพเปลือยให้ผู้อื่นเสียหาย เสียชื่อเสียง)</li>
+                                    <li><strong>แพลตฟอร์มโซเชียล:</strong> หากไม่ยอมถอดถอนลบคลิปวิดีโอทันทีเมื่อผู้เสียหายแจ้งประสงค์ จะโดนฐานผู้ร่วมรับผิดหรือสนับสนุนการทำความผิดตามกฎหมาย</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=600&q=80" 
+                                         alt="AI face scanning biometrics wireframe concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=AI+Deepfake'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 24: Digital Platform Governance",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">FUTURE PATHS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แนวทางและทิศทางข้อบังคับเทคโนโลยีดิจิทัลในอนาคต</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate text-center flex flex-col justify-between min-h-[180px] hover:border-tealNeon transition-colors gap-2">
+                                <div class="text-emeraldNeon text-2xl mb-1"><i class="fa-solid fa-brain"></i></div>
+                                <h4 class="text-sm sm:text-base font-bold text-slate-100">AI Governance</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">จัดทำแนวทางการควบคุมการออกแบบปัญญาประดิษฐ์ให้โปร่งใส มีจรรยาบรรณ และตรวจสอบความเอียงได้</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate text-center flex flex-col justify-between min-h-[180px] hover:border-tealNeon transition-colors gap-2">
+                                <div class="text-tealNeon text-2xl mb-1"><i class="fa-solid fa-id-card"></i></div>
+                                <h4 class="text-sm sm:text-base font-bold text-slate-100">Digital Identity</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">การขยายผลล็อกอินระบบรัฐด้วยการยืนยันตัวตนดิจิทัล ปลอดภัย ลดการสแกนสำเนาบัตรกระดาษเปียก</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate text-center flex flex-col justify-between min-h-[180px] hover:border-tealNeon transition-colors gap-2">
+                                <div class="text-amberNeon text-2xl mb-1"><i class="fa-solid fa-signature"></i></div>
+                                <h4 class="text-sm sm:text-base font-bold text-slate-100">Trusted Services</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">การลงตราเวลาอิเล็กทรอนิกส์ (e-Timestamping) และการขยายระบบผู้ลงตราใบรับรองดิจิทัลป้องกันสวมรอย</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate text-center flex flex-col justify-between min-h-[180px] hover:border-tealNeon transition-colors gap-2">
+                                <div class="text-purple-400 text-2xl mb-1"><i class="fa-solid fa-circle-nodes"></i></div>
+                                <h4 class="text-sm sm:text-base font-bold text-slate-100">Smart Government</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">การส่งเชื่อมฐานข้อมูลของกระทรวงรัฐแบบไร้รอยต่อ ปลอดภัย และโปร่งใสโดยใช้โปรแกรมบล็อกเชน</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 25: Summary",
+                chapter: "SUMMARY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">KEY TAKEAWAYS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">บทสรุปและประเด็นสาระสำคัญของคาบเรียน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-emeraldNeon flex items-center gap-2"><i class="fa-solid fa-star"></i> 5 เสาหลักไอทีที่ควรจดจำในการทำงานอย่างถูกต้อง</h3>
+                                <ul class="text-xs sm:text-sm md:text-base text-slate-300 space-y-2 leading-relaxed">
+                                    <li><strong>1. ออกแบบระบบให้อยู่ในกรอบ:</strong> นักพัฒนา แอดมิน หรือ Data Sci ต้องคำนึงถึง PDPA มาตรฐานความยินยอม และการบันทึก Log 90 วันตาม พ.ร.บ. คอมพิวเตอร์</li>
+                                    <li><strong>2. เข้าใจเงื่อนไขของสัญญาดิจิทัล:</strong> การทำสัญญาทางอีเมลหรือ e-Signature ที่ระบุเจตนาและตัวตนคนทำจริง มีสิทธิฟ้องศาลได้เสมือนกระดาษเปียก</li>
+                                    <li><strong>3. ตระหนักความรับผิดชอบแพลตฟอร์ม:</strong> ผู้ให้บริการและพัฒนาแพลตฟอร์มดิจิทัลมีสิทธิหน้าที่บังคับในการคัดกรอง ลบไฟล์ มิจฉาชีพและจดแจ้งต่อ ETDA</li>
+                                    <li><strong>4. คอยติดตามประกาศย่อยล่าสุด:</strong> ศักดิ์และมาตรฐานไอทีขยับตามกฎเกณฑ์ของบอร์ด PDPC, ETDA และ NCSA สม่ำเสมอเพื่ออ้างอิงให้ถูกขอบข่าย</li>
+                                    <li><strong>5. พัฒนาไอทีที่มีธรรมาภิบาล:</strong> มิติความปลอดภัยไซเบอร์ต้องตั้งมั่นจากโครงสร้างและจริยธรรมทีมนักออกแบบตั้งแต่ขั้นตอนแรก</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lg:col-span-5 bg-gradient-to-br from-cardDark to-slate-950 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px] text-center items-center gap-4">
+                                <div class="text-amberNeon text-2xl sm:text-3xl mb-1"><i class="fa-solid fa-comments"></i></div>
+                                <h4 class="text-sm sm:text-base md:text-lg font-bold text-white font-tech uppercase tracking-widest">Think-Pair-Share Class Discussion</h4>
+                                <div class="bg-slate-900/80 border border-borderSlate p-4 rounded-xl text-left text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    <p class="font-bold text-tealNeon mb-1"><i class="fa-regular fa-comment-dots mr-1"></i> คำถามชวนคิดท้ายคาบเรียน:</p>
+                                    "ในอนาคต หากคุณทำระบบแพลตฟอร์ม แล้วพบข้อมูลรั่วไหล แต่คุณเลือกที่จะเงียบเพื่อไม่ให้หุ้นตก คุณคิดว่าจะมีผลเสียย้อนกลับมาหาคุณอย่างไรบ้าง?"
+                                </div>
+                                <p class="text-[11px] sm:text-xs text-slate-500">จับกลุ่มแลกเปลี่ยนข้อเสนอแนะกับเพื่อน 5 นาทีแล้วตอบข้อคิดเห็นร่วมกัน</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 26: Case Study 1 & 2",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE WORKSHOP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แบบฝึกหัดทบทวนวิเคราะห์กรณีศึกษา (ข้อ 1 และข้อ 2)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <!-- Case Study 1 -->
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 1: โดนโกงซื้อสินค้าออนไลน์แล้วแพลตฟอร์มปัดความรับผิดชอบ</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        นักศึกษาคลิกสั่งซื้อคอมพิวเตอร์ทางแอปพลิเคชันตลาดออนไลน์ชื่อดัง แต่โอนเงินแล้วไม่ได้รับสินค้าจริง และสืบพบว่าร้านเป็นบัญชีม้า แพลตฟอร์มปฏิเสธความช่วยเหลือโดยระบุว่าเป็นข้อตกลงร่วมเฉพาะตัวบุคคล
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case1')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        เปิดข้อวินิจฉัยทางกฎหมายและการเรียกร้องสิทธิ์
+                                    </button>
+                                    <div id="ans_case1" class="hidden text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. หน้าที่ของแพลตฟอร์ม:</strong> ตามพระราชกฤษฎีกาแพลตฟอร์มบริการดิจิทัล แพลตฟอร์มมีหน้าที่ระบุอัตราเงื่อนไขความโปร่งใสและสร้างช่องทางการช่วยเหลือร้องเรียนเพื่อป้องกันมิจฉาชีพ หากเพิกเฉยจะมีความผิดร่วม<br>
+                                        <strong>2. การดำเนินการ:</strong> แจ้งรายงานปัญหาต่อทีมบริหารความเสี่ยง ETDA ดำเนินคดีฟ้องสิทธิ์ผู้บริโภค และแจ้งสายด่วน สอท. เพื่อดำเนินการแช่แข็งบัญชีม้า
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Case Study 2 -->
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 2: การแอบเก็บและแบ่งปันประวัติตำแหน่ง GPS</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        ผู้พัฒนาแอปสุขภาพ แอบฝังคำสั่งให้แอปคอยส่งประวัติตำแหน่งพิกัด GPS แผนที่ และเบอร์โทรสมุดติดต่อของผู้ใช้งานกลับมาประมวลผลที่ฐานข้อมูลหลังบ้าน เพื่อนำไปคัดกรองสร้างโมเดลส่งเสริมการตลาดในอนาคต
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case2')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        เปิดข้อวินิจฉัยทางกฎหมายและการเรียกร้องสิทธิ์
+                                    </button>
+                                    <div id="ans_case2" class="hidden text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. ความเสี่ยง PDPA:</strong> ขัดต่อหลัก Data Minimization (จัดเก็บข้อมูลเกินกว่าที่จำเป็นและขอบเขตหลักของการทำงานของระบบแอปพลิเคชัน) และผิดข้อบังคับห้ามใช้งานนอกวัตถุประสงค์โดยไร้ Consent<br>
+                                        <strong>2. โทษและผู้กำกับดูแล:</strong> ผู้ใช้มีสิทธิ์ร้องเรียนโดยตรงต่อคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล (PDPC) มีโทษปรับสูงตามเกณฑ์กฎหมายคุ้มครองส่วนบุคคลไทย
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 27: Case Study 3 & 4",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE WORKSHOP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แบบฝึกหัดทบทวนวิเคราะห์กรณีศึกษา (ข้อ 3 และข้อ 4)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <!-- Case Study 3 -->
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 3: พนักงานบริษัทขโมยไฟล์ข้อมูลเบอร์โทรศัพท์ไปเสนอขายคู่แข่ง</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        พนักงานไอทีระดับดูแลดาต้าเบสของระบบส่งอาหาร แอบดึงไฟล์รายชื่อ ที่อยู่ และเบอร์โทรของลูกค้าที่มีประวัติยอดชำระสูงสุดไปแอบขายให้บริษัทวิเคราะห์โมเดลโฆษณาเครือข่ายคู่แข่ง
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case3')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        เปิดข้อวินิจฉัยทางกฎหมายและการเรียกร้องสิทธิ์
+                                    </button>
+                                    <div id="ans_case3" class="hidden text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. ความผิดพนักงาน:</strong> ผิด พ.ร.บ. คอมพิวเตอร์มาตรา 12 (เข้าถึงและดึงฐานข้อมูลสำคัญของระบบโดยมิชอบ) และมีความผิดอาญาจำคุกตามมาตราคุ้มครองสิทธิ์ใน PDPA<br>
+                                        <strong>2. ความเสี่ยงของบริษัท:</strong> บริษัทอาจโดนบทปรับและรับโทษเนื่องจากขาดระบบ Access Control และมาตรการที่เหมาะสมในการดูแลจำกัดสิทธิการเข้าถึงฐานข้อมูลลูกค้า
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Case Study 4 -->
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <span class="bg-tealNeon/15 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 4: การลงสัญญารับจ้างผ่านแอปยืนยันด้วยภาพถ่ายใบหน้าและลายเซ็นจอสัมผัส</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        นักธุรกิจเซ็นเอกสารตกลงจัดซื้อวัตถุดิบทำขนมราคารวม 5 แสนบาท โดยเขียนลายมือชื่อด้วยปลายนิ้วผ่านหน้าต่างจอสัมผัส และกดยืนยัน OTP พร้อมแนบรูปถ่ายตนเองคู่กับเอกสารส่งทางหน้าแอปแชท
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case4')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        เปิดข้อวินิจฉัยทางกฎหมายและการเรียกร้องสิทธิ์
+                                    </button>
+                                    <div id="ans_case4" class="hidden text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. ความน่าเชื่อถือ:</strong> สมบูรณ์และถูกต้องสอดคล้องตามเกณฑ์มาตรฐาน พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์มาตรา 9 และ 26 และระเบียบ ETDA เนื่องจากสามารถตรวจสอบสืบค้นย้อนกลับพยานได้อย่างน่าเชื่อถือ<br>
+                                        <strong>2. สิทธิและข้อดี:</strong> มีผลเทียบเท่าเอกสารหนังสือลายเซ็นกระดาษสดจริง สามารถอ้างอิงเป็นหลักฐานพยานในศาลเพื่อการฟ้องร้องบังคับสัญญากรณีเกิดคดีได้จริง
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 28: Case Study 5 & Reflection",
+                chapter: "REFLECTION",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">FINAL ASSIGNMENT & CLOSING</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แบบฝึกหัดกรณีศึกษาที่ 5 และมอบหมายการบ้านเชิงลึก</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <!-- Case Study 5 -->
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">CASE STUDY 5: อคติและปัญหาละเมิดสิทธิ์ในชุดข้อมูลการเทรน AI</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        ทีมนักพัฒนาสร้างโปรแกรม AI คัดเลือกคนทำงาน โดยไปดูดเอาข้อมูลรูปภาพและผลงานสเก็ตช์ภาพเขียนโปรแกรมของนักวาดชาวไทยจากหลายเว็บไซต์เพื่อมาทำ Dataset ฝึกสอน โดยไม่ได้ขออนุญาตสิทธิ์หรือระบุที่มา
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case5')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        เปิดแนวพิจารณาทางกฎหมายและจริยธรรม
+                                    </button>
+                                    <div id="ans_case5" class="hidden text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. สิทธิ์ทรัพย์สินทางปัญญา:</strong> เข้าข่ายละเมิดลิขสิทธิ์ซอฟต์แวร์และผลงานวิชาชีพสากลตาม พ.ร.บ. ลิขสิทธิ์ ของไทย (รูปวาด โค้ดคอมพิวเตอร์ และงานภาพถือเป็นงานสร้างสรรค์คุ้มครอง)<br>
+                                        <strong>2. ข้อแนะนำธรรมาภิบาล:</strong> ควรตรวจสอบสัญญาอนุญาต Open Source (License Type) และปฏิบัติตามคู่มือการจัดการจริยธรรม AI ในระดับสากล
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Homework & Reflection Assignment -->
+                            <div class="bg-gradient-to-br from-cardDark to-slate-950 p-4 sm:p-6 rounded-2xl border border-emeraldNeon/30 flex flex-col justify-between min-h-[220px] gap-4">
+                                <div>
+                                    <span class="text-emeraldNeon font-semibold text-xs sm:text-sm uppercase tracking-widest"><i class="fa-solid fa-clipboard-list"></i> ASSIGNMENT & REFLECTION PROMPT</span>
+                                    <h4 class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed font-medium">
+                                        <strong>การบ้านท้ายคาบเรียน (1 หน้ากระดาษ A4):</strong> ให้นักศึกษาทำการค้นหาข่าวสารวิศวกรรมเทคโนโลยีและภัยพิบัติทางคอมพิวเตอร์ใน <strong>ชีวิตจริงอย่างน้อย 1 ข่าว</strong> (ข้อมูลรั่วไหล แฮกกิ้งระบบ หรือภาพคลิป Deepfake) มาทำการสรุป ย่อความ วิเคราะห์จุดผิดพลาดทางกฎหมาย และชี้แนวทางแก้ไขตามพ.ร.บ. หรือจริยธรรมสากลที่ศึกษา
+                                    </h4>
+                                </div>
+                                
+                                <div class="bg-slate-900 p-4 rounded-xl border border-borderSlate text-xs sm:text-sm md:text-base text-slate-400 leading-relaxed">
+                                    <p class="font-bold text-amberNeon mb-1"><i class="fa-solid fa-pencil"></i> กิจกรรมสะท้อนความคิดปิดบทเรียน (Reflection - 5 นาที):</p>
+                                    "หากคุณทำหน้าที่วางระบบสถาปัตยกรรมไอทีในอนาคต คุณจะเริ่มต้นออกแบบระบบป้องกันการรั่วไหลของข้อมูลเพื่อประโยชน์สูงสุดอย่างไรให้เกินมาตรฐานที่กฎหมายไทยบังคับ?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        // Populate Slide Navigator Sidebar
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebar-list");
+            listContainer.innerHTML = "";
+            slides.forEach((slide, index) => {
+                const btn = document.createElement("button");
+                btn.className = `text-left text-xs sm:text-sm p-3 rounded-xl border transition-all flex justify-between items-center w-full ${
+                    index === currentSlideIndex 
+                        ? "bg-tealNeon/10 border-tealNeon text-tealNeon font-bold" 
+                        : "bg-slate-900 border-borderSlate hover:border-slate-500 text-slate-400"
+                }`;
+                btn.onclick = () => {
+                    goToSlide(index);
+                    if (window.innerWidth < 640) { // Auto close sidebar on mobile tap
+                        toggleSidebar();
+                    }
+                };
+                
+                // Truncate title for sidebar to keep it neat
+                const titleText = slide.title.length > 28 ? slide.title.substring(0, 28) + "..." : slide.title;
+                btn.innerHTML = `
+                    <span>${titleText}</span>
+                    <span class="font-tech text-[10px] sm:text-xs bg-slate-800 px-2 py-0.5 rounded text-slate-500">${slide.chapter}</span>
+                `;
+                listContainer.appendChild(btn);
+            });
+        }
+
+        // Sidebar drawer toggler
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("translate-x-full");
+        }
+
+        // Render current slide
+        function renderSlide() {
+            const currentSlide = slides[currentSlideIndex];
+            const slideContainer = document.getElementById("slide-content");
+            
+            // Format slide number
+            const numText = (currentSlideIndex + 1).toString().padStart(2, '0');
+            const totalText = slides.length.toString().padStart(2, '0');
+            document.getElementById("slide-number-display").innerText = `SLIDE ${numText} / ${totalText}`;
+            
+            // Inject slide content html
+            slideContainer.innerHTML = currentSlide.html;
+            
+            // Rehydrate interactive states (Checkboxes/Inputs for Warm-up and Quizzes)
+            rehydrateInteractiveElements();
+        }
+
+        // Navigate slide
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            renderSidebar();
+        }
+
+        // Show/Hide click to reveal elements
+        function revealAnswer(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.classList.toggle("hidden");
+            }
+        }
+
+        // Handle Active Checkboxes on Slide 2
+        function handleWarmupClick(id) {
+            const checkbox = document.getElementById(id);
+            warmUpStates[id] = checkbox.checked;
+        }
+
+        // Handle Multi-choice state inside Slide 16 (Incident Response Quiz)
+        function selectIncidentChoice(choiceId) {
+            miniQuizAnswers["slide16"] = choiceId;
+            const feedback = document.getElementById("incident-feedback");
+            
+            // Reset buttons style
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`inc-btn-${i}`);
+                if (btn) {
+                    btn.className = "text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300 text-xs sm:text-sm";
+                }
+            }
+            
+            const selectedBtn = document.getElementById(`inc-btn-${choiceId}`);
+            if (!selectedBtn) return;
+            
+            if (choiceId === 3) {
+                selectedBtn.className = "text-left p-3 rounded-xl bg-emeraldNeon/10 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold text-xs sm:text-sm";
+                feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ถูกต้องตามขั้นตอนมาตรฐานทางกฎหมาย! การแจ้งรายงานข้อมูลรั่วไหลต่อ PDPC ใน 72 ชม. และรายงานประสาน NCSA ทันทีเนื่องจากเป็นโครงข่ายโรงพยาบาลวิกฤต (CII) ถือเป็นกระบวนการรักษาความปลอดภัยอย่างมืออาชีพ</span>`;
+            } else if (choiceId === 1) {
+                selectedBtn.className = "text-left p-3 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-xs sm:text-sm";
+                feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ผิดกฎหมายและผิดต่อจริยธรรม! หากปล่อยปละละเลยไม่ยอมรายงานข้อมูลรั่วต่อ PDPC ภายใน 72 ชม. จะมีโทษปรับทางปกครองถึง 5 ล้านบาท และส่งผลเสียร้ายแรงต่อโรงพยาบาล</span>`;
+            } else {
+                selectedBtn.className = "text-left p-3 rounded-xl bg-amberNeon/10 border-amberNeon/50 text-amberNeon transition-all font-bold text-xs sm:text-sm";
+                feedback.innerHTML = `<span class="text-amberNeon"><i class="fa-solid fa-triangle-exclamation"></i> ขั้นตอนมีความเสี่ยงสูง! การโอนเงินจ่ายค่าไถ่ให้มิจฉาชีพไม่ได้ช่วยการันตีความปลอดภัยข้อมูลรั่ว และคุณจำเป็นต้องแจ้งรายงานปัญหาต่อ PDPC ควบคู่กันตามหน้าที่อย่างเคร่งครัด</span>`;
+            }
+        }
+
+        // Rehydrate/restore state of elements after slide change
+        function rehydrateInteractiveElements() {
+            // Restore Slide 2 checkboxes
+            for (let id in warmUpStates) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.checked = warmUpStates[id];
+                }
+            }
+            // Restore Slide 16 quiz selection
+            if (miniQuizAnswers["slide16"]) {
+                selectIncidentChoice(miniQuizAnswers["slide16"]);
+            }
+        }
+
+        // Keyboard Navigation Listener
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Touch Swipe Navigation for Perfect Mobile Responsiveness
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        function handleGesture() {
+            if (touchendX < touchstartX - 60) {
+                nextSlide(); // Swipe Left -> Go Next Slide
+            }
+            if (touchendX > touchstartX + 60) {
+                prevSlide(); // Swipe Right -> Go Previous Slide
+            }
+        }
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        // Initialize presentation on window load
+        window.onload = () => {
+            renderSlide();
+            renderSidebar();
+        }
+    </script>
+</body>
+</html>
