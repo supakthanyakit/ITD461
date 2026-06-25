@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พระราชบัญญัติว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์ - IT Laws & Ethics</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#070a13',
+                        cardDark: '#0f172a',
+                        borderSlate: '#334155',
+                        emeraldNeon: '#10b981',
+                        tealNeon: '#06b6d4',
+                        amberNeon: '#f59e0b',
+                        roseNeon: '#f43f5e',
+                        lawRed: '#ef4444',
+                        secBlue: '#3b82f6'
+                    },
+                    fontFamily: {
+                        thai: ['"IBM Plex Sans Thai"', 'Sarabun', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+            background-color: #070a13;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar for panel and overflow slide content */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a13;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        .slide-frame {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen select-none">
+
+    <!-- Top Navigation Utility Bar -->
+    <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
+        <div class="flex items-center gap-3">
+            <span class="font-tech text-tealNeon font-bold tracking-wider text-sm sm:text-base md:text-lg">IT LAWS & ETHICS</span>
+            <span class="text-[10px] sm:text-xs bg-slate-800 text-slate-300 px-2 sm:px-3 py-1 rounded-full border border-slate-700">BACHELOR PROGRAM</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-6">
+            <span class="text-xs sm:text-sm text-slate-300 hidden lg:inline"><i class="fa-solid fa-clock mr-2 text-tealNeon"></i> คาบเรียน: 3-4 ชั่วโมง (พ.ร.บ. คอมพิวเตอร์ + Workshops)</span>
+            <button onclick="toggleSidebar()" class="text-slate-200 hover:text-tealNeon transition-all text-xs sm:text-sm px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-borderSlate flex items-center gap-2">
+                <i class="fa-solid fa-list-ul"></i> <span class="font-semibold hidden sm:inline">สไลด์ทั้งหมด</span><span class="sm:hidden font-semibold">เมนู</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
+        
+        <!-- Slide Sidebar Navigator -->
+        <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-80 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
+            <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
+                <h3 class="font-tech text-tealNeon text-base tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> SLIDE NAVIGATION
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-roseNeon text-lg sm:hidden">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="sidebar-list" class="flex flex-col gap-2">
+                <!-- Sidebar items dynamically rendered here -->
+            </div>
+        </aside>
+
+        <!-- Slide Frame Container: Fully Responsive Fluid Heights with Aspect Ratio on Desktop -->
+        <div class="w-full max-w-7xl h-auto min-h-[75vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-5 sm:p-8 md:p-14 flex flex-col justify-between overflow-y-auto slide-frame">
+            
+            <!-- Abstract Tech Background Ornaments inside slide -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-lawRed/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-secBlue/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <!-- Slide Content Window (Dynamic Injection) -->
+            <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
+                <!-- Slide content will be rendered here by JS -->
+            </div>
+
+            <!-- Slide Footer -->
+            <div class="border-t border-borderSlate/60 pt-4 mt-6 sm:mt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm text-slate-400 relative z-10">
+                <div class="flex items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <span class="font-tech text-tealNeon font-bold">CLASS: COMPUTER CRIME ACT</span>
+                    <span class="hidden sm:inline text-slate-600">|</span>
+                    <span class="hidden sm:inline">คณะเทคโนโลยีสารสนเทศเพื่อความมั่นคงปลอดภัย</span>
+                </div>
+                <div class="font-tech text-emeraldNeon font-bold text-sm sm:text-base" id="slide-number-display">
+                    SLIDE 01 / 35
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Controls Floating Dock -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
+        <button onclick="prevSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ก่อนหน้า">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-4 py-1 flex items-center gap-2 hidden sm:flex">
+            ควบคุมด้วยคีย์บอร์ด <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">←</kbd> <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">→</kbd>
+        </span>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-3 py-1 flex items-center gap-2 sm:hidden">
+            <i class="fa-solid fa-hand-pointer text-tealNeon"></i> ปัดหน้าจอเพื่อเปลี่ยนสไลด์
+        </span>
+        <button onclick="nextSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ถัดไป">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Script Block containing 35 high quality slides -->
+    <script>
+        let warmUpStates = {};
+        let miniQuizAnswers = {};
+
+        const slides = [
+            {
+                title: "Slide 1: Title Slide",
+                chapter: "WELCOME",
+                html: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center h-full py-2">
+                        <div class="lg:col-span-7 flex flex-col justify-center gap-4 sm:gap-6">
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold uppercase bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full self-start">LECTURE UNIT</span>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                                พ.ร.บ. ว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์
+                            </h1>
+                            <h2 class="text-xl sm:text-2xl md:text-3xl text-tealNeon font-medium -mt-2">
+                                Computer Crime Act of Thailand
+                            </h2>
+                            <div class="border-l-4 border-roseNeon pl-4 sm:pl-5 py-2 mt-2">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon tracking-wide">OBJECTIVES / วัตถุประสงค์การเรียนรู้</h3>
+                                <ul class="text-xs sm:text-sm md:text-base text-slate-300 mt-2 space-y-1.5">
+                                    <li><i class="fa-solid fa-circle-check text-roseNeon mr-2"></i> อธิบายสาระสำคัญของกฎหมายและสิทธิหน้าที่ขั้นต้นได้</li>
+                                    <li><i class="fa-solid fa-circle-check text-roseNeon mr-2"></i> วิเคราะห์เหตุภัยคุกคามไซเบอร์และบทลงโทษในคดีจริง</li>
+                                    <li><i class="fa-solid fa-circle-check text-roseNeon mr-2"></i> ตระหนักถึงความรับผิดชอบของผู้ให้บริการ (Service Provider)</li>
+                                    <li><i class="fa-solid fa-circle-check text-roseNeon mr-2"></i> ประยุกต์ใช้กฎหมายอย่างมีจริยธรรมในการสื่อสารบนสังคมออนไลน์</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 h-full flex justify-center items-center">
+                            <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Cybersecurity Operations Center" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Cyber+Security'"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs text-slate-300 bg-slate-900/80 px-2 py-1 rounded">Securing Digital Sovereignty</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 2: Warm-up Activity",
+                chapter: "WARM UP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE PARTICIPATION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white flex items-center gap-2 mt-1">
+                                <i class="fa-solid fa-comments text-tealNeon"></i> กิจกรรม: คิดก่อนเรียน (Warm-up Activity)
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-square-check mr-2"></i> พฤติกรรมเหล่านี้... ข้อไหนบ้างที่คุณคิดว่าอาจมีโทษทางกฎหมาย พ.ร.บ.คอมฯ? (ลองติ๊กเล่นๆ)</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm sm:text-base md:text-lg">
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm1" onclick="handleWarmupClick('warm1')" class="accent-roseNeon w-5 h-5"> ล็อกอินเข้าเฟซบุ๊กเพื่อนไปดูเฉลยข้อสอบ
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm2" onclick="handleWarmupClick('warm2')" class="accent-roseNeon w-5 h-5"> แอบดูโทรศัพท์ของแฟน
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm3" onclick="handleWarmupClick('warm3')" class="accent-roseNeon w-5 h-5"> โพสต์แชร์ข่าวปลอมโดยรู้เท่าไม่ถึงการณ์
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm4" onclick="handleWarmupClick('warm4')" class="accent-roseNeon w-5 h-5"> แอดมินลบโพสต์ช้ากว่า 24 ชั่วโมง
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm5" onclick="handleWarmupClick('warm5')" class="accent-roseNeon w-5 h-5"> ยิง DDoS ถล่มคลาสเรียนออนไลน์
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700 cursor-pointer transition-colors text-roseNeon font-semibold">
+                                        <input type="checkbox" id="warm6" onclick="handleWarmupClick('warm6')" class="accent-roseNeon w-5 h-5"> คิดว่าผิดทุกข้อที่กล่าวมา!
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl border border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Digital crime risk discussion" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Security+Risk'"/>
+                                    <div class="absolute inset-0 bg-slate-900/30"></div>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-amberNeon/20 to-transparent border-l-4 border-amberNeon rounded-r-lg">
+                                    <h4 class="text-sm sm:text-base font-bold text-slate-100 flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-question text-amberNeon text-lg"></i> ประเด็นอภิปรายเริ่มต้น:
+                                    </h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                                        "ในโลกยุคดิจิทัล ความเร็วในการกระจายเนื้อหาสามารถทำลายหรือคุกคามชีวิตคนคนหนึ่งได้ในไม่กี่วินาที เราจึงต้องการข้อกฎหมายที่เข้มงวด"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 3: Cybercrime in Thailand Overview",
+                chapter: "CONTEXT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CYBER THREAT LANDSCAPE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สถิติภัยไซเบอร์ในประเทศไทย (พุ่งทะยานสูงสุดในอาเซียน)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-3">
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-roseNeon/15 flex items-center justify-center text-roseNeon text-xl shrink-0"><i class="fa-solid fa-users-slash"></i></div>
+                                    <div>
+                                        <h3 class="text-sm sm:text-base md:text-lg font-bold text-white">คดีหลอกโอนเงิน / แก๊งคอลเซ็นเตอร์</h3>
+                                        <p class="text-xs sm:text-sm text-slate-300 mt-1">ความเสียหายสะสมในประเทศไทยทะลุกว่าหมื่นล้านบาทต่อปี มีอัตราบัญชีม้าพุ่งสูงขึ้น</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-amberNeon/15 flex items-center justify-center text-amberNeon text-xl shrink-0"><i class="fa-solid fa-server"></i></div>
+                                    <div>
+                                        <h3 class="text-sm sm:text-base md:text-lg font-bold text-white">การแฮกข้อมูลและการเรียกค่าไถ่ระบบ (Ransomware)</h3>
+                                        <p class="text-xs sm:text-sm text-slate-300 mt-1">เป้าหมายสูงสุดคือระบบข้อมูลทางการแพทย์ โรงพยาบาล และหน่วยงานราชการส่วนท้องถิ่น</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-tealNeon/15 flex items-center justify-center text-tealNeon text-xl shrink-0"><i class="fa-solid fa-circle-exclamation"></i></div>
+                                    <div>
+                                        <h3 class="text-sm sm:text-base md:text-lg font-bold text-white">ข่าวปลอมและเฟคนิวส์ (Fake News)</h3>
+                                        <p class="text-xs sm:text-sm text-slate-300 mt-1">กระจายตัวเร็วผ่าน Line, Facebook และ TikTok ก่อความแตกตื่นและเข้าใจผิดเรื่องนโยบายรัฐ</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Digital Cybercrime" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Modern+Hacker'"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-deepDark/85 to-transparent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 4: Why Law Matters?",
+                chapter: "CONTEXT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">REGULATORY PURPOSE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ทำไมประเทศไทยจึงต้องมีกฎหมายคอมพิวเตอร์?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-3 text-sm sm:text-base">
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <h3 class="font-bold text-roseNeon flex items-center gap-2 text-base md:text-lg">
+                                        <i class="fa-solid fa-gavel"></i> 1. การกำหนดบทลงโทษที่ชัดเจนทางอาญา
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1 pl-6">
+                                        เพื่อให้พนักงานสอบสวนสามารถจับกุม ดำเนินคดี และสั่งฟ้องแฮกเกอร์ผู้ทำลายระบบคอมพิวเตอร์ได้โดยตรง
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <h3 class="font-bold text-tealNeon flex items-center gap-2 text-base md:text-lg">
+                                        <i class="fa-solid fa-user-shield"></i> 2. กำหนดกฎเกณฑ์ความปลอดภัยข้อมูล
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1 pl-6">
+                                        บังคับให้ผู้ให้บริการต้องรับผิดชอบเก็บบันทึกประวัติการจราจรทางเครือข่าย เพื่อสืบสวนหาตัวคนทำผิด
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-800">
+                                    <h3 class="font-bold text-emeraldNeon flex items-center gap-2 text-base md:text-lg">
+                                        <i class="fa-solid fa-globe"></i> 3. รองรับความปลอดภัยเศรษฐกิจดิจิทัล
+                                    </h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1 pl-6">
+                                        สร้างความเชื่อมั่นให้นักลงทุนต่างชาติ ว่าประเทศไทยมีกฎเกณฑ์ไซเบอร์ตามมาตรฐานสากล
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Law Hammer" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Law+Hammer'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 5: Evolution of Law",
+                chapter: "EVOLUTION",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">LEGISLATIVE EVOLUTION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">เปรียบเทียบวิวัฒนาการ พ.ร.บ. คอมพิวเตอร์ (ปี 2550 vs ปี 2560)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate">
+                                <span class="bg-secBlue/20 text-secBlue px-3 py-1 rounded text-xs font-bold font-tech">พ.ร.บ. ฉบับเดิม พ.ศ. 2550</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-100 mt-3">เน้นความผิดต่อระบบขั้นพื้นฐาน</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                    มุ่งเน้นการลงโทษการแฮก เจาะระบบคอมพิวเตอร์ และการแก้ไขไฟล์ข้อมูลโดยมิชอบ โดยข้อความส่วนใหญ่ยังไม่ได้ควบคุมเรื่องสแปมโฆษณา และความมั่นคงเชิงประมวลผลยุคสมาร์ตโฟน
+                                </p>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech">ฉบับแก้ไขเพิ่มเติม (ฉบับที่ 2) พ.ศ. 2560</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-100 mt-3">ควบคุมพฤติกรรมข้อมูลสารสนเทศ</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                    - ปรับเพิ่มเกณฑ์ "โทษปรับสแปมเมล/สแปมไลน์" (มาตรา 11)<br>
+                                    - คุมเข้ม "ข่าวปลอม (Fake News)" และการบิดเบือนข้อมูลเพื่อหลอกลวงประชาชน<br>
+                                    - เพิ่มขอบข่ายสิทธิ "Notice and Take Down" ของแอดมินเพจ
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-roseNeon/5 border-l-4 border-roseNeon p-4 rounded-r-xl">
+                            <h4 class="text-xs sm:text-sm font-bold text-roseNeon"><i class="fa-solid fa-triangle-exclamation"></i> จุดระวังในการเรียนวิชานี้:</h4>
+                            <p class="text-xs text-slate-300 mt-1">
+                                "ความเข้าใจผิดว่า แค่เข้าไปดูเฉยๆ ไม่ได้เปลี่ยนโค้ดแล้วจะไม่ผิดกฎหมาย ความจริงคือการแอบเข้าถึงระบบสารสนเทศโดยมิชอบ ถือเป็นความผิดทันทีตามมาตรา 5"
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 6: Case Study 1 - Data Breach",
+                chapter: "CASE STUDY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">CASE STUDY 01: REAL INCIDENT IN THAILAND</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กรณีศึกษา 1: แฮกเกอร์เจาะระบบฐานข้อมูล บัตรเครดิตบริษัทชั้นนำ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/80 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-shield-virus"></i> การรั่วไหลและลักลอบนำข้อมูลไปเสนอขายในเว็บมืด (Dark Web)
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ในปีที่ผ่านมา มีรายงานว่ากลุ่มมิจฉาชีพใช้วิธีส่งไฟล์ฟิชชิ่งล่อลวงพนักงานแอดมินของบริษัทจำหน่ายเครื่องใช้ไฟฟ้าไทย แอบกวาดรายชื่อข้อมูลและเบอร์โทรศัพท์กว่า 100,000 รายการ ไปประกาศประมูลขายแลกเงินบิตคอยน์
+                                </p>
+                                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-[11px] sm:text-xs text-slate-400">
+                                    <strong>ข้อวินิจฉัยคดี:</strong> แฮกเกอร์ตัวจริงผิดมาตรา 5 (เข้าถึงระบบโดยไม่มีสิทธิ), มาตรา 7 (เข้าถึงข้อมูลคอมพิวเตอร์), และมาตรา 12 (กระทบต่อความมั่นคงปลอดภัยสารสนเทศของประชาชน)
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Deep Web Dark Web Hacker screen" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Dark+Web'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl">
+                                    <h4 class="text-xs sm:text-sm font-bold text-amberNeon flex items-center gap-2"><i class="fa-regular fa-comment-dots"></i> Think & Discuss:</h4>
+                                    <p class="text-xs text-slate-300 mt-1">
+                                        "ถ้านักศึกษาพบว่าข้อมูลตนเองรั่วจากเหตุนี้ ใครบ้างที่มีหน้าที่ชดเชยและช่วยเหลือเราตามกฎหมาย?"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 7: PART 1 Introduction",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full">PART 01</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ความผิดเกี่ยวกับระบบคอมพิวเตอร์
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-roseNeon to-secBlue rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ศึกษาขอบเขต บทนิยาม และกฎหมายอาญาเกี่ยวกับสิทธิ์การรักษาความมั่นคงปลอดภัยบนเครือข่ายอินเทอร์เน็ต อุปกรณ์ IoT คลาวด์ และโครงสร้างพื้นฐานไอที
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 8: Definition of Computer System",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">TECHNICAL DEFINITION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ความหมายของ "ระบบคอมพิวเตอร์" ในทางกฎหมาย</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Modern tech motherboard" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=Motherboard'"/>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-3">
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                    <h3 class="text-sm sm:text-base md:text-lg font-bold text-white">อะไรบ้างจัดเป็น "คอมพิวเตอร์" ตาม พ.ร.บ. นี้?</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1">
+                                        ระบบประมวลผลใดๆ ที่สั่งทำงานตามชุดรหัสหรืออัลกอริทึมได้ เช่น สมาร์ตโฟน, แท็บเล็ต, เครื่องเก็บเงิน (POS), เซิร์ฟเวอร์คลาวด์, และอุปกรณ์ IoT สมาร์ตโฮมข้างบ้าน
+                                    </p>
+                                </div>
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                    <h3 class="text-sm sm:text-base md:text-lg font-bold text-roseNeon">ประเด็นเด็ดข้อควรตระหนักรู้:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-1">
+                                        แม้กระทั่ง "เครือข่าย Wi-Fi" หรือ "สายส่งสัญญาน LAN" ก็ได้รับการคุ้มครองสิทธิ์ทางกฎหมายภายใต้คำจำกัดความของระบบเครือข่ายความมั่นคง
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-gradient-to-r from-secBlue/20 to-transparent border-l-4 border-secBlue rounded-r-lg">
+                                    <h4 class="text-xs sm:text-sm font-bold text-slate-100 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Think & Discuss:</h4>
+                                    <p class="text-xs text-slate-300 mt-1">
+                                        "ถ้ามีคนแอบมาสแกน QR Code เพื่อเชื่อมแอร์บ้านของเรา ถือว่าเขาแฮกระบบคอมพิวเตอร์ของเราหรือไม่?"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 9: Unauthorized Access (Section 5)",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 05</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 5: การเข้าถึงระบบคอมพิวเตอร์โดยมิชอบ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-user-secret text-roseNeon"></i> นิยามการสวมรอยเจาะระบบ</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        ผู้ใดแอบเจาะระบบเครือข่าย คลาวด์ หรือพาสเวิร์ดบัญชีโซเชียลมีเดียของผู้อื่นที่มีการตั้งค่าระบบป้องกันเอาไว้เป็นการเฉพาะ โดยไม่มีสิทธิ์โดยชอบ
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 6 เดือน หรือปรับไม่เกิน 10,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-circle-exclamation"></i> ความเข้าใจผิดยอดฮิต:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        "ฉันแค่เปิดทิ้งไว้ แวะล็อกอินส่องดูประวัติแชท ไม่ได้แก้ไข ลบ หรือโพสต์แกล้งเพื่อนเลย... แบบนี้รอดตัวใช่ไหม?"
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-emeraldNeon font-bold mt-2">
+                                        เฉลย: ผิดทันทีเต็มๆ! โครงสร้างมาตรา 5 ตรวจสอบที่ "เจตนาการแอบผ่านด่านระบบความปลอดภัย" แม้ไฟล์ข้อมูลทุกอย่างจะอยู่ครบถ้วนก็ตาม
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แกล้งหยิบโทรศัพท์เพื่อนที่วางทิ้งไว้ โดยไม่ได้ล็อกรหัส ผิดมาตรา 5 หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 10: Unauthorized Data Access (Section 7)",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 07</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 7: การเข้าถึงข้อมูลคอมพิวเตอร์โดยมิชอบ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-folder-open text-roseNeon"></i> นิยามการเจาะเข้าอ่านไฟล์เฉพาะ</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ผู้ใดแอบใช้อัลกอริทึม ลักลอบดาวน์โหลดไฟล์เอกสารสำคัญ, รูปภาพ, รายงานการประชุม หรือโค้ดซอฟต์แวร์หลังบ้านของเพื่อนร่วมชั้นเรียนหรือบริษัทคู่แข่งที่อยู่บน Server โดยที่แฮกเกอร์ไม่มีสิทธิ์
+                                </p>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 2 ปี หรือปรับไม่เกิน 40,000 บาท (หนักกว่ามาตรา 5 เพราะมีมิติข้อมูลหลุดรั่ว)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Securing Folder Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=Folder+Access'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แอบก๊อปปี้สไลด์ที่อาจารย์ยังไม่ได้แจกใส่แฟลชไดรฟ์โดยพลการ ผิดมาตรา 7 หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 11: Interactive Workshop 1",
+                chapter: "WORKSHOP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE LECTURE WORKSHOP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กิจกรรม 1: วิเคราะห์คดีเดารหัสผ่านอีเมลแฟนเก่า</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech">🚨 SCENARIO CASE</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white mt-3 leading-relaxed">
+                                    "นาย B เลิกรากับแฟนไป แต่จำสไตล์การตั้งชื่อรหัสผ่านของแฟนได้ จึงทดลองแอบใส่ ID เพื่อเข้าไปอ่านแชทดูข้อมูลลับ หลังแคปภาพหน้าจอเก็บเอาไว้ นาย B ไม่ได้เปลี่ยนรหัสผ่านเพื่อล็อกเครื่องหนีแต่อย่างใด"
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-300 mt-2">
+                                    ตามบทบัญญัติกฎหมายคอมพิวเตอร์ไทย นาย B มีส่วนผิดฐานใดและศาลจะพิจารณาอย่างไร?
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h4 class="text-xs sm:text-sm md:text-base font-bold text-emeraldNeon mb-1"><i class="fa-solid fa-list-check"></i> ตัวเลือกการประเมิน (คลิกเลือกพฤติกรรมคำตอบ)</h4>
+                                <div class="flex flex-col gap-2 text-xs sm:text-sm">
+                                    <button onclick="selectIncidentChoice(1)" id="inc-btn-1" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        A. ไม่ผิดกฎหมายใดๆ เพราะรหัสผ่านเปิดทิ้งไว้เอง และนาย B ไม่ได้แก้ไฟล์ข้อมูลระบบคอมพิวเตอร์
+                                    </button>
+                                    <button onclick="selectIncidentChoice(2)" id="inc-btn-2" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        B. ผิดมาตรา 5 และ มาตรา 7 เต็มพฤติกรรม เนื่องจากใช้วิธีแอบล็อกอินเดารหัสเพื่อส่องดูประวัติลับ
+                                    </button>
+                                    <button onclick="selectIncidentChoice(3)" id="inc-btn-3" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        C. ผิดมาตรา 14 ฐานแชร์ข่าวปลอมและหลอกลวงประชาชนในวงกว้าง
+                                    </button>
+                                </div>
+                                <div id="incident-feedback" class="text-xs sm:text-sm font-semibold mt-2 min-h-[45px] leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 12: System Damage (Section 9)",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 09</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 9: การทำให้ระบบคอมพิวเตอร์เสียหาย / ลบทำลายไฟล์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-trash-can text-roseNeon"></i> นิยามการลบทำลายข้อมูล</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        ผู้ใดทำให้เสียหาย ทำลาย แก้ไข เปลี่ยนแปลง หรือเพิ่มเติมข้อมูลคอมพิวเตอร์ของผู้อื่นโดยมิชอบ (เช่น ลบซอร์สโค้ดโปรเจกต์ของบริษัทก่อนลาออก หรือแอบเปลี่ยนรหัสผ่านเพื่อบล็อกผู้ใช้จริง)
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 5 ปี หรือปรับไม่เกิน 100,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-triangle-exclamation"></i> ความสุ่มเสี่ยงของนักพัฒนา:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        การแอบใส่ "Backdoor" หรือ "Logic Bomb" (โค้ดเงื่อนไขระเบิดเวลา) สั่งให้ระบบล้างเซิร์ฟเวอร์หลังส่งมอบงานแล้วมีปัญหากับผู้ว่าจ้าง ถือเป็นพฤติกรรมผิดกฎหมายมาตรา 9 อย่างชัดเจน
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แกล้งลบสไลด์ผลงานกลุ่มของเพื่อนเพราะหมั่นไส้ ผิดมาตรา 9 ไหม?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 13: Ransomware Attacks (Section 9-10)",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CYBER THREAT: RANSOMWARE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">คดีระดับโลกในไทย: มัลแวร์เรียกค่าไถ่โรงพยาบาล (Ransomware)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-lock text-roseNeon animate-pulse"></i> ขัดขวางกระบวนการรักษาพยาบาลและการเข้ารหัสไฟล์
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    คดีประวัติศาสตร์ที่มีการแพร่กระจายของไวรัส Ransomware ไปแอบเข้ารหัสไฟล์ประวัติผู้ป่วยและระบบสัญญานัดหมายของโรงพยาบาลในต่างจังหวัด ทำให้หมอไม่สามารถจ่ายยาได้ และแฮกเกอร์ส่งจดหมายเรียกบิตคอยน์ราคาล้านบาท
+                                </p>
+                                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-[11px] sm:text-xs text-slate-400">
+                                    <strong>ผลพิจารณาทางกฎหมาย:</strong> เป็นความผิดต่อฐานระบบขั้นวิกฤตตามมาตรา 9 และ 10 ของพ.ร.บ. มีอัตราจำคุกเพิ่มขึ้นเพราะกระทบต่อสาธารณประโยชน์และความปลอดภัยสาธารณะ
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Computer code malware warning on monitor screen" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Malware'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> ถ้าเราคลิกดาวน์โหลดเกม Crack แล้วติดไวรัสนี้ไปปล่อยในเครือข่ายมหาลัย เราต้องรับผิดชอบไหม?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 14: System Interference (Section 10)",
+                chapter: "PART 1",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 10</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 10: การรบกวนการทำงานของระบบคอมพิวเตอร์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-ban text-roseNeon"></i> นิยามการสแปมยิงถล่มเครือข่าย</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        ผู้ใดระงับ ชะลอ ขัดขวาง หรือรบกวนระบบคอมพิวเตอร์จนไม่สามารถทำงานได้ตามปกติ เช่น การใช้เทคนิค <strong>DDoS (Distributed Denial of Service)</strong> ยิงถล่มเว็บไซต์ลงทะเบียนเรียนจนล่ม
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 5 ปี หรือปรับไม่เกิน 100,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-server"></i> ตัวอย่างเทคนิค DDoS Attack:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        ส่ง Traffic และ Packet คำร้องขอบริการจำลองจำนวนล้านชุดจากเครือข่าย Botnet เข้าไปสแปม Server ของเหยื่อจนหน่วยความจำแรมเต็ม และระบบล่มสลายในเวลาอันสั้น
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> การนัดกลุ่มเพื่อนรัวปุ่ม F5 พร้อมกันให้เซิร์ฟเกมคลาสสิกล่ม ผิดมาตรา 10 หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 15: Case Study 2 - DDoS",
+                chapter: "CASE STUDY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">CASE STUDY 02: SYSTEM DOWN INCIDENT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กรณีศึกษา 2: แกล้งยิงถล่ม DDoS ล่มเว็บไซต์ของสถาบันศึกษา</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-exclamation"></i> ผลเสียหายและการดำเนินสืบสวนหาหลักฐาน IP Address
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    มีกรณีกลุ่มเยาวชนใช้สคริปต์ยิงถล่มพอร์ตเครือข่ายของระบบสมัครสอบเรียนต่อด้วยความขุ่นมัวส่วนตัว ทำให้ระบบไม่สามารถรับคำร้องสมัครจากคนอื่นได้หลายหมื่นราย ทางหน่วยงานแจ้งความ และตำรวจไอทีสามารถดึง Log ไฟล์ชี้รหัส IP ไปถึงบ้านคนกระทำผิดได้จริง
+                                </p>
+                                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-[11px] sm:text-xs text-slate-400">
+                                    <strong>ผลพิจารณาทางกฎหมาย:</strong> ผิดตามมาตรา 10 เต็มพฤติกรรม หากส่งผลกระทบต่อความมั่นคงข้อมูลสาธารณะ อาจมีอัตราโทษจำคุกเพิ่มขึ้น
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Network flow cyber attack visual" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=DDoS+Attack'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> ถ้าเราเช่าบอทยิงแกล้งคนอื่น โดยเราไม่ได้พิมพ์โค้ดเอง เราจะมีความผิดร่วมอย่างไร?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 16: PART 2 Introduction",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full">PART 02</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            การเข้าถึงข้อมูลและสิทธิ์โดยมิชอบ
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-roseNeon to-secBlue rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เรียนรู้เส้นแบ่งระหว่างสิทธิ์ความเป็นส่วนตัว จริยธรรมการเก็บเกี่ยวข้อมูล และบทลงโทษทางพ.ร.บ. คอมพิวเตอร์ร่วมกับการบังคับใช้พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA)
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 17: Computer Act vs PDPA",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMPLIANCE DEBATE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตารางเปรียบเทียบ: พ.ร.บ. คอมพิวเตอร์ vs กฎหมาย PDPA</h2>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full border border-borderSlate rounded-xl my-auto">
+                            <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[600px]">
+                                <thead>
+                                    <tr class="bg-slate-900 border-b border-borderSlate text-slate-200">
+                                        <th class="p-4 font-bold text-tealNeon">หัวข้อเปรียบเทียบ</th>
+                                        <th class="p-4 font-bold text-slate-200">พ.ร.บ. คอมพิวเตอร์ (ปี 2560)</th>
+                                        <th class="p-4 font-bold text-slate-200">พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-borderSlate/50 text-slate-300">
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">จุดประสงค์หลัก</td>
+                                        <td class="p-4">ปราบปรามอาชญากรรมทางระบบ, แฮกกิ้ง, ไวรัส และข้อมูลผิดกฎหมาย</td>
+                                        <td class="p-4 text-emeraldNeon font-semibold">คุ้มครองสิทธิ์เจ้าของข้อมูลส่วนบุคคล (Consent, ลบ, แก้ไขสิทธิ์)</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">มิติการดำเนินโทษ</td>
+                                        <td class="p-4 text-roseNeon font-semibold">โทษอาญาแผ่นดินค่อนข้างแรง (จำคุกสูงสุดถึง 5-10 ปี และปรับ)</td>
+                                        <td class="p-4">เน้นโทษปรับทางปกครอง ปรับเงินชดเชยค่าเสียหายแพ่ง และโทษจำคุกจำกัด</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">ตัวอย่างการบังคับใช้</td>
+                                        <td class="p-4">แฮกพาสเวิร์ดเพื่อน, ยิงเว็บล่ม, สปายข้อมูลการทหารคดีมั่นคง</td>
+                                        <td class="p-4">การเอาเบอร์โทรและอีเมลลูกค้าไปขายให้บริษัทโฆษณาโดยไม่มีขอสิทธิ์</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 18: Data Interception (Section 8)",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 08</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 8: การดักรับข้อมูลคอมพิวเตอร์โดยมิชอบ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-wifi text-roseNeon"></i> นิยามการดักฟังแพ็กเก็ต (Sniffing)</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ผู้ใดใช้วิธีการทางเทคนิคเพื่อดักรับข้อมูลคอมพิวเตอร์ของผู้อื่นที่อยู่ระหว่างการส่งต่อในเครือข่าย เช่น การแอบปล่อยไวรัสดักรหัสผ่านบนสาย LAN หรือตั้งค่า Wi-Fi ปลอมดักฟังธุรกรรม
+                                </p>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 3 ปี หรือปรับไม่เกิน 60,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1544198365-f5d60b6d8190?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Sniffing Network security visual" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Network+Sniffing'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แอบใช้โปรแกรม Wireshark แอบดึงข้อมูลข้อความแชทในเครือข่ายมหาลัย ผิดไหม?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 19: Distributing Tools (Section 6)",
+                chapter: "PART 2",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 06</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 6: การเผยแพร่ช่องโหว่และรหัสผ่านเพื่อการแฮก</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-key text-roseNeon"></i> เผยแพร่แอปแคร็กรหัสและรหัสลับ</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        ผู้ใดจำหน่าย เผยแพร่ หรือส่งต่อรหัสผ่าน, ชุดคำสั่งแฮก, สคริปต์ไวรัส หรือวิธีแคร็กเจาะระบบที่จัดทำขึ้นเป็นการเฉพาะเพื่อให้คนอื่นไปทำผิด
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 1 ปี หรือปรับไม่เกิน 20,000 บาท (โทษสำหรับผู้จัดหาอาวุธไซเบอร์)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-code"></i> ขอบเขตสำหรับนักวิจัยความมั่นคง:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        การรายงานช่องโหว่แบบเปิดเผยต่อสาธารณะ (Zero-day details) โดยไม่ได้รับอนุญาตหรือแจ้งเตือนเจ้าของระบบล่วงหน้า อาจสุ่มเสี่ยงทำให้แฮกเกอร์นำไปใช้ทำผิด และเข้าข่ายมาตรานี้ได้
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แข่งวิชาแฮกเกอร์ในมหาลัย (CTF) เผยแพร่ธงพาสเวิร์ดในกลุ่มไลน์เพื่อน ผิดกฎหมายข้อนี้หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 20: Interactive Workshop 2",
+                chapter: "WORKSHOP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE WORKSHOP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กิจกรรม 2: สัญญาคัดลอกฐานข้อมูลลูกค้าตอนลาออก</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">🚨 BUSINESS DATA BREACH</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        "พนักงานไอทีตัดสินใจย้ายงานไปบริษัทใหม่ และคัดลอกฐานข้อมูลรายชื่อลูกค้าสำคัญจากที่ทำงานเดิมไปมอบให้ฝ่ายเซลส์ของที่ทำงานใหม่เพื่ออัปเดตโมเดลแผนงานการขายเพิ่มรายได้"
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case1')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        คลิกเพื่อดูการวิเคราะห์ข้อกฎหมาย
+                                    </button>
+                                    <div id="ans_case1" class="hidden text-xs text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. ผิด พ.ร.บ. คอมพิวเตอร์:</strong> มาตรา 7 (แอบเข้าดึงไฟล์ข้อมูลที่จำกัดสิทธิ์โดยไม่มีสิทธิ์ชอบธรรม) และมาตรา 12 (กระทบความมั่นคงเศรษฐกิจ/โครงสร้างธุรกิจ)<br>
+                                        <strong>2. ผิดกฎหมายความลับทางการค้า:</strong> ผิดกฎเกณฑ์จริยธรรมข้อมูลทางอาญา และสุ่มเสี่ยงความผิดอาญาพ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) อีกด้วย!
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-tealNeon/20 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">📌 ปุจฉาวิสัชนาในคลาสเรียน</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        "การที่เราแอบใช้ฟีเจอร์ดักรับสัญญานส่งข้อมูล GPS ในแอปสั่งซื้อพัสดุของเพื่อน ถือเป็นความผิดฐานดักรับข้อมูลตามมาตรา 8 หรือไม่?"
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_case2')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        คลิกเพื่อดูคำเฉลยของคลาส
+                                    </button>
+                                    <div id="ans_case2" class="hidden text-xs text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>เฉลยวิชาการ:</strong> ผิดเต็มประตู! การดักฟังหรือดักรับสัญญานพิกัด หรือข้อมูลพัสดุส่วนบุคคลที่กำลังส่งแบบเรียลไทม์ โดยไม่มีข้อตกลงชอบธรรม ผิดมาตรา 8 แน่นอน
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 21: PART 3 Introduction",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full">PART 03</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            การเผยแพร่ข้อมูลสารสนเทศผิดกฎหมาย
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-roseNeon to-secBlue rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เจาะลึกมาตราที่มียอดดคีความสูงสุดในสังคมออนไลน์ไทย "มาตรา 14" ข่าวปลอม (Fake News) และการนำเสนอสื่อลามกอนาจาร ดัดแปลงบิดเบือนด้วยเครื่องมือ AI
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 22: Fake News (Section 14(1))",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 14(1)</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 14(1): การนำเข้าข้อมูลเท็จ บิดเบือน หรือข่าวปลอม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-roseNeon"></i> นิยามของข้อมูลเท็จ</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ผู้ใดนำเข้าสู่ระบบคอมพิวเตอร์ซึ่งข้อมูลที่บิดเบือนหรือปลอมทั้งหมด หรือข้อมูลอันเป็นเท็จ โดยน่าจะเกิดความเสียหายแก่ประชาชน (เช่น การสร้างโปรเจกต์สปอยผลสอบปลอม หรือระบบสแกนรับเงินรางวัลปลอม)
+                                </p>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 5 ปี หรือปรับไม่เกิน 100,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Disinformation News Screen" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Fake+News'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แฟนคลับดาราแต่งเรื่องรักๆ ไขว้คู่จิ้นที่ไม่มีความจริงขึ้นมา ผิดมาตรา 14(1) หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 23: Risks of Distributing Fake News",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 14(2) & 14(3)</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 14(2) และ 14(3): ความผิดภัยความมั่นคงและเศรษฐกิจ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-cloud-bolt text-roseNeon"></i> บิดเบือนสร้างภัยวิกฤตแตกตื่น</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        นำเข้าข้อมูลอันเป็นเท็จที่สร้างความแตกตื่นภัยพิบัติแก่ส่วนรวม เช่น โพสต์แชร์ข้อมูลลวงว่า "พบแผ่นดินไหวขนาดใหญ่เขื่อนรอบกรุงเทพฯ กำลังแตกสลายเฉียบพลัน" จนผู้คนละทิ้งบ้านเรือนวุ่นวาย
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">ระเบียบมาตรา 14(5):</span> <span class="text-xs text-slate-300">ผู้ที่กดปุ่ม <strong>"แชร์ต่อ"</strong> ทั้งที่ทราบดีว่าเป็นข้อมูลเท็จ ก็ต้องโดนรับโทษทางอาญาเช่นเดียวกัน!</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-triangle-exclamation"></i> กรณีศึกษาเด่นในประเทศไทย:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        มีผู้แชร์ข่าวลือเรื่องธนาคารพาณิชย์ขนาดใหญ่ในไทยเตรียมตัวประกาศล้มละลาย จนประชาชนแห่ไปถอนเงินที่ตู้เอทีเอ็มวุ่นวายสร้างผลกระทบต่อเศรษฐกิจสถาบันการเงินชาติ
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แฟลชไลน์แจ้งเตือนไฟไหม้ปลอมในกลุ่มวิชาเรียนออนไลน์ผิดมาตรานี้หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 24: Obscenity & Pornography (Section 14(4))",
+                chapter: "PART 3",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 14(4)</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 14(4): สื่อลามกอนาจารออนไลน์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-eye-slash text-roseNeon"></i> นิยามการสปินสื่อลามกอนาจาร</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ผู้ใดนำเข้าสู่ระบบคอมพิวเตอร์ซึ่งข้อมูลคอมพิวเตอร์ใดๆ ที่มีลักษณะลามก และข้อมูลคอมพิวเตอร์นั้นประชาชนทั่วไปอาจเข้าถึงได้ (เช่น การโพสต์คลิปหลุด, ภาพอนาจารที่ไม่เหมาะสม)
+                                </p>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 5 ปี หรือปรับไม่เกิน 100,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Data Censorship Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/f43f5e?text=Censorship'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> แฟนส่งรูปภาพส่วนตัวมาให้ในไลน์เฉพาะส่วนบุคคล ถือว่าผิดมาตรา 14(4) หรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 25: AI Threats & Deepfakes (Section 16)",
+                chapter: "AI THREATS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 16 & AI DEEPFAKES</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 16: การตัดต่อภาพผู้อื่นให้เสียหาย / คลื่นภัย AI Deepfakes</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-user-gear text-roseNeon"></i> เทคโนโลยีสวมรอยตัดแต่งใบหน้า</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        ผู้ใดสร้างหรือเผยแพร่ภาพวิดีโอตัดต่อ ดัดแปลง หรือสร้างขึ้นใหม่ (เช่น ใช้ AI เจนภาพหน้าเปลือยหรือคลิปหลอกลวงของบุคคลอื่น) โดยน่าจะทำให้ผู้อื่นเสียชื่อเสียง ถูกดูหมิ่น ถูกเกลียดชัง หรือได้รับความอับอาย
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">อัตราโทษสูงสุด:</span> <span class="text-xs text-slate-300">จำคุกไม่เกิน 3 ปี หรือปรับไม่เกิน 200,000 บาท หรือทั้งจำทั้งปรับ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-robot"></i> ข้อตระหนักเชิงจริยธรรมยุคใหม่:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        การใช้ฟิลเตอร์ตลกแต่งเติมให้ใบหน้าเพื่อความตลกขบขันของเพื่อนสนิท หากไม่ได้เจตนาคุกคามหรือทำให้เดือดร้อนอาจพ้นความผิด แต่หากเขารู้สึกอับอายและต้องการฟ้องสิทธิ์ เขาสามารถเอาผิดเราได้เช่นกัน
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> การใช้แอปเปลี่ยนรูปเพื่อนให้เป็นรูปสัตว์เลี้ยงเพื่อแกล้งกันขำๆ ผิดไหม?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 26: Case Study 3 - Voice Scam",
+                chapter: "CASE STUDY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">CASE STUDY 03: NEW-ERA CYBER FRAUD</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กรณีศึกษา 3: แก๊งคอลเซ็นเตอร์โคลนเสียง AI สั่งโอนเงินฉ้อโกง</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-microphone-lines text-roseNeon animate-pulse"></i> การสวมรอยใช้คลื่นเสียงชีวมิติหลอกหน่วยงานการเงิน
+                                </h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    มีกรณีที่มิจฉาชีพโทรเข้ามาอัดเสียงการคุยของพ่อแม่ จากนั้นนำคลิปเสียง 3 วินาทีไปใส่โปรแกรม AI โคลนคลื่นเสียง เลียนคำสั่งไปขอยืมเงินจากญาติพี่น้อง หรือสั่งให้ฝ่ายบัญชีของโรงเรียนย้ายโอนสิทธิ์เงินช่วยเหลือ
+                                </p>
+                                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-[11px] sm:text-xs text-slate-400">
+                                    <strong>ความผิดทางกฎหมาย:</strong> ผิด พ.ร.บ. คอมพิวเตอร์มาตรา 14 และ มาตรา 16 ร่วมกับฐานความผิดฉ้อโกงประชาชนตามประมวลกฎหมายอาญาของไทย
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Sound Wave Scan Visual" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/06b6d4?text=AI+Voice'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> องค์กรและบุคคลสามารถป้องกันตัวอย่างไรจากภัยการโคลนเสียง AI?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 27: PART 4 Introduction",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full">PART 04</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ความรับผิดชอบของผู้ให้บริการ (Service Provider)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-roseNeon to-secBlue rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เรียนรู้หน้าที่ โครงสร้าง และขั้นตอนรักษามาตรฐานบันทึก Log File เครือข่าย และความเสี่ยงร่วมของแอดมินกลุ่มแชทตามมาตรา 15 และ 26
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 28: Who is Service Provider?",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SERVICE PROVIDER DEFINITION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ใครบ้างจัดอยู่ในกลุ่ม "ผู้ให้บริการ" ตามกฎหมาย?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <div class="text-tealNeon text-xl"><i class="fa-solid fa-server"></i></div>
+                                <h3 class="text-sm sm:text-base font-bold text-white">1. ผู้ให้บริการเครือข่ายโครงสร้าง</h3>
+                                <p class="text-xs text-slate-400 mt-1">บริษัท ISP (Ais, True), ค่ายมือถือ และร้านกาแฟที่ปล่อยบริการอินเทอร์เน็ต Wi-Fi ให้แก่สาธารณะ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <div class="text-emeraldNeon text-xl"><i class="fa-solid fa-cloud"></i></div>
+                                <h3 class="text-sm sm:text-base font-bold text-white">2. ผู้เก็บรักษาระบบและคลาวด์</h3>
+                                <p class="text-xs text-slate-400 mt-1">บริการ Web Hosting, AWS, Google Cloud ตลอดจนเว็บที่รับจัดเก็บไฟล์ข้อมูลประเภทต่างๆ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <div class="text-amberNeon text-xl"><i class="fa-solid fa-comments"></i></div>
+                                <h3 class="text-sm sm:text-base font-bold text-white">3. แพลตฟอร์มโซเชียลมีเดีย</h3>
+                                <p class="text-xs text-slate-400 mt-1">Facebook, Line, YouTube, TikTok แพลตฟอร์มแอปแชท และเว็บไซต์ที่เป็นสื่อกลางข้อมูล</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <div class="text-roseNeon text-xl"><i class="fa-solid fa-user-tie"></i></div>
+                                <h3 class="text-sm sm:text-base font-bold text-white">4. เจ้าของบอร์ดและแอดมิน</h3>
+                                <p class="text-xs text-slate-400 mt-1">แอดมินกลุ่ม Facebook, แอดมินกลุ่มไลน์ห้องเรียน ตลอดจนผู้คุมเว็บบอร์ด Pantip</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-secBlue/10 p-3 rounded-lg border border-secBlue/35 text-xs text-slate-300">
+                            <strong>ความตระหนักรู้:</strong> "ร้านคาเฟ่เล็กๆ ที่แจกไวไฟฟรีแก่ลูกค้า ก็ถือเป็น 'ผู้ให้บริการคอมพิวเตอร์' และต้องเก็บรักษาไฟล์ข้อมูลผู้เข้าใช้อินเทอร์เน็ตด้วยเช่นกัน"
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 29: Logging Requirements (Section 26)",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 26</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 26: การจัดเก็บบันทึก Log File อย่างน้อย 90 วัน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-database text-roseNeon"></i> นิยามการเก็บหลักฐานการจราจร</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ผู้ให้บริการต้องจัดเก็บข้อมูลการจราจรคอมพิวเตอร์ (Log File) ไว้อย่างน้อย <strong>90 วัน</strong> เพื่อพร้อมนำส่งเจ้าหน้าที่ในกระบวนการสืบสวนคดี แต่อาจขยายเป็นกรณีพิเศษได้ถึง <strong>2 ปี</strong> หากมีคำสั่งศาล
+                                </p>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl">
+                                    <span class="text-roseNeon font-bold text-xs">บทปรับหากไม่ดำเนินข้อบังคับ:</span> <span class="text-xs text-slate-300">ปรับสูงสุดถึง 500,000 บาท ต่อสถานให้บริการ</span>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Server logs graphic data storage" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/131b2e/10b981?text=Log+Files'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> อะไรบ้างที่ระบบต้องเก็บบันทึกไว้ใน Log และอะไรที่ไม่ควรแอบเก็บตามสิทธิ์ PDPA?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 30: Notice & Take Down (Section 15)",
+                chapter: "PART 4",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SECTION 15</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">มาตรา 15: ความรับผิดชอบและขอบเขตสิทธิของแอดมินกลุ่ม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-users-gear text-roseNeon"></i> นิยามความรับผิดร่วมกรณีละเลย</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        แอดมินหรือผู้ให้บริการที่สนับสนุนหรือยินยอมให้มีการนำเข้าข้อมูลผิดกฎหมายตามมาตรา 14 เข้ามาในพื้นที่ดูแลของตน จะต้องรับโทษเท่ากันเสมือนเป็นผู้กระทำผิดตัวจริง
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl mt-3">
+                                    <span class="text-roseNeon font-bold text-xs">ข้อยกเว้น Safe Harbor:</span> <span class="text-xs text-slate-300">หากได้รับการแจ้งเตือนและแอดมินดำเนินการ "คัดลอกถอดถอนลบโพสต์ลวงออกทันที" แอดมินจะพ้นความผิดทันทีตามเกณฑ์สากล</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> คดีกรณีศึกษาในไทย:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                                        แอดมินกลุ่มเพจปล่อยให้คนเข้ามาโพสต์สปอนเซอร์เว็บพนันและขายข้อมูลประวัติหลุด โดยปล่อยละเลยเอาไว้ 3 สัปดาห์ไม่ยอมคัดกรองลบออก ตำรวจสืบค้นส่งหมายจับแอดมินเพจโดนคดีความผิดร่วมมาตรา 15 ทันที
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-xs text-slate-300">
+                                    <strong>Think & Discuss:</strong> ถ้าคนแชร์โพสต์ผิดกฎหมายในกลุ่มแชทไลน์ห้องเรียน แล้วแอดมินไม่ได้เปิดเช็กไลน์เลย แอดมินจะรอดไหม?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 31: Interactive Workshop 3",
+                chapter: "WORKSHOP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE WORKSHOP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กิจกรรม 3: หน้าต่างตอบโต้เยียวยาของแอดมินกลุ่มแชท</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech">🚨 CHAT ADMINISTRATOR CHALLENGE</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white mt-3 leading-relaxed">
+                                    "นักศึกษาทำหน้าที่ดูแลกลุ่มแชท Discord สำหรับแลกเปลี่ยนโค้ด แต่มีสมาชิกรายหนึ่งนำภาพตัดต่อแนวลามกของดาราคนดังชาวไทยมาสแปมขายหารายได้ แอดมินควรดำเนินมาตรการข้อใด?"
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-300 mt-2">
+                                    เลือกคำตอบเพื่อส่งระบบประเมินผลเชิงจรรยาบรรณวิชาชีพและกฎหมาย:
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h4 class="text-xs sm:text-sm md:text-base font-bold text-emeraldNeon mb-1"><i class="fa-solid fa-list-check"></i> ตัวเลือกคำตอบแนวทางปฏิบัติ</h4>
+                                <div class="flex flex-col gap-2 text-xs sm:text-sm">
+                                    <button onclick="selectIncidentChoice(1)" id="inc-btn-1" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        A. ปล่อยทิ้งไว้เพื่อเรียกยอดผู้เข้าแชทและอัปเกรดเซิร์ฟเวอร์บอร์ด
+                                    </button>
+                                    <button onclick="selectIncidentChoice(2)" id="inc-btn-2" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        B. ลบโพสต์ดังกล่าวทันทีที่พบ แบนบัญชีสมาชิกผู้ใช้งานออก พร้อมบันทึกประวัติรวบรวมส่งด่านตรวจสอบ สอท.
+                                    </button>
+                                    <button onclick="selectIncidentChoice(3)" id="inc-btn-3" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        C. ทักแชทคุยเพื่อขอแบ่งปันค่าสปอนเซอร์รายได้จากการนำเข้าสื่อภาพลามก
+                                    </button>
+                                </div>
+                                <div id="incident-feedback" class="text-xs sm:text-sm font-semibold mt-2 min-h-[45px] leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 32: PART 5 Introduction",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full">PART 05</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ประมวลข้อกฎหมายและการประเมินความรู้ท้ายบทเรียน
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-roseNeon to-secBlue rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            สรุปแผ่นชีทสรุปความผิด (Cheat Sheet), ชุดคำถามประเมินความเข้าใจด้วยบอร์ดทดสอบในตัว และมอบหมายแบบฝึกหัดข้อเขียนความปลอดภัยไซเบอร์
+                        </p>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 33: Cheat Sheet Summary Table",
+                chapter: "PART 5",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMPREHENSIVE SUMMARY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สรุปสาระสำคัญอัตราโทษ พ.ร.บ. คอมพิวเตอร์ พ.ศ. 2560 (Cheat Sheet)</h2>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full border border-borderSlate rounded-xl my-auto">
+                            <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[600px]">
+                                <thead>
+                                    <tr class="bg-slate-900 border-b border-borderSlate text-slate-200">
+                                        <th class="p-3 font-bold text-tealNeon">มาตราและฐานความผิด</th>
+                                        <th class="p-3 font-bold text-slate-200">พฤติกรรมการกระทำผิด</th>
+                                        <th class="p-3 font-bold text-roseNeon">อัตราโทษจำคุก</th>
+                                        <th class="p-3 font-bold text-roseNeon">อัตราโทษปรับ</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-borderSlate/50 text-slate-300">
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-3 font-bold text-slate-100">มาตรา 5 (เข้าถึงระบบ)</td>
+                                        <td class="p-3">แอบเดาพาสเวิร์ด/เจาะเข้าระบบผู้อื่น</td>
+                                        <td class="p-3">ไม่เกิน 6 เดือน</td>
+                                        <td class="p-3">ไม่เกิน 10,000 บาท</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-3 font-bold text-slate-100">มาตรา 7 (เข้าถึงข้อมูล)</td>
+                                        <td class="p-3">แอบส่อง แอดมินขโมยดึงไฟล์ข้อมูลสำคัญ</td>
+                                        <td class="p-3">ไม่เกิน 2 ปี</td>
+                                        <td class="p-3">ไม่เกิน 40,000 บาท</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-3 font-bold text-slate-100">มาตรา 9 (ลบทำลายไฟล์)</td>
+                                        <td class="p-3">ปล่อยไวรัส ลบซอร์สโค้ด หรือล้างดาต้าเบส</td>
+                                        <td class="p-3">ไม่เกิน 5 ปี</td>
+                                        <td class="p-3">ไม่เกิน 100,000 บาท</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-3 font-bold text-slate-100">มาตรา 10 (รบกวนระบบ)</td>
+                                        <td class="p-3">ยิง DDoS ถล่มคลาสเครือข่าย/สแปมเว็บล่ม</td>
+                                        <td class="p-3">ไม่เกิน 5 ปี</td>
+                                        <td class="p-3">ไม่เกิน 100,000 บาท</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-3 font-bold text-slate-100">มาตรา 14 (เผยแพร่เท็จ)</td>
+                                        <td class="p-3">แชร์ข่าวปลอม, สื่ออนาจาร, แก๊งลวงโอนเงิน</td>
+                                        <td class="p-3">ไม่เกิน 5 ปี</td>
+                                        <td class="p-3">ไม่เกิน 100,000 บาท</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-3 font-bold text-slate-100">มาตรา 16 (ตัดต่อภาพ)</td>
+                                        <td class="p-3">ใช้ AI ตัดแต่งรูปภาพ/ทำคลิป Deepfake ประจาน</td>
+                                        <td class="p-3">ไม่เกิน 3 ปี</td>
+                                        <td class="p-3">ไม่เกิน 200,000 บาท</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 34: Interactive Mock Quiz",
+                chapter: "QUIZ",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE LECTURE CHALLENGE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แบบฝึกหัดโต้ตอบ: บอร์ดทดสอบความเข้าใจด่วนท้ายคาบเรียน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">❓ คำถามเช็กฝีมือ: แฮกคลาสซูมเพื่อสปอยการเรียน</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        "นักศึกษารายหนึ่งแอบแกะหาช่องโหว่พาสเวิร์ดของอาจารย์ผู้สอน แล้วเชื่อมรหัสระบบเซิร์ฟเวอร์นำเข้าเสียงเพลงก่อกวนถล่มจนปิดเซสชั่นเรียนออนไลน์ ไม่ให้เพื่อนเข้าเรียนตามปกติ"
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_quiz_1')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        คลิกเพื่อตรวจผลวิเคราะห์มาตราความผิด
+                                    </button>
+                                    <div id="ans_quiz_1" class="hidden text-xs text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>1. ผิดมาตรา 5 และ 7:</strong> จากการเดารหัสผ่านเพื่อเข้าถึงระบบและสิทธิ์ข้อมูลส่วนตัวโดยไม่ได้รับอนุญาต<br>
+                                        <strong>2. ผิดมาตรา 10:</strong> ฐานส่งผลรบกวนและขัดขวางการทำงานของเครือข่ายเซิร์ฟเวอร์สถาบันจนเพื่อนใช้เรียนตามปกติไม่ได้
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <span class="bg-tealNeon/20 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">❓ คำถามเช็กฝีมือ: การโพสต์ฝากร้านบนคอมเมนต์</span>
+                                    <p class="text-xs sm:text-sm md:text-base text-slate-300 mt-3 leading-relaxed">
+                                        "พ่อค้าออนไลน์ใช้วิธีรวบรวมใช้บอทสแปมคอมเมนต์ฝากร้าน ยิงกระหน่ำโพสต์โฆษณาสินค้าครีมลดสิวไปตามกล่องแชทกลุ่มไลน์เครือข่ายของมหาวิทยาลัยรัวๆ กว่าร้อยข้อความเดือดร้อนรำคาญ"
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-borderSlate/40">
+                                    <button onclick="revealAnswer('ans_quiz_2')" class="bg-emeraldNeon hover:bg-emeraldNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-md w-full">
+                                        คลิกเพื่อตรวจผลวิเคราะห์มาตราความผิด
+                                    </button>
+                                    <div id="ans_quiz_2" class="hidden text-xs text-slate-300 mt-3 leading-relaxed p-3.5 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                        <strong>ความผิดตามมาตรา 11 (สแปมก่อความรำคาญ):</strong> การส่งอีเมลขยะ ข้อมูลโฆษณา หรือข้อความฝากร้านที่ผู้รับไม่มีสิทธิปฏิเสธความพึงพอใจและเดือดร้อน มีโทษปรับเงินสูงสุดถึง <strong>200,000 บาท</strong>!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 35: Active Learning Homework & Reflection",
+                chapter: "HOMEWORK",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">ACTIVE LEARNING ASSIGNMENT & CLOSING</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แบบฝึกหัดข้อเขียน (5 ข้อ) และกิจกรรมประเมินตนเอง</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <!-- Written Homework Questions list -->
+                            <div class="bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[220px]">
+                                <div>
+                                    <h3 class="text-xs sm:text-sm md:text-base font-bold text-roseNeon uppercase tracking-widest font-tech flex items-center gap-2">
+                                        <i class="fa-solid fa-clipboard-list"></i> คำถามข้อเขียนแบบฝึกหัด (เขียนคำตอบลงสมุด)
+                                    </h3>
+                                    <ol class="text-[11px] sm:text-xs text-slate-300 mt-3 space-y-2.5 pl-4 list-decimal leading-relaxed">
+                                        <li><strong>การวิเคราะห์สถานการณ์:</strong> นักศึกษาเดารหัสเพื่อนเพื่อเข้าเครื่องไปอ่านแชทเฉยๆ ไม่ลบไฟล์ ผิดพ.ร.บ. หรือไม่ เพราะอะไร?</li>
+                                        <li><strong>คดีฐานข้อมูลองค์กร:</strong> พนักงานไอทีดึงฐานข้อมูลลูกค้าไปย้ายให้บริษัทคู่แข่งขัดต่อ พ.ร.บ.คอมฯ และกฎหมายใดอีก?</li>
+                                        <li><strong>จริยธรรมการสื่อสาร:</strong> ได้รับแชร์ข้อความเท็จเตือนเขื่อนแตกเฉียบพลัน หากกดปุ่ม "แชร์ต่อ" มีความรับผิดอย่างไร?</li>
+                                        <li><strong>หน้าที่แอดมิน:</strong> แอดมินกลุ่มปล่อยให้คนเข้ามาแปะโพสต์โฆษณาเว็บพนัน ไม่สแกนลบออก มีส่วนรับผิดทางอาญาอย่างไร?</li>
+                                        <li><strong>วิเคราะห์คลื่น AI:</strong> การใช้เทคโนโลยี AI Deepfakes ตัดแต่งใบหน้าเพื่อกลั่นแกล้งล้อเลียนเพื่อนในชั้นเรียนมีความเสี่ยงผิดกฎหมายใดบ้าง?</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <!-- Homework & Reflection Alignment -->
+                            <div class="bg-gradient-to-br from-cardDark to-slate-950 p-4 sm:p-5 rounded-2xl border border-roseNeon/30 flex flex-col justify-between h-full min-h-[220px] gap-4">
+                                <div>
+                                    <span class="text-emeraldNeon font-semibold text-xs sm:text-sm uppercase tracking-widest"><i class="fa-solid fa-brain"></i> REFLECTION / การสะท้อนความคิดปิดคลาส (5 นาที)</span>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-medium">
+                                        "สิทธิ์และจริยธรรมบนโลกออนไลน์ไม่ได้สร้างขึ้นมาเพื่อจำกัดขอบเขตความสนุก แต่มีเพื่อคุ้มครองความปลอดภัย ความน่าเชื่อถือ และช่วยให้นวัตกรรมสารสนเทศขับเคลื่อนไปได้อย่างโปร่งใสไร้ข้อยากในอนาคต"
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-slate-900/85 p-3 rounded-xl border border-slate-850 text-xs text-slate-400 leading-relaxed">
+                                    <p class="font-bold text-amberNeon mb-1"><i class="fa-regular fa-comment"></i> คำถามสะท้อนคิดปิดคลาส:</p>
+                                    "ในฐานะที่คุณเป็นคนรุ่นใหม่ที่ใช้งานคอมพิวเตอร์และสื่อออนไลน์ทุกวัน วิธีการใดบ้างที่คุณจะใช้เพื่อปกป้องบัญชีและความปลอดภัยสารสนเทศของพ่อแม่ ปู่ย่าตายาย ไม่ให้ตกเป็นเหยื่ออาชญากรรมไซเบอร์?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebar-list");
+            listContainer.innerHTML = "";
+            slides.forEach((slide, index) => {
+                const btn = document.createElement("button");
+                btn.className = `text-left text-xs sm:text-sm p-3 rounded-xl border transition-all flex justify-between items-center w-full ${
+                    index === currentSlideIndex 
+                        ? "bg-roseNeon/10 border-roseNeon text-roseNeon font-bold" 
+                        : "bg-slate-900 border-borderSlate hover:border-slate-500 text-slate-400"
+                }`;
+                btn.onclick = () => {
+                    goToSlide(index);
+                    if (window.innerWidth < 640) { // Auto close sidebar on mobile tap
+                        toggleSidebar();
+                    }
+                };
+                
+                // Truncate title for sidebar to keep it neat
+                const titleText = slide.title.length > 28 ? slide.title.substring(0, 28) + "..." : slide.title;
+                btn.innerHTML = `
+                    <span>${titleText}</span>
+                    <span class="font-tech text-[10px] sm:text-xs bg-slate-800 px-2 py-0.5 rounded text-slate-500">${slide.chapter}</span>
+                `;
+                listContainer.appendChild(btn);
+            });
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("translate-x-full");
+        }
+
+        function renderSlide() {
+            const currentSlide = slides[currentSlideIndex];
+            const slideContainer = document.getElementById("slide-content");
+            
+            // Format slide number display
+            const numText = (currentSlideIndex + 1).toString().padStart(2, '0');
+            const totalText = slides.length.toString().padStart(2, '0');
+            document.getElementById("slide-number-display").innerText = `SLIDE ${numText} / ${totalText}`;
+            
+            // Inject slide content HTML
+            slideContainer.innerHTML = currentSlide.html;
+            
+            // Rehydrate interactive states (Checkboxes/Inputs for Warm-up and Quizzes)
+            rehydrateInteractiveElements();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            renderSidebar();
+        }
+
+        // Show/Hide click to reveal elements
+        function revealAnswer(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.classList.toggle("hidden");
+            }
+        }
+
+        // Handle Active Checkboxes on Slide 2
+        function handleWarmupClick(id) {
+            const checkbox = document.getElementById(id);
+            warmUpStates[id] = checkbox.checked;
+        }
+
+        function selectIncidentChoice(choiceId) {
+            // Save state based on current slide index
+            miniQuizAnswers[currentSlideIndex] = choiceId;
+            const feedback = document.getElementById("incident-feedback");
+            
+            // Reset buttons style
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`inc-btn-${i}`);
+                if (btn) {
+                    btn.className = "text-left p-3 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300 text-xs sm:text-sm";
+                }
+            }
+            
+            const selectedBtn = document.getElementById(`inc-btn-${choiceId}`);
+            if (!selectedBtn) return;
+
+            // Handle logic dynamic feedbacks based on current slide
+            if (currentSlideIndex === 10) { // Slide 11: เดารหัสแฟน
+                if (choiceId === 2) {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-emeraldNeon/10 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold text-xs sm:text-sm";
+                    feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ถูกต้อง! นาย B ผิดมาตรา 5 (เข้าถึงระบบคอมฯ ที่มีมาตรการป้องกันโดยมิชอบ) และมาตรา 7 (เข้าถึงข้อมูลความลับที่มีการจำกัดสิทธิ์ชอบธรรม) แม้นาย B จะแค่นั่งส่องแอบดูเฉยๆ ก็ตาม</span>`;
+                } else if (choiceId === 1) {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-xs sm:text-sm";
+                    feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ผิดเต็มประตู! การอ้างว่าไม่ต้องรับผิดเพราะไม่ได้แก้ไขข้อมูล เป็นความเข้าใจที่ผิดมหันต์ ความผิดตามมาตรา 5 และ 7 ตรวจสอบวัดที่พฤติกรรมการบุกรุกสวมสิทธิ์ระบบเป็นหลัก</span>`;
+                } else {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-amberNeon/10 border-amberNeon/50 text-amberNeon transition-all font-bold text-xs sm:text-sm";
+                    feedback.innerHTML = `<span class="text-amberNeon"><i class="fa-solid fa-triangle-exclamation"></i> พฤติกรรมยังไม่เข้าข่ายมาตรา 14 (เผยแพร่ข้อมูลเท็จในวงกว้าง) เนื่องจากนาย B แค่แอบเข้าระบบไปดูและบันทึกภาพเก็บไว้อย่างเดียว</span>`;
+                }
+            } else if (currentSlideIndex === 30) { // Slide 31: แอดมินกลุ่มแชท Discord
+                if (choiceId === 2) {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-emeraldNeon/10 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold text-xs sm:text-sm";
+                    feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> แนวทางปฏิบัติที่ดีที่สุด! การตรวจพบและลบโพสต์ลามกออกทันที รวมถึงการจัดการบล็อกสมาชิก ถือเป็นขั้นตอน "Notice & Take Down" ตามกฎเกณฑ์มาตรา 15 ช่วยให้แอดมินพ้นความผิดทันที</span>`;
+                } else if (choiceId === 1) {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-xs sm:text-sm";
+                    feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> มีความรับผิดเต็มๆ! การปล่อยละเลยเพื่อเพิ่มยอดการใช้งาน ถือเป็นการสนับสนุนและยินยอมให้มีการแพร่กระจายเนื้อหาผิดกฎหมาย แอดมินต้องรับโทษหนักเท่าผู้ทำผิดจริง</span>`;
+                } else {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-xs sm:text-sm";
+                    feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ผิดกฎหมายอาญา! การสมคบคิดแบ่งปันรายได้จากการขายภาพ/สื่อลามก ถือเป็นพฤติกรรมความผิดร่วมคดีความมั่นคงและมาตรา 15 ชัดเจน</span>`;
+                }
+            }
+        }
+
+        // Rehydrate/restore state of elements after slide changes
+        function rehydrateInteractiveElements() {
+            // Restore Slide 2 checkboxes
+            for (let id in warmUpStates) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.checked = warmUpStates[id];
+                }
+            }
+            // Restore Slide quiz selection
+            if (miniQuizAnswers[currentSlideIndex]) {
+                selectIncidentChoice(miniQuizAnswers[currentSlideIndex]);
+            }
+        }
+
+        // Keyboard Navigation Listener
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Touch Swipe Navigation for Perfect Mobile Responsiveness
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        function handleGesture() {
+            if (touchendX < touchstartX - 60) {
+                nextSlide(); // Swipe Left -> Go Next Slide
+            }
+            if (touchendX > touchstartX + 60) {
+                prevSlide(); // Swipe Right -> Go Previous Slide
+            }
+        }
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, false);
+
+        // Initialize presentation on window load
+        window.onload = () => {
+            renderSlide();
+            renderSidebar();
+        }
+    </script>
+</body>
+</html>
