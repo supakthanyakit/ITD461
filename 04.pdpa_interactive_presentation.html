@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Data Protection Act (PDPA) - IT Laws & Ethics</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#030712',
+                        cardDark: '#0b1329',
+                        borderSlate: '#1e293b',
+                        emeraldNeon: '#10b981',
+                        tealNeon: '#14b8a6',
+                        indigoNeon: '#6366f1',
+                        amberNeon: '#f59e0b',
+                        roseNeon: '#f43f5e',
+                        lawBlue: '#2563eb'
+                    },
+                    fontFamily: {
+                        thai: ['"IBM Plex Sans Thai"', 'Sarabun', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+            background-color: #030712;
+            overflow-x: hidden;
+        }
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #14b8a6;
+        }
+        .slide-frame {
+            transition: all 0.3s ease-in-out;
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(20, 184, 166, 0.4);
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen select-none">
+
+    <!-- Top Navigation Utility Bar -->
+    <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
+        <div class="flex items-center gap-3">
+            <span class="font-tech text-tealNeon font-bold tracking-wider text-sm sm:text-base md:text-lg">IT LAWS & ETHICS</span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full border border-slate-700">PDPA LECTURE</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-6">
+            <span class="text-xs sm:text-sm text-slate-300 hidden lg:inline"><i class="fa-solid fa-clock mr-2 text-tealNeon"></i> คาบเรียนบรรยาย + กิจกรรม: 3 ชั่วโมง</span>
+            <button onclick="toggleSidebar()" class="text-slate-200 hover:text-tealNeon transition-all text-sm px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-borderSlate flex items-center gap-2">
+                <i class="fa-solid fa-list-ul"></i> <span class="font-semibold hidden sm:inline">สไลด์ทั้งหมด</span><span class="sm:hidden font-semibold">เมนู</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
+        
+        <!-- Slide Sidebar Navigator -->
+        <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-80 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
+            <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
+                <h3 class="font-tech text-tealNeon text-base tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> SLIDE NAVIGATOR
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-roseNeon text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="sidebar-list" class="flex flex-col gap-2">
+                <!-- Sidebar items dynamically rendered here -->
+            </div>
+        </aside>
+
+        <!-- Slide Frame Container (Responsive 16:9 box or auto-flow on small screen) -->
+        <div class="w-full max-w-7xl h-auto min-h-[78vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-5 sm:p-8 md:p-14 flex flex-col justify-between overflow-y-auto slide-frame">
+            
+            <!-- Abstract Background Neon Elements -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigoNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-tealNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <!-- Slide Content Window -->
+            <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
+                <!-- Slide content injected here by JavaScript -->
+            </div>
+
+            <!-- Slide Footer info -->
+            <div class="border-t border-borderSlate/60 pt-4 mt-6 sm:mt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-slate-400 relative z-10">
+                <div class="flex items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <span class="font-tech text-tealNeon font-bold text-base">PDPA & DIGITAL ETHICS</span>
+                    <span class="hidden sm:inline text-slate-650">|</span>
+                    <span class="hidden sm:inline text-slate-350">วิชาจริยธรรมและกฎหมายเทคโนโลยีสารสนเทศ</span>
+                </div>
+                <div class="font-tech text-tealNeon font-bold text-sm sm:text-lg" id="slide-number-display">
+                    SLIDE 01 / 30
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Controls Floating Dock -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
+        <button onclick="prevSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-xl sm:text-2xl" title="ก่อนหน้า">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span class="text-sm text-slate-300 border-x border-slate-750 px-4 py-1 flex items-center gap-2 hidden sm:flex">
+            ควบคุมด้วยคีย์บอร์ด <kbd class="bg-slate-800 text-slate-200 px-2 py-1 rounded text-xs">←</kbd> <kbd class="bg-slate-800 text-slate-200 px-2 py-1 rounded text-xs">→</kbd>
+        </span>
+        <span class="text-xs text-slate-400 border-x border-slate-750 px-3 py-1 flex items-center gap-2 sm:hidden">
+            <i class="fa-solid fa-hand-pointer text-tealNeon"></i> ปัดเพื่อเลื่อนเปลี่ยนสไลด์
+        </span>
+        <button onclick="nextSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-xl sm:text-2xl" title="ถัดไป">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Slide Engine Script Block -->
+    <script>
+        let interactiveAnswers = {};
+        let quizScore = 0;
+        let quizAnswers = {};
+
+        // Slide Database Array (Slide 1 to 30) - Font sizes bumped up systematically
+        const slides = [
+            {
+                title: "Slide 1: Title & Objectives",
+                chapter: "WELCOME",
+                html: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center h-full py-2">
+                        <div class="lg:col-span-7 flex flex-col justify-center gap-4 sm:gap-6">
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-widest font-bold uppercase bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full self-start">LECTURE SLIDES</span>
+                            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                                Personal Data Protection Act (PDPA)
+                            </h1>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl text-tealNeon font-semibold -mt-2">
+                                กฎหมายคุ้มครองข้อมูลส่วนบุคคล
+                            </h2>
+                            <div class="border-l-4 border-tealNeon pl-4 sm:pl-5 py-2 mt-2">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tealNeon tracking-wide">จุดประสงค์การเรียนรู้ (Learning Objectives)</h3>
+                                <ul class="text-sm sm:text-base md:text-lg text-slate-300 mt-2 space-y-2">
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> อธิบายความหมายและจำแนกข้อมูลทั่วไป vs ข้อมูลอ่อนไหวได้</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> เข้าใจสิทธิของเจ้าของข้อมูล (Data Subject Rights) ทั้ง 7 ประการ</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> ประเมินหลักการขอความยินยอม (Consent) และมาตรการความปลอดภัย</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> วิเคราะห์กรณีละเมิดข้อมูลและการประยุกต์ใช้ในองค์กรไอทีดิจิทัล</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 h-full flex justify-center items-center">
+                            <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Cyber Security Network" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=PDPA+Cyber+Security'"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs sm:text-sm text-slate-300 bg-slate-900/80 px-2 py-1 rounded">Securing Personal Freedom & Privacy</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 2: Why PDPA Matters?",
+                chapter: "CONTEXT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">CONTEXT & IMPORTANCE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ทำไมกฎหมาย PDPA จึงสำคัญอย่างยิ่งในยุคนี้?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-4">
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-tealNeon/15 flex items-center justify-center text-tealNeon text-2xl shrink-0"><i class="fa-solid fa-mobile-screen"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">กิจกรรมทุกวินาทีคือข้อมูลส่วนบุคคล</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1">สมาร์ตโฟน, โซเชียลมีเดีย, ช้อปปิ้งออนไลน์, โมบายแบงกิ้ง และการใช้ระบบคลาวด์ ล้วนแอบเก็บและประมวลผลข้อมูลเราอยู่ตลอดเวลา</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-roseNeon/15 flex items-center justify-center text-roseNeon text-2xl shrink-0"><i class="fa-solid fa-mask"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">ภัยคุกคามจากการรั่วไหล (Data Breach)</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1">เมื่อข้อมูลหลุด นำไปสู่การขโมยตัวตน (Identity Theft), แฮกสวมบัญชี, บัญชีม้า, และภัยคุกคามการหลอกลวงทางการเงิน</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-indigoNeon/10 border-l-4 border-indigoNeon rounded-r-lg text-sm sm:text-base text-slate-300">
+                                    <strong>ตัวอย่างข้อมูลที่ถูกเก็บทุกวัน:</strong> ชื่อ-นามสกุล, เบอร์โทร, ตําแหน่ง GPS, ประวัติเบราว์เซอร์, คุกกี้, IP Address และข้อมูลจดจำใบหน้า
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Smart Phone Usage" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Data+Footprint'"/>
+                                </div>
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-4 rounded-xl text-center">
+                                    <h4 class="text-sm sm:text-base font-bold text-amberNeon flex items-center justify-center gap-2"><i class="fa-solid fa-brain"></i> คำถามชวนคิด:</h4>
+                                    <p class="text-sm sm:text-base md:text-lg text-slate-300 mt-1 italic">"นักศึกษาคิดว่าข้อมูลดิจิทัลชิ้นไหนของตนเองที่มีมูลค่าสูงสุดในตลาดมืด?"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 3: What is PDPA?",
+                chapter: "CONTEXT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">LEGISLATION ORIGIN</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">PDPA คืออะไร? (ประวัติและวัตถุประสงค์)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Gavel and Books" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Thailand+Law'"/>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-4 text-base sm:text-lg">
+                                <div class="p-5 bg-slate-900/60 rounded-xl border border-slate-800">
+                                    <h3 class="font-bold text-tealNeon flex items-center gap-2 text-lg md:text-xl">
+                                        <i class="fa-solid fa-scroll"></i> พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562
+                                    </h3>
+                                    <p class="text-sm sm:text-base text-slate-350 mt-1 leading-relaxed">
+                                        พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล หรือ <strong>Personal Data Protection Act (PDPA)</strong> มีผลบังคับใช้เต็มรูปแบบเมื่อวันที่ <strong>1 มิถุนายน พ.ศ. 2565</strong> เป็นกฎหมายกลางในการคุ้มครองสิทธิ์ความเป็นส่วนตัวของประชาชนชาวไทย
+                                    </p>
+                                </div>
+                                <div class="p-5 bg-slate-900/60 rounded-xl border border-slate-800">
+                                    <h3 class="font-bold text-indigoNeon flex items-center gap-2 text-lg md:text-xl">
+                                        <i class="fa-solid fa-bullseye"></i> วัตถุประสงค์หลักของกฎหมาย
+                                    </h3>
+                                    <ul class="text-sm sm:text-base text-slate-355 mt-1 space-y-2 pl-4 list-disc leading-relaxed">
+                                        <li>เพื่อกำหนดกฎเกณฑ์ให้องค์กรห้ามนำข้อมูลเราไปใช้โดยพลการ</li>
+                                        <li>เพื่อยกระดับมาตรฐานมาตรการความปลอดภัยข้อมูลของไทยให้เป็นสากล (สอดคล้องกับ GDPR ของยุโรป)</li>
+                                        <li>เพื่อลดความเสียหายและเยียวยาหากสิทธิส่วนบุคคลถูกละเมิด</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 4: Key Principles of PDPA",
+                chapter: "CORE PRINCIPLES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">CORE PILLARS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">8 เสาหลักสำคัญในการออกแบบระบบตาม PDPA</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 my-auto">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">01. FAIRNESS</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">เก็บเป็นธรรม</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">ไม่มีเจตนาซ่อนเร้นหลอกลวงเพื่อเก็บข้อมูล</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">02. TRANSPARENCY</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">โปร่งใสชัดเจน</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">ต้องบอกวัตถุประสงค์ผ่านนโยบายความเป็นส่วนตัว</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">03. PURPOSE LIMIT</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">จำกัดวัตถุประสงค์</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">ห้ามนำข้อมูลไปใช้งานด้านอื่นที่นอกเหนือสัญญาแจ้ง</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">04. MINIMIZATION</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">เก็บเท่าที่จำเป็น</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">ขอเฉพาะข้อมูลที่ต้องใช้ดำเนินงานจริงเท่านั้น</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">05. ACCURACY</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">ความถูกต้องของข้อมูล</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">ดูแลปรับปรุงข้อมูลให้ถูกต้อง ทันสมัย ไม่สับสน</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">06. STORAGE LIMIT</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">จำกัดระยะเวลาเก็บ</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">พ้นกำหนดเวลาต้องลบหรือทําลายข้อมูลทิ้ง</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">07. SECURITY</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">ความปลอดภัยขั้นสูง</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">ป้องกันการโดนเจาะระบบ เข้าถึง ขโมยข้อมูล</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-tealNeon/40 transition-colors">
+                                <span class="text-tealNeon font-bold text-xs sm:text-sm font-tech">08. ACCOUNTABILITY</span>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-100 mt-1">ความรับผิดรับชอบ</h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">องค์กรพร้อมรับผิดตามกฎหมายหากเกิดข้อผิดพลาด</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 5: What is Personal Data?",
+                chapter: "DATA TYPES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">DEFINITION OF PERSONAL DATA</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ข้อมูลส่วนบุคคลคืออะไร? (ในทางเทคนิคไอที)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tealNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-id-card"></i> ข้อมูลระบุตัวตน (ทั้งทางตรงและทางอ้อม)
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    ข้อมูลใดๆ ที่เกี่ยวกับบุคคลธรรมดา ซึ่งทําให้สามารถระบุตัวตนของบุคคลนั้นได้ ไม่ว่าทางตรงหรือทางอ้อม แต่ไม่รวมถึงข้อมูลของผู้ถึงแก่กรรมโดยเฉพาะ
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-sm sm:text-base mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-2 text-base">ข้อมูลชีวิตประจำวัน:</h4>
+                                        ชื่อ, ที่อยู่, เลขบัตรประชาชน, ลายนิ้วมือ, พิกัด GPS, ประวัติการแพทย์
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-tealNeon mb-2 text-base">ข้อมูลในระบบ IT / ดิจิทัล:</h4>
+                                        Student ID, Employee ID, Login Account, IP Address, Device ID, Cookies
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1544198365-f5d60b6d8190?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Network Data nodes" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Data+Nodes'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 6: General vs Sensitive Data",
+                chapter: "DATA TYPES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">CLASSIFICATION CHALLENGE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ข้อมูลส่วนบุคคลทั่วไป vs ข้อมูลอ่อนไหว (Sensitive Data)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 grid grid-cols-1 gap-4">
+                                <div class="p-5 bg-slate-900/60 rounded-xl border border-slate-850">
+                                    <span class="bg-tealNeon/20 text-tealNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech">01. GENERAL DATA</span>
+                                    <h3 class="text-base sm:text-lg font-bold text-white mt-2">ข้อมูลทั่วไป</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">ชื่อ-สกุล, ที่อยู่, เบอร์โทรศัพท์, อีเมล, วันเกิด, ประวัติการศึกษา, ทะเบียนรถยนต์, รูปถ่ายทั่วไป</p>
+                                </div>
+                                <div class="p-5 bg-slate-900/60 rounded-xl border border-slate-850">
+                                    <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech">02. SENSITIVE DATA (ต้องคุ้มครองขั้นสูงสุด!)</span>
+                                    <h3 class="text-base sm:text-lg font-bold text-roseNeon mt-2">ข้อมูลอ่อนไหวตามมาตรา 26</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">เชื้อชาติ, เผ่าพันธุ์, ความคิดเห็นทางการเมือง, ศาสนา, ข้อมูลสุขภาพ, พันธุกรรม, ข้อมูลชีวภาพ (Biometric - ลายนิ้วมือ/สแกนหน้า), ประวัติอาชญากรรม</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h4 class="text-sm sm:text-base md:text-lg font-bold text-tealNeon"><i class="fa-solid fa-gamepad mr-2"></i> กิจกรรมย่อย: แยกประเภทข้อมูล (General vs Sensitive)</h4>
+                                <p class="text-xs sm:text-sm text-slate-300">คลิกที่ชนิดข้อมูลเพื่อทดสอบความคุ้มครองตามมาตรา 26</p>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <button onclick="checkDataType('bio', 'sensitive')" class="p-4 bg-slate-800 hover:bg-slate-750 text-left rounded-lg border border-slate-700 flex justify-between items-center text-slate-200">
+                                        <span>Face Recognition</span> <span class="text-tealNeon"><i class="fa-solid fa-fingerprint"></i></span>
+                                    </button>
+                                    <button onclick="checkDataType('mail', 'general')" class="p-4 bg-slate-800 hover:bg-slate-750 text-left rounded-lg border border-slate-700 flex justify-between items-center text-slate-200">
+                                        <span>Email Address</span> <span class="text-tealNeon"><i class="fa-solid fa-envelope"></i></span>
+                                    </button>
+                                    <button onclick="checkDataType('blood', 'sensitive')" class="p-4 bg-slate-800 hover:bg-slate-750 text-left rounded-lg border border-slate-700 flex justify-between items-center text-slate-200">
+                                        <span>กรุ๊ปเลือด / สุขภาพ</span> <span class="text-tealNeon"><i class="fa-solid fa-droplet"></i></span>
+                                    </button>
+                                    <button onclick="checkDataType('car', 'general')" class="p-4 bg-slate-800 hover:bg-slate-750 text-left rounded-lg border border-slate-700 flex justify-between items-center text-slate-200">
+                                        <span>ป้ายทะเบียนรถ</span> <span class="text-tealNeon"><i class="fa-solid fa-car"></i></span>
+                                    </button>
+                                </div>
+                                <div id="datatype-feedback" class="text-sm sm:text-base font-semibold mt-2 min-h-[40px] text-tealNeon flex items-center gap-2 leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 7: Who is Who under PDPA?",
+                chapter: "ROLES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">ROLES & STAKEHOLDERS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ใครเป็นใครภายใต้ข้อตกลงและหลักกฎหมาย PDPA?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <span class="bg-tealNeon/20 text-tealNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech">01. DATA SUBJECT</span>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white mt-3">เจ้าของข้อมูลส่วนบุคคล</h3>
+                                    <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+                                        บุคคลที่ข้อมูลส่วนบุคคลนั้นระบุไปถึง (ตัวตนคนธรรมดาที่เป็นผู้สมัครใช้บริการ เช่น นักศึกษา, ลูกค้าที่มาซื้อสินค้า)
+                                    </p>
+                                </div>
+                                <span class="text-xs sm:text-sm text-slate-500 font-medium">สิทธิ์คุ้มครองขั้นพื้นฐานสูง</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <span class="bg-indigoNeon/20 text-indigoNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech">02. DATA CONTROLLER</span>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white mt-3">ผู้ควบคุมข้อมูลส่วนบุคคล</h3>
+                                    <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+                                        ผู้มีอำนาจหน้าที่ตัดสินใจเกี่ยวกับการเก็บ รวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคล (เช่น มหาวิทยาลัย, ธนาคาร, บริษัทร้านค้าออนไลน์)
+                                    </p>
+                                </div>
+                                <span class="text-xs sm:text-sm text-indigoNeon font-medium">ผู้รับผิดชอบหลักตามกฎหมาย</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <span class="bg-amberNeon/20 text-amberNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech">03. DATA PROCESSOR</span>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white mt-3">ผู้ประมวลผลข้อมูลส่วนบุคคล</h3>
+                                    <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+                                        บุคคลหรือนิติบุคคลที่ประมวลผลข้อมูลตามคำสั่งของผู้ควบคุมข้อมูล (เช่น บริการภายนอก, คลาวด์โฮสติ้ง AWS, พนักงานวิเคราะห์ข้อมูลภายนอก)
+                                    </p>
+                                </div>
+                                <span class="text-xs sm:text-sm text-amberNeon font-medium">ทำงานภายใต้สัญญากำหนด</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 8: Rights of Data Subject Overview",
+                chapter: "SUBJECT RIGHTS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">DATA SUBJECT RIGHTS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">7 สิทธิทองคำของเจ้าของข้อมูลส่วนบุคคล (Data Subject)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-info-circle"></i></span>
+                                    <div><strong>Right to Know:</strong> สิทธิรับทราบวัตถุประสงค์</div>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-folder-open"></i></span>
+                                    <div><strong>Right to Access:</strong> สิทธิเข้าถึงรับสำเนา</div>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-edit"></i></span>
+                                    <div><strong>Right to Correct:</strong> สิทธิขอแก้ไขให้ถูกต้อง</div>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-trash-can"></i></span>
+                                    <div><strong>Right to Delete:</strong> สิทธิขอลบข้อมูลทิ้ง</div>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                                    <div><strong>Right to Withdraw:</strong> สิทธิถอนความยินยอม</div>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-file-export"></i></span>
+                                    <div><strong>Right to Data Portability:</strong> สิทธิส่งโอนย้าย</div>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center gap-3 sm:col-span-2">
+                                    <span class="text-tealNeon text-xl"><i class="fa-solid fa-ban"></i></span>
+                                    <div><strong>Right to Object:</strong> สิทธิคัดค้านประมวลผล (การขายโฆษณาตรง)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Privacy concept sticky note" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=User+Rights'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 9: Right to Access",
+                chapter: "SUBJECT RIGHTS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">RIGHT TO ACCESS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สิทธิในการเข้าถึงข้อมูล (Right to Access - Section 30)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tealNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-id-badge"></i> สิทธิ์ขอสำเนากิจกรรมตนเองที่ถูกเก็บบันทึก
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    เจ้าของข้อมูลมีสิทธิ์ขอตรวจสอบและขอรับสำเนาข้อมูลที่เกี่ยวข้องกับตนเองที่มหาวิทยาลัย หรือร้านค้าออนไลน์เก็บบันทึกไว้ รวมถึงให้เปิดเผยว่าได้ข้อมูลมาอย่างไรหากไม่ได้ขออนุญาตโดยตรง
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    <strong>สถานการณ์ตัวอย่าง:</strong> นักศึกษาสามารถยื่นเรื่องขอดูบันทึกกล้อง CCTV, บันทึกการเข้าระบบ Wi-Fi ของตนเองย้อนหลัง หรือขอรับไฟล์รายชื่อประวัติที่มหาวิทยาลัยเก็บไว้ในระบบฐานข้อมูลการสมัครเรียนได้
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-5 rounded-xl">
+                                    <h4 class="text-sm sm:text-base font-bold text-amberNeon flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-question"></i> คำถามชวนคิดในชั้นเรียน:
+                                    </h4>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">
+                                        "หากเรายื่นขอรับประวัติข้อมูลการเรียน แล้วมหาวิทยาลัยตอบปฏิเสธโดยอ้างเหตุผลข้อขัดข้องทางเทคนิคโดยไม่มีหลักฐานอันควร มหาวิทยาลัยทำผิดกฎหมายอย่างไร?"
+                                    </p>
+                                </div>
+                                <button onclick="revealSection('ans-s9')" class="bg-tealNeon hover:bg-tealNeon/80 text-slate-950 font-bold px-4 py-3 rounded-lg text-xs sm:text-sm transition-all shadow-md">
+                                    คลิกเพื่ออ่านบทวิเคราะห์ของอาจารย์
+                                </button>
+                                <div id="ans-s9" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed p-4 bg-slate-950 rounded-xl border border-tealNeon/30">
+                                    <strong>เฉลย:</strong> ตามมาตรา 30 ผู้ควบคุมข้อมูลต้องปฏิเสธได้เฉพาะเหตุจำเป็นทางกฎหมายหรือเพื่อความมั่นคงเท่านั้น หากเพิกเฉยโดยไม่มีเหตุผล องค์กรมีความเสี่ยงได้รับบทปรับโทษปกครองทางกฎหมาย
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 10: Right to Rectification",
+                chapter: "SUBJECT RIGHTS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">RIGHT TO RECTIFY & TRANSFER</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สิทธิในการแก้ไขข้อมูลให้ถูกต้องและรับส่งย้าย</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-user-pen text-tealNeon"></i> สิทธิแก้ไขข้อมูล (Rectification)</h3>
+                                    <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                                        เจ้าของข้อมูลสามารถยื่นขอแก้ไขข้อมูลส่วนตัวที่ผิดพลาด หรือพ้นสมัย ให้มีความถูกต้อง สมบูรณ์ และไม่มีเจตนาก่อความเข้าใจผิดในระบบหลังบ้านขององค์กร
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 mt-3 leading-relaxed">
+                                        <strong>ตัวอย่าง:</strong> การส่งคำขอเปลี่ยนชื่อ-สกุล, เบอร์โทรศัพท์, หรืออีเมลที่เชื่อมกับแอปพลิเคชันธุรกรรมธนาคาร
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-truck-ramp-box text-indigoNeon"></i> สิทธิส่งโอนย้ายข้อมูล (Portability)</h3>
+                                    <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                                        เจ้าของข้อมูลมีสิทธิ์ขอรับข้อมูลในรูปแบบดิจิทัลที่สามารถเปิดอ่านใช้งานร่วมกับแพลตฟอร์มอื่นได้ทันที และสั่งให้ผู้ควบคุมข้อมูลโอนย้ายตรงไปยังแอปพลิเคชันค่ายคู่แข่ง
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 mt-3 leading-relaxed">
+                                        <strong>ตัวอย่าง:</strong> การสั่งโอนประวัติสุขภาพจากโรงพยาบาล A ไป B หรือสั่งดึงย้ายลิสต์เพลงจากแอปสตรีมมิ่งค่ายหนึ่งไปอีกค่ายหนึ่ง
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 11: Right to Erasure",
+                chapter: "SUBJECT RIGHTS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">RIGHT TO ERASURE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สิทธิในการลบข้อมูล (Right to Erasure / be Forgotten)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-trash text-roseNeon animate-pulse"></i> ขอลบทำลายข้อมูลเมื่อสิ้นสุดการใช้งาน
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    ผู้รับบริการสามารถขอให้ผู้ควบคุมข้อมูลลบ ทลาย หรือทําข้อมูลให้ไม่สามารถระบุตัวบุคคลได้ เมื่อข้อมูลนั้นหมดความจําเป็นในการดำเนินงานตามวัตถุประสงค์ หรือเมื่อถอนความยินยอมแล้ว
+                                </p>
+                                <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    <strong>ข้อยกเว้นสําคัญ:</strong> องค์กรมีสิทธิ์ที่จะ <strong>"ไม่ลบข้อมูล"</strong> ก็ต่อเมื่อมีกฎหมายเฉพาะกำหนดให้ต้องเก็บรักษาไว้ เช่น ประวัติการเรียนของมหาวิทยาลัยตามระเบียบกระทรวงศึกษาธิการ หรือข้อมูลประวัติธุรกรรมเพื่อชำระภาษีสรรพากร
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Digital shredding computer file" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Delete+Data'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 12: Right to Withdraw & Object",
+                chapter: "SUBJECT RIGHTS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">CONSENT WITHDRAWAL & OBJECTION</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สิทธิถอนความยินยอมและสิทธิคัดค้านประมวลผล</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px] gap-3">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-rectangle-xmark text-roseNeon"></i> สิทธิถอนความยินยอม (Withdraw Consent)</h3>
+                                    <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                                        เจ้าของข้อมูลสามารถถอนสิทธิ์ความยินยอมเมื่อใดก็ได้ที่เคยให้ไว้ การยกเลิกต้องทำได้ง่ายใกล้เคียงกับการขอความยินยอมครั้งแรก
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+                                        <strong>ตัวอย่าง:</strong> การกดปุ่ม Unsubscribe ในอีเมลโฆษณา, การปิดฟังก์ชันรับ SMS แจ้งเตือนสิทธิพิเศษ หรือยกเลิกคุกกี้เว็บเบราว์เซอร์
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg text-xs sm:text-sm text-slate-300">
+                                    <strong>คำถามคิดด่วน:</strong> "หากกดยกเลิกรับโฆษณาแล้ว แบรนด์ยังส่ง SMS มาขายของเรื่อยๆ เขาโดนคดีเรื่องอะไรบ้าง?"
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-ban text-tealNeon"></i> สิทธิคัดค้านการใช้ข้อมูล (Object)</h3>
+                                    <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                                        เจ้าของข้อมูลมีสิทธิ์คัดค้านองค์กรในการนำข้อมูลส่วนตัวของตนเองไปประมวลผลเพื่อวัตถุประสงค์ทางการตลาดแบบเจาะจงเป้าหมาย (Direct Marketing) หรือการนำไปทำวิจัยสถิติเว้นแต่มีเหตุทางกฎหมาย
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed">
+                                        <strong>ตัวอย่าง:</strong> ลูกค้าคัดค้านไม่ยินยอมให้แบรนด์วิเคราะห์ข้อมูลพฤติกรรมการซื้อเพื่อเอาไปแนะนำสินค้าตรง
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 13: Collecting, Using & Disclosing",
+                chapter: "LEGAL BASIS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">DATA FLOW & LEGAL BASES</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กฎเหล็กการเก็บ ใช้ และเปิดเผย (Legal Bases under PDPA)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-code-merge text-tealNeon"></i> การประมวลผลต้องมี "ฐานทางกฎหมาย" รองรับเสมอ
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    องค์กรไม่จำเป็นต้องขอความยินยอม (Consent) ในทุกเรื่อง! หากการเก็บข้อมูลนั้นเข้าข่ายฐานทางกฎหมายอื่นที่ชอบธรรมอีก 5 ประการ ดังนี้:
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>1. Contract (สัญญา):</strong> เก็บเพื่อทำสัญญาส่งสินค้า ทำงานร่วมกัน
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>2. Legal Obligation:</strong> ปฏิบัติตามกฎหมายกำหนด (ภาษี, แรงงาน)
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>3. Vital Interest:</strong> ช่วยชีวิตฉุกเฉิน ยามอุบัติเหตุและความเจ็บป่วย
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>4. Public Interest:</strong> เพื่อประโยชน์ของแผ่นดิน ประโยชน์สาธารณะ
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 col-span-2 leading-relaxed">
+                                        <strong>5. Legitimate Interest:</strong> ผลประโยชน์ที่ชอบด้วยกฎหมายของบริษัท (เช่น ถ่าย CCTV ป้องกันขโมยในอาคาร)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Signing document concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Legal+Basis'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 14: Proper Data Collection Example",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">PROPER COLLECTION EXAMPLE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ตัวอย่างการประมวลผลข้อมูลที่ถูกต้องสำหรับ "ร้านช้อปปิ้งออนไลน์"</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-emeraldNeon flex items-center gap-2 mb-3"><i class="fa-solid fa-circle-check"></i> สิ่งที่เก็บและใช้ได้ทันที (บนฐานสัญญา)</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li>ชื่อ-นามสกุล, เบอร์โทรศัพท์ และพิกัดที่อยู่จัดส่งสินค้า เพื่อนำไปติดฉลากส่งพัสดุและติดต่อผู้รับเมื่อสินค้าไปถึงปลายทาง</li>
+                                        <li>เก็บเลขประวัติบัตรเครดิต หรือ บัญชีกระเป๋าเงิน เพื่อตัดยอดเงินชำระค่าซื้อขายสินค้าที่ทำเสร็จในระบบธุรกรรม</li>
+                                    </ul>
+                                </div>
+                                <span class="text-xs sm:text-sm text-emeraldNeon font-semibold mt-2">ถือเป็นพฤติกรรมสอดคล้องตามกรอบ PDPA</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-roseNeon flex items-center gap-2 mb-3"><i class="fa-solid fa-circle-xmark"></i> สิ่งที่ละเมิดกฎหมาย (หากไม่ขอ Consent ก่อน)</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li>การบันทึกประวัติการซื้อไปส่งขายต่อให้สถาบันการเงิน หรือบริษัทโฆษณาภายนอกโดยไม่มีการแจ้งเตือนสัญญาล่วงหน้า</li>
+                                        <li>การบังคับติ๊กยอมรับพาสเวิร์ด/อีเมลพ่วงโฆษณาขายประกันชีวิต แฝงไว้ในปุ่มสมัครสมาชิกแอปพลิเคชันทั่วไป</li>
+                                    </ul>
+                                </div>
+                                <span class="text-xs sm:text-sm text-roseNeon font-semibold mt-2">มีความเสี่ยงฟ้องร้องและบทลงโทษทางกฎหมาย</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 15: Principles of Valid Consent",
+                chapter: "CONSENT PRINCIPLES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">CONSENT FRAMEWORK</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">การขอความยินยอม (Consent) ที่ดีตามหลักกฎหมาย</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tealNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-clipboard-check"></i> คุณสมบัติของการทำแบบฟอร์ม Consent
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    การขอความยินยอมต้องทำเป็นลายลักษณ์อักษรที่ชัดเจน หรือแสดงผ่านระบบอิเล็กทรอนิกส์ที่เข้าใจง่าย โดยมีเงื่อนไขดังนี้:
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>1. มีความอิสระ (Freely Given):</strong> ผู้ใช้มีสิทธิ์ตัดสินใจ ไม่โดนบังคับหรือหลอกล่อ
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>2. ระบุเจาะจง (Specific):</strong> แยกปุ่มการยินยอมออกจากสัญญาทั่วไปให้ชัดเจน
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>3. แจ้งวัตถุประสงค์ (Informed):</strong> อธิบายว่าจะเก็บอะไร ไปใช้อะไร นานแค่ไหน
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 leading-relaxed">
+                                        <strong>4. เปลี่ยนใจได้ (Unambiguous):</strong> สามารถถอนความยินยอมได้ตลอดเวลาโดยไม่มีผลร้าย
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" 
+                                         alt="User clicking on screen" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Consent'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 16: Invalid Consent Examples",
+                chapter: "CONSENT DESIGN",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">BAD DESIGN CHOICES</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ตัวอย่างลักษณะการขอ Consent ที่ "ไม่ถูกต้อง"</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-roseNeon flex items-center gap-2 mb-2"><i class="fa-solid fa-rectangle-xmark"></i> รูปแบบที่ไม่ถูกต้องและละเมิดสิทธิ์</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li><strong>ซ่อนข้อตกลง:</strong> ซ่อนเงื่อนไขการขอเก็บพิกัดหรือการรับโฆษณาไว้ในเอกสารสัญญายาวๆ กว่า 10 หน้ากระดาษตัวหนังสือเล็กจิ๋ว</li>
+                                        <li><strong>บังคับเลือกล่วงหน้า (Pre-ticked Boxes):</strong> ติ๊กเครื่องหมายถูก <strong>"ยินยอมรับข้อมูลการตลาด"</strong> ให้ผู้ใช้งานไว้ล่วงหน้าก่อนสมัครเรียน</li>
+                                        <li><strong>ขู่กีดกันสิทธิ:</strong> แจ้งว่า "หากท่านไม่กดยินยอมรับข่าวสารโฆษณา จะใช้สิทธิ์ดาวน์โหลดชีทเรียนวิชานี้ไม่ได้เลย" (เป็นการมัดมือชก)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px] gap-2">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-triangle-exclamation"></i> ความสุ่มเสี่ยงของเว็บทั่วไป:</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+                                        หน้าเว็บร้านค้าออนไลน์หลายแห่งติดตั้ง Cookie Banner แบบปัดแล้วยอมรับอัตโนมัติ โดยไม่มีตัวเลือกให้ผู้ใช้เลือก <strong>"ปฏิเสธ" (Reject All)</strong> ได้เลย พฤติกรรมเช่นนี้สุ่มเสี่ยงต่อการโดนลงโทษปกครองสูงมาก
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg mt-3 text-sm sm:text-base text-slate-300">
+                                    <strong>จุดเด่นในวิชา:</strong> การออกแบบ UX/UI ที่เป็นธรรมและตรงสิทธิ์ผู้บริโภคเรียกว่า "Privacy by Design"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 17: Valid Consent Examples",
+                chapter: "CONSENT DESIGN",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">VALID DESIGN CHOICES</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ลักษณะการขอ Consent ที่ถูกต้องและสมบูรณ์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-emeraldNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-check-double"></i> ตัวอย่างรูปแบบ UI ความยินยอมที่ถูกต้อง
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    หน้าต่างป็อปอัปแจ้งสิทธิ์คุกกี้ (Cookie Consent Banner) ที่ถูกต้องควรมีลักษณะดังนี้:
+                                </p>
+                                <ul class="text-sm sm:text-base text-slate-300 space-y-2 pl-4 list-disc leading-relaxed">
+                                    <li>แสดงคำอธิบายวัตถุประสงค์สั้น กระชับ เข้าใจง่าย</li>
+                                    <li>มีสวิตช์เปิด-ปิดแยกประเภทความยินยอม (คุกกี้ที่จำเป็น, คุกกี้วิเคราะห์, คุกกี้โฆษณา)</li>
+                                    <li>มีปุ่ม <strong>"ยินยอมทั้งหมด" (Accept All)</strong> และ <strong>"ปฏิเสธทั้งหมด" (Reject All)</strong> ในตำแหน่งเด่นเท่ากัน</li>
+                                    <li>อธิบายช่องทางถอนความยินยอมอย่างชัดเจนในหน้านโยบายความเป็นส่วนตัว</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Cookie Consent design mockup" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/10b981?text=Valid+Consent'"/>
+                                </div>
+                                <div class="bg-indigoNeon/10 border border-indigoNeon/20 p-4 rounded-xl text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    <strong>กิจกรรมชวนส่อง:</strong> ให้นักศึกษาเปิดเบราว์เซอร์ของมหาลัย แล้วลองเข้าไปดูหน้า Cookie Consent ของเว็บไซต์หลักว่าถูกหลักการออกแบบหรือไม่?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 18: Security Measures Overview",
+                chapter: "DATA SECURITY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">SECURITY ASSURANCE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">การรักษาความมั่นคงปลอดภัยของข้อมูล (Section 37)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-shield-halved text-tealNeon"></i> 3 มิติในการรักษาความปลอดภัยขั้นต่ำตามกฎหมาย
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    ผู้ควบคุมข้อมูลส่วนบุคคล (Data Controller) มีหน้าที่ต้องจัดให้มีมาตรการรักษาความมั่นคงปลอดภัยที่เหมาะสม เพื่อป้องกันการสูญหาย เข้าถึง ทำลาย หรือเปิดเผยข้อมูลโดยมิชอบ ครอบคลุมด้านดังต่อไปนี้:
+                                </p>
+                                <div class="grid grid-cols-3 gap-3 text-sm text-center">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <span class="text-tealNeon text-2xl"><i class="fa-solid fa-user-shield"></i></span>
+                                        <h4 class="font-bold text-white mt-1 text-base">ด้านบุคลากร</h4>
+                                        (Personnel)
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <span class="text-tealNeon text-2xl"><i class="fa-solid fa-microchip"></i></span>
+                                        <h4 class="font-bold text-white mt-1 text-base">ด้านเทคนิค</h4>
+                                        (Technical)
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <span class="text-tealNeon text-2xl"><i class="fa-solid fa-building-shield"></i></span>
+                                        <h4 class="font-bold text-white mt-1 text-base">ด้านกายภาพ</h4>
+                                        (Physical)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Cyber Security Operations" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Data+Security'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 19: People & Process Measures",
+                chapter: "DATA SECURITY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">PERSONNEL MEASURES</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">1. มาตรการด้านบุคลากรและกระบวนการทำงาน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-users-viewfinder text-tealNeon"></i> การตระหนักรู้และการจำกัดสิทธิ์</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li><strong>อบรมด้านความปลอดภัย (PDPA/Security Training):</strong> เสริมทักษะพนักงานและผู้ดูแลระบบให้รู้จักภัยฟิชชิ่ง ตลอดจนระเบียบจริยธรรมข้อมูล</li>
+                                        <li><strong>หลักการให้สิทธิ์เท่าที่จำเป็น (Least Privilege):</strong> พนักงานฝ่ายไอทีจะดูได้เฉพาะฐานข้อมูลโค้ด พนักงานฝ่ายทะเบียนดูได้เฉพาะฐานคะแนนเรียน ห้ามดึงข้อมูลสลับฝ่ายโดยไม่รับอนุมัติ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-indigoNeon flex items-center gap-2 mb-2"><i class="fa-solid fa-file-contract"></i> สัญญาและนโยบายความเป็นส่วนตัว</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li><strong>ข้อตกลงรักษาความลับ (NDA):</strong> ทำสัญญาผูกมัดให้พนักงานหรือผู้เอาท์ซอร์สไอทีตกลงว่าจะไม่แอบนำความลับข้อมูลลูกค้าไปส่งออกภายนอก</li>
+                                        <li><strong>ตั้งนโยบายพาสเวิร์ด (Password Policy):</strong> บังคับตั้งค่าพาสเวิร์ดที่ซับซ้อนและมีการเปลี่ยนรหัสในรอบทุก 90 วัน</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 20: Technical Measures",
+                chapter: "DATA SECURITY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">TECHNICAL CONTROLS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">2. มาตรการด้านเทคนิคและความปลอดภัยไซเบอร์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tealNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-laptop-code"></i> เทคโนโลยีป้องกันการถูกเจาะระบบฐานข้อมูล
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    เพื่อให้ระบบสารสนเทศของสถาบันสอดคล้องตามมาตรฐาน PDPA ฝ่ายพัฒนาและผู้ดูแลความปลอดภัยเครือข่ายไอทีควรจัดทำโซลูชันระบบความมั่นคงดังนี้:
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-sm">
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 leading-relaxed">
+                                        <strong>Encryption (การเข้ารหัส):</strong> เข้ารหัสฐานข้อมูลในเซิร์ฟเวอร์ด้วยมาตรฐานระดับสูง (เช่น AES-256) และใช้อินเทอร์เน็ตโปรโตคอล HTTPS เสมอ
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 leading-relaxed">
+                                        <strong>Multi-Factor Authentication (MFA):</strong> กำหนดให้ผู้ดูแลระบบต้องล็อกอินสแกนสองชั้นร่วมกับแอปพลิเคชัน OTP บนสมาร์ตโฟน
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 leading-relaxed">
+                                        <strong>Firewall & IDS/IPS:</strong> ติดตั้งตัวจำกัดปริมาณข้อมูลเพื่อตรวจสอบและตรวจหาผู้บุกรุกเครือข่าย
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 leading-relaxed">
+                                        <strong>Data Backup:</strong> มีระบบสำรองข้อมูลและแยกโซนเซฟตี้ เพื่อป้องกันมัลแวร์เรียกค่าไถ่ (Ransomware)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Visualized computer code encryption" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/10b981?text=Encryption'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 21: Physical Security Measures",
+                chapter: "DATA SECURITY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">PHYSICAL SECURITY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">3. มาตรการด้านกายภาพและศูนย์ข้อมูลเซิร์ฟเวอร์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[380px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Modern Server room physical storage" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Server+Room'"/>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-4">
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800">
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">การควบคุมดูแลผู้เข้าออกเซิร์ฟเวอร์บอร์ด (Access Control)</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
+                                        การเก็บรักษาข้อมูลไม่เสร็จสิ้นเพียงแค่บนเครือข่ายอินเทอร์เน็ต! สถาบันจำต้องออกแบบสิทธิ์ปกป้องฮาร์ดแวร์เก็บข้อมูล เช่น ตู้เก็บเอกสารสัญญาลับ และเครื่องเซิร์ฟเวอร์หลัก
+                                    </p>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800">
+                                    <h3 class="text-base sm:text-lg md:text-xl font-bold text-tealNeon">ระบบป้องกันกายภาพที่เหมาะสม:</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-2 space-y-2 pl-4 list-disc leading-relaxed">
+                                        <li>ติดตั้งกล้องวงจรปิด (CCTV) ตรวจสอบทางเข้าห้องเซิร์ฟเวอร์ และตู้นิรภัยเอกสาร</li>
+                                        <li>ใช้ระบบคีย์การ์ดสแกนใบหน้า หรือลายนิ้วมือเพื่อควบคุมบุคคลที่เข้าออกอย่างเข้มงวด</li>
+                                        <li>มีตารางลงบันทึกการตรวจเยี่ยมผู้รับเหมาภายนอก (Visitor Log) ที่ชัดเจนเพื่อรวบรวมรอยคดีความปลอดภัย</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 22: Case Study 1 - Ransomware",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider">CASE STUDY 01</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กรณีศึกษา 1: โรงพยาบาลถูกโจมตีด้วย Ransomware</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/80 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-hospital text-roseNeon animate-pulse"></i> ข้อมูลผู้ป่วยและประวัติความมั่นคงทางการแพทย์รั่วไหล
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    แฮกเกอร์โจมตีแอปพลิเคชันเชื่อมระบบไอทีโรงพยาบาล สั่งเข้ารหัสไฟล์ผู้ป่วยทำให้แพทย์สั่งจ่ายยาไม่ได้ และแอบดาวน์โหลดประวัติส่วนบุคคล ข้อมูลสุขภาพ และโรคประจำตัวของผู้ป่วยไปโพสต์ขายในเว็บบอร์ดแฮกเกอร์ส่งจดหมายขู่เรียกบิตคอยน์
+                                </p>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-850 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    <strong>ผลกระทบตาม PDPA:</strong> โรงพยาบาลในฐานะ Data Controller มีหน้าที่ต้องรายงานเหตุการณ์ละเมิดข้อมูลให้ <strong>สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล (สคส.)</strong> ทราบภายใน <strong>72 ชั่วโมง</strong> และสุ่มเสี่ยงต่อโทษปรับระดับล้านบาทหากพบข้อบกพร่องไร้ระบบสำรองมาตรการความปลอดภัย
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="bg-amberNeon/10 border border-amberNeon/20 p-5 rounded-xl text-sm sm:text-base">
+                                    <h4 class="font-bold text-amberNeon flex items-center gap-2"><i class="fa-solid fa-users"></i> อภิปรายกลุ่มย่อย:</h4>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">
+                                        "ถ้านักศึกษาเป็นผู้บริหารแผนกไอทีของโรงพยาบาล สิ่งแรกที่คุณควรดำเนินการทำอย่างไรเมื่อถูก Ransomware?"
+                                    </p>
+                                </div>
+                                <button onclick="revealSection('ans-s22')" class="bg-roseNeon hover:bg-roseNeon/80 text-white font-bold px-4 py-3 rounded-lg text-xs sm:text-sm transition-all shadow-md">
+                                    คลิกเพื่อดูแนวทางแก้ไขที่เหมาะสม
+                                </button>
+                                <div id="ans-s22" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed p-4 bg-slate-950 rounded-xl border border-roseNeon/30">
+                                    <strong>แนวทางป้องกัน:</strong> 1. ตัดพอร์ตอินเทอร์เน็ตเครื่องเป้าหมายเพื่อบล็อกเครือข่าย 2. สลับย้ายดึงประวัติสำรอง (Offline Backup) มาใช้งานทดแทนชั่วคราว 3. รายงานแจ้งเหตุ สคส. และส่ง SMS แจ้งผู้ป่วยในเครือข่ายให้ระวังแฮงกิ้งสวมรอย
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 23: Case Study 2 - Selling Customer Data",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider">CASE STUDY 02</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กรณีศึกษา 2: บริษัทแอบนำข้อมูลรายชื่อลูกค้าไปขายต่อ</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-hand-holding-dollar text-roseNeon"></i> ลักลอบโอนสิทธิ์รายชื่อเพื่อเป้าหมายแฝงโฆษณาประกัน
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    บริษัทสตาร์ตอัปจำหน่ายแว่นตาดึงเบอร์โทรศัพท์และอีเมลลูกค้าในระบบสมาชิก นำไปขายให้บริษัทโฆษณาภายนอกเพื่อเอาค่านายหน้า โดยไม่มีนโยบายความเป็นส่วนตัวอธิบายเงื่อนไข และไม่เคยขอ Consent เรื่องนี้จากลูกค้าโดยเฉพาะ
+                                </p>
+                                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    <strong>ข้อวินิจฉัยความผิด:</strong> ผิดกฎหมาย PDPA ชัดเจน เนื่องจากผิดเสาหลัก "Fairness" "Transparency" และ "Purpose Limitation" การนำข้อมูลส่งเปิดเผยภายนอกเพื่อธุรกิจแอบแฝงโดยไม่ได้ระบุวัตถุประสงค์สัญญาสุ่มเสี่ยงรับบทโทษปรับเงินหลักแสนถึงหลักล้านบาท และอาจมีส่วนรับโทษคดีอาญา
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1579621970795-87fbe2997b6e?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Money transaction on tablet screens" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Data+Selling'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 24: Case Study 3 - Social Media & Uni",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider">CASE STUDY 03</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กรณีศึกษา 3: มหาวิทยาลัยโพสต์รูปนักศึกษาลง Facebook</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px] gap-3">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-camera text-tealNeon"></i> รายละเอียดกิจกรรมและการสุ่มเสี่ยงละเมิดสิทธิ์</h3>
+                                    <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                                        แอดมินเพจของมหาวิทยาลัยแอบเก็บภาพถ่ายกิจกรรมวิชาการในคลาสเรียนที่มีใบหน้านักศึกษาหลายคนแสดงสีหน้าเผลอ แล้วนำภาพไปโพสต์โปรโมทวิชาลงในเพจ Facebook หลักเพื่อประชาสัมพันธ์
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-550 mt-2 leading-relaxed">
+                                        นักศึกษาบางคนรู้สึกไม่พอใจที่หน้าตนเองดูตลกขบขัน และทักแอดมินให้ช่วยลบออก
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    <strong>จุดวิเคราะห์:</strong> มหาวิทยาลัยมีสิทธิ์โพสต์ภาพจัดกิจกรรมได้ตามฐาน "Legitimate Interest" (ผลประโยชน์โดยธรรมเพื่อโปรโมทสถาบัน) แต่ถ้าผู้ใช้งานใช้สิทธิ์ "Right to Object / Delete" ยื่นทักคัดค้าน แอดมินควรดำเนินการลบหรือเบลอใบหน้าให้ทันที
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px] gap-3">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon flex items-center gap-2 mb-2"><i class="fa-solid fa-circle-question"></i> แนวทางปฏิบัติที่ดีที่สุดสำหรับฝ่าย PR:</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li>จัดทำป้ายแจ้งเตือน "Privacy Notice" หน้าสถานที่จัดกิจกรรมอย่างเป็นทางการ ว่าภายในงานจะมีการถ่ายภาพเพื่อนำไปใช้ออกสื่อ</li>
+                                        <li>หากหลีกเลี่ยงไม่ได้ หรือเป็นรูปถ่ายบุคคลเดี่ยว เจาะจงสายตา ควรขอกดยินยอมหรือให้เซ็นใบแบบฟอร์ม Consent ก่อนเสมอ</li>
+                                    </ul>
+                                </div>
+                                <span class="text-xs sm:text-sm text-slate-500">ความเคารพสิทธิ์สร้างแบรนด์ที่น่าเชื่อถือ</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 25: Case Study 4 - CCTV in Coffee Shop",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider">CASE STUDY 04</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กรณีศึกษา 4: ร้านกาแฟติดกล้อง CCTV บันทึกภาพลูกค้า</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-video text-tealNeon"></i> การบันทึกภาพผู้รับบริการเพื่อเหตุผลด้านความปลอดภัย
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    ร้านกาแฟติดตั้งกล้องวงจรปิดรอบร้าน และแอบบันทึกภาพหน้าลูกค้าตลอดวัน พฤติกรรมเช่นนี้จัดเป็นความผิดตาม PDPA หรือไม่? และร้านค้าจำเป็นต้องเอาแผ่นกระดาษ Consent ไปยื่นให้ลูกค้าเซ็นยินยอมก่อนสั่งเครื่องดื่มทุกคนหรือไม่?
+                                </p>
+                                <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl text-sm sm:text-base text-slate-400 leading-relaxed">
+                                    <strong>คำวินิจฉัย:</strong> ไม่ต้องให้เซ็น Consent! ร้านค้าสามารถประมวลผลวิดีโอ CCTV ได้ทันทีภายใต้ฐาน <strong>"Legitimate Interest" (เพื่อปกป้องทรัพย์สินของร้าน ป้องกันการขโมย)</strong> แต่ร้านค้าจำเป็นต้องติดสติกเกอร์รูปกล้องวงจรปิดให้เห็นเด่นชัด พร้อมระบุสั้นๆ ว่าบริเวณนี้มีกล้องบันทึกเพื่อความมั่นคงปลอดภัย (เรียกว่า "CCTV Privacy Notice")
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Coffee shop interiors" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Coffee+CCTV'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 26: Case Study 5 - Cookie Tracking",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider">CASE STUDY 05</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กรณีศึกษา 5: เว็บไซต์ติดตั้ง Cookies เพื่อติดตามพฤติกรรม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px] gap-3">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 mb-2"><i class="fa-solid fa-cookie text-amberNeon"></i> คุกกี้และเทคโนโลยีการสืบพิกัดข้อมูล</h3>
+                                    <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                                        เว็บไซต์พอร์ทัลรวบรวมลิสต์ข่าวแชร์มีการติดตั้งคุกกี้สแกนไอดีกลุ่มบุคคล (Third-party Cookies) เพื่อส่งข้อมูลพิกัดความสนใจในการอ่านบทความของผู้ใช้งานไปยังระบบจัดการโฆษณาของบริษัทยักษ์ใหญ่
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-slate-500 mt-3 leading-relaxed">
+                                        กฎหมายคุ้มครองข้อมูลของไทยถือว่า Cookies หรือ IP Address จัดเป็นข้อมูลระบุตัวตนทางอ้อม เพราะนำไปจับแมตช์ทำพิกัดเป้าหมายพฤติกรรมชีวิตคนได้
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[240px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon flex items-center gap-2 mb-2"><i class="fa-solid fa-check"></i> ขั้นตอนดำเนินหน้าต่างความร่วมมือให้ถูกกฎหมาย:</h3>
+                                    <ul class="text-sm sm:text-base text-slate-300 mt-3 space-y-3 pl-4 list-disc leading-relaxed">
+                                        <li>ต้องเปิดป็อปอัป "Cookie Consent" ทันทีที่ผู้ใช้งานคลิกเข้าหน้าเว็บครั้งแรก โดยล็อกสวิตช์ปิดคุกกี้โฆษณา (Unchecked by default) เอาไว้ก่อนเสมอ</li>
+                                        <li>ห้ามแอบสแปมยัดคุกกี้ใส่เบราว์เซอร์ล่วงหน้าจนกว่าลูกค้าจะกดปุ่ม "ตกลงยินยอม" (Accept)</li>
+                                    </ul>
+                                </div>
+                                <span class="text-xs sm:text-sm text-slate-500">สิทธิ์ในการกำหนดความเป็นส่วนตัวอยู่ในมือผู้บริโภค</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 27: Summary of PDPA",
+                chapter: "SUMMARY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">KEY TAKEAWAYS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สรุปหัวใจสำคัญของ PDPA สำหรับเหล่านักพัฒนาไอที</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-4">
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-tealNeon/15 flex items-center justify-center text-tealNeon text-2xl shrink-0"><i class="fa-solid fa-heart-shield"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">เคารพในสิทธิ์และความเป็นส่วนตัว (Respect Privacy)</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">ตระหนักไว้เสมอว่า ข้อมูลส่วนบุคคลไม่ใช่เป็นสิทธิ์ครอบครองของแบรนด์หรือของสถาบัน แต่เป็นสิทธิ์อันชอบธรรมของตัวผู้บริโภคเอง</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-indigoNeon/15 flex items-center justify-center text-indigoNeon text-2xl shrink-0"><i class="fa-solid fa-eye"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">ความโปร่งใสและระบบชี้ชัด (Transparency First)</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">แจ้งจุดประสงค์ในการใช้ สัญญาอย่างเหมาะสม ไม่คลุมเครือ และต้องขอ Consent ในจุดที่เหมาะสมทางคดี</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-roseNeon/15 flex items-center justify-center text-roseNeon text-2xl shrink-0"><i class="fa-solid fa-lock"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">ปกป้องดูแลความปลอดภัยสารสนเทศ (Security)</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">ออกแบบฐานข้อมูล แพลตฟอร์มคลาวด์ แอปพลิเคชัน ให้มีความปลอดภัยทางเทคนิคและการเข้ารหัสที่เข้มงวดสม่ำเสมอ</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Data and trust digital world" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Privacy+Trust'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 28: Classroom Activity",
+                chapter: "ACTIVITIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">ACTIVE LECTURE WORKSHOP</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กิจกรรมกลุ่มในห้องเรียน: ออกแบบพิมพ์เขียวความปลอดภัย (5 นาที)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-tealNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-users-rectangle"></i> แผนงานสร้างระบบสอดคล้องตามกฎหมายคุ้มครองสิทธิ์
+                                </h3>
+                                <p class="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+                                    ให้นักศึกษาจับกลุ่มละ 4-5 คน เลือกกรณีทำธุรกิจสมมติดังต่อไปนี้ 1 รายการ:
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 text-sm sm:text-base text-center font-bold">
+                                    <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 text-tealNeon text-base">โรงพยาบาลยุคดิจิทัล</div>
+                                    <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 text-tealNeon text-base">ร้านค้าระบบ E-Commerce</div>
+                                    <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 text-tealNeon text-base">ระบบสถาบันการเงินโมบายแบงกิ้ง</div>
+                                    <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 text-tealNeon text-base">แพลตฟอร์มโซเชียลมีเดียเฉพาะกลุ่ม</div>
+                                </div>
+                                <p class="text-sm text-slate-400 leading-relaxed mt-1">
+                                    <strong>โจทย์อภิปรายย่อย:</strong> ร่วมกันระบุชนิดข้อมูลที่จัดเก็บ, ตัวเลือกฐานกฎหมายประมวลผล, วิธีแสดงผลหน้า Consent และมาตรการความปลอดภัยเซิร์ฟเวอร์หลังบ้านเพื่อป้องกันภัยแฮกเกอร์
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="bg-indigoNeon/10 border border-indigoNeon/20 p-5 rounded-xl text-sm sm:text-base leading-relaxed">
+                                    <h4 class="font-bold text-white mb-1"><i class="fa-solid fa-clock"></i> กฎเกณฑ์นำเสนอกลุ่ม:</h4>
+                                    ระดมสมองและสรุปรายละเอียดเขียนลงกระดาษหรือโปรแกรมจดบันทึก จากนั้นให้ตัวแทนกลุ่มลุกขึ้นนำเสนอแผนงานไม่เกินกลุ่มละ 5 นาที
+                                </div>
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Group of students working on computers" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/14b8a6?text=Class+Activity'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 29: Interactive Quick Quiz",
+                chapter: "QUIZ",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-sm sm:text-base tracking-wider">ACTIVE CHALLENGE QUIZ</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">แบบฝึกหัดโต้ตอบ: ตรวจสอบความรู้ท้ายคาบเรียนด่วน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech self-start uppercase">QUESTION FOR RECAP</span>
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white leading-relaxed">
+                                    "ข้อมูลใดต่อไปนี้ จัดเป็นข้อมูลส่วนบุคคลประเภทอ่อนไหว (Sensitive Data) ที่ได้รับการคุ้มครองด้วยเงื่อนไขมาตรา 26 ที่มีความเข้มงวดสูงสุด?"
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                                    เลือกคำตอบเพื่อส่งประเมินผลคะแนนความเข้าใจของคุณ:
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h4 class="text-sm sm:text-base md:text-lg font-bold text-tealNeon mb-1"><i class="fa-solid fa-list-check"></i> ตัวเลือกคำตอบสำหรับการแข่งขัน</h4>
+                                <div class="flex flex-col gap-3 text-sm sm:text-base">
+                                    <button onclick="submitQuizChoice(1)" id="quiz-btn-1" class="text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        A. หมายเลข IP Address ของคอมพิวเตอร์และรหัสประจำตัวพนักงาน IT
+                                    </button>
+                                    <button onclick="submitQuizChoice(2)" id="quiz-btn-2" class="text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        B. ข้อมูลชีวมาตร (Biometric) เช่น ลายนิ้วมือ และประวัติข้อมูลสุขภาพการผ่าตัด
+                                    </button>
+                                    <button onclick="submitQuizChoice(3)" id="quiz-btn-3" class="text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        C. เบอร์โทรศัพท์เคลื่อนที่ส่วนตัวและรูปภาพโปรไฟล์บนเครือข่ายสังคมออนไลน์
+                                    </button>
+                                </div>
+                                <div id="quiz-feedback" class="text-sm sm:text-base font-semibold mt-2 min-h-[45px] leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 30: Written Assignment & Closing",
+                chapter: "HOMEWORK",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider">ACTIVE LEARNING WRITING ASSIGNMENT</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">แบบฝึกหัดข้อเขียน (5 ข้อ) และประเมินตนเองปิดคาบเรียน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <!-- Written Homework Questions list -->
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[240px]">
+                                <div>
+                                    <h3 class="text-sm sm:text-base md:text-lg font-bold text-tealNeon uppercase tracking-widest font-tech flex items-center gap-2">
+                                        <i class="fa-solid fa-clipboard-list"></i> คำถามข้อเขียนแบบฝึกหัด (ส่งในสัปดาห์หน้า)
+                                    </h3>
+                                    <ol class="text-xs sm:text-sm text-slate-300 mt-3 space-y-3 pl-4 list-decimal leading-relaxed">
+                                        <li><strong>การจำแนกข้อมูล:</strong> อธิบายความแตกต่างของ "ข้อมูลทั่วไป" vs "ข้อมูลอ่อนไหว" พร้อมระบุรายชื่อข้อมูลประเภทอ่อนไหว 5 ชนิด</li>
+                                        <li><strong>บทวิเคราะห์ระบบไอที:</strong> สมมติว่านักศึกษาเป็นผู้พัฒนาโปรเจกต์เว็บของมหาลัย แพลตฟอร์มควรมีมาตรการด้านเทคนิคใดบ้างเพื่อให้ถูกต้องตาม PDPA?</li>
+                                        <li><strong>ประเมินผลความยินยอม:</strong> นำเสนอตัวอย่างหน้าต่าง Cookie Consent ของเว็บไซต์ที่แอบโกงผู้ใช้ (Dark Pattern) พร้อมระบุกฎหมายข้อละเมิด</li>
+                                        <li><strong>สิทธิเจ้าของข้อมูล:</strong> อธิบายกรณีจำกัดขอบสิทธิ์ที่องค์กรสามารถปฏิเสธคำขอลบไฟล์ (Right to erasure) ของผู้ใช้ได้อย่างชอบธรรม</li>
+                                        <li><strong>วิเคราะห์วิกฤตความเสี่ยง:</strong> ค้นหาข่าวเหตุการณ์ข้อมูลระบบรั่วไหลในอดีตมา 1 คดี ประเมินความเสียหาย และระบุบทลงโทษอาญาที่แบรนด์ควรได้รับ</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <!-- Homework & Reflection Alignment -->
+                            <div class="bg-gradient-to-br from-cardDark to-slate-950 p-5 sm:p-6 rounded-2xl border border-tealNeon/30 flex flex-col justify-between h-full min-h-[240px] gap-4">
+                                <div>
+                                    <span class="text-tealNeon font-semibold text-sm sm:text-base uppercase tracking-widest"><i class="fa-solid fa-brain"></i> REFLECTION / การสะท้อนความคิด (5 นาที)</span>
+                                    <p class="text-sm sm:text-base md:text-lg text-slate-300 mt-3 leading-relaxed font-semibold">
+                                        "ความโปร่งใสและหลักจริยธรรมข้อมูลส่วนบุคคลในโลกไอที ไม่ใช่ภาระทางกฎหมายที่ขัดขวางการพัฒนานวัตกรรม แต่คือรากฐานความมั่นคงที่ช่วยให้เทคโนโลยีดิจิทัลได้รับความเชื่อมั่นและเติบโตได้อย่างยั่งยืนในอนาคต"
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-slate-900/85 p-4 rounded-xl border border-slate-850 text-sm sm:text-base text-slate-400 leading-relaxed">
+                                    <p class="font-bold text-amberNeon mb-1"><i class="fa-regular fa-comment"></i> คำถามสรุปสติปิดคลาส:</p>
+                                    "ในฐานะที่คุณใช้แอปพลิเคชันธุรกรรมออนไลน์ทุกวัน การให้สิทธิ์ข้อมูลชิ้นใดบ้างที่คุณจะไม่มีวันกดยอมรับเป็นอันขาดเพื่อความปลอดภัยของครอบครัว?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        // Render Slide Sidebar items list
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebar-list");
+            listContainer.innerHTML = "";
+            slides.forEach((slide, index) => {
+                const btn = document.createElement("button");
+                btn.className = `text-left text-sm sm:text-base p-3.5 rounded-xl border transition-all flex justify-between items-center w-full ${
+                    index === currentSlideIndex 
+                        ? "bg-tealNeon/10 border-tealNeon text-tealNeon font-bold" 
+                        : "bg-slate-900 border-borderSlate hover:border-slate-500 text-slate-400"
+                }`;
+                btn.onclick = () => {
+                    goToSlide(index);
+                    if (window.innerWidth < 640) { // Mobile toggle sidebar close
+                        toggleSidebar();
+                    }
+                };
+                
+                // Truncate title for sidebar view
+                const titleText = slide.title.length > 28 ? slide.title.substring(0, 28) + "..." : slide.title;
+                btn.innerHTML = `
+                    <span>${titleText}</span>
+                    <span class="font-tech text-xs bg-slate-800 px-2 py-0.5 rounded text-slate-500">${slide.chapter}</span>
+                `;
+                listContainer.appendChild(btn);
+            });
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("translate-x-full");
+        }
+
+        // Main Slide Render function
+        function renderSlide() {
+            const currentSlide = slides[currentSlideIndex];
+            const slideContainer = document.getElementById("slide-content");
+            
+            // Format slide number labels
+            const numText = (currentSlideIndex + 1).toString().padStart(2, '0');
+            const totalText = slides.length.toString().padStart(2, '0');
+            document.getElementById("slide-number-display").innerText = `SLIDE ${numText} / ${totalText}`;
+            
+            // Inject dynamic HTML content
+            slideContainer.innerHTML = currentSlide.html;
+            
+            // Re-render and restore choices if they are selected/answered on active slide
+            rehydrateInteractiveElements();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            renderSidebar();
+        }
+
+        // Interaction helper on slide case studies (Click-to-reveal answers)
+        function revealSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+                section.classList.toggle("hidden");
+            }
+        }
+
+        // Active State Checkboxes on Slide 6 (General vs Sensitive Data Activity)
+        function checkDataType(typeId, target) {
+            interactiveAnswers[currentSlideIndex] = typeId;
+            const feedback = document.getElementById("datatype-feedback");
+            if (target === 'sensitive') {
+                feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-triangle-exclamation"></i> ถูกต้อง! นี่คือ ข้อมูลอ่อนไหว (Sensitive Data) ต้องใช้สิทธิ์ยินยอมแบบระบุชัดเจนและมีการปกป้องสูงสุดตามมาตรา 26</span>`;
+            } else {
+                feedback.innerHTML = `<span class="text-tealNeon"><i class="fa-solid fa-circle-check"></i> ถูกต้อง! จัดเป็น ข้อมูลส่วนบุคคลทั่วไป (General Data) แต่สถาบันก็ต้องเก็บภายใต้กรอบนโยบายความลับที่รัดกุมเช่นกัน</span>`;
+            }
+        }
+
+        // Interactive Slide 29 Multi-choice Quiz handlers
+        function submitQuizChoice(choiceId) {
+            quizAnswers[currentSlideIndex] = choiceId;
+            const feedback = document.getElementById("quiz-feedback");
+            
+            // Clear prior states on button borders
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`quiz-btn-${i}`);
+                if (btn) {
+                    btn.className = "text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300 text-sm sm:text-base";
+                }
+            }
+            
+            const selectedBtn = document.getElementById(`quiz-btn-${choiceId}`);
+            if (!selectedBtn) return;
+
+            if (choiceId === 2) {
+                selectedBtn.className = "text-left p-4 rounded-xl bg-emeraldNeon/10 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold text-sm sm:text-base";
+                feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ยอดเยี่ยม! คำตอบถูกต้องครบถ้วน ข้อมูลลายนิ้วมือ ม่านตา คลื่นไฟฟ้าหัวใจ และประวัติสุขภาพ คดีความมั่นคงจัดเป็นข้อมูลอ่อนไหวที่มีโทษแรงที่สุดหากมีการละเมิด</span>`;
+            } else if (choiceId === 1) {
+                selectedBtn.className = "text-left p-4 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-sm sm:text-base";
+                feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ยังไม่ถูกต้อง! IP Address และ Student ID จัดเป็นข้อมูลส่วนบุคคลทั่วไป (ทางอ้อม) เท่านั้น ไม่ได้อยู่ภายใต้เงื่อนไขอ่อนไหวคดีความมั่นคงมาตรา 26</span>`;
+            } else {
+                selectedBtn.className = "text-left p-4 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-sm sm:text-base";
+                feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ยังไม่ถูกต้อง! เบอร์โทรศัพท์ส่วนตัว และภาพถ่ายทั่วไปจัดเป็น ข้อมูลส่วนบุคคลประเภททั่วไป (General Personal Data) ทั่วไปไม่ใช่ประเภทประเด็นอ่อนไหว</span>`;
+            }
+        }
+
+        // Rehydrate/restore state of elements after slide navigation switches
+        function rehydrateInteractiveElements() {
+            if (currentSlideIndex === 28 && quizAnswers[currentSlideIndex]) { // Restore Slide 29 Quiz Choice
+                submitQuizChoice(quizAnswers[currentSlideIndex]);
+            }
+        }
+
+        // Listen for Keyboard Navigation Shortcuts
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Touch swipe handler for mobile devices
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        function handleSwipeGesture() {
+            if (touchendX < touchstartX - 65) {
+                nextSlide(); // Swipe Left -> Go Next
+            }
+            if (touchendX > touchstartX + 65) {
+                prevSlide(); // Swipe Right -> Go Prev
+            }
+        }
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, false);
+
+        // Initialize presentation stack on document loaded
+        window.onload = () => {
+            renderSlide();
+            renderSidebar();
+        }
+    </script>
+</body>
+</html>
