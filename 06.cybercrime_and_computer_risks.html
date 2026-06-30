@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybercrime & Computer Risks - IT Laws & Ethics</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#020617',
+                        cardDark: '#0b1329',
+                        borderSlate: '#1e293b',
+                        emeraldNeon: '#10b981',
+                        cyanNeon: '#06b6d4',
+                        indigoNeon: '#6366f1',
+                        amberNeon: '#f59e0b',
+                        roseNeon: '#f43f5e',
+                        lawBlue: '#3b82f6'
+                    },
+                    fontFamily: {
+                        thai: ['"IBM Plex Sans Thai"', 'Sarabun', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+            background-color: #020617;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        .slide-frame {
+            transition: all 0.3s ease-in-out;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen select-none">
+
+    <!-- Top Navigation Utility Bar -->
+    <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
+        <div class="flex items-center gap-3">
+            <span class="font-tech text-cyanNeon font-bold tracking-wider text-base sm:text-lg">IT LAWS & ETHICS</span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full border border-slate-700 font-bold">CYBERCRIME & RISKS</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-6">
+            <span class="text-sm text-slate-300 hidden lg:inline"><i class="fa-solid fa-clock mr-2 text-cyanNeon animate-pulse"></i> คาบเรียนบรรยาย + กิจกรรม: 3 ชั่วโมง (30-35 สไลด์)</span>
+            <button onclick="toggleSidebar()" class="text-slate-200 hover:text-cyanNeon transition-all text-sm px-3.5 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-borderSlate flex items-center gap-2">
+                <i class="fa-solid fa-list-ul"></i> <span class="font-bold hidden sm:inline">สไลด์ทั้งหมด</span><span class="sm:hidden font-bold">เมนู</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
+        
+        <!-- Slide Sidebar Navigator -->
+        <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-80 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
+            <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
+                <h3 class="font-tech text-cyanNeon text-base tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> SLIDE NAVIGATOR
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-roseNeon text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="sidebar-list" class="flex flex-col gap-2">
+                <!-- Sidebar items dynamically rendered here -->
+            </div>
+        </aside>
+
+        <!-- Slide Frame Container (Responsive 16:9 box or auto-flow on small screens) -->
+        <div class="w-full max-w-7xl h-auto min-h-[82vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-5 sm:p-8 md:p-14 flex flex-col justify-between overflow-y-auto slide-frame">
+            
+            <!-- Abstract Background Neon Elements -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigoNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-cyanNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <!-- Slide Content Window -->
+            <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
+                <!-- Slide content injected here by JavaScript -->
+            </div>
+
+            <!-- Slide Footer info -->
+            <div class="border-t border-borderSlate/60 pt-4 mt-6 sm:mt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-slate-400 relative z-10">
+                <div class="flex items-center gap-2 sm:gap-4 text-center sm:text-left">
+                    <span class="font-tech text-cyanNeon font-bold text-base tracking-wider">CYBERCRIME & DIGITAL RISKS</span>
+                    <span class="hidden sm:inline text-slate-600">|</span>
+                    <span class="hidden sm:inline text-slate-300 font-medium">Laws and Ethics for IT and Digital Innovation</span>
+                </div>
+                <div class="font-tech text-cyanNeon font-bold text-base sm:text-xl" id="slide-number-display">
+                    SLIDE 01 / 35
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Controls Floating Dock -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
+        <button onclick="prevSlide()" class="hover:text-cyanNeon text-slate-300 transition-colors px-3 py-1 text-2xl sm:text-3xl" title="ก่อนหน้า">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span class="text-sm text-slate-300 border-x border-slate-700 px-4 py-1 flex items-center gap-2 hidden sm:flex font-bold">
+            ควบคุมด้วยคีย์บอร์ด <kbd class="bg-slate-800 text-slate-200 px-2 py-1 rounded text-xs">←</kbd> <kbd class="bg-slate-800 text-slate-200 px-2 py-1 rounded text-xs">→</kbd>
+        </span>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-3 py-1 flex items-center gap-2 sm:hidden">
+            <i class="fa-solid fa-hand-pointer text-cyanNeon"></i> ปัดหน้าจอเพื่อเลื่อนเปลี่ยนสไลด์
+        </span>
+        <button onclick="nextSlide()" class="hover:text-cyanNeon text-slate-300 transition-colors px-3 py-1 text-2xl sm:text-3xl" title="ถัดไป">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Slide Engine Script Block -->
+    <script>
+        let interactiveAnswers = {};
+        let quizAnswers = {};
+
+        // Slide Database Array (Slides 1 to 35)
+        const slides = [
+            {
+                title: "Slide 1: Title Cover",
+                chapter: "WELCOME",
+                html: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center h-full py-2">
+                        <div class="lg:col-span-7 flex flex-col justify-center gap-4 sm:gap-6">
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-widest font-bold uppercase bg-cyanNeon/10 border border-cyanNeon/20 px-4 py-1.5 rounded-full self-start">LECTURE SLIDES</span>
+                            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                                Cybercrime & Risks
+                            </h1>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl text-cyanNeon font-bold -mt-2">
+                                อาชญากรรมไซเบอร์และความเสี่ยงระบบคอมพิวเตอร์
+                            </h2>
+                        </div>
+                        <div class="lg:col-span-5 h-full flex justify-center items-center">
+                            <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Cybersecurity Main Cover" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Cyber+Security'"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs sm:text-sm text-slate-300 bg-slate-900/80 px-2 py-1 rounded">Securing the Digital Frontier</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 2: Learning Outcomes",
+                chapter: "OBJECTIVES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">EXPECTED SKILLS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">เมื่อเรียนจบบทนี้ นักศึกษาจะสามารถ...</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto">
+                            <div class="space-y-4">
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl text-cyanNeon shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                                    <p class="text-lg sm:text-xl font-semibold text-slate-200">อธิบายความหมายและขอบเขตของ Cybercrime ได้ชัดเจน</p>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl text-cyanNeon shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                                    <p class="text-lg sm:text-xl font-semibold text-slate-200">จำแนกประเภทและรูปแบบการโจมตีทางไซเบอร์แบบต่างๆ</p>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl text-cyanNeon shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                                    <p class="text-lg sm:text-xl font-semibold text-slate-200">อธิบายลักษณะและการทำงานของ Malware ประเภทต่างๆ</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl text-cyanNeon shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                                    <p class="text-lg sm:text-xl font-semibold text-slate-200">วิเคราะห์ความเสี่ยงและพฤติกรรมการโจมตีระบบเครือข่าย</p>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl text-cyanNeon shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                                    <p class="text-lg sm:text-xl font-semibold text-slate-200">ประเมินผลกระทบทางธุรกิจ สังคม และกฎหมายต่อองค์กร</p>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center gap-4">
+                                    <span class="text-2xl text-cyanNeon shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                                    <p class="text-lg sm:text-xl font-semibold text-slate-200">เสนอแนวทางการป้องกันและฟื้นฟูระบบจากเหตุภัยคุกคาม</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 3: What is Cybercrime?",
+                chapter: "DEFINITION",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">CORE CONCEPT</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Cybercrime คืออะไร?</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="p-6 bg-slate-900/80 border-l-4 border-cyanNeon rounded-r-xl">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">นิยามทางเทคนิคและกฎหมาย</h3>
+                                    <p class="text-lg sm:text-xl text-slate-300 leading-relaxed font-medium">
+                                        การกระทำความผิดทางกฎหมายที่ใช้ <strong class="text-cyanNeon">ระบบคอมพิวเตอร์ อุปกรณ์ดิจิทัล หรือระบบเครือข่ายอินเทอร์เน็ต</strong> เป็นเครื่องมือในการก่อเหตุ เป็นเป้าหมายในการโจมตี หรือเป็นทั้งสองอย่างพร้อมๆ กัน
+                                    </p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-sm sm:text-base">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1 text-base sm:text-lg">คอมพิวเตอร์เป็น "เครื่องมือ"</h4>
+                                        <p class="text-slate-400">ใช้หลอกโอนเงิน หลอกซื้อของออนไลน์ โจมตีผู้อื่น</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-cyanNeon mb-1 text-base sm:text-lg">คอมพิวเตอร์เป็น "เป้าหมาย"</h4>
+                                        <p class="text-slate-400">การแฮกเจาะระบบ ฐานข้อมูล หรือทำให้เว็บไซต์ใช้งานไม่ได้</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Cybercrime Representation" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Cybercrime'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 4: Why Cybercrime is Rising?",
+                chapter: "TRENDS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">DRIVING FACTORS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ทำไม Cybercrime จึงเติบโตอย่างก้าวกระโดด?</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-cyanNeon"><i class="fa-solid fa-mobile-screen mr-2"></i> Mobile Banking & Wallet</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1">ธุรกรรมการเงินย้ายมาอยู่ในมือถือ สะดวกแต่ก็เพิ่มช่องทางให้เหยื่อถูกโจมตีได้ง่าย</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-cyanNeon"><i class="fa-solid fa-cloud mr-2"></i> Cloud & IoT</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1">ทุกอุปกรณ์เชื่อมต่อเน็ตตลอดเวลา และข้อมูลทุกอย่างขึ้นคลาวด์ เพิ่มพื้นที่การโจมตี</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-cyanNeon"><i class="fa-solid fa-coins mr-2"></i> Cryptocurrency</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1">เงินดิจิทัลไร้พรมแดน ติดตามตัวตนยาก กลายเป็นช่องทางการเรียกค่าไถ่ยอดฮิต</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 border border-slate-800 rounded-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-cyanNeon"><i class="fa-solid fa-robot mr-2"></i> Generative AI</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1">แฮกเกอร์ใช้ AI ในการสร้างข้อความ Phishing ที่สมบูรณ์แบบ หรือสร้าง Deepfake ได้แนบเนียน</p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-amberNeon/10 border-2 border-amberNeon/30 p-6 rounded-2xl flex flex-col justify-between gap-4">
+                                <h3 class="text-lg sm:text-xl font-bold text-amberNeon flex items-center gap-2"><i class="fa-solid fa-comments animate-bounce"></i> กิจกรรมด่วน (Think-Pair-Share):</h3>
+                                <p class="text-base sm:text-lg text-slate-200 leading-relaxed italic">
+                                    "ลองตรวจสอบสมาร์ตโฟนของคุณตอนนี้... คุณคิดว่ามือถือของคุณมีข้อมูลสำคัญอะไรบ้างที่พร้อมจะถูกขโมย?"
+                                </p>
+                                <span class="text-sm text-slate-400 font-bold"><i class="fa-solid fa-clock mr-2"></i> อภิปรายกับเพื่อนข้างๆ 5 นาที</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 5: Global Cybercrime Statistics",
+                chapter: "STATISTICS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">MARKET ANALYSIS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สถิติและความเสียหายระดับโลก</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-6 space-y-4">
+                                <div class="p-5 bg-slate-900/60 border border-slate-800 rounded-xl text-center">
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-300">มูลค่าความสูญเสียจากอาชญากรรมไซเบอร์</h3>
+                                    <p class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-roseNeon my-2 font-tech">10.5 Trillion</p>
+                                    <p class="text-sm sm:text-base text-slate-400">USD ต่อปี ภายในสิ้นปี 2025 (มากกว่าจีดีพีของหลายประเทศรวมกัน)</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 text-center">
+                                    <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800">
+                                        <h4 class="text-sm font-bold text-slate-400">Phishing</h4>
+                                        <p class="text-2xl font-bold text-amberNeon font-tech mt-1">อันดับ 1</p>
+                                        <p class="text-xs text-slate-500">ช่องทางแรกที่ระบบโดนเจาะ</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-900/40 rounded-xl border border-slate-800">
+                                        <h4 class="text-sm font-bold text-slate-400">Ransomware</h4>
+                                        <p class="text-2xl font-bold text-roseNeon font-tech mt-1">ทุก 11 วินาที</p>
+                                        <p class="text-xs text-slate-500">ความถี่ของการถูกโจมตีในองค์กร</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-6 flex justify-center">
+                                <div class="relative w-full max-w-[450px] aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Global Business Downtime" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Global+Threats'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 6: Types of Cybercrime",
+                chapter: "TAXONOMY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">LANDSCAPE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">แผนผังประเภทภัยคุกคาม Cybercrime</h2>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 my-auto">
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-cyanNeon"><i class="fa-solid fa-terminal"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Hacking</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-roseNeon"><i class="fa-solid fa-bug"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Malware</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-amberNeon"><i class="fa-solid fa-fish"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Phishing</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-indigoNeon"><i class="fa-solid fa-id-card"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Identity Theft</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-emeraldNeon"><i class="fa-solid fa-money-bill-transfer"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Financial Fraud</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-purple-400"><i class="fa-solid fa-comments"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Cyberbullying</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-red-400"><i class="fa-solid fa-database"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Data Breach</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-roseNeon"><i class="fa-solid fa-lock"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Ransomware</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-blue-400"><i class="fa-solid fa-network-wired"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">DDoS</h3>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-850 text-center hover:border-cyanNeon/40 transition-colors">
+                                <span class="text-3xl text-yellow-500"><i class="fa-solid fa-user-secret"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-2">Insider Threat</h3>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 7: Hacking",
+                chapter: "ATTACKS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">UNAUTHORIZED ACCESS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Hacking: การเข้าถึงระบบโดยไม่ได้รับอนุญาต</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-cyanNeon">กระบวนการและวิธีการแฮกทั่วไป</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-300">
+                                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white text-base sm:text-lg"><i class="fa-solid fa-key mr-2 text-cyanNeon"></i> Brute Force / Guessing</h4>
+                                        <p class="text-sm mt-1 text-slate-400">การสุ่มเดารหัสผ่านเพื่อเข้าสู่ระบบ มักใช้ความเร็วและพจนานุกรมช่วย</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white text-base sm:text-lg"><i class="fa-solid fa-code mr-2 text-cyanNeon"></i> SQL Injection</h4>
+                                        <p class="text-sm mt-1 text-slate-400">การป้อนโค้ดชุดคำสั่งเข้ากล่องข้อความเพื่อข้ามผ่านระบบความปลอดภัย</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white text-base sm:text-lg"><i class="fa-solid fa-shield-cat mr-2 text-cyanNeon"></i> Exploit Vulnerabilities</h4>
+                                        <p class="text-sm mt-1 text-slate-400">การเจาะระบบผ่านช่องโหว่ซอฟต์แวร์ที่ยังไม่ได้รับการอัปเดตความปลอดภัย</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white text-base sm:text-lg"><i class="fa-solid fa-door-open mr-2 text-cyanNeon"></i> Backdoor</h4>
+                                        <p class="text-sm mt-1 text-slate-400">ช่องทางลับที่แฮกเกอร์ฝังไว้เพื่อควบคุมแอบเข้าใช้งานซ้ำภายหลัง</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Command Line Terminal Screen" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Terminal+Hack'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 8: Identity Theft",
+                chapter: "ATTACKS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">IDENTITY COMPROMISE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Identity Theft: การสวมรอยขโมยตัวตน</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-user-slash mr-2"></i> เมื่อโปรไฟล์ของคุณถูกแย่งชิงไป...</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    แฮกเกอร์แอบเข้าถึงและกู้รวบรวมข้อมูลส่วนบุคคล เช่น เลขบัตรประชาชน, เลขบัญชีธนาคาร, รูปพิกัด และรหัสผ่าน เพื่อนำไปแอบอ้างสวมรอยกระทำความผิด
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-sm mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1 text-base">เป้าหมายหลักในการขโมย:</h4>
+                                        เบอร์โทรศัพท์, Facebook / Line, เลขบัตรปชช., บัญชีธนาคาร, อีเมลมหาวิทยาลัย
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1 text-base">ความเสียหายที่พบบ่อย:</h4>
+                                        ถูกแอบเอาไปเปิดบัญชีม้า, ไปขอกู้เงินนอกระบบ, ไปแชทหลอกยืมเงินเพื่อนๆ ของคุณ
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Identity Shield Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Identity+Theft'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 9: Financial Fraud",
+                chapter: "ATTACKS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">SCAMS & FRAUD</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Financial Fraud: การหลอกลวงทางการเงิน</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1579621970795-87fbe2997b6e?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Money Fraud on tablet screen" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Financial+Scams'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-amberNeon flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation animate-pulse"></i> กลลวงไซเบอร์ดูดเงินยอดนิยมในไทย</h3>
+                                <ul class="text-base sm:text-lg text-slate-300 space-y-3 pl-4 list-disc leading-relaxed">
+                                    <li><strong>แก๊งคอลเซ็นเตอร์ (Call Center Scams):</strong> อ้างเป็นตำรวจ สรรพากร ดีเอสไอ ขู่ให้โอนเงินตรวจสอบ</li>
+                                    <li><strong>แอปดูดเงิน / รีโมทแอป (Remote Access Scams):</strong> หลอกกดลิงก์แอบติดตั้งแอปปลอมเพื่อดูจอและขโมยรหัส OTP</li>
+                                    <li><strong>กลโกงแชร์ลูกโซ่ / หลอกลงทุน:</strong> ยื่นเสนออัตราดอกเบี้ยและผลกำไรสูงผิดปกติทางโซเชียล</li>
+                                    <li><strong>QR Code ปลอม (Quishing):</strong> หลอกให้สแกนจ่ายเงินแต่ลิงก์ไปหน้าชำระเงินอื่นเพื่อโอนเข้าบัญชีส่วนตัวแฮกเกอร์</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 10: Cyberbullying",
+                chapter: "ETHICS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">ETHICS & LAW</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Cyberbullying: การรังแกกลั่นแกล้งออนไลน์</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-mask mr-2"></i> ความเกลียดชังบนหน้าจอดิจิทัล</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    การคุกคาม ใช้ถ้อยคำด่าทอ เสียดสี แอบแฝงใส่ความ ปล่อยข่าวลือเสียหาย หรือตัดต่อรูปภาพประจานผู้อื่นผ่านสังคมออนไลน์
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-sm mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1 text-base">รูปแบบภัยคุกคาม:</h4>
+                                        การระดมด่า (Flaming), การแฉข้อมูลลับ (Doxing), การสร้างแอคหลุมมาแฮกกวนใจ
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1 text-base">ผลกระทบทางกฎหมาย:</h4>
+                                        สุ่มเสี่ยงความผิดฐานหมิ่นประมาททางคอมพิวเตอร์ และการนำเข้าข้อมูลเท็จตาม พ.ร.บ. คอมพิวเตอร์ฯ มาตรา 14
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-indigoNeon/10 border-2 border-indigoNeon/30 p-6 rounded-2xl flex flex-col justify-between gap-4">
+                                <h3 class="text-lg sm:text-xl font-bold text-indigoNeon flex items-center gap-2"><i class="fa-solid fa-scale-balanced"></i> กิจกรรมร่วมวิเคราะห์:</h3>
+                                <p class="text-base sm:text-lg text-slate-200 leading-relaxed italic">
+                                    "นักศึกษาคิดว่าการแชร์โพสต์ที่มีภาพข่าวลือปลอมใส่ร้ายเพื่อนนักศึกษา โดยที่เราไม่ได้เจตนาพิมพ์เอง ถือว่าผิดกฎหมายหรือไม่?"
+                                </p>
+                                <button onclick="revealSection('sc-10')" class="bg-cyanNeon hover:bg-cyanNeon/80 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition-all shadow-md">
+                                    ดูคำอธิบายทางกฎหมายไทย
+                                </button>
+                                <div id="sc-10" class="hidden text-xs sm:text-sm text-slate-300 leading-relaxed p-4 bg-slate-950 rounded-xl border border-cyanNeon/30">
+                                    <strong>วิเคราะห์:</strong> ผิดตาม พ.ร.บ. คอมพิวเตอร์ฯ มาตรา 14 (5) การเผยแพร่หรือส่งต่อข้อมูลคอมพิวเตอร์โดยรู้อยู่แล้วว่าเป็นข้อมูลปลอม/เท็จ มีโทษจำคุกไม่เกิน 5 ปี ปรับไม่เกิน 1 แสนบาท
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 11: What is Malware?",
+                chapter: "MALWARE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">CORE CONCEPT</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Malware: ขยะร้ายในระบบสารสนเทศ</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="p-6 bg-slate-900/80 border-l-4 border-roseNeon rounded-r-xl">
+                                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">ย่อมาจาก Malicious Software</h3>
+                                    <p class="text-lg sm:text-xl text-slate-300 leading-relaxed font-medium">
+                                        ซอฟต์แวร์หรือโปรแกรมคอมพิวเตอร์ที่ถูก <strong class="text-roseNeon">ออกแบบขึ้นมาโดยเจตนาร้าย</strong> มุ่งหวังเพื่อสร้างความเสียหายต่อข้อมูล ทำลายระบบคอมพิวเตอร์ แอบขโมยข้อมูล หรือเข้าควบคุมเครื่องคอมพิวเตอร์ของเหยื่อ
+                                    </p>
+                                </div>
+                                <p class="text-sm sm:text-base text-slate-400">
+                                    หลายคนเรียกเหมามวลสารมัลแวร์ทั้งหมดว่า "ไวรัส" แต่ความจริง "ไวรัส" เป็นเพียงสับเซ็ตหรือหนึ่งในตระกูลของมัลแวร์เท่านั้น
+                                </p>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1601597111158-2fceff270190?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Malware Bug Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Malware'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 12: Virus",
+                chapter: "MALWARE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">VIRUS FAMILY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Computer Virus: ต้องพึ่งพาไฟล์เพื่อแพร่เชื้อ</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-circle-radiation mr-2"></i> ลักษณะเด่นและการโจมตี</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    มีกลไกคล้ายไวรัสทางชีวภาพ คือ <strong class="text-roseNeon">ไม่สามารถเคลื่อนย้ายหรือทำงานได้ด้วยตัวเอง</strong> จำเป็นต้องเกาะไปกับไฟล์ประหาร (Host File) หรือซอฟต์แวร์อื่น และจะเริ่มแผลงฤทธิ์เมื่อผู้ใช้เปิดใช้งานไฟล์เหล่านั้น
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-sm mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1 text-base">ช่องทางแพร่ระบาด:</h4>
+                                        การเสียบ USB Flash Drive, ไฟล์แนบมากับอีเมลขยะ, การดาวน์โหลดโปรแกรมผิดกฎหมาย
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1 text-base">ผลลัพธ์ความเสียหาย:</h4>
+                                        แก้ไขดัดแปลงข้อมูลระบบ ทำลายไฟล์เอกสาร เปลี่ยนชื่อโฟลเดอร์ให้เครื่องรวนหนัก
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1544198365-f5d60b6d8190?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Infection data visual" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Virus'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 13: Worm",
+                chapter: "MALWARE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">WORM FAMILY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Computer Worm: แพร่กระจายตัวเองผ่านเครือข่าย</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Network Connections Nodes" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Computer+Worm'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-bug mr-2"></i> หนอนคอมพิวเตอร์ผู้ไม่ต้องง้อผู้ใช้</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    มัลแวร์ที่สามารถ <strong class="text-roseNeon">จำลองตัวเองและแพร่พันธุ์ได้อย่างรวดเร็ว</strong> ผ่านเครือข่าย LAN, Wi-Fi หรือเชื่อมโยงผ่านระบบเครือข่ายอินเทอร์เน็ต โดยไม่ต้องอาศัยการหลอกให้ผู้ใช้คลิกเปิดไฟล์แต่อย่างใด
+                                </p>
+                                <div class="grid grid-cols-1 gap-2 text-sm">
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 leading-relaxed">
+                                        <strong>ความอันตรายหลัก:</strong> เน้นทำลายแบนด์วิดท์ระบบเครือข่าย ส่งสแปมจนเราเตอร์ล่ม หรือทำให้คอมพิวเตอร์ในองค์กรดับติดขัดเกือบทุกเครื่องในเวลาอันสั้น
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 14: Trojan Horse",
+                chapter: "MALWARE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">TROJAN FAMILY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Trojan Horse: ปลอมตัวมาอย่างแนบเนียน</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-horse-head mr-2"></i> ตำนานเมืองทรอยสู่มัลแวร์แฝงเร้น</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    มัลแวร์ที่แอบแฝงตัวมาในรูปแบบของโปรแกรมธรรมดาทั่วไปที่ดูมีประโยชน์ เช่น โปรแกรมฟรีแวร์ เกม แคร็กซอฟต์แวร์ หรือไฟล์สกิน แต่เมื่อถูกเรียกสั่งติดตั้ง ตัวมัลแวร์ที่ซ่อนด้านในจะเริ่มทำงาน
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-sm mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1 text-base">เป้าหมายหลัก:</h4>
+                                        เปิดพอร์ตเบื้องหลังเพื่อนำเสนอ Backdoor ให้ผู้โจมตีภายนอกแอบควบคุมเครื่องระยะไกล (Remote Access)
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1 text-base">จุดสังเกตภัยพิบัติ:</h4>
+                                        เครื่องจะแอบทำงานเร็วผิดปกติ พัดลมซีพียูดัง และแบนด์วิดท์อัปโหลดวิ่งสูงตลอดเวลา
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Hidden Danger Device" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Trojan+Horse'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 15: Spyware",
+                chapter: "MALWARE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">SPYWARE FAMILY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Spyware & Keylogger: สายลับที่ไม่มีวันหลับ</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Spy Camera Surveillance" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Spyware'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-user-secret mr-2"></i> จารกรรมพฤติกรรมการพิมพ์ตลอด 24 ชั่วโมง</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    โปรแกรมที่แอบฝังในระบบเพื่อเฝ้าสังเกต บันทึกพฤติกรรม และส่งข้อมูลกิจกรรมของคุณกลับไปให้แฮกเกอร์ รวมถึงการดักฟังเปิดกล้องส่องโดยเจ้าตัวไม่ยินยอม
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl border border-slate-850 text-sm leading-relaxed">
+                                    <strong>ประเภทขวัญใจอาชญากร: Keylogger (ตัวดักแป้นพิมพ์)</strong> จะแอบจดบันทึกทุกแป้นพิมพ์ที่เรากดลงไป ทำให้ได้พาสเวิร์ด, พิน 6 หลัก, หรือเลขบัญชีธนาคารไปใช้งานได้อย่างง่ายดาย
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 16: Phishing",
+                chapter: "SOCIAL ENGINEERING",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">SOCIAL ENGINEERING</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Phishing: การล่อลวงตกเหยื่อทางไซเบอร์</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-amberNeon"><i class="fa-solid fa-fish mr-2"></i> จิตวิทยาจูงใจและการหลอกคลิก</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    ศิลปะการใช้จิตวิทยาหรือสร้างสถานการณ์สมมติ เพื่อล่อลวงให้เหยื่อเกิดความกลัว ตื่นตระหนก หรือต้องการรางวัล จนกดยอมกรอกข้อมูลสำคัญ เช่น รหัสผ่าน อีเมล หรือหมายเลข OTP
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1 text-base">ช่องทางล่อลวงบ่อย:</h4>
+                                        อีเมลสถาบันการเงินปลอม, SMS หลอกแจกพัสดุหรือรางวัล, ลิงก์กรอกข้อมูลขอคะแนนเพิ่มใน LINE
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-amberNeon mb-1 text-base">การป้องกันแบบรวดเร็ว:</h4>
+                                        เช็ก URL ตัวนำทางเสมอ และไม่มีบริษัททางการใดที่จะส่ง SMS มาร้องขอรหัสผ่านสำคัญ
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Laptop and Hook concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Phishing'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 17: Phishing Example",
+                chapter: "SOCIAL ENGINEERING",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">ANALYSIS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">เคสจำลอง: อีเมลหลอกบัญชีธนาคารมีปัญหา</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 bg-slate-900/80 p-5 rounded-2xl border border-roseNeon/30 flex flex-col justify-between gap-3 text-sm">
+                                <div class="p-3 bg-roseNeon/10 border-l-4 border-roseNeon rounded text-roseNeon font-bold">
+                                    แจ้งเตือนเรื่อง: "บัญชีธนาคารของคุณกู้ใช้ถูกบล็อกด่วน"
+                                </div>
+                                <p class="text-slate-300">
+                                    "เรียนลูกค้าผู้มีอุปการคุณ... ระบบตรวจพบพฤติกรรมสุ่มเสี่ยงการละเมิดรหัสผ่านในเครื่องของท่าน จึงสั่งปิดบัญชีชั่วคราว กรุณาคลิกเพื่อกู้รหัสผ่านของคุณใหม่ทันทีที่ลิงก์ด้านล่าง"
+                                </p>
+                                <span class="text-xs text-roseNeon font-bold font-tech text-center underline">http://kbank-confirm-session-982.net/login</span>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-lg sm:text-xl font-bold text-cyanNeon"><i class="fa-solid fa-search mr-2"></i> จุดสังเกตที่เหยื่อมักมองข้าม</h3>
+                                <ul class="text-base sm:text-lg text-slate-300 space-y-3 pl-4 list-disc leading-relaxed">
+                                    <li><strong>ชื่ออีเมลผู้ส่งแปลกปลอม:</strong> มักใช้อีเมลเซิร์ฟเวอร์ฟรีและทำการแปลงชื่อแสดงผลให้คล้ายธนาคารจริง</li>
+                                    <li><strong>ลิงก์ปลายทางไม่ถูกต้อง:</strong> ลิงก์ที่เขียนหลอก (Anchor Text) อาจโชว์ชื่อของแท้ แต่ที่ซ่อนเบื้องหลังเป็นชื่อเว็บอันตราย</li>
+                                    <li><strong>ถ้อยคำเร่งเร้าให้ตื่นตระหนก:</strong> สร้างสถานการณ์ขีดเวลาบังคับ เช่น "กรุณากรอกรหัสผ่านใน 24 ชม. ไม่งั้นพอร์ตการศึกษาจะดับทิ้ง"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 18: Ransomware",
+                chapter: "MALWARE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">RANSOMWARE FAMILY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Ransomware: ฝันร้ายมัลแวร์จับไฟล์เรียกค่าไถ่</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-lock-open mr-2"></i> ดับปุ่มสิทธิ์การใช้งานข้อมูลทั้งหมด</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    มัลแวร์ที่แอบเข้ารหัสไฟล์เอกสาร ภาพถ่าย ฐานข้อมูลบนเซิร์ฟเวอร์จนไม่สามารถเปิดทำงานได้ และยื่นเสนอเงื่อนไขโอนเงินดิจิทัลเพื่อแลกคีย์ถอดรหัส
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl border border-roseNeon/20 flex flex-col gap-2">
+                                    <span class="text-sm font-bold text-roseNeon">ขั้นตอนวงจรการโจมตี:</span>
+                                    <div class="grid grid-cols-4 gap-2 text-center text-xs font-bold text-slate-400">
+                                        <div class="p-2 bg-slate-900 border border-slate-800 rounded">1. เจาะระบบแฝงตัว</div>
+                                        <div class="p-2 bg-slate-900 border border-slate-800 rounded text-roseNeon">2. เข้ารหัสไฟล์ทั้งหมด</div>
+                                        <div class="p-2 bg-slate-900 border border-slate-800 rounded">3. โชว์หน้าต่างจดหมายขู่</div>
+                                        <div class="p-2 bg-slate-900 border border-slate-800 rounded text-amberNeon">4. บังคับโอน Crypto</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Server Lock Concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Ransomware'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 19: WannaCry Case Study",
+                chapter: "CASE STUDIES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">CASE STUDY - WannaCry</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กรณีศึกษาระดับโลก: WannaCry (2017)</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Security visual of code" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=WannaCry'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-triangle-exclamation mr-2"></i> คืนระทึกขวัญที่ขัดง้างชีวิตโรงพยาบาลในอังกฤษ</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    ปี พ.ศ. 2560 มัลแวร์ WannaCry แพร่ระบาดเข้าขย่มเซิร์ฟเวอร์กว่า 150 ประเทศในระยะเวลาเพียงไม่กี่ชั่วโมง โดยใช้ช่องโหว่การสื่อสารพอร์ต SMB ของระบบปฏิบัติการ Windows ที่ไม่อัปเดตระบบรักษาความปลอดภัย
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl text-sm leading-relaxed text-slate-400">
+                                    <strong>บทเรียนราคาแพง:</strong> โรงพยาบาลในอังกฤษจำใจต้องเลื่อนการผ่าตัดด่วนของคนไข้เนื่องจากดึงแฟ้มประวัติโรคไม่ได้ และบริษัทยักษ์ใหญ่ข้ามชาติต้องสั่งระงับสายการผลิตชั่วคราว
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 20: Attack Vectors Overview",
+                chapter: "ATTACKS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">VULNERABILITY</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">วิธีการและช่องทางที่ระบบโดนโจมตีบ่อยที่สุด</h2>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <h3 class="text-lg font-bold text-cyanNeon"><i class="fa-solid fa-arrows-to-eye mr-2"></i> Target Attacks</h3>
+                                <p class="text-sm text-slate-400 mt-2">พุ่งเป้าไปที่ช่องโหว่เฉพาะในระบบปฏิบัติการ แฟ้มแอปพลิเคชัน หรือระบบระบายแอมป์อินเทอร์เน็ตที่เปิดใช้งาน</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <h3 class="text-lg font-bold text-cyanNeon"><i class="fa-solid fa-person-circle-exclamation mr-2"></i> Human Faults</h3>
+                                <p class="text-sm text-slate-400 mt-2">พนักงานเปิดอ่านอีเมลแปลกปลอม ดาวน์โหลดไฟล์ แฮกกวนใจ หรือแอบแชร์พาสเวิร์ดเซ็ตส่วนตัวลงตารางบันทึกสมุด</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <h3 class="text-lg font-bold text-cyanNeon"><i class="fa-solid fa-code mr-2"></i> Code Exploits</h3>
+                                <p class="text-sm text-slate-400 mt-2">นักพัฒนาลืมตรวจสอบเรื่องความปลอดภัยในการเขียนโปรแกรมระบบ ทำให้นักเจาะแฮกใส่คำสั่งก่อกวนได้โดยง่าย</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 21: DDoS Attack",
+                chapter: "ATTACKS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">DENIAL OF SERVICE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">DDoS: การโจมตีป่วนระบบเซิร์ฟเวอร์จนใช้งานไม่ได้</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-circle-nodes mr-2"></i> Distributed Denial of Service</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    การส่ง <strong class="text-roseNeon">คำขอใช้บริการปริมาณมหาศาลพร้อมๆ กัน</strong> จากเครือข่ายบอตเน็ต (Botnet) นับหมื่นนับแสนเครื่อง เพื่อบังคับให้แบนด์วิดท์เซิร์ฟเวอร์เต็มขีดจำกัดจนระบบบริการล่มโดยสมบูรณ์
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1">ความเสียหายที่พบบ่อย:</h4>
+                                        หน้าเว็บจอดำ หมุนโหลดนาน และส่งผลให้ลูกค้าไม่สามารถสั่งกดซื้อสินค้าหรือทำธุรกรรมโอนเงินได้เลย
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1">กฎหมายไทยคุ้มครอง:</h4>
+                                        ตาม พ.ร.บ. คอมพิวเตอร์ฯ มาตรา 10 มีโทษจำคุกสูงสุดไม่เกิน 5 ปี ปรับไม่เกิน 1 แสนบาท
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1544198365-f5d60b6d8190?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Traffic connection congestion" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=DDoS+Attacks'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 22: SQL Injection",
+                chapter: "ATTACKS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">DATABASE ATTACKS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">SQL Injection: การแอบกรอกคำสั่งเจาะระบบฐานข้อมูล</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Database servers concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=SQL+Injection'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-cyanNeon"><i class="fa-solid fa-database mr-2"></i> การกรอกรหัสผ่านด้วยคำสั่งลวงตา</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    การแอบใส่ชุดคำสั่งภาษา SQL ลงในกล่องฟอร์มกรอกข้อมูลการล็อกอิน หน้าค้นหา หรือพารามิเตอร์ URL เพื่อหลอกให้โปรแกรมประมวลผลดึงและคืนชุดข้อมูลลับทั้งหมดออกมาโดยไม่ผ่านการอนุมัติสิทธิ์
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl text-sm leading-relaxed text-slate-400">
+                                    <strong>ภัยเงียบที่ร้ายกาจ:</strong> หากผู้โจมตีเจาะสำเร็จ พวกเขาจะสามารถ <strong class="text-roseNeon">ดึงข้อมูลคะแนนนักศึกษา, แฟ้มประวัติเงินเดือน หรือสั่งลบทิ้งข้อมูลทั้งตารางระบบได้ในทันที</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 23: Insider Threat",
+                chapter: "VULNERABILITY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">INSIDER RISKS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">Insider Threat: เกลือเป็นหนอนในโลกความปลอดภัยดิจิทัล</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-users-viewfinder mr-2"></i> ผู้บุกรุกที่มีสิทธิ์เข้าถึงที่ถูกต้อง</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    หนึ่งในภัยคุกคามที่วิเคราะห์และหาทางรับมือยากที่สุดคือ <strong class="text-roseNeon">"คนในองค์กร"</strong> (พนักงานปัจจุบัน, แอดมินระบบ หรือผู้รับเหมาช่วงต่อฟรีแลนซ์) ที่ลักลอบจารกรรมข้อมูลเพื่อเอาไปขายต่อให้คู่แข่ง หรือแอบทำลายเพื่อแก้แค้นสถาบัน
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm mt-1">
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-white mb-1">สาเหตุความเสียหายบ่อย:</h4>
+                                        การดูแลสิทธิ์ผู้ใช้ไม่รัดกุม, การลอบปล่อยพาสเวิร์ดแอดมิน, ความขัดแย้งในที่ทำงาน
+                                    </div>
+                                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800">
+                                        <h4 class="font-bold text-roseNeon mb-1">การป้องกันสำคัญ:</h4>
+                                        จำกัดสิทธิ์ขั้นต่ำเท่าที่ใช้ทำงาน (Least Privilege) และบันทึกประวัติล็อกกิจกรรมหลังบ้านอย่างละเอียด
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Corporate insider threat concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/f43f5e?text=Insider+Threats'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 24: Economic Impact",
+                chapter: "IMPACT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">FINANCIAL LOSS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ผลกระทบทางเศรษฐกิจและความเสียหายเชิงธุรกิจ</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto text-center">
+                            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[200px]">
+                                <span class="text-4xl text-roseNeon"><i class="fa-solid fa-money-bill-wave animate-pulse"></i></span>
+                                <h3 class="text-xl font-bold text-white mt-2">สูญเสียรายได้ทันที</h3>
+                                <p class="text-sm text-slate-400 mt-2">กรณีหน้าเว็บล่มหรือระบบชำระเงินตัดสิทธิ์ทำธุรกรรมออนไลน์ไม่ได้ สูญเสียยอดขายมหาศาลทุกๆ นาที</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[200px]">
+                                <span class="text-4xl text-roseNeon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                <h3 class="text-xl font-bold text-white mt-2">ค่าฟื้นฟูระบบราคาแพง</h3>
+                                <p class="text-sm text-slate-400 mt-2">การจ้างทีมผู้เชี่ยวชาญพิเศษเข้ามาตรวจสอบร่องรอยการแฮก ดึงแบ็คอัพ และล้างมัลแวร์ในทุกเครื่ององค์กร</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[200px]">
+                                <span class="text-4xl text-roseNeon"><i class="fa-solid fa-scale-unbalanced-flip"></i></span>
+                                <h3 class="text-xl font-bold text-white mt-2">ค่าปรับตามกฎหมาย PDPA</h3>
+                                <p class="text-sm text-slate-400 mt-2">หากละเลยระบบความปลอดภัยจนข้อมูลลูกค้าหลุด อาจโดนปรับโทษปกครองหลักหลายล้านบาท</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 25: Social Impact",
+                chapter: "IMPACT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">SOCIAL CHAOS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ผลกระทบทางสังคมและความเป็นส่วนตัวของคนไทย</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Social Media and people" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Social+Impact'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-amberNeon"><i class="fa-solid fa-eye-slash mr-2"></i> ความตื่นตระหนกและการละเมิดความเป็นส่วนตัว</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    เมื่อข้อมูลประวัติการรักษาพยาบาล รหัสธนาคาร หรือข้อมูลการล็อกอินหลุดออกไป สังคมจะเผชิญวิกฤต <strong class="text-amberNeon">ความหวาดกลัว ขาดความน่าเชื่อถือ และตื่นตระหนกต่อข่าวลือปลอมต่างๆ</strong>
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl text-sm leading-relaxed text-slate-400">
+                                    <strong>ภัยความมั่นคงระดับประเทศ:</strong> การโจมตีโรงพยาบาล โรงไฟฟ้า หรือระบบสลับสายสัญญาณอินเทอร์เน็ตสถาบันรัฐบาล อาจก่อให้เกิดความระส่ำระสายทั่วเมืองได้
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 26: Corporate Impact",
+                chapter: "IMPACT",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">BUSINESS VALUE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">ผลกระทบต่อองค์กรและความอยู่รอดทางธุรกิจ</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-hotel mr-2"></i> สิ่งที่สูญเสียไป... อาจกู้คืนไม่ได้อีกเลย</h3>
+                                <ul class="text-base sm:text-lg text-slate-300 space-y-3 pl-4 list-disc leading-relaxed">
+                                    <li><strong>Reputation (ชื่อเสียงเสียหาย):</strong> แบรนด์ที่เคยแข็งแกร่งกลายเป็นบริษัทที่ลูกค้าหวาดกลัวและแห่ย้ายไปใช้ค่ายคู่แข่ง</li>
+                                    <li><strong>Loss of Trust (หมดความเชื่อมั่น):</strong> พันธมิตรทางธุรกิจไม่กล้าโอนและเชื่อมต่อข้อมูลกับเราหลังเกิดการแฮกครั้งใหญ่</li>
+                                    <li><strong>Compliance (ผิดระเบียบปฏิบัติ):</strong> ถูกเพิกถอนสิทธิ์ใบรับรอง และเผชิญการตรวจสอบที่ซับซ้อนขึ้นตลอดทั้งปี</li>
+                                </ul>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Corporate board visual crisis" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Corporate+Crisis'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 27: PPT Prevention Framework",
+                chapter: "SECURITY FRAMEWORK",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">PPT FRAMEWORK</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">แนวทางความมั่นคงปลอดภัยไซเบอร์ (People, Process, Technology)</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto text-center">
+                            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[220px]">
+                                <span class="text-4xl text-cyanNeon"><i class="fa-solid fa-user-shield animate-pulse"></i></span>
+                                <h3 class="text-xl font-bold text-white mt-2">1. People (คน)</h3>
+                                <p class="text-sm text-slate-400 mt-2">จัดอบรมสร้างความตระหนักรู้ด้านความปลอดภัย (Security Awareness Training) เพื่อให้พนักงานไม่ตกเป็นเหยื่อของฟิชชิ่ง</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[220px]">
+                                <span class="text-4xl text-cyanNeon"><i class="fa-solid fa-list-check"></i></span>
+                                <h3 class="text-xl font-bold text-white mt-2">2. Process (กระบวนการ)</h3>
+                                <p class="text-sm text-slate-400 mt-2">วางขั้นตอนการทำงานที่ถูกหลัก ISO 27001 เช่น แผนรับมือภัยคุกคาม (Incident Response), การซ้อมกู้คืนฐานระบบฉุกเฉิน</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[220px]">
+                                <span class="text-4xl text-cyanNeon"><i class="fa-solid fa-laptop-code"></i></span>
+                                <h3 class="text-xl font-bold text-white mt-2">3. Technology (เทคโนโลยี)</h3>
+                                <p class="text-sm text-slate-400 mt-2">ติดตั้งซอฟต์แวร์แอนตี้ไวรัสระดับสูง, ไฟร์วอลล์, มีการเข้ารหัสข้อมูลที่รัดกุม (Encryption) และการบังคับใช้รหัสสองชั้น MFA</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 28: Personal Protection",
+                chapter: "SECURITY PRACTICES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">PERSONAL HYGIENE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">กฎเหล็กการป้องกันภัยไซเบอร์สำหรับบุคคลทั่วไป</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-emeraldNeon"><i class="fa-solid fa-shield-halved mr-2"></i> ป้องกันตัวเองง่ายๆ ในชีวิตประจำวัน</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-300">
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <strong>1. Password & MFA:</strong> ตั้งรหัสผ่านที่ซับซ้อน ไม่ซ้ำซ้อน และเปิดล็อกรหัสสองชั้น (2FA/MFA) ทุกๆ แอป
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <strong>2. Backup Offline:</strong> สำรองข้อมูลสำคัญลง External HDD แยกต่างหากอย่างสม่ำเสมอ
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <strong>3. Update Regularly:</strong> หมั่นกดอัปเดตระบบปฏิบัติการ Windows/macOS และแอปมือถือทันทีเมื่อมีแจ้งเตือน
+                                    </div>
+                                    <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                                        <strong>4. Zero Trust Link:</strong> ตรวจสอบชื่อ URL เสมอ ไม่กดลิงก์แปลกปลอมที่ส่งมาทาง SMS เป็นอันขาด
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Lock icon and screen shield" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Personal+Security'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 29: Corporate Protection",
+                chapter: "SECURITY PRACTICES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">ENTERPRISE DEFENSE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">วิธีป้องกันภัยไซเบอร์ระดับองค์กร</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Modern Operations Center SOC" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Enterprise+SOC'"/>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-cyanNeon"><i class="fa-solid fa-server mr-2"></i> มาตรฐานความปลอดภัยสากล</h3>
+                                <ul class="text-base sm:text-lg text-slate-300 space-y-3 pl-4 list-disc leading-relaxed">
+                                    <li><strong>ISO 27001 Certification:</strong> นำระบบการจัดการความมั่นคงปลอดภัยสารสนเทศ (ISMS) มาตรฐานสากลเข้ามาบังคับใช้</li>
+                                    <li><strong>Penetration Testing (การทดสอบเจาะระบบ):</strong> จ้างแฮกเกอร์สายขาว (Ethical Hackers) มาช่วยจำลองหาช่องโหว่ประจำปี</li>
+                                    <li><strong>Establish SOC (ศูนย์เฝ้าระวังไซเบอร์):</strong> มีทีมคอยตรวจจับและระงับเหตุการณ์น่าสงสัยบนเครือข่ายองค์กรตลอด 24 ชั่วโมง</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 30: Incident Response Plan",
+                chapter: "SECURITY PRACTICES",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">INCIDENT RESPONSE</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">6 ขั้นตอนการรับมือเมื่อองค์กรถูกโจมตีทางไซเบอร์</h2>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <span class="text-cyanNeon font-bold text-sm font-tech">STEP 01</span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-1">1. Preparation (เตรียมพร้อม)</h3>
+                                <p class="text-xs text-slate-400 mt-1">จัดทำคู่มือ มอบหมายหน้าที่ และเตรียมอุปกรณ์วิเคราะห์ระบบไว้ให้พร้อม</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <span class="text-cyanNeon font-bold text-sm font-tech">STEP 02</span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-1">2. Identification (ตรวจพบ)</h3>
+                                <p class="text-xs text-slate-400 mt-1">ตรวจพบความผิดปกติ เช่น ซีพียูเซิร์ฟเวอร์วิ่งสูงผิดปกติ แฟ้มโดนล็อก</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <span class="text-cyanNeon font-bold text-sm font-tech">STEP 03</span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-1">3. Containment (จำกัดพื้นที่)</h3>
+                                <p class="text-xs text-slate-400 mt-1">ถอดปลั๊กเน็ต หรือสับเปลี่ยนระบบควบคุมด่วนเพื่อบล็อกการระบาดของมัลแวร์</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <span class="text-cyanNeon font-bold text-sm font-tech">STEP 04</span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-1">4. Eradication (กำจัดสิ่งสกปรก)</h3>
+                                <p class="text-xs text-slate-400 mt-1">ไล่ล้างสแกนมัลแวร์ ลบโค้ดแฮก และปิดพอร์ตช่องโหว่ทั้งหมดที่โดนเจาะ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <span class="text-cyanNeon font-bold text-sm font-tech">STEP 05</span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-1">5. Recovery (กู้คืนระบบ)</h3>
+                                <p class="text-xs text-slate-400 mt-1">ดึงข้อมูลแบ็คอัพสำรองมาลงใหม่ และเริ่มเปิดใช้งานเซิร์ฟเวอร์หลักช้าๆ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <span class="text-cyanNeon font-bold text-sm font-tech">STEP 06</span>
+                                <h3 class="text-base sm:text-lg font-bold text-white mt-1">6. Lessons Learned (บทเรียน)</h3>
+                                <p class="text-xs text-slate-400 mt-1">ถอดสรุปประเมินความเสียหาย ปรับปรุงกฎความปลอดภัยเพื่อไม่ให้เกิดซ้ำอีก</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 31: Relevant Laws in Thailand",
+                chapter: "LEGISLATIONS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">THAI LAWS</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">พระราชบัญญัติและกฎหมายที่เกี่ยวข้องของไทย</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="p-4 bg-slate-900/80 border-l-4 border-cyanNeon rounded-r-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-white">1. พ.ร.บ. ว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์ พ.ศ. 2550 และที่แก้ไขเพิ่มเติม</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">
+                                        กฎหมายกำหนดโทษตรงผู้เข้าถึงแฮกระบบฐานข้อมูล ทำลายไฟล์ ปล่อยสแปม หรือเอาภาพบูลลี่/ข้อมูลเท็จใส่ลงเว็บ
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-slate-900/80 border-l-4 border-indigoNeon rounded-r-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-white">2. พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">
+                                        ข้อตกลงป้องกันไม่ให้แบรนด์นำข้อมูลเบอร์โทรลูกค้าไปใช้โดยมิชอบ และบังคับให้ดูแลความปลอดภัยข้อมูลไม่ให้แฮกเกอร์ขโมย
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-slate-900/80 border-l-4 border-amberNeon rounded-r-xl">
+                                    <h3 class="text-base sm:text-lg font-bold text-white">3. พ.ร.บ. การรักษาความมั่นคงปลอดภัยไซเบอร์ พ.ศ. 2562 (Cyber Security Act)</h3>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-1 leading-relaxed">
+                                        การปกป้องโครงสร้างพื้นฐานสำคัญของประเทศ (CII) เช่น โรงไฟฟ้า ประปา ธนาคาร และเครือข่ายอินเทอร์เน็ตของแผ่นดิน
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Law Scale background" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Thai+Laws'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 32: Workshop Activity",
+                chapter: "ACTIVE LECTURE WORKSHOP",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">CASE STUDY WORKSHOP</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">วิเคราะห์กรณีศึกษา Ransomware เจาะฐานข้อมูลสถาบันการศึกษา</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-xl sm:text-2xl font-bold text-roseNeon"><i class="fa-solid fa-graduation-cap mr-2"></i> เรื่องสมมติ: มหาวิทยาลัยถูกล็อกคะแนนเรียน</h3>
+                                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+                                    เช้าวันหนึ่ง แอดมินพบข้อความขู่เรียกค่าไถ่บิตคอยน์ในหน้าหลักของระบบประมวลผลคะแนนการศึกษาของมหาวิทยาลัย หากไม่โอนภายใน 48 ชั่วโมง แฮกเกอร์จะสั่งลบคะแนนนักศึกษาทั้งหมด 30,000 คนทิ้งทันที
+                                </p>
+                                <div class="p-4 bg-slate-950 rounded-xl border border-slate-850 text-sm">
+                                    <strong>ภารกิจกลุ่ม (ให้แบ่งเป็นกลุ่มละ 4-5 คน):</strong> ร่วมกันระดมสมองเพื่อแก้สถานการณ์วิกฤตนี้ โดยจัดเตรียมคำตอบไว้ 4 ประเด็นสำคัญเพื่อเตรียมส่งตัวแทนลุกขึ้นนำเสนอ
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 bg-indigoNeon/10 border-2 border-indigoNeon/30 p-5 rounded-2xl flex flex-col gap-3 text-sm">
+                                <h3 class="font-bold text-white"><i class="fa-solid fa-list-check"></i> 4 คำถามเพื่อการอภิปรายย่อย:</h3>
+                                <ol class="space-y-2 pl-4 list-decimal text-slate-300 leading-relaxed">
+                                    <li>เกิดอะไรขึ้นในทางคดีและทางเทคนิค?</li>
+                                    <li>น่าจะเกิดช่องโหว่ (Vulnerabilities) ที่จุดใดบ้าง?</li>
+                                    <li>ขั้นตอน Incident Response ที่ต้องเร่งทำคืออะไร?</li>
+                                    <li>ในฐานะผู้บริหารอธิการบดี... คุณยอมที่จะ <strong>"จ่ายเงินค่าไถ่"</strong> หรือไม่? เพราะเหตุใด?</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 33: Interactive Recap Quiz",
+                chapter: "QUIZ CHALLENGE",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">GAME TIME</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">แบบฝึกหัดทบทวนความเข้าใจ (Recap Quiz)</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs sm:text-sm font-bold font-tech self-start uppercase">QUESTION OF THE DAY</span>
+                                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white leading-relaxed">
+                                    "มัลแวร์ตัวใดที่มีคุณสมบัติเด่นคือ 'สามารถจำลองตัวตนและแพร่กระจายไปยังคอมพิวเตอร์เครื่องอื่นผ่านระบบเครือข่ายอินเทอร์เน็ตได้โดยไม่ต้องอาศัยการกระทำของผู้ใช้'?"
+                                </h3>
+                                <p class="text-xs text-slate-400">คลิกที่ตัวเลือกเพื่อตรวจสอบความเข้าใจและเก็บคะแนนสะสมด่วน:</p>
+                            </div>
+                            <div class="lg:col-span-6 bg-slate-900/80 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h4 class="text-sm sm:text-base md:text-lg font-bold text-cyanNeon"><i class="fa-solid fa-list-check"></i> ตัวเลือกคำตอบสำหรับคำถามข้อนี้:</h4>
+                                <div class="flex flex-col gap-3 text-sm sm:text-base">
+                                    <button onclick="submitQuizChoice(1)" id="quiz-btn-1" class="text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        A. Computer Virus (ไวรัสคอมพิวเตอร์)
+                                    </button>
+                                    <button onclick="submitQuizChoice(2)" id="quiz-btn-2" class="text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        B. Trojan Horse (ม้าโทรจันปลอมแปลง)
+                                    </button>
+                                    <button onclick="submitQuizChoice(3)" id="quiz-btn-3" class="text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300">
+                                        C. Computer Worm (หนอนคอมพิวเตอร์)
+                                    </button>
+                                </div>
+                                <div id="quiz-feedback" class="text-sm sm:text-base font-semibold mt-1 min-h-[45px] leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 34: Key Takeaways",
+                chapter: "SUMMARY",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-cyanNeon text-sm sm:text-base tracking-wider font-bold">WRAP UP</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">สรุปสาระสำคัญของบทเรียน (Key Takeaways)</h2>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 gap-4">
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-cyanNeon/15 flex items-center justify-center text-cyanNeon text-2xl shrink-0"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">Cybersecurity คือหน้าที่ของทุกคน</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1">ไม่ใช่เรื่องของแผนกไอทีอย่างเดียว แต่อยู่ที่จริยธรรม พฤติกรรม และความตระหนักรู้ของพนักงานทุกคนในสังคม</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-indigoNeon/15 flex items-center justify-center text-indigoNeon text-2xl shrink-0"><i class="fa-solid fa-scale-balanced"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">กฎหมายคอมพิวเตอร์และ PDPA มีโทษแรง</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1">การแฮกข้อมูล ปล่อยข้อมูลเท็จ หรือจ้างเอาข้อมูลผู้ใช้ไปขายโดยไม่ได้รับ Consent มีโทษปรับเงินสูงและเสี่ยงโทษคดีอาญา</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-roseNeon/15 flex items-center justify-center text-roseNeon text-2xl shrink-0"><i class="fa-solid fa-lock"></i></div>
+                                    <div>
+                                        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white">ต้องสร้างภูมิคุ้มกันความเสี่ยงสารสนเทศ</h3>
+                                        <p class="text-sm sm:text-base text-slate-300 mt-1">ใช้กฎ Zero Trust เสมอ -- ไม่ดาวน์โหลดโปรแกรมแคร็ก หมั่นสำรองไฟล์ และระแวดระวังลิงก์แปลกปลอมในชีวิตประจำวัน</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Digital trust concept" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/0b1329/06b6d4?text=Final+Recap'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Slide 35: Essay Homework Questions",
+                chapter: "WRITTEN ASSIGNMENTS",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-sm sm:text-base tracking-wider font-bold">WRITTEN ASSIGNMENT</span>
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1">แบบฝึกหัด</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 my-auto">
+                            <div class="bg-slate-900/60 p-5 sm:p-6 rounded-2xl border border-borderSlate flex flex-col justify-between h-full min-h-[260px]">
+                                <div>
+                                    <h3 class="text-sm sm:text-base md:text-lg font-bold text-cyanNeon uppercase tracking-widest font-tech flex items-center gap-2">
+                                        <i class="fa-solid fa-list-ol"></i> ข้อสอบอัตนัยท้าทายความคิดสร้างสรรค์ (ข้อ 1 - 3)
+                                    </h3>
+                                    <ol class="text-xs sm:text-sm text-slate-300 mt-3 space-y-3 pl-4 list-decimal leading-relaxed">
+                                        <li><strong>การรับมือวิกฤตภัยคุกคาม:</strong> หากสถาบันโดน Ransomware ล็อกฐานคะแนน คุณจะเสนอทางออกรับมืออย่างไร ตั้งแต่การตรวจพบ จำกัดความเสียหาย และการกู้ระบบคืนมา? พร้อมอ้างอิงเหตุผลประกอบคดี</li>
+                                        <li><strong>การจำแนกประเภทเชิงวิเคราะห์:</strong> จงเปรียบเทียบกลไก ความเสียหาย และวิธีการป้องกันตัวเองของ Malware, Phishing และ Ransomware พร้อมสืบค้นข่าวยกตัวอย่างสถานการณ์จริงประกอบ</li>
+                                        <li><strong>ประเมินผลกระทบรอบด้าน:</strong> องค์กรถูกละเมิดฐานข้อมูลจนเกิด Data Leakage ส่วนบุคคลรั่วไหลออกสู่อินเทอร์เน็ต จงวิเคราะห์ผลกระทบด้านเศรษฐกิจ สังคม กฎหมาย และชื่อเสียงองค์กร</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-cardDark to-slate-950 p-5 sm:p-6 rounded-2xl border border-cyanNeon/30 flex flex-col justify-between h-full min-h-[260px] gap-4">
+                                <div>
+                                    <h3 class="text-sm sm:text-base md:text-lg font-bold text-cyanNeon uppercase tracking-widest font-tech flex items-center gap-2">
+                                        <i class="fa-solid fa-list-ol"></i> ข้อสอบอัตนัยท้าทายความคิดสร้างสรรค์ (ข้อ 4 - 5)
+                                    </h3>
+                                    <ol class="text-xs sm:text-sm text-slate-300 mt-3 space-y-3 pl-4 list-decimal leading-relaxed" start="4">
+                                        <li><strong>จัดลำดับความสำคัญงบประมาณ:</strong> หากองค์กรมีทรัพยากรทางการเงินจำกัด จงอธิบายและเสนอการจัดเรียงความสำคัญมาตรการไอที (เช่น อบรมคน, ซื้อระบบแอนตี้ไวรัส, ทำสำรองข้อมูล, ใช้รหัส MFA) พร้อมแจงเหตุผล</li>
+                                        <li><strong>ถอดบทเรียนกรณีศึกษาคดีความ:</strong> จงค้นคว้าข่าวสืบสวนอาชญากรรมไซเบอร์ที่เกิดขึ้นจริงในไทยหรือต่างประเทศ 1 เรื่อง วิเคราะห์สาเหตุ ผลกระทบต่อผู้เสียหาย และบทลงโทษตามกฎหมายที่เกี่ยวข้องอย่างละเอียด</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-amberNeon/10 border-l-4 border-amberNeon rounded-r-lg p-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-bold">
+                                    <i class="fa-regular fa-comment"></i> <strong>อภิปรายปิดท้ายคลาสเรียน:</strong> "หากคุณเป็น CIO ขององค์กรที่โดนเข้ารหัสฐานข้อมูลทั้งหมด... คุณจะยอมตกลงจ่ายค่าไถ่บิตคอยน์หรือไม่? เพราะเหตุใด?"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        // Render Slide Sidebar items list
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebar-list");
+            listContainer.innerHTML = "";
+            slides.forEach((slide, index) => {
+                const btn = document.createElement("button");
+                btn.className = `text-left text-sm sm:text-base p-3.5 rounded-xl border transition-all flex justify-between items-center w-full ${
+                    index === currentSlideIndex 
+                        ? "bg-cyanNeon/10 border-cyanNeon text-cyanNeon font-bold" 
+                        : "bg-slate-900 border-borderSlate hover:border-slate-500 text-slate-400"
+                }`;
+                btn.onclick = () => {
+                    goToSlide(index);
+                    if (window.innerWidth < 640) { // Mobile toggle sidebar close
+                        toggleSidebar();
+                    }
+                };
+                
+                // Truncate title for sidebar view
+                const titleText = slide.title.length > 28 ? slide.title.substring(0, 28) + "..." : slide.title;
+                btn.innerHTML = `
+                    <span>${titleText}</span>
+                    <span class="font-tech text-xs bg-slate-800 px-2 py-0.5 rounded text-slate-500">${slide.chapter}</span>
+                `;
+                listContainer.appendChild(btn);
+            });
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("translate-x-full");
+        }
+
+        // Main Slide Render function
+        function renderSlide() {
+            const currentSlide = slides[currentSlideIndex];
+            const slideContainer = document.getElementById("slide-content");
+            
+            // Format slide number labels
+            const numText = (currentSlideIndex + 1).toString().padStart(2, '0');
+            const totalText = slides.length.toString().padStart(2, '0');
+            document.getElementById("slide-number-display").innerText = `SLIDE ${numText} / ${totalText}`;
+            
+            // Inject dynamic HTML content
+            slideContainer.innerHTML = currentSlide.html;
+            
+            // Rehydrate/restore interactive states if available
+            rehydrateInteractiveElements();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            renderSidebar();
+        }
+
+        // Interaction helper (Click-to-reveal answers on slides)
+        function revealSection(id) {
+            const section = document.getElementById(id);
+            if (section) {
+                section.classList.toggle("hidden");
+            }
+        }
+
+        // Interactive Slide 33 Multi-choice Quiz handlers
+        function submitQuizChoice(choiceId) {
+            quizAnswers[currentSlideIndex] = choiceId;
+            const feedback = document.getElementById("quiz-feedback");
+            
+            // Reset borders and backgrounds
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`quiz-btn-${i}`);
+                if (btn) {
+                    btn.className = "text-left p-4 rounded-xl bg-slate-800 border border-slate-750 hover:bg-slate-700 transition-all text-slate-300 text-sm sm:text-base";
+                }
+            }
+            
+            const selectedBtn = document.getElementById(`quiz-btn-${choiceId}`);
+            if (!selectedBtn) return;
+
+            if (choiceId === 3) {
+                selectedBtn.className = "text-left p-4 rounded-xl bg-emeraldNeon/15 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold text-sm sm:text-base";
+                feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ถูกต้องยอดเยี่ยม! หนอนคอมพิวเตอร์ (Computer Worm) แตกต่างจากไวรัสตรงที่มันขยายแพร่พันธุ์ตัวเองและเดินผ่านเครือข่ายอินเทอร์เน็ตได้เองโดยไม่ต้องพึ่งพาไฟล์หรือการกดคลิกเปิดใช้งานของผู้ใช้เลย</span>`;
+            } else if (choiceId === 1) {
+                selectedBtn.className = "text-left p-4 rounded-xl bg-roseNeon/15 border-roseNeon/50 text-roseNeon transition-all font-bold text-sm sm:text-base";
+                feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ยังไม่ถูกต้อง! คอมพิวเตอร์ไวรัส (Virus) จำเป็นอย่างยิ่งที่จะต้องพึ่งพาสิทธิ์หรือพฤติกรรมของผู้ใช้ในการคลิกเปิดรันไฟล์เพื่อเรียกแพร่กระจายเชื้อเสมอ</span>`;
+            } else {
+                selectedBtn.className = "text-left p-4 rounded-xl bg-roseNeon/15 border-roseNeon/50 text-roseNeon transition-all font-bold text-sm sm:text-base";
+                feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ยังไม่ถูกต้อง! ม้าโทรจัน (Trojan) เน้นไปที่การปลอมโปรแกรมมาหลอกลวงให้ผู้ใช้กดยินยอมติดตั้งเป็นหลัก แต่ยังไม่ใช่มัลแวร์กลุ่มที่ขยายตัวเองผ่านพอร์ตเน็ตได้ทันที</span>`;
+            }
+        }
+
+        // Rehydrate/restore state of elements after slide navigation switches
+        function rehydrateInteractiveElements() {
+            if (currentSlideIndex === 32 && quizAnswers[currentSlideIndex]) { // Restore Slide 33 Quiz Choice
+                submitQuizChoice(quizAnswers[currentSlideIndex]);
+            }
+        }
+
+        // Listen for Keyboard Navigation Shortcuts
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Touch swipe handler for mobile devices
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        function handleSwipeGesture() {
+            if (touchendX < touchstartX - 65) {
+                nextSlide(); // Swipe Left -> Go Next
+            }
+            if (touchendX > touchstartX + 65) {
+                prevSlide(); // Swipe Right -> Go Prev
+            }
+        }
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, false);
+
+        // Initialize presentation stack on document loaded
+        window.onload = () => {
+            renderSlide();
+            renderSidebar();
+        }
+    </script>
+</body>
+</html>
