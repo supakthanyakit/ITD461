@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intellectual Property and Digital Copyright - Course Slides</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: IBM Plex Sans Thai, Sarabun, Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Orbitron:wght@500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepDark: '#0b0f19',
+                        cardDark: '#161e2e',
+                        borderSlate: '#374151',
+                        emeraldNeon: '#10b981',
+                        tealNeon: '#14b8a6',
+                        indigoNeon: '#6366f1',
+                        amberNeon: '#f59e0b',
+                        roseNeon: '#f43f5e',
+                    },
+                    fontFamily: {
+                        thai: ['"IBM Plex Sans Thai"', 'Sarabun', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Thai', 'Sarabun', sans-serif;
+            background-color: #0b0f19;
+            overflow-x: hidden;
+        }
+        /* Custom scrollbar for drawer and slide scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3748;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #14b8a6;
+        }
+        .slide-frame {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-slate-100 flex flex-col min-h-screen select-none">
+
+    <!-- Top Course Navigation Bar -->
+    <header class="bg-cardDark border-b border-borderSlate px-4 sm:px-8 py-4 flex justify-between items-center z-50 shadow-md">
+        <div class="flex items-center gap-3">
+            <span class="font-tech text-tealNeon font-bold tracking-wider text-sm sm:text-base md:text-lg">IT LAWS & ETHICS</span>
+            <span class="text-[10px] sm:text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full border border-slate-700 font-semibold">DIGITAL INNOVATION</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-6">
+            <span class="text-xs sm:text-sm text-slate-300 hidden lg:inline"><i class="fa-solid fa-graduation-cap mr-2 text-tealNeon"></i> ทรัพย์สินทางปัญญาและลิขสิทธิ์ดิจิทัล</span>
+            <button onclick="toggleSidebar()" class="text-slate-200 hover:text-tealNeon transition-all text-xs sm:text-sm px-3 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-borderSlate flex items-center gap-2">
+                <i class="fa-solid fa-bars"></i> <span class="font-semibold hidden sm:inline">สารบัญสไลด์ทั้งหมด</span><span class="sm:hidden font-semibold">เมนู</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Slide Workspace -->
+    <main class="flex-grow flex relative justify-center items-center py-4 sm:py-8 px-2 sm:px-4 md:px-8">
+        
+        <!-- Slide Sidebar Navigator (Drawer) -->
+        <aside id="sidebar" class="fixed right-0 top-[65px] bottom-0 w-full sm:w-96 bg-cardDark border-l border-borderSlate shadow-2xl transition-transform duration-300 transform translate-x-full z-40 overflow-y-auto p-4">
+            <div class="flex justify-between items-center border-b border-borderSlate pb-3 mb-4">
+                <h3 class="font-tech text-tealNeon text-sm sm:text-base tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> SLIDE TABLE OF CONTENTS
+                </h3>
+                <button onclick="toggleSidebar()" class="text-slate-400 hover:text-roseNeon text-lg sm:hidden">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="sidebar-list" class="flex flex-col gap-2">
+                <!-- Slide List dynamically populated by JavaScript -->
+            </div>
+        </aside>
+
+        <!-- Slide Frame Container: Big, readable design -->
+        <div class="w-full max-w-7xl h-auto min-h-[75vh] lg:min-h-0 lg:aspect-[16/9] bg-cardDark rounded-2xl border-2 border-borderSlate shadow-2xl relative p-6 sm:p-10 md:p-12 lg:p-14 flex flex-col justify-between overflow-y-auto slide-frame">
+            
+            <!-- Tech Background Glows -->
+            <div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigoNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-tealNeon/5 to-transparent rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <!-- Slide Content Area -->
+            <div id="slide-content" class="relative z-10 w-full h-full flex flex-col justify-between">
+                <!-- Slide content is dynamically injected here -->
+            </div>
+
+            <!-- Slide Footer -->
+            <div class="border-t border-borderSlate/50 pt-4 mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs sm:text-sm text-slate-400 relative z-10">
+                <div class="flex items-center gap-2 text-center sm:text-left">
+                    <span class="font-tech text-tealNeon font-bold">IT LAW & ETHICS DECK</span>
+                    <span class="hidden sm:inline text-slate-600">|</span>
+                    <span class="hidden sm:inline">ลิขสิทธิ์ดิจิทัลและทรัพย์สินทางปัญญา</span>
+                </div>
+                <div class="font-tech text-tealNeon font-bold text-sm sm:text-base" id="slide-number-display">
+                    SLIDE 01 / 35
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Slide Control Dock -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-cardDark/95 backdrop-blur-md border border-borderSlate px-4 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-full flex gap-3 sm:gap-6 items-center shadow-2xl z-30 w-[90%] sm:w-auto justify-between sm:justify-start">
+        <button onclick="prevSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ก่อนหน้า">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-4 py-1 flex items-center gap-2 hidden sm:flex">
+            ควบคุมด้วยคีย์บอร์ด <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">←</kbd> <kbd class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded text-[10px]">→</kbd>
+        </span>
+        <span class="text-xs text-slate-400 border-x border-slate-700 px-3 py-1 flex items-center gap-2 sm:hidden">
+            <i class="fa-solid fa-fingerprint text-tealNeon animate-pulse"></i> ปัดหน้าจอเพื่อเปลี่ยนสไลด์
+        </span>
+        <button onclick="nextSlide()" class="hover:text-tealNeon text-slate-300 transition-colors px-3 py-1 text-lg sm:text-xl" title="ถัดไป">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript Slide Data & Logic -->
+    <script>
+        // Global User State variables
+        let selectedCheckboxes = {};
+        let quizAnswers = {};
+        let activeLogoIndex = 0;
+        let selectedLogoAnswer = null;
+        let selectedCioOption = null;
+        let activeCaseTab = "image";
+
+        const slidesData = [
+            // Slide 1
+            {
+                title: "Slide 1: Title & Outcomes",
+                chapter: "บทนำ",
+                html: `
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center h-full">
+                        <div class="lg:col-span-7 flex flex-col justify-center gap-4 sm:gap-6">
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold uppercase bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full self-start">LECTURE UNIT 04</span>
+                            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                                Intellectual Property and Digital Copyright
+                            </h1>
+                            <h2 class="text-xl sm:text-2xl md:text-3xl text-tealNeon font-medium -mt-2">
+                                ทรัพย์สินทางปัญญาและลิขสิทธิ์ดิจิทัล
+                            </h2>
+                            <div class="border-l-4 border-tealNeon pl-4 sm:pl-5 py-2 mt-2">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-slate-100 tracking-wide uppercase">Learning Outcomes (หลังเรียนคาบนี้ นักศึกษาสามารถ)</h3>
+                                <ul class="text-sm sm:text-base md:text-lg text-slate-300 mt-2 space-y-1.5">
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> อธิบายความหมายของทรัพย์สินทางปัญญา</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> แยกความแตกต่างระหว่าง Copyright, Patent และ Trademark</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> วิเคราะห์ปัญหาซอฟต์แวร์ละเมิดลิขสิทธิ์และผลกระทบ</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> เข้าใจข้อตกลงแบบ Open Source License</li>
+                                    <li><i class="fa-solid fa-circle-check text-tealNeon mr-2"></i> ใช้ผลงานดิจิทัลอย่างถูกต้องและเหมาะสมตามหลักกฎหมาย</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 h-full flex justify-center items-center">
+                            <div class="relative w-full max-w-[450px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Digital Innovation" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/161e2e/14b8a6?text=IT+Innovation'"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-deepDark via-transparent to-transparent"></div>
+                                <span class="absolute bottom-4 left-4 text-xs text-slate-300 bg-slate-900/80 px-2 py-1 rounded">Laws & Ethics for Digital Era</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 2
+            {
+                title: "Slide 2: Warm-up Activity",
+                chapter: "กิจกรรม",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE LEARNING</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white flex items-center gap-2 mt-1">
+                                <i class="fa-solid fa-comments text-tealNeon"></i> กิจกรรมอภิปราย: คุณเคยทำสิ่งเหล่านี้หรือไม่?
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-amberNeon"><i class="fa-solid fa-circle-question mr-2"></i> ลองสำรวจพฤติกรรมของคุณ (ติ๊กเลือกข้อที่คุณเคยทำ):</h3>
+                                <div class="grid grid-cols-1 gap-3 text-sm sm:text-base md:text-lg">
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-850 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm1" onclick="handleCheckboxClick('warm1')" class="accent-tealNeon w-5 h-5"> ดาวน์โหลดภาพยนตร์จากเว็บไซต์ดูฟรี / บิททอร์เรนต์
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-850 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm2" onclick="handleCheckboxClick('warm2')" class="accent-tealNeon w-5 h-5"> ดาวน์โหลดโปรแกรม Crack หรือแอพเถื่อนมาใช้ทำงาน
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-850 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm3" onclick="handleCheckboxClick('warm3')" class="accent-tealNeon w-5 h-5"> บันทึกรูปภาพจาก Google Search มาทำรายงานประกอบการส่งวิชาเรียน
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-850 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm4" onclick="handleCheckboxClick('warm4')" class="accent-tealNeon w-5 h-5"> คัดลอก (Copy-paste) บล็อกโค้ดจากระบบเปิดบน GitHub
+                                    </label>
+                                    <label class="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-850 border border-slate-700 cursor-pointer transition-colors">
+                                        <input type="checkbox" id="warm5" onclick="handleCheckboxClick('warm5')" class="accent-tealNeon w-5 h-5"> ใช้ Generative AI สร้างรูปวาด แล้วนำภาพนั้นไปลงขายเชิงพาณิชย์
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="p-6 bg-gradient-to-r from-tealNeon/20 to-transparent border-l-4 border-tealNeon rounded-r-lg">
+                                    <h4 class="text-lg sm:text-xl font-bold text-slate-100 flex items-center gap-2">
+                                        <i class="fa-solid fa-gavel text-tealNeon"></i> นักศึกษาคิดว่า...
+                                    </h4>
+                                    <p class="text-3xl sm:text-4xl font-bold text-roseNeon mt-3 mb-2 font-tech">"ผิดกฎหมายหรือไม่?"</p>
+                                    <p class="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
+                                        มาลองร่วมอภิปรายแบ่งปันความคิดเห็นร่วมกันในชั้นเรียน (ระยะเวลา 5 นาที) และทำความรู้จักขอบเขตทางกฎหมายในแต่ละข้อไปพร้อมกัน!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 3
+            {
+                title: "Slide 3: What is Intellectual Property",
+                chapter: "ความหมาย",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DEFINING TERMS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ทรัพย์สินทางปัญญา (Intellectual Property: IP) คืออะไร</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 flex flex-col gap-4">
+                                <blockquote class="border-l-4 border-indigoNeon pl-6 py-2">
+                                    <p class="text-2xl sm:text-3xl font-semibold text-slate-100 italic leading-relaxed">
+                                        "ผลงานอันเกิดจากความคิดสร้างสรรค์ การประดิษฐ์คิดค้น หรือการสร้างสรรค์ของมนุษย์"
+                                    </p>
+                                </blockquote>
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate text-base sm:text-lg text-slate-300 space-y-3 leading-relaxed">
+                                    <p>
+                                        <i class="fa-solid fa-circle-exclamation text-amberNeon mr-2"></i> ทรัพย์สินทางปัญญาเป็น <strong class="text-white">ทรัพย์สินที่ไม่มีรูปร่าง (Intangible Assets)</strong> ไม่ได้จับต้องได้เป็นชิ้นเป็นอันเหมือนบ้าน ที่ดิน หรือรถยนต์ แต่มี <strong class="text-tealNeon">มูลค่าทางเศรษฐกิจสูงมาก</strong> ในอุตสาหกรรมยุคใหม่
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5">
+                                <div class="bg-slate-900/80 p-5 rounded-2xl border border-borderSlate">
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon mb-3"><i class="fa-solid fa-cubes-stacked mr-2"></i> ตัวอย่างสินทรัพย์เชิงสร้างสรรค์:</h3>
+                                    <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm md:text-base">
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-code text-indigoNeon"></i> โปรแกรมคอมพิวเตอร์</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-globe text-tealNeon"></i> เว็บไซต์</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-music text-roseNeon"></i> เพลงและดนตรี</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-image text-emeraldNeon"></i> รูปภาพและกราฟิก</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-gamepad text-indigoNeon"></i> วิดีโอเกม</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-copyright text-amberNeon"></i> แบรนด์และโลโก้</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-film text-roseNeon"></i> ภาพยนตร์และวิดีโอ</div>
+                                        <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-brain text-tealNeon"></i> โมเดลปัญญาประดิษฐ์</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 4
+            {
+                title: "Slide 4: IP Classifications",
+                chapter: "ความหมาย",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CLASSIFICATION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ประเภทของทรัพย์สินทางปัญญา (IP Categories)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-2xl border border-indigoNeon/30 flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="w-10 h-10 rounded-lg bg-indigoNeon/10 flex items-center justify-center text-indigoNeon text-xl"><i class="fa-solid fa-copyright"></i></span>
+                                        <h3 class="text-lg sm:text-xl font-bold text-white">Copyright (ลิขสิทธิ์)</h3>
+                                    </div>
+                                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mt-2">
+                                        คุ้มครอง <strong class="text-white">การแสดงออกของความคิด (Expression of Ideas)</strong> งานวรรณกรรม ศิลปกรรม วิดีโอ โปรแกรมคอมพิวเตอร์ เกิดขึ้นทันทีโดยไม่ต้องจดทะเบียน
+                                    </p>
+                                </div>
+                                <span class="text-xs text-indigoNeon font-tech tracking-wider mt-4">★ โฟกัสหลักในรายวิชา</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 rounded-2xl border border-tealNeon/30 flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="w-10 h-10 rounded-lg bg-tealNeon/10 flex items-center justify-center text-tealNeon text-xl"><i class="fa-solid fa-lightbulb"></i></span>
+                                        <h3 class="text-lg sm:text-xl font-bold text-white">Patent (สิทธิบัตร)</h3>
+                                    </div>
+                                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mt-2">
+                                        คุ้มครอง <strong class="text-white">การประดิษฐ์คิดค้น (Inventions)</strong> กลไก เทคโนโลยี ฮาร์ดแวร์ กระบวนการผลิต และดีไซน์อุตสาหกรรม ต้องดำเนินการจดทะเบียนก่อน
+                                    </p>
+                                </div>
+                                <span class="text-xs text-tealNeon font-tech tracking-wider mt-4">★ โฟกัสหลักในรายวิชา</span>
+                            </div>
+
+                            <div class="bg-slate-900/60 p-5 rounded-2xl border border-amberNeon/30 flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="w-10 h-10 rounded-lg bg-amberNeon/10 flex items-center justify-center text-amberNeon text-xl"><i class="fa-solid fa-trademark"></i></span>
+                                        <h3 class="text-lg sm:text-xl font-bold text-white">Trademark (เครื่องหมายการค้า)</h3>
+                                    </div>
+                                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mt-2">
+                                        คุ้มครอง <strong class="text-white">แบรนด์ สัญลักษณ์ ชื่อ โลโก้ (Brand Identity)</strong> ที่ใช้จำแนกสินค้าและบริการออกจากแบรนด์คู่แข่งเชิงพาณิชย์
+                                    </p>
+                                </div>
+                                <span class="text-xs text-amberNeon font-tech tracking-wider mt-4">★ โฟกัสหลักในรายวิชา</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-950 p-3 rounded-xl border border-borderSlate flex flex-wrap gap-4 text-xs sm:text-sm text-slate-400 justify-center">
+                            <span>ประเภทอื่นๆ:</span>
+                            <span><i class="fa-solid fa-lock text-roseNeon mr-1"></i> Trade Secret (ความลับทางการค้า)</span>
+                            <span>|</span>
+                            <span><i class="fa-solid fa-compass text-emeraldNeon mr-1"></i> Geographical Indication (สิ่งบ่งชี้ทางภูมิศาสตร์)</span>
+                            <span>|</span>
+                            <span><i class="fa-solid fa-drafting-compass text-indigoNeon mr-1"></i> Industrial Design (การออกแบบผลิตภัณฑ์)</span>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 5
+            {
+                title: "Slide 5: Why IP Matters",
+                chapter: "ความสำคัญ",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">VALUE PROPOSITION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ทำไมทรัพย์สินทางปัญญาจึงมีความสำคัญ?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-borderSlate">
+                                    <h3 class="font-bold text-indigoNeon text-base sm:text-lg mb-1 flex items-center gap-2"><i class="fa-solid fa-rocket"></i> กระตุ้นให้เกิดนวัตกรรม</h3>
+                                    <p class="text-slate-300 text-xs sm:text-sm">ผู้สร้างสรรค์มั่นใจว่าผลงานที่ทุ่มเทแรงกายแรงใจวิจัยจะได้รับการคุ้มครองสิทธิ์ทางกฎหมาย</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-borderSlate">
+                                    <h3 class="font-bold text-tealNeon text-base sm:text-lg mb-1 flex items-center gap-2"><i class="fa-solid fa-hand-holding-dollar"></i> ส่งเสริมการลงทุนวิจัย</h3>
+                                    <p class="text-slate-300 text-xs sm:text-sm">ช่วยดึงดูดเงินทุน พัฒนาเทคโนโลยีมูลค่าสูง เช่น อุตสาหกรรมชิปเซมิคอนดักเตอร์และยา</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-borderSlate">
+                                    <h3 class="font-bold text-emeraldNeon text-base sm:text-lg mb-1 flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> คุ้มครองความพยายาม</h3>
+                                    <p class="text-slate-300 text-xs sm:text-sm">ป้องกันการลอกเลียนแบบหรือโจรกรรมข้อมูลโดยมิชอบ ปกป้องเจ้าของที่ทุ่มเททรัพยากรสร้างสรรค์</p>
+                                </div>
+                                <div class="p-4 bg-slate-900/60 rounded-xl border border-borderSlate">
+                                    <h3 class="font-bold text-amberNeon text-base sm:text-lg mb-1 flex items-center gap-2"><i class="fa-solid fa-arrow-up-right-dots"></i> เพิ่มมูลค่าทางธุรกิจ</h3>
+                                    <p class="text-slate-300 text-xs sm:text-sm">ทำให้บริษัทสตาร์ทอัพสามารถใช้สิทธิ์สิทธิบัตร/ลิขสิทธิ์ในการเพิ่มมูลค่าระดมทุนหรือควบรวมกิจการ</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex justify-center">
+                                <div class="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80" 
+                                         alt="IP Protection" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/161e2e/6366f1?text=IP+Protection'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 6
+            {
+                title: "Slide 6: Section 1 - Copyright",
+                chapter: "Copyright",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-indigoNeon text-xs sm:text-sm tracking-widest font-bold bg-indigoNeon/10 border border-indigoNeon/20 px-4 py-1.5 rounded-full">PART 01</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ลิขสิทธิ์ (Copyright) คืออะไร?
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-indigoNeon to-tealNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            ศึกษาขอบเขตการคุ้มครอง ความหมาย และสิทธิ์แต่เพียงผู้เดียวของผู้สร้างสรรค์งานดิจิทัลโดยไม่ต้องดำเนินการจดทะเบียนตามกรอบกฎหมายลิขสิทธิ์ระดับสากล
+                        </p>
+                    </div>
+                `
+            },
+            // Slide 7
+            {
+                title: "Slide 7: Copyright Definition & Rights",
+                chapter: "Copyright",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">LEGAL BASIS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สิทธิ์เด็ดขาดลิขสิทธิ์ของเจ้าของผลงาน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-indigoNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-lock text-indigoNeon"></i> คุ้มครองทันทีที่สร้างผลงานเสร็จสิ้น (Automatic Protection)
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    ตามพระราชบัญญัติลิขสิทธิ์ ลิขสิทธิ์จะได้รับการ <strong class="text-white">คุ้มครองทันทีที่มีการถ่ายทอดความคิดออกมาในรูปแบบที่จับต้องได้</strong> โดยที่เจ้าของผลงานไม่จำเป็นต้องดำเนินการจดทะเบียนหรือขอสิทธิ์จากองค์กรใดๆ
+                                </p>
+                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400">
+                                    <strong>สิทธิ์แต่เพียงผู้เดียว (Exclusive Rights) ประกอบไปด้วย:</strong>
+                                    <ul class="list-disc pl-5 mt-1.5 text-slate-300 space-y-1">
+                                        <li><strong>ทำซ้ำ (Reproduce):</strong> ทำก๊อปปี้ คัดลอก ซ้ำงาน</li>
+                                        <li><strong>ดัดแปลง (Adapt):</strong> รีมิกซ์ ปรับปรุง ปรับแปลภาษา แปลงฟอร์แมต</li>
+                                        <li><strong>เผยแพร่ต่อสาธารณชน (Public Performance):</strong> แสดง โพสต์ขึ้นเว็บ สตรีมมิ่ง</li>
+                                        <li><strong>จำหน่ายจ่ายแจก:</strong> ให้เช่า ขาย นำสินค้าไปทำการตลาด</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="p-5 bg-indigoNeon/5 border border-indigoNeon/20 rounded-2xl">
+                                    <h4 class="text-sm sm:text-base font-bold text-indigoNeon flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left"></i> ระยะเวลาคุ้มครอง:</h4>
+                                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                                        โดยทั่วไปจะมีอายุคุ้มครองยาวนานถึง <strong class="text-white">ตลอดอายุขัยของผู้สร้างสรรค์ + เพิ่มเติมอีก 50 ปี</strong> หลังเสียชีวิต (สืบทอดสิทธิ์ไปยังทายาทได้)
+                                    </p>
+                                </div>
+                                <div class="p-5 bg-amberNeon/5 border border-amberNeon/20 rounded-2xl">
+                                    <h4 class="text-sm sm:text-base font-bold text-amberNeon flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> กรณีงานคอมพิวเตอร์:</h4>
+                                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                                        โปรแกรมซอฟต์แวร์และแอปมือถือ ได้รับการคุ้มครองในฐานะ <strong class="text-white">งานวรรณกรรม (Literary Works)</strong> เช่นเดียวกับหนังสือธรรมดา
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 8
+            {
+                title: "Slide 8: Works Protected by Copyright",
+                chapter: "Copyright",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">PROTECTED WORKS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ผลงานประเภทใดบ้างที่ได้รับลิขสิทธิ์?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2">
+                                <span class="text-2xl text-indigoNeon"><i class="fa-solid fa-book"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">1. งานวรรณกรรม</h3>
+                                <p class="text-xs text-slate-400">หนังสือ บทความ ซอร์สโค้ดซอฟต์แวร์ คู่มือการใช้งาน</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2">
+                                <span class="text-2xl text-roseNeon"><i class="fa-solid fa-music"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">2. งานดนตรีกรรม</h3>
+                                <p class="text-xs text-slate-400">ทำนองเพลง เนื้อร้อง คอร์ดเพลง ไฟล์เสียงบันทึก</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2">
+                                <span class="text-2xl text-tealNeon"><i class="fa-solid fa-palette"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">3. งานศิลปกรรม</h3>
+                                <p class="text-xs text-slate-400">ภาพถ่าย ภาพวาด ภาพประกอบ โลโก้ งานสถาปัตยกรรม</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2">
+                                <span class="text-2xl text-emeraldNeon"><i class="fa-solid fa-video"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">4. งานโสตทัศนวัสดุ</h3>
+                                <p class="text-xs text-slate-400">วิดีโอ คลิปสั้น ภาพยนตร์ สื่อสตรีมมิ่งมัลติมีเดีย</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2 col-span-2 md:col-span-1">
+                                <span class="text-2xl text-amberNeon"><i class="fa-solid fa-laptop-code"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">5. งานโปรแกรมคอมฯ</h3>
+                                <p class="text-xs text-slate-400">แอปมือถือ เว็บแอป สคริปต์ ตัวแปรโครงสร้างระบบ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2 col-span-2 md:col-span-1">
+                                <span class="text-2xl text-indigoNeon"><i class="fa-solid fa-database"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">6. งานฐานข้อมูล</h3>
+                                <p class="text-xs text-slate-400">โครงสร้างสคีมาฐานข้อมูล การรวบรวมจัดสรรสารสนเทศ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2 col-span-2 lg:col-span-1">
+                                <span class="text-2xl text-roseNeon"><i class="fa-solid fa-pen-nib"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">7. งานสถาปัตยกรรม</h3>
+                                <p class="text-xs text-slate-400">แบบร่าง 3D พิมพ์เขียว โครงสร้างโมเดลจำลอง</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center gap-2 col-span-2 lg:col-span-1">
+                                <span class="text-2xl text-tealNeon"><i class="fa-solid fa-microphone"></i></span>
+                                <h3 class="text-sm sm:text-base font-bold text-white">8. งานแพร่เสียง/ภาพ</h3>
+                                <p class="text-xs text-slate-400">รายการสด วิทยุสตรีม พ็อดคาสต์ การถ่ายทอดสัญญาณ</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 9
+            {
+                title: "Slide 9: Works NOT Protected",
+                chapter: "Copyright",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">NON-PROTECTABLE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สิ่งใดที่ไม่ถือเป็นผลงานลิขสิทธิ์?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-xmark text-roseNeon"></i> ข้อมูลที่ไม่มีสภาพคุ้มครองลิขสิทธิ์
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    กฎหมายคุ้มครองเฉพาะ <strong class="text-white">การแสดงออก (Expression)</strong> แต่ไม่คุ้มครอง <strong class="text-white">ความคิดดิบ (Idea)</strong> ตราบใดที่ยังไม่ได้แสดงออกมาเป็นผลงานจริง ข้อมูลข้อเท็จจริง และกฎเกณฑ์ต่อไปนี้จะไม่ได้รับสิทธิ์คุ้มครองลิขสิทธิ์:
+                                </p>
+                                <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm md:text-base mt-2">
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2 text-slate-300"><i class="fa-solid fa-newspaper text-roseNeon"></i> ข่าวประจำวันและรายงานด่วน</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2 text-slate-300"><i class="fa-solid fa-check-double text-roseNeon"></i> ข้อเท็จจริงทั่วไป (Fact)</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2 text-slate-300"><i class="fa-solid fa-calculator text-roseNeon"></i> สูตรคณิตศาสตร์/ฟิสิกส์</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2 text-slate-300"><i class="fa-solid fa-brain text-roseNeon"></i> แนวคิดดิบ/ขั้นตอนวิธี</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2 text-slate-300"><i class="fa-solid fa-gavel text-roseNeon"></i> รัฐธรรมนูญและกฎหมาย</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2 text-slate-300"><i class="fa-solid fa-file-invoice text-roseNeon"></i> คำสั่งและคำพิพากษาศาล</div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 flex flex-col justify-center">
+                                <div class="p-5 bg-roseNeon/5 border border-roseNeon/20 rounded-2xl">
+                                    <h4 class="text-sm sm:text-base font-bold text-roseNeon flex items-center gap-2"><i class="fa-solid fa-circle-info"></i> ตัวอย่างให้เห็นภาพชัดเจน:</h4>
+                                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                                        ถ้าคิดไอเดียการทำแอปเรียกรถกระบะส่งของแต่ยังไม่เคยเขียนซอร์สโค้ดเลย แล้วมีคู่แข่งสร้างขึ้นมาก่อนแบบนี้ <strong class="text-white">ไม่สามารถฟ้องละเมิดลิขสิทธิ์ได้</strong> เพราะไอเดียดิบยังไม่ถือเป็นงานลิขสิทธิ์
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 10
+            {
+                title: "Slide 10: Real Life Examples of Copyright",
+                chapter: "Copyright",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">REAL WORLD CASE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตัวอย่างการเกิดขึ้นของลิขสิทธิ์ในชีวิตจริง</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col gap-3">
+                                <div class="w-12 h-12 rounded-lg bg-indigoNeon/10 flex items-center justify-center text-indigoNeon text-xl"><i class="fa-solid fa-camera"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">นักศึกษาถ่ายรูปวิวทิวทัศน์</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    ใช้มือถือของตนเองถ่ายภาพท้องฟ้าหรือตึกในมหาวิทยาลัย <strong class="text-tealNeon">✓ มีลิขสิทธิ์ทันที</strong> เป็นลิขสิทธิ์ประเภทงานศิลปกรรม (ภาพถ่าย) ของผู้นั้นโดยชอบธรรม ไม่ว่าภาพจะสวยหรือไม่ก็ตาม
+                                </p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col gap-3">
+                                <div class="w-12 h-12 rounded-lg bg-tealNeon/10 flex items-center justify-center text-tealNeon text-xl"><i class="fa-solid fa-laptop-code"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">เขียนโปรแกรมคอมพิวเตอร์</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    เขียนโปรแกรมภาษา JavaScript หรือ Python ทำโครงงาน <strong class="text-tealNeon">✓ มีลิขสิทธิ์ทันที</strong> ทันทีที่เซฟไฟล์ซอร์สโค้ด (Source Code) ไว้ในฮาร์ดดิสก์หรือคลาวด์ ถือเป็นเจ้าของงานประเภทวรรณกรรมทันที
+                                </p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col gap-3">
+                                <div class="w-12 h-12 rounded-lg bg-emeraldNeon/10 flex items-center justify-center text-emeraldNeon text-xl"><i class="fa-solid fa-feather-pointed"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">เขียนนิยายบนบล็อกส่วนตัว</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    พิมพ์วรรณกรรมบทความหรือแต่งนิยายสั้นลงในหน้าเพจ <strong class="text-tealNeon">✓ มีลิขสิทธิ์ทันที</strong> ไม่จำเป็นต้องตีพิมพ์เป็นรูปเล่มหนังสือ ก็มีสิทธิทางกฎหมายในการเรียกร้องค่าเสียหายหากถูกขโมยไปโพสต์ซ้ำ
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 11
+            {
+                title: "Slide 11: Copyright Infringement & Activity",
+                chapter: "Copyright",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">INFRINGEMENT & DISCUSSION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การละเมิดลิขสิทธิ์ดิจิทัลและกิจกรรม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-5 rounded-2xl border border-roseNeon/20">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2 mb-2"><i class="fa-solid fa-ban"></i> ตัวอย่างพฤติกรรมละเมิดลิขสิทธิ์พบบ่อย:</h3>
+                                <ul class="text-xs sm:text-sm md:text-base text-slate-300 space-y-2.5">
+                                    <li><i class="fa-solid fa-circle-xmark text-roseNeon mr-2"></i> คัดลอกซอร์สโค้ด (Source Code) ของเพื่อนไปส่งอาจารย์</li>
+                                    <li><i class="fa-solid fa-circle-xmark text-roseNeon mr-2"></i> ใช้ฟอนต์ (Font) ละเมิดลิขสิทธิ์มาประกอบพอร์ตหรืองานพาณิชย์</li>
+                                    <li><i class="fa-solid fa-circle-xmark text-roseNeon mr-2"></i> คัดลอกและบันทึกรูปภาพผู้อื่นจาก Google Search โดยไม่ได้รับสิทธิ์</li>
+                                    <li><i class="fa-solid fa-circle-xmark text-roseNeon mr-2"></i> สตรีมภาพยนตร์หรือถ่ายทอดสดวิดีโอของผู้อื่นลงในแพลตฟอร์มของตน</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-indigoNeon/5 border border-indigoNeon/20 p-5 rounded-2xl">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-indigoNeon flex items-center gap-2 mb-3"><i class="fa-solid fa-magnifying-glass"></i> กิจกรรมในชั้นเรียน (In-class Workshop):</h3>
+                                <p class="text-sm text-slate-200 leading-relaxed mb-4">
+                                    ให้นักศึกษาเปิดเบราว์เซอร์ไปที่เว็บไซต์ค้นหาทั่วไป แล้วค้นหารูปภาพหัวข้อ "Digital Art"
+                                </p>
+                                <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-2">
+                                    <p class="font-bold text-white">ประเด็นร่วมวิเคราะห์อภิปราย:</p>
+                                    <p>1. ภาพใดบ้างที่มีป้ายกำกับลิขสิทธิ์ชัดเจนและใช้ได้เฉพาะส่วนตัว?</p>
+                                    <p>2. มีภาพที่จัดอยู่ภายใต้ใบอนุญาตเพื่อใช้ฟรีหรือไม่ (เช่น Creative Commons)?</p>
+                                    <p>3. วิธีการใดที่เราสามารถระบุเจ้าของผลงานตัวจริงเพื่อทำการส่งขออนุญาตได้ถูกวิธี?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 12
+            {
+                title: "Slide 12: Section 2 - Patent",
+                chapter: "Patent",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 02</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            สิทธิบัตร (Patent)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-emeraldNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เรียนรู้หลักการสิทธิบัตร ขอบเขตกลไกการคุ้มครอง และความสำคัญในการคุ้มครองทรัพย์สินประดิษฐ์ในอุตสาหกรรมเทคโนโลยีขั้นสูงและวิศวกรรมคอมพิวเตอร์
+                        </p>
+                    </div>
+                `
+            },
+            // Slide 13
+            {
+                title: "Slide 13: Patent Definition & Application",
+                chapter: "Patent",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DEFINING PATENT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สิทธิบัตรคืออะไร?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-tealNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-tealNeon"></i> สิทธิพิเศษของผู้ประดิษฐ์ที่ได้รับอนุมัติทางกฎหมาย
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    สิทธิบัตรคือ <strong class="text-white">สิทธิ์เด็ดขาดที่รัฐมอบให้แก่ผู้ประดิษฐ์คิดค้น</strong> เพื่อจำกัดมิให้ผู้อื่นทำ ผลิต ใช้ หรือจำหน่ายการประดิษฐ์นั้นโดยมิได้รับอนุญาตในช่วงระยะเวลาที่กำหนด โดยเจ้าของสิทธิ์จะได้รับหลังจากผ่านกระบวนการ <strong class="text-amberNeon">"จดทะเบียนอย่างเป็นทางการ"</strong> เท่านั้น
+                                </p>
+                                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400">
+                                    <strong>เกณฑ์การขอจดสิทธิบัตรการประดิษฐ์:</strong>
+                                    <ol class="list-decimal pl-5 mt-1.5 text-slate-300 space-y-1">
+                                        <li><strong>มีความใหม่ (Novelty):</strong> ยังไม่เคยมีการเปิดเผยข้อมูลที่นั่นที่นี่มาก่อนในโลก</li>
+                                        <li><strong>มีขั้นการประดิษฐ์ที่สูงขึ้น (Inventive Step):</strong> ไม่ใช่สิ่งที่คนที่มีความรู้ธรรมดาจะคิดได้ง่ายๆ</li>
+                                        <li><strong>ประยุกต์ใช้ในอุตสาหกรรมได้ (Industrial Applicability):</strong> ทำเงิน ผลิตจริง และใช้งานได้จริง</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Patent Hardware" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/161e2e/14b8a6?text=Hardware+Patent'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 14
+            {
+                title: "Slide 14: What Patents Protect",
+                chapter: "Patent",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">PROTECTION SCOPE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สิทธิบัตรให้ความคุ้มครองอะไรบ้าง?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon flex items-center gap-2"><i class="fa-solid fa-microchip"></i> 1. สิ่งประดิษฐ์และกระบวนการผลิต</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        คุ้มครองโครงสร้างเชิงกายภาพ การออกแบบวงจรไฟฟ้า กระบวนการทำงานทางเคมีและชีวภาพ วิธีการผลิตแบบอัตโนมัติ และสิทธิบัตรฮาร์ดแวร์ไอทีระดับโมดูลาร์
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-500 font-tech">ตัวอย่าง: เซมิคอนดักเตอร์ดีไซน์, โครงสร้างหน้าจอ OLED สัมผัส</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon flex items-center gap-2"><i class="fa-solid fa-robot"></i> 2. เทคโนโลยีเชิงนวัตกรรมใหม่</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        คุ้มครองสถาปัตยกรรมการสื่อสารโครงข่ายความถี่ 5G/6G, นวัตกรรมการจ่ายพลังงานแบตเตอรี่โซลิดสเตต, ชิปเซ็ตประมวลผลโมเดล AI พิเศษ และอุปกรณ์การแพทย์ขั้นสูง
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-500 font-tech">ตัวอย่าง: สถาปัตยกรรมชิป AI TPU, สิทธิ์จดดีไซน์กลไกกล้องโทรศัพท์</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigoNeon/10 p-4 border-l-4 border-indigoNeon rounded-r-xl">
+                            <h4 class="text-xs sm:text-sm font-bold text-indigoNeon">💡 หมายเหตุสำคัญสำหรับนักศึกษา:</h4>
+                            <p class="text-xs text-slate-300 mt-1">
+                                "สิทธิบัตรการประดิษฐ์มีอายุการคุ้มครอง 20 ปีนับจากวันยื่นจดทะเบียนอย่างเป็นทางการ หลังจากนั้นผลงานจะตกเป็นสาธารณะ (Public Domain) ให้ผู้อื่นนำไปประยุกต์พัฒนาผลิตเชิงพาณิชย์ต่อได้เสรี"
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 15
+            {
+                title: "Slide 15: Examples of Patents",
+                chapter: "Patent",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">PATENT CASE STUDY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตัวอย่างสิทธิบัตรในชีวิตจริงทางเทคโนโลยี</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-tealNeon"></i> คดีพิพาทประวัติศาสตร์: Apple vs Samsung Patent War</h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    กรณีฟ้องร้องและสู้คดีสิทธิบัตรดีไซน์สากลอันดุเดือดระหว่างแอปเปิ้ลกับซัมซุง ครอบคลุมสิทธิบัตรเทคโนโลยีการใช้ท่าทางนิ้วมือปัดหน้าจอเพื่อซูมและยืดรูปภาพ (Pinch-to-zoom) ตลอดจนการออกแบบบอดี้ดีไซน์โทรศัพท์ขอบมน
+                                </p>
+                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400">
+                                    <strong>ข้อตระหนักจากคดี:</strong> นำไปสู่การตัดสินจ่ายเงินค่าปรับชดเชยมูลค่าหลายร้อยล้านดอลลาร์ และเป็นเครื่องเตือนใจว่าการลอกเลียนแบบแม้กระทั่งลักษณะไอคอน ดีไซน์ภายนอกของเทคโนโลยีก็ผิดกฎหมายอย่างรุนแรง
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col gap-2">
+                                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-2xl text-tealNeon"><i class="fa-solid fa-battery-three-quarters"></i></span>
+                                    <div>
+                                        <h4 class="text-sm sm:text-base font-bold text-white">Battery Technology</h4>
+                                        <p class="text-xs text-slate-400">สิทธิบัตรกระบวนการอัดชาร์จไฟด่วนของแบรนด์ต่างๆ</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-2xl text-tealNeon"><i class="fa-solid fa-heart-pulse"></i></span>
+                                    <div>
+                                        <h4 class="text-sm sm:text-base font-bold text-white">Medical Devices</h4>
+                                        <p class="text-xs text-slate-400">สิทธิบัตรกลไกการสแกนคลื่นหัวใจของนาฬิกาอัจฉริยะ</p>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+                                    <span class="text-2xl text-tealNeon"><i class="fa-solid fa-microchip"></i></span>
+                                    <div>
+                                        <h4 class="text-sm sm:text-base font-bold text-white">AI Chipsets Architecture</h4>
+                                        <p class="text-xs text-slate-400">การจัดเรียงวงจรกราฟิกเร่งประมวลผลเชิงวิศวกรรม</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 16
+            {
+                title: "Slide 16: Copyright vs Patent",
+                chapter: "เปรียบเทียบ",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMPARATIVE STUDY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตารางเปรียบเทียบ: Copyright vs Patent</h2>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full border border-borderSlate rounded-xl my-auto">
+                            <table class="w-full text-left text-xs sm:text-sm md:text-base border-collapse min-w-[650px]">
+                                <thead>
+                                    <tr class="bg-slate-900 border-b border-borderSlate text-slate-200">
+                                        <th class="p-4 font-bold text-tealNeon">คุณลักษณะ</th>
+                                        <th class="p-4 font-bold text-white">ลิขสิทธิ์ (Copyright)</th>
+                                        <th class="p-4 font-bold text-white">สิทธิบัตร (Patent)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-borderSlate/50 text-slate-300">
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">การได้รับความคุ้มครอง</td>
+                                        <td class="p-4 text-tealNeon font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> ได้สิทธิ์ทันทีอัตโนมัติ โดยไม่ต้องจดทะเบียน</td>
+                                        <td class="p-4 text-amberNeon font-semibold"><i class="fa-solid fa-circle-exclamation mr-1"></i> ต้องยื่นขอจดทะเบียนและตรวจสิทธิ์อย่างเป็นทางการ</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">สิ่งของที่คุ้มครอง</td>
+                                        <td class="p-4">การแสดงออกความคิด งานศิลปะ วรรณกรรม ซอฟต์แวร์</td>
+                                        <td class="p-4">สิ่งประดิษฐ์เชิงฟังก์ชั่น เทคโนโลยีใหม่ ดีไซน์ผลิตภัณฑ์</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">ตัวอย่างผลงานไอที</td>
+                                        <td class="p-4">แอปพลิเคชันระบบ, หน้าเว็บดีไซน์, โค้ด JavaScript</td>
+                                        <td class="p-4">ชิปเซตประมวลผลโมเดล AI, กลไกกล้องสมาร์ทโฟน</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">ระยะเวลาคุ้มครอง</td>
+                                        <td class="p-4">ตลอดชีวิตผู้สร้างสรรค์ + ต่ออีก 50 ปี</td>
+                                        <td class="p-4">20 ปี (หลังจากนั้นจะตกเป็นสาธารณะ)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 17
+            {
+                title: "Slide 17: Section 3 - Trademark",
+                chapter: "Trademark",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-amberNeon text-xs sm:text-sm tracking-widest font-bold bg-amberNeon/10 border border-amberNeon/20 px-4 py-1.5 rounded-full">PART 03</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            เครื่องหมายการค้า (Trademark)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-amberNeon to-roseNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เรียนรู้บทบัญญัติการปกป้องแบรนด์ เครื่องหมายการค้า ป้องกันคดีการสวมรอยใช้ภาพลักษณ์ สัญลักษณ์และชื่อธุรกิจเพื่อประโยชน์เชิงพาณิชย์
+                        </p>
+                    </div>
+                `
+            },
+            // Slide 18
+            {
+                title: "Slide 18: Trademark Definition",
+                chapter: "Trademark",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DEFINING TRADEMARK</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ความหมายของเครื่องหมายการค้า</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-amberNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-trademark text-amberNeon"></i> สัญลักษณ์จำแนกสินค้าและบริการออกจากคู่แข่ง
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    เครื่องหมายการค้าคือ <strong class="text-white">เครื่องหมายหรือสัญลักษณ์ที่ใช้กับสินค้าหรือบริการ</strong> เพื่อระบุความแตกต่างของสินค้าผู้เป็นเจ้าของ ออกจากแบรนด์อื่นๆ ในท้องตลาด ซึ่งประกอบไปด้วย:
+                                </p>
+                                <div class="grid grid-cols-2 gap-3 mt-1 text-xs sm:text-sm md:text-base">
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-shapes text-amberNeon"></i> โลโก้หรือตราสัญลักษณ์</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-signature text-amberNeon"></i> ชื่อแบรนด์ / เครื่องหมาย</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-message text-amberNeon"></i> สโลแกนประจำแบรนด์</div>
+                                    <div class="bg-slate-800 p-2.5 rounded border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-eye-dropper text-amberNeon"></i> สีประจำแบรนด์ (เฉพาะกรณี)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Trademark Brand" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/161e2e/f59e0b?text=Brand+Identity'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 19
+            {
+                title: "Slide 19: Iconic Trademark Examples",
+                chapter: "Trademark",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">FAMOUS TRADEMARKS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตัวอย่างสัญลักษณ์แบรนด์เครื่องหมายการค้าที่มีชื่อเสียง</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-slate-300"><i class="fa-brands fa-apple"></i></span>
+                                <h3 class="font-bold text-white">Apple</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">โลโก้แอปเปิ้ลแหว่งระดับตำนาน</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-sky-400"><i class="fa-brands fa-microsoft"></i></span>
+                                <h3 class="font-bold text-white">Microsoft</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">บล็อกสี่สีเรียงแผงหน้าต่างเหลี่ยม</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-blue-500 font-bold font-tech">SAMSUNG</span>
+                                <h3 class="font-bold text-white">Samsung</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">วงรีลาดเอียงสีน้ำเงินเอกลักษณ์</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex items-center flex-col justify-center text-center gap-3">
+                                <span class="text-4xl text-red-500"><i class="fa-brands fa-google"></i></span>
+                                <h3 class="font-bold text-white">Google</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">ตัวอักษรภาษาอังกฤษสี่สีดึงดูดสายตา</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3 col-span-2 md:col-span-1">
+                                <span class="text-4xl text-red-600"><i class="fa-solid fa-car"></i></span>
+                                <h3 class="font-bold text-white">Toyota</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">วงแหวนซ้อนทับกันสามเหลี่ยมสามขอบ</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-amberNeon/10 p-3 rounded-lg border border-amberNeon/30 text-xs text-slate-300 text-center">
+                            💡 เครื่องหมายการค้าที่มีชื่อเสียงระดับโลกเหล่านี้ ได้รับการคุ้มครองอย่างเข้มงวด ป้องกันการลอกเลียนแบบหรือใช้สัญลักษณ์ที่ทำให้ผู้บริโภคเกิดความสับสนในแบรนด์สินค้า
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 20
+            {
+                title: "Slide 20: Trademark Infringement & Logo Game",
+                chapter: "Trademark",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">INTERACTIVE GAME</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">คดีพิพาทและการละเมิดเครื่องหมายการค้า</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-5 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> หากใช้โลโก้ของผู้อื่นโดยพละการ...</h3>
+                                <p class="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
+                                    ถ้านักศึกษานำเอาโลโก้ Apple ไปติดไว้บนเคสคอมพิวเตอร์แบบพิเศษเพื่อขายต่อเชิงพาณิชย์ หรือเปิดร้านค้าไอทีซ่อมบำรุงและใช้ชื่อแบรนด์พร้อมโลโก้เลียนแบบบริษัทชื่อดัง <strong class="text-roseNeon">อาจละเมิดทั้งสิทธิ์สิทธิบัตรและสิทธิ์เครื่องหมายการค้า (Trademark Infringement)</strong> ได้อย่างหนัก
+                                </p>
+                                <p class="text-xs text-slate-400">
+                                    เจ้าของสิทธิ์สามารถฟ้องร้องเพื่อสั่งระงับการผลิต และเรียกร้องให้ชดใช้ค่าเสียหายทางแพ่งรวมไปถึงความรับผิดชอบเชิงพาณิชย์
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-5 rounded-2xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <h4 class="text-base sm:text-lg font-bold text-tealNeon flex items-center gap-2 mb-2"><i class="fa-solid fa-gamepad"></i> กิจกรรมย่อย: ทดสอบความรู้เรื่องเครื่องหมายการค้า</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 mb-3 leading-relaxed">
+                                        คลิกเลือกสัญลักษณ์หรือสิ่งที่คุณคิดว่า **จดทะเบียนเครื่องหมายการค้าไม่ได้** ในกฎหมายไทย:
+                                    </p>
+                                </div>
+                                <div class="flex flex-col gap-2 text-xs sm:text-sm">
+                                    <button onclick="handleLogoAnswer(1)" id="logo-ans-1" class="text-left p-2 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300 flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-question text-tealNeon"></i> A. โทนสีและสโลแกนที่มีลักษณะเฉพาะจำแนกสินค้าชัดเจน
+                                    </button>
+                                    <button onclick="handleLogoAnswer(2)" id="logo-ans-2" class="text-left p-2 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300 flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-question text-tealNeon"></i> B. ชื่อแบรนด์และสัญลักษณ์ที่ไม่มีลักษณะเด่นใดๆ ในภาษาไทยทั่วไป (เช่น คำว่า "ส้ม" ขายผลส้ม)
+                                    </button>
+                                    <button onclick="handleLogoAnswer(3)" id="logo-ans-3" class="text-left p-2 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300 flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-question text-tealNeon"></i> C. การวาดลายเส้นภาพวาดสัญลักษณ์แนวการ์ตูนผสมผสานอักษรพิเศษ
+                                    </button>
+                                </div>
+                                <div id="logo-game-feedback" class="text-xs sm:text-sm font-semibold mt-3 text-emeraldNeon min-h-[30px]"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 21
+            {
+                title: "Slide 21: Section 4 - Software Piracy",
+                chapter: "Piracy",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-widest font-bold bg-roseNeon/10 border border-roseNeon/20 px-4 py-1.5 rounded-full">PART 04</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            ซอฟต์แวร์ละเมิดลิขสิทธิ์ (Software Piracy)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-roseNeon to-indigoNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            วิเคราะห์ปัญหาการใช้โปรแกรมละเมิดสิทธิ์โดยไม่ได้รับอนุญาต ผลกระทบด้านความมั่นคงปลอดภัยสารสนเทศ และความเสี่ยงในการดำเนินงานระดับองค์กรธุรกิจ
+                        </p>
+                    </div>
+                `
+            },
+            // Slide 22
+            {
+                title: "Slide 22: What is Software Piracy",
+                chapter: "Piracy",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DEFINING PIRACY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">การใช้ซอฟต์แวร์โดยปราศจากสิทธิ์อันชอบธรรม</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-exclamation text-roseNeon"></i> ซอฟต์แวร์ละเมิดลิขสิทธิ์ (Software Piracy) หมายถึงอะไร?
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    การใช้งาน คัดลอก เลียนแบบ ทำซ้ำ ดัดแปลง หรือจัดจำหน่าย <strong class="text-white">โปรแกรมคอมพิวเตอร์โดยมิได้รับการยินยอมจากเจ้าของลิขสิทธิ์สัญญาอนุญาต (EULA)</strong> ถือเป็นการฝ่าฝืนกฎหมายสากลอย่างเด่นชัด
+                                </p>
+                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400">
+                                    <strong>รูปแบบพฤติกรรมการละเมิดพบบ่อย:</strong>
+                                    <ul class="list-disc pl-5 mt-1.5 text-slate-300 space-y-1">
+                                        <li><strong>การลงโปรแกรมเกินโควตา:</strong> ซื้อไลเซนส์มาใช้ 1 เครื่อง แต่ลงใช้งาน 5 เครื่องในบ้าน</li>
+                                        <li><strong>การใช้ไฟล์ Crack:</strong> แฮกถอดรหัสซอฟต์แวร์ลิขสิทธิ์เพื่อให้ใช้งานฟังก์ชั่นโปรได้ฟรี</li>
+                                        <li><strong>การแชร์ไฟล์ผิดกฎหมาย:</strong> โพสต์แชร์แจกไลเซนส์คีย์ลงอินเทอร์เน็ตกลุ่มไลน์</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Cyber Security Piracy" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/161e2e/f43f5e?text=Software+Piracy'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 23
+            {
+                title: "Slide 23: Common Examples of Piracy",
+                chapter: "Piracy",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMMON PIRATED SOFTWARE</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตัวอย่างความคุ้นเคยของแอปพลิเคชันละเมิดลิขสิทธิ์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <div class="text-roseNeon text-2xl"><i class="fa-brands fa-windows"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">Windows Crack</h3>
+                                <p class="text-xs text-slate-400">ใช้รหัสสุ่มโปรแกรมแฮกเพื่อปลดล็อกธีมและลบลายน้ำแจ้งเตือนระบบปฏิบัติการ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <div class="text-roseNeon text-2xl"><i class="fa-solid fa-paintbrush"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">Photoshop Crack</h3>
+                                <p class="text-xs text-slate-400">การติดตั้งตัวแปลงไฟล์ DLL เพื่อแฮกฟังก์ชั่นตัดต่อรูปภาพสร้างสรรค์โดยไม่ต้องจ่ายรายปี</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <div class="text-roseNeon text-2xl"><i class="fa-solid fa-file-invoice"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">Office Crack</h3>
+                                <p class="text-xs text-slate-400">ดัดแปลงหลอกระบบตรวจสอบคลาวด์เพื่อใช้ซอฟต์แวร์เอกสารสไลด์โชว์ฟรี</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col justify-between min-h-[180px]">
+                                <div class="text-roseNeon text-2xl"><i class="fa-solid fa-gamepad"></i></div>
+                                <h3 class="text-base sm:text-lg font-bold text-white">เกมเถื่อน / ไฟล์ ROM</h3>
+                                <p class="text-xs text-slate-400">ดาวน์โหลดตัวไฟล์ข้ามรหัสป้องกันลิขสิทธิ์ระบบการชำระเงินของสตรีมมิ่งเซิร์ฟเวอร์</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 24
+            {
+                title: "Slide 24: Security & Legal Impacts",
+                chapter: "Piracy",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">IMPACTS & RISKS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ผลกระทบที่น่ากลัวของการใช้ซอฟต์แวร์แคร็ก</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-roseNeon/20 flex flex-col gap-2">
+                                <span class="text-2xl text-roseNeon"><i class="fa-solid fa-bug"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white">1. ไวรัสและภัยแฝง Malware</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    เกือบ 80% ของโปรแกรมแคร็กและซอฟต์แวร์ผิดกฎหมายจะมีการแฝงฝัง <strong class="text-roseNeon">Virus, Trojan หรือ Ransomware (มัลแวร์เรียกค่าไถ่)</strong> สั่งล็อกรหัสข้อมูลเหยื่อ
+                                </p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-roseNeon/20 flex flex-col gap-2">
+                                <span class="text-2xl text-roseNeon"><i class="fa-solid fa-shield-halved"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white">2. ข้อมูลรั่วไหลและเจาะระบบ</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    ระบบแคร็กมักจะปิดช่องโหว่ความมั่นคง ปล่อยให้มิจฉาชีพทางออนไลน์รีโมทล็อกอินเข้ามาขโมยประวัติบัตรเครดิต รหัสผ่านสำคัญ ตลอดจนแชทลับส่วนบุคคล
+                                </p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-roseNeon/20 flex flex-col gap-2">
+                                <span class="text-2xl text-roseNeon"><i class="fa-solid fa-gavel"></i></span>
+                                <h3 class="text-base sm:text-lg font-bold text-white">3. การถูกฟ้องร้องทางกฎหมาย</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    สุ่มเสี่ยงโดนตรวจจับโดยหน่วยงานตรวจสอบลิขสิทธิ์ ปรับเป็นเงินมหาศาล เสียค่าซ่อมบำรุงระบบไอที และเสื่อมเสียชื่อเสียงความน่าเชื่อถือของแบรนด์องค์กรเป็นประวัติการณ์
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 25
+            {
+                title: "Slide 25: Business Case Study",
+                chapter: "Piracy",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">BUSINESS RISK ANALYSIS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กรณีศึกษาธุรกิจ: ผลลัพธ์คดีตรวจสอบโปรแกรมเถื่อน</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-roseNeon flex items-center gap-2">
+                                    <i class="fa-solid fa-building-circle-exclamation text-roseNeon"></i> บริษัทออกแบบสถาปัตยกรรมไทย ถูกจู่โจมด้วยคดีตรวจสอบซอฟต์แวร์
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    บริษัทจัดทำแบบก่อสร้างขนาดกลาง มีเครื่องคอมพิวเตอร์ใช้งานราว 200 เครื่อง แต่แอบใช้โปรแกรมโมเดลเขียนแบบเถื่อนจำนวน 150 เครื่อง ผลลัพธ์ถูกเจ้าหน้าที่ตำรวจกองปราบปรามความมั่นคงไอทีบุกตรวจค้น ดำเนินคดีและสั่งสั่งปรับมูลค่า **หลายล้านบาท** พร้อมฟ้องร้องความเสียหายทางธุรกิจ
+                                </p>
+                                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-[11px] sm:text-xs text-slate-400">
+                                    <strong>บทเรียนที่ได้เรียนรู้:</strong> การลดค่าใช้จ่ายระยะสั้นด้วยวิธีละเมิดสิทธิ์ซอฟต์แวร์ สุ่มเสี่ยงที่จะทำให้แบรนด์พังทลายและแบกภาระค่าปรับมหาศาลที่มากกว่าสิทธิ์การซื้อตัวลิขสิทธิ์จริงถึงหลายสิบเท่าตัว
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-3">
+                                <div class="bg-indigoNeon/5 border border-indigoNeon/20 p-5 rounded-xl">
+                                    <h4 class="text-sm sm:text-base font-bold text-indigoNeon flex items-center gap-2"><i class="fa-solid fa-user-shield"></i> บทบาทคำถามสำหรับ CIO (หัวหน้าแผนกไอที):</h4>
+                                    <p class="text-xs sm:text-sm text-slate-200 mt-2">
+                                        "ในฐานะที่เป็นหัวหน้าทีมดูแลฝ่ายไอทีระดับสูง คุณจะมีกลยุทธ์ป้องกันการแอบนำซอฟต์แวร์แคร็กเถื่อนมาใช้ของกลุ่มพนักงานในบริษัทอย่างไร?"
+                                    </p>
+                                    <div class="mt-3 flex gap-2">
+                                        <button onclick="revealCIOAnswer()" class="bg-tealNeon hover:bg-tealNeon/85 text-slate-950 font-bold px-3 py-1.5 rounded text-xs transition-all w-full">คลิกวิเคราะห์แนวทางแก้ปัญหา</button>
+                                    </div>
+                                    <div id="cio-feedback" class="hidden text-xs text-slate-300 mt-2 bg-slate-900 p-2 rounded leading-relaxed border border-tealNeon/30">
+                                        แนวทางการแก้ปัญหาที่ดีที่สุด: 1. มีระบบติดตาม Software Inventory ของบริษัท 2. ติดตั้งสิทธิ์จำกัดติดตั้งแอปพลิเคชั่นที่เครื่องพนักงาน 3. หันไปเลือกใช้โปรแกรมที่เป็นรูปแบบ **Open Source** หรือไลเซนส์ระบบคลาวด์คุมค่าใช้จ่าย
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 26
+            {
+                title: "Slide 26: Section 5 - Open Source License",
+                chapter: "Open Source",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 05</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            สัญญาอนุญาตเปิดเผยรหัส (Open Source License)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-indigoNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เรียนรู้ข้อตกลงแบบ Open Source, ความเข้าใจผิดเรื่องของใช้ฟรี และการเปรียบเทียบมาตรฐานสัญญาใบอนุญาตยอดนิยมในกลุ่มนักเขียนโค้ดและไอทีนวัตกรรม
+                        </p>
+                    </div>
+                `
+            },
+            // Slide 27
+            {
+                title: "Slide 27: What is Open Source",
+                chapter: "Open Source",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">OPEN SOURCE ECOSYSTEM</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ความหมายของ Open Source คืออะไร?</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-code text-tealNeon"></i> ซอฟต์แวร์เปิดเผยรหัสต้นฉบับแก่กลุ่มนักสร้างสรรค์
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    Open Source คือ <strong class="text-white">ซอฟต์แวร์ที่ผู้พัฒนาเปิดเผยซอร์สโค้ด (Source Code)</strong> สิทธิ์ต้นฉบับให้สาธารณชนเข้าถึงได้โดยชอบสากล เพื่อวัตถุประสงค์ในการ:
+                                </p>
+                                <div class="grid grid-cols-3 gap-3 text-xs sm:text-sm md:text-base mt-2">
+                                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-center"><i class="fa-solid fa-book-open text-tealNeon block mb-2 text-xl"></i> <strong>ศึกษาและตรวจ</strong><br>เรียนรู้ตรรกะระบบ</div>
+                                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-center"><i class="fa-solid fa-wrench text-tealNeon block mb-2 text-xl"></i> <strong>แก้ไขปรับปรุง</strong><br>แต่งฟังก์ชั่นเพิ่ม</div>
+                                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-center"><i class="fa-solid fa-share-nodes text-tealNeon block mb-2 text-xl"></i> <strong>แจกจ่ายส่งต่อ</strong><br>ส่งมอบงานให้คนอื่น</div>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=600&q=80" 
+                                         alt="Open Source Code" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/161e2e/14b8a6?text=Open+Source'"/>
+                                    <div class="absolute inset-0 bg-slate-900/10"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 28
+            {
+                title: "Slide 28: Myth: Open Source vs Public Domain",
+                chapter: "Open Source",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMMON MISCONCEPTION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ความเข้าใจผิดยอดนิยมเกี่ยวกับ Open Source</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-indigoNeon/20 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-indigoNeon flex items-center gap-2"><i class="fa-solid fa-circle-info"></i> เข้าใจผิดว่า "เปิดใช้ฟรีและทำอะไรก็ได้ทั้งหมด"</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        แท้จริงแล้ว แม้ผู้เขียนโค้ดจะใจดีเปิดโอกาสให้สืบค้นซอร์สโค้ดได้ฟรี แต่สิทธิ์ของโค้ดโปรแกรม <strong class="text-white">ไม่ใช่ Public Domain (สมบัติสาธารณะไร้เจ้าของ)</strong> การนำโค้ดไปประกอบใช้ยังคงต้องปฏิบัติตาม **เงื่อนไขใบอนุญาต (License)** ของผู้สร้างเสมอ
+                                    </p>
+                                </div>
+                                <span class="text-xs text-indigoNeon font-tech mt-4">★ สำคัญ: ต้องอ่านเอกสาร License ก่อนก๊อปปี้ไปใช้งาน</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-roseNeon/20 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-roseNeon flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> ผลเสียหากแอบเพิกเฉยต่อสัญญา:</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        มีคดีความความขัดแย้งของนักพัฒนาที่นำโค้ด Open Source ภายใต้สัญญาควบคุมเข้มงวด ไปสอดแทรกปรับแต่งและลงขายเชิงพาณิชย์สร้างแอปธุรกิจจนถูกฟ้องร้องจากสมาคมและถูกบังคับเปิดโค้ดลับของแบรนด์ตนเองในท้ายที่สุด
+                                    </p>
+                                </div>
+                                <span class="text-xs text-roseNeon font-tech mt-4">★ ข้อยึดถือหลักจริยธรรมของนักเขียนโปรแกรม</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 29
+            {
+                title: "Slide 29: Popular Licenses",
+                chapter: "Open Source",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">LICENSE OPTIONS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ใบอนุญาต (License) ยอดนิยมในวงการซอฟต์แวร์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[180px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-emeraldNeon">1. MIT License</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        สัญญาอนุญาตใจดีที่สุดในโลก เปิดให้คนอื่นใช้ แก้ไข ดัดแปลง จำหน่าย ค้าขายเชิงพาณิชย์ได้ไร้ข้อจำกัด เพียงแค่ต้องคงระบุชื่อเครดิตลิขสิทธิ์ของผู้คิดค้นดั้งเดิมไว้ในซอร์สโค้ด
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-500">ตัวอย่างโปรเจกต์: Vue.js, React, jQuery</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[180px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-roseNeon">2. GNU GPL License</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        สัญญาอนุญาตแบบควบคุมเข้ม หากคุณหยิบเอาโค้ด GPL ของคนอื่นมาเป็นโครงสร้างแอป ซอฟต์แวร์เวอร์ชั่นรวมทั้งหมดนั้นของคุณ <strong class="text-white">ต้องเปิดเผยเป็นรหัส Open Source ฟรีตามไปด้วยเสมอ</strong>
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-500">ตัวอย่างโปรเจกต์: Linux Kernel, WordPress</span>
+                            </div>
+
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[180px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-indigoNeon">3. Apache License 2.0</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        สัญญาอนุญาตสำหรับองค์กรขนาดใหญ่ อนุญาตสิทธิ์แก้ไขแจกจ่ายเชิงพาณิชย์ได้เหมือน MIT เพิ่มข้อกำหนดที่ช่วยคุ้มครองสิทธิ์การใช้สิทธิบัตรและเครื่องหมายการค้าไม่ให้พนักงานนำไปแอบอ้างมั่วซั่ว
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-500">ตัวอย่างโปรเจกต์: Android, Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 30
+            {
+                title: "Slide 30: Comparison of Licenses",
+                chapter: "Open Source",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COMPARATIVE MATRIX</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตารางเปรียบเทียบสิทธิ์การอนุญาต Open Source Licenses</h2>
+                        </div>
+                        
+                        <div class="overflow-x-auto w-full border border-borderSlate rounded-xl my-auto">
+                            <table class="w-full text-left text-xs sm:text-sm md:text-base border-collapse min-w-[650px]">
+                                <thead>
+                                    <tr class="bg-slate-900 border-b border-borderSlate text-slate-200">
+                                        <th class="p-4 font-bold text-tealNeon">สัญญาอนุญาต (License)</th>
+                                        <th class="p-4 font-bold text-white">ใช้เชิงพาณิชย์ (Commercial)</th>
+                                        <th class="p-4 font-bold text-white">แก้ไขรหัสได้ (Modify)</th>
+                                        <th class="p-4 font-bold text-white">ต้องเปิดเผยซอร์สโค้ดเดิมทั้งหมด</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-borderSlate/50 text-slate-300">
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">MIT</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-roseNeon font-semibold"><i class="fa-solid fa-circle-xmark"></i> ไม่จำเป็นต้องเปิดรหัสแอปคุณ</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">GPL (v2 / v3)</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-amberNeon font-bold"><i class="fa-solid fa-circle-exclamation"></i> บังคับต้องเปิดสิทธิ์แบบเดียวกัน</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">Apache 2.0</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-roseNeon font-semibold"><i class="fa-solid fa-circle-xmark"></i> ไม่จำเป็นต้องเปิดรหัสแอปคุณ</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-900/30">
+                                        <td class="p-4 font-bold text-slate-100">BSD</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ได้สิทธิ์เต็มที่</td>
+                                        <td class="p-4 text-roseNeon font-semibold"><i class="fa-solid fa-circle-xmark"></i> ไม่จำเป็นต้องเปิดรหัสแอปคุณ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 31
+            {
+                title: "Slide 31: Famous Open Source Products",
+                chapter: "Open Source",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SUCCESS STORIES</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ตัวอย่างเทคโนโลยีระดับโลกที่รันด้วย Open Source</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-orange-500"><i class="fa-brands fa-linux"></i></span>
+                                <h3 class="font-bold text-white">Linux</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">ระบบปฏิบัติการคุมเซิร์ฟเวอร์คลาวด์เกือบทั้งโลก</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-orange-600"><i class="fa-brands fa-firefox"></i></span>
+                                <h3 class="font-bold text-white">Firefox</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">เบราว์เซอร์ท่องเว็บสากล มุ่งปกป้องข้อมูลเสรี</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-blue-400"><i class="fa-brands fa-wordpress"></i></span>
+                                <h3 class="font-bold text-white">WordPress</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">ระบบคุมและสร้างสรรค์เว็บไซต์ยอดนิยมอันดับหนึ่ง</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3">
+                                <span class="text-4xl text-sky-400"><i class="fa-solid fa-database"></i></span>
+                                <h3 class="font-bold text-white">PostgreSQL</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">ระบบจัดการดาต้าเบสสัมพันธ์ขนาดใหญ่ เสถียรสูง</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800 flex flex-col items-center justify-center text-center gap-3 col-span-2 md:col-span-1">
+                                <span class="text-4xl text-amber-500"><i class="fa-solid fa-file-invoice"></i></span>
+                                <h3 class="font-bold text-white">LibreOffice</h3>
+                                <p class="text-[11px] sm:text-xs text-slate-400">ชุดโปรแกรมจัดการเอกสารทางเลือกฟรี ทดแทน MS Office</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigoNeon/10 p-4 border border-indigoNeon/30 rounded-xl">
+                            <h4 class="text-xs sm:text-sm font-bold text-indigoNeon flex items-center gap-2"><i class="fa-brands fa-github"></i> กิจกรรมท้าทายในคาบเรียน (GitHub Activity):</h4>
+                            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                                ให้นักศึกษาใช้โทรศัพท์หรือคอมพิวเตอร์เข้าสำรวจเว็บไซต์ **GitHub.com** เลือกหาโปรเจกต์โปรแกรมมิ่งที่คุณสนใจ แล้วแจ้งชื่อไลเซนส์ (License) ของโปรเจกต์นั้นในห้องเรียน พร้อมตอบคำถามว่า "สิทธิ์ไลเซนส์ของตัวแอปนี้ อนุญาตให้บริษัทยักษ์ใหญ่นำผลงานไปใช้ค้าขายเชิงพาณิชย์ได้หรือไม่?"
+                            </p>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 32
+            {
+                title: "Slide 32: Section 6 - Protection of Digital Works",
+                chapter: "คุ้มครอง",
+                html: `
+                    <div class="flex flex-col justify-center items-center h-full text-center gap-4 sm:gap-6 py-4">
+                        <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-widest font-bold bg-tealNeon/10 border border-tealNeon/20 px-4 py-1.5 rounded-full">PART 06</span>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            การคุ้มครองผลงานดิจิทัล (Digital Protection)
+                        </h2>
+                        <div class="w-24 h-1.5 bg-gradient-to-r from-tealNeon to-roseNeon rounded-full"></div>
+                        <p class="text-slate-300 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+                            เรียนรู้เทคโนโลยีวิศวกรรมไอที มาตรการรักษาความปลอดภัยของไฟล์ และแนวคิดลิขสิทธิ์ความลื่นไหลในยุคของปัญญาประดิษฐ์ (Generative AI)
+                        </p>
+                    </div>
+                `
+            },
+            // Slide 33
+            {
+                title: "Slide 33: Protection Methods",
+                chapter: "คุ้มครอง",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">PROTECTION MECHANISMS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">เทคนิคการปกป้องและแสดงกรรมสิทธิ์ผลงานดิจิทัล</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="w-10 h-10 rounded bg-indigoNeon/10 flex items-center justify-center text-indigoNeon text-xl"><i class="fa-solid fa-c"></i></span>
+                                        <h3 class="text-base sm:text-lg font-bold text-white">Copyright Notice / Watermark</h3>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2">
+                                        การแปะเครื่องหมายแจ้งสิทธิ์ตัวอย่าง © 2026 Author Name, All Rights Reserved และการใส่ลายน้ำกึ่งโปร่งใสซ้อนหลังรูปภาพ ป้องกันการแอบถ่ายและก๊อปปี้แบบง่าย
+                                    </p>
+                                </div>
+                                <span class="text-xs text-indigoNeon font-tech">★ นิยมใช้ในการทำสื่อ ภาพวาด บทความ</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="w-10 h-10 rounded bg-tealNeon/10 flex items-center justify-center text-tealNeon text-xl"><i class="fa-solid fa-key"></i></span>
+                                        <h3 class="text-base sm:text-lg font-bold text-white">Digital Signature / Metadata</h3>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2">
+                                        การฝังลายเซ็นดิจิทัลเข้ารหัสไฟล์ประวัติความเป็นมา (EXIF ข้อมูลรูป) และรหัสยืนยันตัวตนในซอร์สโค้ดเพื่อสืบค้นหาเจ้าของสิทธิ์ที่สุมหัวดัดแปลงในทางลับ
+                                    </p>
+                                </div>
+                                <span class="text-xs text-tealNeon font-tech">★ นิยมใช้ในแอปพลิเคชัน ซอร์สโค้ด ข้อมูล EXIF</span>
+                            </div>
+
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[220px]">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="w-10 h-10 rounded bg-amberNeon/10 flex items-center justify-center text-amberNeon text-xl"><i class="fa-solid fa-shield-halved"></i></span>
+                                        <h3 class="text-base sm:text-lg font-bold text-white">DRM & Blockchain</h3>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2">
+                                        การใช้ระบบจัดการสิทธิ์เข้าถึง (DRM) บล็อกการแคปวิดีโอหน้าจอเพื่อฉายซ้ำ ตลอดจนการฝังระเบียนประวัติผู้ถือครองกรรมสิทธิ์บนเครือข่ายบล็อกเชน
+                                    </p>
+                                </div>
+                                <span class="text-xs text-amberNeon font-tech">★ ขีดสุดความมั่นคงปลอดภัยสตรีมมิ่งมัลติมีเดีย</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 34
+            {
+                title: "Slide 34: DRM Technology",
+                chapter: "คุ้มครอง",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">DRM TECHNOLOGY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ทำความเข้าใจเทคโนโลยี DRM (Digital Rights Management)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-6 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white flex items-center gap-2"><i class="fa-solid fa-lock text-roseNeon"></i> ระบบจัดการควบคุมสิทธิ์การเข้าใช้งานสื่อดิจิทัล</h3>
+                                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                                    DRM คือกลุ่มเทคโนโลยีเชิงเทคนิคเพื่อ <strong class="text-white">ป้องกันความพยายามเข้าใช้ ดัดแปลง คัดลอกแบบมิชอบ</strong> ของตัวผลงานดิจิทัล โดยใช้วิธีการกำหนดคีย์การเข้ารหัสที่ตรวจสอบโดยตรงผ่านเซิร์ฟเวอร์คลาวด์
+                                </p>
+                                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-400">
+                                    <strong>แบรนด์ยักษ์ใหญ่ที่ขับเคลื่อนความคุ้มครองด้วย DRM:</strong>
+                                    <ul class="list-disc pl-5 mt-1 text-slate-300 space-y-1">
+                                        <li><strong>Netflix / Disney+:</strong> ปิดกั้นการกดบันทึกแคปวิดีโอหน้าจอเบราว์เซอร์</li>
+                                        <li><strong>Spotify:</strong> เข้ารหัสการแคชเพลงในแอปมิให้ผู้ใช้ดึงไฟล์ MP3 ดิบไปส่งต่อ</li>
+                                        <li><strong>Kindle:</strong> บล็อกการดาวน์โหลดคัดลอกหน้าข้อความนิยาย E-book ไปแก้ไขแจกจ่าย</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-center">
+                                <div class="relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-2 border-borderSlate">
+                                    <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=600&q=80" 
+                                         alt="DRM Streaming" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.src='https://placehold.co/600x400/161e2e/f43f5e?text=Digital+DRM'"/>
+                                    <div class="absolute inset-0 bg-slate-900/20"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 35
+            {
+                title: "Slide 35: AI & Digital Copyright",
+                chapter: "คุ้มครอง",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">AI ETHICS & COPYRIGHT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">ประเด็นใหม่ในระดับโลก: เจเนอเรทีฟ AI กับลิขสิทธิ์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon flex items-center gap-2"><i class="fa-solid fa-palette"></i> 1. ภาพวาดและผลงานที่สร้างโดย Generative AI</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        ผู้เขียนข้อความสั่งการ (Prompt) ถือเป็นผู้สร้างสรรค์มีสิทธิ์ครอบครองลิขสิทธิ์หรือไม่? ล่าสุดศาลในหลายประเทศพิจารณาว่า **ภาพวาดหรือข้อความที่เจนโดยคอมพิวเตอร์เพียวๆ ไม่มีสิทธิรับลิขสิทธิ์** เนื่องจากขาดความคิดสร้างสรรค์จากฝีมือมนุษย์โดยตรง
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-400 font-tech">ตัวอย่าง: การวิเคราะห์คดี Midjourney Artwork ในต่างประเทศ</span>
+                            </div>
+                            
+                            <div class="bg-slate-900/60 p-5 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[200px]">
+                                <div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-tealNeon flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i> 2. การละเมิดลิขสิทธิ์เพื่อนำข้อมูลไปเทรน AI</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                                        การที่บริษัทยักษ์ใหญ่กวาดข้อมูลภาพถ่าย หนังสือ ซอร์สโค้ด และผลงานของศิลปินทั่วโลกจากอินเทอร์เน็ตไปป้อนเทรนให้ปัญญาประดิษฐ์ มีความเสี่ยงที่จะเป็นพฤติกรรมการละเมิดลิขสิทธิ์หรือไม่? ถือเป็นประเด็นต่อสู้คดีใหญ่ในสากลขณะนี้
+                                    </p>
+                                </div>
+                                <span class="text-xs text-slate-400 font-tech">ตัวอย่าง: คดีฟ้องร้อง OpenAI ของกลุ่มนักเขียนบทวรรณกรรม</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-amberNeon/10 p-3 rounded-lg border border-amberNeon/30 text-xs text-slate-300 text-center">
+                            <strong>ประเด็นคำถามร่วมอภิปรายปิดท้ายบทเรียน:</strong> "นักศึกษาคิดว่า ผลงานเพลงที่ใช้ AI เรียนรู้และแต่งขึ้นมาใหม่เลียนแบบสไตล์ศิลปินดารา ควรได้รับการคุ้มครองทางกฎหมายแก่ใคร?"
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 36 (Merged Slide 30 summary placeholder)
+            {
+                title: "Slide 36: Quick Summary Matrix",
+                chapter: "สรุป",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">CORE TAKEAWAYS</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สรุปสาระสำคัญที่คุณต้องพกพากลับบ้าน (Cheat Sheet)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-auto">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <h3 class="text-base sm:text-lg font-bold text-indigoNeon">1. ลิขสิทธิ์ (Copyright)</h3>
+                                <p class="text-xs text-slate-300">เกิดขึ้นทันทีโดยอัตโนมัติ คุ้มครองการแสดงออก ความพยายามเชิงศิลป์และรหัสโปรแกรมคอมฯ</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <h3 class="text-base sm:text-lg font-bold text-tealNeon">2. สิทธิบัตร (Patent)</h3>
+                                <p class="text-xs text-slate-300">ต้องยื่นจดทะเบียนเป็นกระบวนการ คุ้มครองสิ่งประดิษฐ์เชิงฮาร์ดแวร์ เทคโนโลยี และกลไกกลวิธีใหม่</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <h3 class="text-base sm:text-lg font-bold text-amberNeon">3. โลโก้แบรนด์ (Trademark)</h3>
+                                <p class="text-xs text-slate-300">ต้องจดทะเบียน คุ้มครองสัญลักษณ์ ชื่อแบรนด์ และอัตลักษณ์ที่ป้องกันการสวมรอยเชิงการค้า</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col justify-between min-h-[160px]">
+                                <h3 class="text-base sm:text-lg font-bold text-roseNeon">4. โอเพ่นซอร์ส (Open Source)</h3>
+                                <p class="text-xs text-slate-300">ไม่ใช่การมอบสมบัติให้สังคมแบบไร้เจ้าของ ต้องอ่านและปฎิบัติตามขอบสิทธิ์ License (MIT, GPL) เสมอ</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 37 (Quiz)
+            {
+                title: "Slide 37: Interactive Quiz",
+                chapter: "ทดสอบ",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">ACTIVE ASSESSMENT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1 flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-tealNeon"></i> แบบทดสอบวัดความรู้ด่วนท้ายบทเรียน (Interactive Quiz)
+                            </h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-6 bg-slate-900/60 p-5 rounded-2xl border border-borderSlate">
+                                <span class="bg-indigoNeon/20 text-indigoNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase">Question 01</span>
+                                <h3 class="text-base sm:text-lg md:text-xl font-bold text-white mt-3 leading-relaxed">
+                                    "โปรแกรมคอมพิวเตอร์และแอปมือถือ ได้รับการคุ้มครองสิทธิ์ภายใต้ประเภทใด และเกิดขึ้นเมื่อใด?"
+                                </h3>
+                            </div>
+                            
+                            <div class="lg:col-span-6 bg-slate-900/80 p-5 rounded-2xl border border-borderSlate flex flex-col gap-3">
+                                <h4 class="text-sm font-bold text-tealNeon mb-1"><i class="fa-solid fa-list"></i> ตัวเลือกคำตอบ (คลิกเพื่อทำข้อสอบ):</h4>
+                                <div class="flex flex-col gap-2 text-xs sm:text-sm">
+                                    <button onclick="handleQuizAnswer(1)" id="quiz-btn-1" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300">
+                                        A. คุ้มครองประเภทสิทธิบัตร (Patent) และต้องดำเนินการส่งจดทะเบียนผ่านด่านประเมินก่อนเสมอ
+                                    </button>
+                                    <button onclick="handleQuizAnswer(2)" id="quiz-btn-2" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300">
+                                        B. คุ้มครองในฐานะลิขสิทธิ์ประเภทงานวรรณกรรม (Literary Works) และได้รับสิทธิ์คุ้มครองอัตโนมัติทันทีที่สร้างผลงานเสร็จสิ้น
+                                    </button>
+                                    <button onclick="handleQuizAnswer(3)" id="quiz-btn-3" class="text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300">
+                                        C. จัดอยู่ในกลุ่มสมบัติสาธารณะไม่มีลิขสิทธิ์คุม (Public Domain) เพื่อเอื้ออุตสาหกรรมไอที
+                                    </button>
+                                </div>
+                                <div id="quiz-feedback" class="text-xs sm:text-sm font-semibold mt-2 min-h-[40px] leading-relaxed"></div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 38
+            {
+                title: "Slide 38: Think-Pair-Share",
+                chapter: "กิจกรรม",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">COLLABORATIVE DISCUSSION</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กิจกรรมกลุ่ม: Think-Pair-Share</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-5 rounded-2xl border border-borderSlate flex flex-col gap-4">
+                                <span class="bg-roseNeon/20 text-roseNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase self-start">Scenario Case</span>
+                                <blockquote class="border-l-4 border-roseNeon pl-4 py-1">
+                                    <p class="text-base sm:text-lg md:text-xl font-bold text-slate-100 leading-relaxed">
+                                        "คุณเป็นโปรแกรมเมอร์มืออาชีพ และได้รับคำสั่งเสียงด่วนจากหัวหน้าแผนกไอที ให้นำเอาบล็อกซอร์สโค้ดจากระบบซอฟต์แวร์ของบริษัทเดิมที่คุณเคยเขียนสมัยทำงานที่เก่า นำมาประยุกต์ใส่ในโครงการพัฒนาโปรเจกต์ใหม่ให้แก่บริษัทปัจจุบันโดยเร่งรัดเวลา"
+                                    </p>
+                                </blockquote>
+                                <p class="text-xs sm:text-sm text-slate-300">
+                                    คุณมีวิธีการคิดวิเคราะห์เรื่องกฎหมายลิขสิทธิ์และผลลัพธ์ทางจริยธรรมอย่างไร? คุณจะปฏิเสธหรือตอบรับอย่างไร?
+                                </p>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="bg-indigoNeon/5 border border-indigoNeon/20 p-5 rounded-xl">
+                                    <h4 class="text-base font-bold text-indigoNeon flex items-center gap-2"><i class="fa-solid fa-users"></i> กติกาอภิปรายกลุ่ม (10 นาที):</h4>
+                                    <ul class="list-decimal pl-5 mt-2 text-xs sm:text-sm text-slate-300 space-y-1.5">
+                                        <li><strong>Think (คิดเดี่ยว):</strong> คิดวิเคราะห์ประเด็นกฎหมายเรื่องสัญญาจ้างวิชาชีพและกรรมสิทธิ์โค้ด (2 นาที)</li>
+                                        <li><strong>Pair (จับคู่ร่วมแชท):</strong> แลกเปลี่ยนทัศนะกับคู่ของคุณเพื่อรวมคำตอบ (3 นาที)</li>
+                                        <li><strong>Share (แชร์หน้าชั้น):</strong> นำส่งความเห็นตัวแทนแชร์หน้าชั้นเรียนและโต้แย้งทางกฎหมายไอที (5 นาที)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 39
+            {
+                title: "Slide 39: Interactive Student Website Case Study",
+                chapter: "กรณีศึกษา",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">INTERACTIVE DEEP-DIVE CASE STUDY</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">กรณีศึกษา: นักศึกษาสร้างสรรค์เว็บไซต์สุ่มเสี่ยงละเมิดสิทธิ์</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-5 bg-slate-900/60 p-4 rounded-xl border border-borderSlate flex flex-col gap-2.5">
+                                <span class="bg-tealNeon/10 text-tealNeon px-3 py-1 rounded text-xs font-bold font-tech uppercase self-start">The Project Specs</span>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    นักศึกษาพัฒนาเว็บไซต์เพื่อส่งวิชานวัตกรรมดิจิทัล โดยใช้องค์ประกอบต่อไปนี้:
+                                </p>
+                                <div class="grid grid-cols-1 gap-1.5 text-xs">
+                                    <button onclick="switchCaseTab('image')" id="tab-image" class="text-left px-3 py-2.5 rounded bg-tealNeon text-slate-950 font-bold flex items-center justify-between transition-all">
+                                        <span>1. รูปภาพจาก Google Search</span> <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                    <button onclick="switchCaseTab('music')" id="tab-music" class="text-left px-3 py-2.5 rounded bg-slate-800 hover:bg-slate-750 text-slate-300 flex items-center justify-between transition-all">
+                                        <span>2. เพลงประกอบจากคลิป YouTube</span> <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                    <button onclick="switchCaseTab('font')" id="tab-font" class="text-left px-3 py-2.5 rounded bg-slate-800 hover:bg-slate-750 text-slate-300 flex items-center justify-between transition-all">
+                                        <span>3. ฟอนต์ฟรีดาวน์โหลดจากอินเทอร์เน็ต</span> <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                    <button onclick="switchCaseTab('code')" id="tab-code" class="text-left px-3 py-2.5 rounded bg-slate-800 hover:bg-slate-750 text-slate-300 flex items-center justify-between transition-all">
+                                        <span>4. บล็อกโค้ดปรับแต่งจากคลัง GitHub</span> <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:col-span-7 bg-slate-900/80 p-5 rounded-2xl border border-borderSlate min-h-[240px] flex flex-col justify-between">
+                                <div id="case-tab-content">
+                                    <!-- Dynamic text injected by switchCaseTab function -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 40
+            {
+                title: "Slide 40: Key Takeaways",
+                chapter: "สรุป",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-tealNeon text-xs sm:text-sm tracking-wider">SUMMING UP</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">สรุปประเด็นสำคัญ (Key Takeaways)</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 gap-3.5 my-auto">
+                            <div class="p-4 bg-slate-900/60 rounded-xl border-l-4 border-tealNeon flex gap-3 items-start">
+                                <span class="text-tealNeon text-xl"><i class="fa-solid fa-shield-halved"></i></span>
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">คุ้มครองและตรวจสอบสิทธิ์ก่อนใช้งาน</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-0.5">ผลงานดิจิทัลทุกประเภทอาจได้รับความคุ้มครองทางทรัพย์สินทางปัญญา การใช้งานเนื้อหา รูปภาพ เพลง วิดีโอ หรือซอฟต์แวร์ ควรตรวจสอบสิทธิ์และเงื่อนไขการใช้งานก่อนทุกครั้ง</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border-l-4 border-roseNeon flex gap-3 items-start">
+                                <span class="text-roseNeon text-xl"><i class="fa-solid fa-bug"></i></span>
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">ความเสี่ยงอาญาซอฟต์แวร์ละเมิดลิขสิทธิ์</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-0.5">ซอฟต์แวร์ละเมิดลิขสิทธิ์ (แคร็กเถื่อน) สร้างความเสี่ยงทั้งด้านกฎหมายอาญาแผ่นดิน ความรับผิดชอบค่าปรับแพ่ง ตลอดจนการเปิดทางให้มัลแวร์และไวรัสแฮกข้อมูลรั่วไหลทำลายระบบความปลอดภัย</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-slate-900/60 rounded-xl border-l-4 border-indigoNeon flex gap-3 items-start">
+                                <span class="text-indigoNeon text-xl"><i class="fa-solid fa-code"></i></span>
+                                <div>
+                                    <h3 class="font-bold text-white text-base sm:text-lg">ความเคารพใบอนุญาตพัฒนา Open Source</h3>
+                                    <p class="text-xs sm:text-sm text-slate-300 mt-0.5">การใช้งานซอฟต์แวร์แบบเผยแพร่รหัส Open Source ไม่ใช่การหยิบใช้ตามใจชอบแบบ Public Domain แต่ผู้ใช้มีหน้าที่ศึกษาข้อกำหนดของใบอนุญาตสากล (License) เช่น MIT, GPL, Apache ให้ถูกต้องเหมาะสม</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // Slide 41
+            {
+                title: "Slide 41: Written Essay Questions",
+                chapter: "แบบฝึกหัด",
+                html: `
+                    <div class="flex flex-col justify-between h-full py-1 gap-4">
+                        <div>
+                            <span class="font-tech text-roseNeon text-xs sm:text-sm tracking-wider">ACADEMIC ASSIGNMENT</span>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-1">แบบฝึกหัดข้อเขียน (Essay Questions) เพื่อประเมินผล</h2>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 my-auto items-center">
+                            <div class="lg:col-span-7 bg-slate-900/60 p-4 sm:p-5 rounded-2xl border border-borderSlate flex flex-col gap-2">
+                                <h3 class="text-xs sm:text-sm font-bold text-tealNeon uppercase tracking-widest font-tech"><i class="fa-solid fa-pen-fancy"></i> รายการคำถามท้ายคาบเรียน (เขียนส่งในระบบ):</h3>
+                                <ol class="text-[11px] sm:text-xs md:text-sm text-slate-300 space-y-2 pl-4 list-decimal leading-relaxed">
+                                    <li><strong>การคุ้มครองทรัพย์สินทางปัญญา:</strong> อธิบายความแตกต่างระหว่างลิขสิทธิ์ (Copyright) สิทธิบัตร (Patent) และเครื่องหมายการค้า (Trademark) พร้อมยกตัวอย่างผลงานไอทีที่เหมาะสม</li>
+                                    <li><strong>ความเสี่ยงเชิงพาณิชย์:</strong> วิเคราะห์ผลกระทบเชิงธุรกิจและไอทีของการใช้ซอฟต์แวร์ละเมิดลิขสิทธิ์ในองค์กร ทั้งในมิติกฎหมาย ความมั่นคงข้อมูล และภาพลักษณ์ของแบรนด์</li>
+                                    <li><strong>สัญญาสากล:</strong> เปรียบเทียบสิทธิ์และเงื่อนไขของ Open Source Software ยอดนิยม (MIT และ GPL) พร้อมเสนอตัวอย่างสถานการณ์จัดซื้อจัดจ้างใช้งานจริงในธุรกิจ</li>
+                                    <li><strong>จริยธรรมพัฒนาซอฟต์แวร์:</strong> ในฐานะที่เป็นนักพัฒนาดิจิทัลนวัตกรรม หากต้องการประยุกต์บล็อกโค้ดจากคลังเปิดของนักพัฒนาอื่นใน GitHub จะต้องปฏิบัติอย่างไรบ้างให้ถูกกฎเกณฑ์จรรยาบรรณวิชาชีพ?</li>
+                                    <li><strong>วิเคราะห์เทคโนโลยีใหม่:</strong> ในยุคปัญญาประดิษฐ์สร้างสรรค์ (Generative AI) จงอภิปรายความท้าทายในคำถามที่ว่า "ใครควรเป็นเจ้าของลิขสิทธิ์ของผลงานศิลปะหรือเพลงที่สร้างด้วย Prompt ของ AI?" พร้อมเสนอแนวคิดเชิงกฎหมาย</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="lg:col-span-5 h-full flex flex-col justify-between gap-4">
+                                <div class="bg-roseNeon/5 border border-roseNeon/20 p-5 rounded-xl">
+                                    <h4 class="text-sm font-bold text-roseNeon flex items-center gap-2"><i class="fa-solid fa-circle-info"></i> เกณฑ์การประเมินคะแนนวิชาการ:</h4>
+                                    <ul class="list-disc pl-5 mt-2 text-[11px] sm:text-xs text-slate-400 space-y-1">
+                                        <li>ความถูกต้องของทฤษฎีและคำอ้างอิงกฎหมายลิขสิทธิ์</li>
+                                        <li>การยกตัวอย่างประยุกต์ใช้ในอุตสาหกรรมเทคโนโลยีที่เด่นชัด</li>
+                                        <li>การคิดวิเคราะห์เชิงลึกอย่างมีจริยธรรมผู้ประกอบวิชาชีพ</li>
+                                        <li>การเสนอทางออกเชิงจรรยาบรรณไอทีที่สร้างสรรค์และใช้งานได้จริง</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        let currentSlideIndex = 0;
+
+        function renderSidebar() {
+            const listContainer = document.getElementById("sidebar-list");
+            listContainer.innerHTML = "";
+            slidesData.forEach((slide, index) => {
+                const btn = document.createElement("button");
+                btn.className = `text-left text-xs sm:text-sm p-3 rounded-xl border transition-all flex justify-between items-center w-full ${
+                    index === currentSlideIndex 
+                        ? "bg-tealNeon/10 border-tealNeon text-tealNeon font-bold" 
+                        : "bg-slate-900 border-borderSlate hover:border-slate-500 text-slate-400"
+                }`;
+                btn.onclick = () => {
+                    goToSlide(index);
+                    if (window.innerWidth < 1024) { // Auto close drawer on tap in mobile screens
+                        toggleSidebar();
+                    }
+                };
+                
+                // Truncate title for list representation
+                const truncatedTitle = slide.title.length > 32 ? slide.title.substring(0, 32) + "..." : slide.title;
+                btn.innerHTML = `
+                    <span>${truncatedTitle}</span>
+                    <span class="font-tech text-[10px] sm:text-xs bg-slate-800 px-2.5 py-0.5 rounded text-slate-500 font-semibold uppercase">${slide.chapter}</span>
+                `;
+                listContainer.appendChild(btn);
+            });
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("translate-x-full");
+        }
+
+        function renderSlide() {
+            const currentSlide = slidesData[currentSlideIndex];
+            const slideContainer = document.getElementById("slide-content");
+            
+            // Render slide index display
+            const numDisplay = (currentSlideIndex + 1).toString().padStart(2, '0');
+            const totalDisplay = slidesData.length.toString().padStart(2, '0');
+            document.getElementById("slide-number-display").innerText = `SLIDE ${numDisplay} / ${totalDisplay}`;
+            
+            // Ingest HTML templates
+            slideContainer.innerHTML = currentSlide.html;
+            
+            // Re-hydrate any interactive states and values
+            rehydrateInteractiveStates();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < slidesData.length - 1) {
+                currentSlideIndex++;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide();
+                renderSidebar();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+            renderSidebar();
+        }
+
+        // Slide 2: Active Checkbox Persistence
+        function handleCheckboxClick(id) {
+            const checkbox = document.getElementById(id);
+            if (checkbox) {
+                selectedCheckboxes[id] = checkbox.checked;
+            }
+        }
+
+        // Slide 20: Logo Game Handler
+        function handleLogoAnswer(answerId) {
+            selectedLogoAnswer = answerId;
+            const feedback = document.getElementById("logo-game-feedback");
+            
+            // Reset button states
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`logo-ans-${i}`);
+                if (btn) {
+                    btn.className = "text-left p-2 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300 flex items-center gap-3 w-full";
+                }
+            }
+
+            const selectedBtn = document.getElementById(`logo-ans-${answerId}`);
+            if (selectedBtn) {
+                if (answerId === 2) {
+                    selectedBtn.className = "text-left p-2 rounded-xl bg-emeraldNeon/10 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold flex items-center gap-3 w-full";
+                    feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> ถูกต้อง! สัญลักษณ์หรือชื่อทั่วไปที่ไม่มีลักษณะเฉพาะเด่นชัด (เช่น คำสามัญทั่วไป "ส้ม" ที่ใช้ค้าขายผลส้ม) ไม่สามารถยื่นขอสิทธิ์ผูกขาดสัญลักษณ์เพื่อจดเครื่องหมายการค้าได้ในทางสากล</span>`;
+                } else {
+                    selectedBtn.className = "text-left p-2 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold flex items-center gap-3 w-full";
+                    feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> ยังไม่ถูกต้อง! ข้อความหรือองค์ประกอบลายเส้นที่มีฟังก์ชั่นจำแนกแบรนด์ชัดเจนสามารถจดเป็นลิขสิทธิ์/เครื่องหมายการค้าได้ตามระเบียบกฎหมายไอที</span>`;
+                }
+            }
+        }
+
+        // Slide 25: Business CIO Reveal
+        function revealCIOAnswer() {
+            const feed = document.getElementById("cio-feedback");
+            if (feed) {
+                feed.classList.toggle("hidden");
+            }
+        }
+
+        // Slide 37: Quiz Handler
+        function handleQuizAnswer(choiceId) {
+            quizAnswers[currentSlideIndex] = choiceId;
+            const feedback = document.getElementById("quiz-feedback");
+            
+            // Reset buttons style
+            for (let i = 1; i <= 3; i++) {
+                const btn = document.getElementById(`quiz-btn-${i}`);
+                if (btn) {
+                    btn.className = "text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:bg-slate-750 transition-all text-slate-300 text-xs sm:text-sm w-full";
+                }
+            }
+
+            const selectedBtn = document.getElementById(`quiz-btn-${choiceId}`);
+            if (selectedBtn) {
+                if (choiceId === 2) {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-emeraldNeon/10 border-emeraldNeon/50 text-emeraldNeon transition-all font-bold text-xs sm:text-sm w-full";
+                    feedback.innerHTML = `<span class="text-emeraldNeon"><i class="fa-solid fa-circle-check"></i> คำตอบถูกต้อง! โปรแกรมซอฟต์แวร์จัดอยู่ในประเภทวรรณกรรม ภายใต้พ.ร.บ.ลิขสิทธิ์ และได้รับการคุ้มครองสิทธิ์เด็ดขาดแก่ผู้เขียนทันทีโดยอัตโนมัติหลังเขียนซอร์สโค้ดเสร็จสิ้นโดยไม่ต้องยื่นจด</span>`;
+                } else {
+                    selectedBtn.className = "text-left p-3 rounded-xl bg-roseNeon/10 border-roseNeon/50 text-roseNeon transition-all font-bold text-xs sm:text-sm w-full";
+                    feedback.innerHTML = `<span class="text-roseNeon"><i class="fa-solid fa-circle-xmark"></i> คำตอบผิด! ซอฟต์แวร์จัดอยู่ในประเภทวรรณกรรมของลิขสิทธิ์ (Copyright) และคุ้มครองอัตโนมัติโดยปราศจากข้อบังคับที่ต้องยื่นดำเนินการจดทะเบียน</span>`;
+                }
+            }
+        }
+
+        // Slide 39: Dynamic Case Study Tab Switcher
+        function switchCaseTab(tabId) {
+            activeCaseTab = tabId;
+            
+            // Reset tab colors
+            const tabIds = ["image", "music", "font", "code"];
+            tabIds.forEach(id => {
+                const tabBtn = document.getElementById(`tab-${id}`);
+                if (tabBtn) {
+                    tabBtn.className = "text-left px-3 py-2.5 rounded bg-slate-800 hover:bg-slate-750 text-slate-300 flex items-center justify-between transition-all w-full text-xs sm:text-sm";
+                }
+            });
+
+            // Highlight active tab button
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "text-left px-3 py-2.5 rounded bg-tealNeon text-slate-950 font-bold flex items-center justify-between transition-all w-full text-xs sm:text-sm";
+            }
+
+            const contentArea = document.getElementById("case-tab-content");
+            if (!contentArea) return;
+
+            let contentHTML = "";
+            switch (tabId) {
+                case "image":
+                    contentHTML = `
+                        <h3 class="text-base sm:text-lg font-bold text-roseNeon mb-2"><i class="fa-solid fa-circle-xmark"></i> ความเสี่ยงเรื่องภาพประกอบจาก Google Search:</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                            การดาวน์โหลดรูปภาพผลงานผู้อื่นจาก Google มาใช้งานโดยตรงโดยไม่ระบุสิทธิ์อนุญาต <strong class="text-roseNeon">ถือว่าผิดกฎหมายลิขสิทธิ์ทันที</strong> เนื่องจากตัวสิทธิ์รูปภาพเหล่านั้นเกิดขึ้นโดยอัตโนมัติแก่ช่างภาพต้นฉบับ
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 text-xs text-slate-400 leading-relaxed">
+                            <strong>แนวทางปฏิบัติให้ถูกต้อง:</strong> เปลี่ยนไปใช้คลังภาพลิขสิทธิ์ฟรี (Creative Commons / Unsplash / Pexels) หรือจัดหาซื้อภาพประกอบลิขสิทธิ์ถูกต้องพร้อมระบุให้เกียรติเครดิตชื่อผู้สร้างสรรค์ผลงาน
+                        </div>
+                    `;
+                    break;
+                case "music":
+                    contentHTML = `
+                        <h3 class="text-base sm:text-lg font-bold text-roseNeon mb-2"><i class="fa-solid fa-circle-xmark"></i> ความเสี่ยงเรื่องเพลงประกอบคัดลอกจากคลิป YouTube:</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                            การนำเอาเพลง ดนตรี ของผู้อื่นมาสอดแทรกประกอบเว็บไซต์ มีส่วนผิดกฎหมาย <strong class="text-roseNeon">ละเมิดสิทธิ์ทำซ้ำ ดัดแปลง และเผยแพร่ต่อสาธารณชน</strong> ทันที แม้จะเขียนเครดิตอ้างอิงถึงนักร้องแล้วก็ตาม
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 text-xs text-slate-400 leading-relaxed">
+                            <strong>แนวทางปฏิบัติให้ถูกต้อง:</strong> ใช้แหล่งไฟล์เสียงดนตรีประกอบแบบ Royalty-Free Music (เช่น YouTube Audio Library) หรือดนตรีแบบไม่ต้องจ่ายค่าสิทธิ์ที่อนุญาตให้ดาวน์โหลดใช้ฟรีสำหรับสถาบันการศึกษา
+                        </div>
+                    `;
+                    break;
+                case "font":
+                    contentHTML = `
+                        <h3 class="text-base sm:text-lg font-bold text-roseNeon mb-2"><i class="fa-solid fa-circle-xmark"></i> ความเสี่ยงเรื่องฟอนต์ฟรีดาวน์โหลดจากอินเทอร์เน็ต:</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                            ฟอนต์ส่วนใหญ่มีสัญญาสิทธิ์กำกับสากล หลายสัญญากำหนดให้ใช้ฟรีเฉพาะ <strong class="text-amberNeon">"งานส่วนตัวศึกษาเท่านั้น (Personal Use)"</strong> หากนักศึกษานำไปประยุกต์ใช้ทำพาณิชย์ หรือลงหน้าเว็บที่มีคนเข้าใช้จำนวนมากอาจถูกฟ้องร้องปรับเงินชดเชยค่าลิขสิทธิ์
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 text-xs text-slate-400 leading-relaxed">
+                            <strong>แนวทางปฏิบัติให้ถูกต้อง:</strong> เลือกใช้งานฟอนต์ระบบเปิดที่คุ้มครองฟรีสิทธิ์ทุกระดับ (เช่น Google Fonts) หรือฟอนต์ที่ได้รับอนุญาตครอบคลุมสัญญาเชิงพาณิชย์ (Commercial Use Free Fonts)
+                        </div>
+                    `;
+                    break;
+                case "code":
+                    contentHTML = `
+                        <h3 class="text-base sm:text-lg font-bold text-amberNeon mb-2"><i class="fa-solid fa-circle-info"></i> ความเสี่ยงเรื่องบล็อกโค้ดปรับแต่งจากคลัง GitHub:</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                            คลังโค้ดบน GitHub มีการสวมสัญญาอนุญาต (Open Source Licenses) แตกต่างกัน การก๊อปปี้ไปใช้งานโดยละเลยสัญญา มีสิทธิ์ทำให้นักพัฒนาฟ้องร้องเรียกร้องลิขสิทธิ์ได้
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-850 text-xs text-slate-400 leading-relaxed">
+                            <strong>แนวทางปฏิบัติให้ถูกต้อง:</strong> สังเกตตราแจ้ง License ในคลังต้นฉบับ หากเป็น MIT หรือ Apache สามารถนำมาปรับดัดแปลงส่งต่องานได้ เพียงแค่ต้องทำการก๊อปปี้สัญญาสิทธิ์ระบุชื่อผู้สร้างดั้งเดิมใส่รวมไว้ในไฟล์โค้ดแอปด้วย
+                        </div>
+                    `;
+                    break;
+            }
+            contentArea.innerHTML = contentHTML;
+        }
+
+        // Re-hydrate saved student inputs and selections when shifting back and forth between slides
+        function rehydrateInteractiveStates() {
+            // Re-hydrate checkboxes on Slide 2
+            if (currentSlideIndex === 1) {
+                for (let key in selectedCheckboxes) {
+                    const el = document.getElementById(key);
+                    if (el) {
+                        el.checked = selectedCheckboxes[key];
+                    }
+                }
+            }
+            // Re-hydrate Logo Game selection on Slide 20
+            if (currentSlideIndex === 19 && selectedLogoAnswer !== null) {
+                handleLogoAnswer(selectedLogoAnswer);
+            }
+            // Re-hydrate Quiz choice on Slide 37
+            if (currentSlideIndex === 36 && quizAnswers[currentSlideIndex]) {
+                handleQuizAnswer(quizAnswers[currentSlideIndex]);
+            }
+            // Re-hydrate Case Study Tab on Slide 39
+            if (currentSlideIndex === 38) {
+                switchCaseTab(activeCaseTab);
+            }
+        }
+
+        // Keyboard arrow controls for university teachers & students
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Touch Swipe gestural controller for modern mobile screens
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        function handleSwipeGesture() {
+            if (touchendX < touchstartX - 70) {
+                nextSlide(); // Swiped left -> next
+            }
+            if (touchendX > touchstartX + 70) {
+                prevSlide(); // Swiped right -> prev
+            }
+        }
+        
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, false);
+
+        // Run presentation rendering workflow once DOM elements are fully loaded
+        window.onload = () => {
+            renderSlide();
+            renderSidebar();
+        }
+    </script>
+</body>
+</html>
